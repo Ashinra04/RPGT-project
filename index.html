@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+    .oculto {
+      display: none !important;
+    }
+  </style>
+  
+    <title>game-project</title>
+  </head>
+  <body>
+    <div id="tela-inicial" class="tela">
+      <button id="btn-start" class="btn-style" onclick="mudarTela('tela-classe')">START</button>
+    </div>
+    <div id="tela-classe" class="tela oculto">
+      <div id="classe-container" class="container">classes</div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
