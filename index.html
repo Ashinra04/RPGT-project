@@ -1,37 +1,45 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-    .oculto {
-      display: none !important;
-    }
-  </style>
-  
-    <title>game-project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Game Project</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="tela-inicial" class="tela">
       <button id="btn-start" class="btn-style" onclick="mudarTela('torre-tela')">START</button>
     </div>
+
     <div id="tela-classe" class="tela oculto">
       <div id="classe-container" class="container">classes</div>
     </div>
     
-    <div id="janela-do-jogo">
-        <div id="torre-tela" class="tela oculto">
+    <div id="torre-tela" class="tela oculto">
+      
+      <div id="layout-pc">
+        <div id cidade-conteudo>
+          <div id="Forja" class="predio" onclick="mudarTela('forja-tela')">FORJA</div>
+            <div id="biblioteca" class="predio" onclick="mudarTela('biblioteca-tela')">BIBLIOTECA</div>
+            <div id="taverna" class="predio" onclick="mudarTela('taverna-tela')">TAVERNA</div>
+            <div id="guilda" class="predii" onclick="mudarTela('guilda-tela')">GUILDA</div>
+            <div id="templo" class="predio" onclick="mudarTela('templo-tela')">TEMPLO</div>
+        </div>
+      </div>
+      
+      <div id="layout-mobile">
+        <div id="torre-conteudo">
             <div id="Forja" class="contrucao" onclick="mudarTela('forja-tela')">FORJA</div>
             <div id="biblioteca" class="contrucao" onclick="mudarTela('biblioteca-tela')">BIBLIOTECA</div>
             <div id="taverna" class="contrucao" onclick="mudarTela('taverna-tela')">TAVERNA</div>
-            <div id="guilda" class="contrucao"onclick="mudarTela('guilda-tela')">GUILDA</div>
+            <div id="guilda" class="contrucao" onclick="mudarTela('guilda-tela')">GUILDA</div>
             <div id="templo" class="contrucao" onclick="mudarTela('templo-tela')">TEMPLO</div>
         </div>
+      </div>
     </div>
     
-    <div id="forja-tela" class="tela oculto">FORJA
+    <div id="forja-tela" class="tela oculto">
+      <p>FORJA</p>
       <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
     </div>
     

@@ -10,4 +10,4 @@ window.mudarTela = function (idParaMostrar) {
     } else {
         console.error("A tela " + idParaMostrar + " não foi encontrada!");
     }
-};
+}
