@@ -29,17 +29,55 @@
       
       <div id="layout-mobile">
         <div id="torre-conteudo">
-            <div id="Forja" class="contrucao" onclick="mudarTela('forja-tela')">FORJA</div>
-            <div id="biblioteca" class="contrucao" onclick="mudarTela('biblioteca-tela')">BIBLIOTECA</div>
+            <div id="Batalha" class="contrucao" onclick="mudarTela('battle-tela')">BATTLE</div>
+            
+            <div id="shop" class="contrucao" onclick="mudarTela('Shop-tela')">SHOP</div>
+            
             <div id="taverna" class="contrucao" onclick="mudarTela('taverna-tela')">TAVERNA</div>
+            
             <div id="guilda" class="contrucao" onclick="mudarTela('guilda-tela')">GUILDA</div>
-            <div id="templo" class="contrucao" onclick="mudarTela('templo-tela')">TEMPLO</div>
+            
+            <div id="Forja" class="contrucao" onclick="mudarTela('forja-tela')">FORJA</div>
         </div>
       </div>
     </div>
     
     <div id="forja-tela" class="tela oculto">
       <p>FORJA</p>
+      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
+    </div>
+    
+    <div id="battle-tela" class="tela oculto">
+      <p>BATTLE</p>
+      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
+    </div>
+    
+    <div id="Shop-tela" class="tela oculto">
+      
+      <div id="Title-container" class="Container">
+        <div id="titulo"><h2>Shop</h2></div>
+        <div id="CButton"><button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button></div>
+      </div>
+      
+      <div id="NPC-container" class="Container">
+        <div id="NPC"></div>
+        <div id="div-dialogo">.......</div>
+      </div>
+      
+      <div id="Items-container">
+        <div id="Items-shop"></div>
+        <div id="BOX-buttons"></div>
+      </div>
+      
+    </div>
+    
+    <div id="taverna-tela" class="tela oculto">
+      <p>TAVERNA</p>
+      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
+    </div>
+    
+    <div id="guilda-tela" class="tela oculto">
+      <p>GUILDA</p>
       <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
     </div>
     

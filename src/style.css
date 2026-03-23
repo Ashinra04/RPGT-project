@@ -42,7 +42,7 @@ body {
     height: 10vh;
     font-size: 12px;
     color: white;
-    background-color: purple;
+    background-color: #7b0909;
     border: 2px solid yellow;
     cursor: pointer;
 }
@@ -132,3 +132,77 @@ body {
         color: white;
     }
 }
+
+/* =========================================
+   TELA SHOP STYLES
+   ========================================= */
+   
+   #Shop-tela{
+    display: flex;
+    flex-direction: column;
+    background-color: blue;
+    color: white;
+   }
+   
+   /* Titulo-CAIXA */
+   #Title-container {
+     width: 100vw;
+     height: 10vh;
+     background-color: #8e44ad;
+     display: flex;
+     flex-direction: row;
+   }
+   
+   #titulo {
+     min-width: 70vw;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   
+   #CButton {
+     width: 30vw;
+   }
+   
+    /* NPC-CAIXA */
+   #NPC-container {
+     width: 100vw;
+     height: 30vh;
+     background-color: green;
+     display: flex;
+     flex-direction: row;
+     border: 2px solid #75e0fb;
+   }
+   
+   #NPC {
+     width: 50vw;
+     border: 2px solid #75e0fb;
+     background-image: url('/imagens/Sprites/mercador2.png');
+     background-size: cover;
+   }
+   
+   #div-dialogo {
+     width: 50vw;
+     background-color: #34158e;
+     border: 2px solid #75e0fb;
+     box-sizing: border-box;
+     padding: 7px;
+   }
+   
+   /* ITEMS-CAIXA */
+   #Items-container {
+     width: 100vw;
+     height: 60vh;
+     background-color: #34158e;
+     border: 2px solid #75e0fb;
+     display: flex;
+     flex-direction: column;
+   }
+   
+   #Items-shop {
+     border: 2px solid #75e0fb;
+   }
+   
+   #BOX-buttons {
+     border: 2px solid ##75e0fb;
+   }
