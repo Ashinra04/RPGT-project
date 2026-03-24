@@ -31,20 +31,15 @@
         <div id="torre-conteudo">
             <div id="Batalha" class="contrucao" onclick="mudarTela('battle-tela')">BATTLE</div>
             
+            <div id="Forja" class="contrucao" onclick="mudarTela('forja-tela')">FORJA</div>
+            
             <div id="shop" class="contrucao" onclick="mudarTela('Shop-tela')">SHOP</div>
             
             <div id="taverna" class="contrucao" onclick="mudarTela('taverna-tela')">TAVERNA</div>
             
             <div id="guilda" class="contrucao" onclick="mudarTela('guilda-tela')">GUILDA</div>
-            
-            <div id="Forja" class="contrucao" onclick="mudarTela('forja-tela')">FORJA</div>
         </div>
       </div>
-    </div>
-    
-    <div id="forja-tela" class="tela oculto">
-      <p>FORJA</p>
-      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
     </div>
     
     <div id="battle-tela" class="tela oculto">
@@ -56,7 +51,6 @@
       
       <div id="Title-container" class="Container">
         <div id="titulo"><h2>Shop</h2></div>
-        <div id="CButton"><button id="btn-voltar" onclick="mudarTela('torre-tela')">VOLTAR</button></div>
       </div>
       
       <div id="NPC-container" class="Container">
@@ -78,20 +72,53 @@
       <div id="Botoes-container">
         <button class="btnL">BUY</button>
         <button class="btnL">SELL</button>
-        <button class="btnL"></button>
-        <button class="btnL"></button>
+        <button class="btnL" onclick="mudarTela('torre-tela')">VOLTAR</button>
       </div>
       
     </div>
     
+    <div id="forja-tela" class="tela oculto">
+      <div id="Forja-container">
+        
+        <div id="Forja-body"></div>
+        
+        <div id="Botoes-container">
+        <button class="btnF">BUY</button>
+        <button class="btnF">UPGRADE</button>
+        <button class="btnF">ENCHANTER</button>
+        <button class="btnF" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      </div>
+      </div>
+    </div>
+    
     <div id="taverna-tela" class="tela oculto">
-      <p>TAVERNA</p>
-      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      <div id="taverna-container">
+        
+        <div id="taverna-body"></div>
+        
+        <div id="Botoes-container">
+        <button class="btnT">BUY</button>
+        <button class="btnT">UPGRADE</button>
+        <button class="btnT">ENCHANTER</button>
+        <button class="btnT" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      </div>
+      
+      </div>
     </div>
     
     <div id="guilda-tela" class="tela oculto">
-      <p>GUILDA</p>
-      <button id="btn-voltar" class="btn-style" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      <<div id="guilda-container">
+        
+        <div id="guilda-body"></div>
+        
+        <div id="Botoes-container">
+        <button class="btnG">BUY</button>
+        <button class="btnG">UPGRADE</button>
+        <button class="btnG">ENCHANTER</button>
+        <button class="btnG" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      </div>
+      
+      </div>
     </div>
     
     <script type="module" src="/src/main.js"></script>

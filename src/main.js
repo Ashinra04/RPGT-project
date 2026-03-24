@@ -1,5 +1,8 @@
 import './style.css'
 
+import './TELAS/Shop/Shop.css';
+import './TELAS/Shop/Shop.js';
+
 window.mudarTela = function (idParaMostrar) {
     const telas = document.querySelectorAll('.tela');
     telas.forEach(tela => tela.classList.add('oculto'));
