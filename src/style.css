@@ -17,18 +17,22 @@ body {
 }
 
 .tela {
-    width: 98vw;
+    width: 100vw;
     height: 100dvh;
     position: absolute;
     top: 0;
     left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    box-sizing: border-box;
 }
 
 .oculto {
     display: none !important;
 }
 
-#tela-inicial, #tela-classe, #forja-tela {
+#tela-inicial, #tela-classe {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,37 +136,6 @@ body {
         color: white;
     }
 }
-
-/* =========================================
-    TELA FORJA
-   ========================================= */
-   
-   #forja-tela {
-     width: 100%;
-     height: 100%;
-     background-image: url('/imagens/Sprites/Blacksmith.png');
-     background-size: cover;
-   }
-   
-   #Forja-container {
-     width: 100vw;
-     height: 100vh;
-     border: 2px solid #d28f22;
-   }
-   
-   #Forja-body {
-     height: 90vh;
-     width: 100vw;
-     background-color: #252628;
-   }
-   
-   .btnF {
-     height: auto;
-     width: 25vw;
-     background-color: #5d0018;
-     border: 2px solid #d28f22;
-     color: white;
-   }
    
    /* =========================================
     TELA guilda

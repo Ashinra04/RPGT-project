@@ -2,6 +2,8 @@ import './style.css'
 
 import './TELAS/Shop/Shop.css';
 import './TELAS/Shop/Shop.js';
+import './TELAS/Forja/Forja.css';
+import './TELAS/Forja/Forja.js';
 
 window.mudarTela = function (idParaMostrar) {
     const telas = document.querySelectorAll('.tela');
