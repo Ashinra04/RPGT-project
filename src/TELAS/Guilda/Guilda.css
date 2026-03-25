@@ -1,0 +1,81 @@
+   /* =========================================
+    TELA guilda
+   ========================================= */
+   
+  #guilda-tela {
+    background-color: #252628;
+  }
+   
+  #Guild-Title {
+    height: 10vh;
+    background-color: #252628;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5d0018;
+    border: 2px solid #d28f22;
+    color: white;
+  }
+   
+  #GNPC {
+    height: 30vh;
+    background-color: #252628;
+    border: 2px solid #d28f22;
+  }
+   
+  #guilda-body {
+    flex-grow: 1;
+    width: 100%;
+    background-color: #252628;
+    border: 2px solid #d28f22;
+    display: flex;
+    flex-direction: column;
+  }
+  
+#Linha1, #Linha2 {
+  width: 100%;
+  height: 50%;
+  background-color: #252628;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  gap: 20px;
+  color: white;
+}
+
+#Linha1 {
+  padding: 15px 15px 7px 15px;
+}
+#Linha2 {
+  padding: 7px 15px 15px 15px;
+}
+   
+#Missoes, #DetalhesMissoes, #AllMissoes, #ALL1 {
+  width: 50%;
+  height: 100%;
+  border: 2px solid #d28f22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+   
+#Missoes {
+  background-color: #cbdb0c;
+}
+#DetalhesMissoes {
+  background-color: #cbdb0c;
+}
+#AllMissoes {
+  background-color: #cbdb0c;
+}
+#ALL1 {
+  background-color: #cbdb0c;
+}
+   
+  .btnG {
+    height: auto;
+    width: 50vw;
+    background-color: #5d0018;
+    border: 2px solid #d28f22;
+    color: white;
+  }

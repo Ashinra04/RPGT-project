@@ -8,7 +8,6 @@
    
    /* Titulo-CAIXA */
    #Title-container {
-     width: 100%;
      height: 10vh;
      background-color: #5d0018;
      color: white;
@@ -26,7 +25,6 @@
    
     /* NPC-CAIXA */
    #NPC-container {
-     width: 100%;
      height: 30vh;
      background-color: #121312;
      display: flex;
@@ -51,7 +49,6 @@
    
    /* ITEMS-CAIXA */
    #Items-container {
-     width: 100%;
      height: 50vh;
      background-color: #252628;
      border: 2px solid #d28f22;
@@ -83,18 +80,6 @@
    }
    
    /* ITEMS-CAIXA */
-   #Botoes-container {
-     width: 100%;
-     height: 10vh;
-     background-color: #121312;
-     border: 2px solid #d28f22;
-     display: flex;
-     flex-direction: row;
-     box-sizing: border-box;
-     padding: 5px;
-     gap: 3px;
-   }
-   
    .btnL {
      height: auto;
      width: 33vw;

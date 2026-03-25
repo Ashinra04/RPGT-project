@@ -28,13 +28,13 @@
    }
    
    #NPC-F {
-     width: 40vw;
+     width: 40%;
      height: auto;
      background-color: #e50cc98a;
    }
    
    #NPCF-falas {
-     width: 60vw;
+     width: 60%;
      height: auto;
      background-color: #252628;
      border-left: 3px solid #d28f22;
@@ -42,7 +42,7 @@
    
    /* CENTRAL-CAIXA */
    #Forja-body {
-     height: 50vh;
+     flex-grow: 1;
      width: 100%;
      background-color: #252628;
      border: 2px solid #d28f22;
