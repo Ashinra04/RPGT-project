@@ -28,13 +28,14 @@
    }
    
    #NPC-F {
-     width: 40%;
+     width: 50%;
      height: auto;
-     background-color: #e50cc98a;
+     background-image: url('/imagens/Sprites/Mercador_Mobile.png');
+     background-size: cover;
    }
    
    #NPCF-falas {
-     width: 60%;
+     width: 50%;
      height: auto;
      background-color: #252628;
      border-left: 3px solid #d28f22;

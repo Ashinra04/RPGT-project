@@ -17,11 +17,12 @@
     color: white;
   }
    
-  #GNPC {
-    height: 30vh;
-    background-color: #252628;
-    border: 2px solid #d28f22;
-  }
+#GNPC {
+  height: 30vh;
+  background-image: url('/imagens/Sprites/Receptionist.png');
+  background-size: cover;
+  border: 2px solid #d28f22;
+}
    
   #guilda-body {
     flex-grow: 1;
@@ -50,7 +51,7 @@
   padding: 7px 15px 15px 15px;
 }
    
-#Missoes, #DetalhesMissoes, #AllMissoes, #ALL1 {
+#Missoes, #Bestiario, #AllMissoes, #ALL1 {
   width: 50%;
   height: 100%;
   border: 2px solid #d28f22;
@@ -60,10 +61,12 @@
 }
    
 #Missoes {
-  background-color: #cbdb0c;
+  background-image: url('/imagens/Sprites/Mission.png');
+  background-size: cover;
 }
-#DetalhesMissoes {
-  background-color: #cbdb0c;
+#Bestiario {
+  background-image: url('/imagens/Sprites/Bestiario.png');
+  background-size: cover;
 }
 #AllMissoes {
   background-color: #cbdb0c;
