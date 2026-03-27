@@ -2,50 +2,121 @@
    TELA SHOP STYLES
    ========================================= */
    
-   #Shop-tela{
-    background-color: #121312;
-   }
+#Shop-tela{
+  background-color: #121312;
+}
    
    /* Titulo-CAIXA */
-   #Title-container {
-     height: 10vh;
-     background-color: #5d0018;
-     color: white;
-     display: flex;
-     flex-direction: row;
-     border: 2px solid #d28f22;
-   }
+#Title-container {
+  height: 7vh;
+  background-color: #5d0018;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #d28f22;
+}
    
-   #titulo {
-     min-width: 55vw;
-     display: flex;
-     align-items: center;
-     justify-content: right;
-   }
+#titulo {
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
    
     /* NPC-CAIXA */
-   #NPC-container {
-     height: 30vh;
-     background-color: #121312;
-     display: flex;
-     flex-direction: row;
-     border: 2px solid #d28f22;
-   }
+#NPC-container {
+  height: 33vh;
+  background-color: #121312;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #d28f22;
+}
    
-   #NPC {
-     width: 50vw;
-     background-image: url('/imagens/Sprites/Lojista.png');
-     background-size: cover;
-   }
+#NPC {
+  width: 50vw;
+  background-image: url('/imagens/Sprites/Lojista.png');
+  background-size: cover;
+}
    
-   #div-dialogo {
-     width: 50vw;
-     background-color: #252628;
-     border-left: 2px solid #d28f22; 
-     box-sizing: border-box;
-     padding: 7px;
-     color: white;
-   }
+#div-dialogo {
+  width: 50vw;
+  background-color: #252628;
+  border-left: 2px solid #d28f22;
+  box-sizing: border-box;
+  padding: 7px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+#InformacoesItems {
+  width: 100%;
+  height: 80%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+#ItemsInfos {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+}
+
+#ItemIcon{
+  width: 40%;
+  height: 100%;
+}
+#ItemIcon img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #d28f22;
+}
+
+#ItemNome {
+  width: 60%;
+  height: 100%;
+  border-right: 2px solid #d28f22;
+  border-top: 2px solid #d28f22;
+  border-bottom: 2px solid #d28f22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#ItemInfo {
+  width: 100%;
+  height: 70%;
+  background-color: #252628;
+  border-right: 2px solid #d28f22;
+  border-left: 2px solid #d28f22;
+  box-sizing: border-box;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#text {
+  font-size: 14px;
+}
+
+#btnComprar {
+  width: 100%;
+  height: 20%;
+  border-top: 2px solid #d28f22; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 6px;
+}
+#btnComprar button{
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #5d0018;
+  border: 3px solid #d28f22;
+}
    
 /* ITEMS-CAIXA */
 #Items-container {
@@ -69,18 +140,64 @@
   justify-content: center;
   align-items: center;
 }
-   
 .slotsE {
   background-color: #5d0018;
+  font-size: 40px;
 }
-   
-#slot2 {
-  background-image: url('/imagens/Icons/Potion.png');
+#Potion {
+  background-image: url('/imagens/Items/Potion.png');
   background-size: cover;
-  
 }
-#slot3 {
-  background-image: url('/imagens/Icons/Potionx2.png');
+#Potionx2 {
+  background-image: url('/imagens/Items/Potionx2.png');
+  background-size: cover;
+}
+#Energy {
+  background-image: url('/imagens/Items/Energy.png');
+  background-size: cover;
+}
+#Energyx2 {
+  background-image: url('/imagens/Items/Energyx2.png');
+  background-size: cover;
+}
+#Elixir {
+  background-image: url('/imagens/Items/Elixir.png');
+  background-size: cover;
+}
+#Full_heal {
+  background-image: url('/imagens/Items/Full heal.png');
+  background-size: cover;
+}
+#PoisonP {
+  background-image: url('/imagens/Items/PoisonP.png');
+  background-size: cover;
+}
+#FireP {
+  background-image: url('/imagens/Items/FireP.png');
+  background-size: cover;
+}
+#FreezeP {
+  background-image: url('/imagens/Items/FreezeP.png');
+  background-size: cover;
+}
+#ElectricP {
+  background-image: url('/imagens/Items/ElectricP.png');
+  background-size: cover;
+}
+#Antidote {
+  background-image: url('/imagens/Items/Antidote.png');
+  background-size: cover;
+}
+#Revive {
+  background-image: url('/imagens/Items/Revive.png');
+  background-size: cover;
+}
+#Torch {
+  background-image: url('/imagens/Items/Torch.png');
+  background-size: cover;
+}
+#DeathP {
+  background-image: url('/imagens/Items/Death potion.png');
   background-size: cover;
 }
    

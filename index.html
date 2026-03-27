@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>TOWER CLIMBER</title>
-    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
 <!-----------------------------------------------------
@@ -69,26 +68,42 @@
       
       <div id="NPC-container" class="Container width100">
         <div id="NPC"></div>
-        <div id="div-dialogo">.......</div>
+        <div id="div-dialogo">
+          <div id="InformacoesItems">
+            <div id="ItemsInfos">
+              <div id="ItemIcon">
+                <img src="/imagens/Items/Potion.png" alt=""></div>
+              <div id="ItemNome">POTION</div>
+            </div>
+            <div id="ItemInfo">
+              <p id="text">Uma poçao de cura usada para regenera o hp</p>
+              <br>
+              <h2 id="text">Voce tem: (valor)</h2>
+              <br>
+              <h2 id="text">Disponivel para comprar: (valor)</h2>
+              </div>
+          </div>
+          <div id="btnComprar"><button class="btnComprar">COMPRAR</button></div>
+        </div>
       </div>
       
       <div id="Items-container">
-        <div id="slot1E" class="slotsE"><</div>
-        <div id="slot2" class="slots"></div>
-        <div id="slot3" class="slots"></div>
-        <div id="slot4E" class="slotsE">></div>
-        <div id="slot5" class="slots"></div>
-        <div id="slot6" class="slots"></div>
-        <div id="slot7" class="slots"></div>
-        <div id="slot8" class="slots"></div>
-        <div id="slot9" class="slots"></div>
-        <div id="slot10" class="slots"></div>
-        <div id="slot11" class="slots"></div>
-        <div id="slot12" class="slots"></div>
-        <div id="slot13" class="slots"></div>
-        <div id="slot14" class="slots"></div>
-        <div id="slot15" class="slots"></div>
-        <div id="slot16" class="slots"></div>
+        <div id="slot1E" class="slotsE">❮</div>
+        <div id="Potion" class="slots"></div>
+        <div id="Potionx2" class="slots"></div>
+        <div id="slot4E" class="slotsE">❯</div>
+        <div id="Energy" class="slots"></div>
+        <div id="Energyx2" class="slots"></div>
+        <div id="Elixir" class="slots"></div>
+        <div id="Full_heal" class="slots"></div>
+        <div id="PoisonP" class="slots"></div>
+        <div id="FireP" class="slots"></div>
+        <div id="FreezeP" class="slots"></div>
+        <div id="ElectricP" class="slots"></div>
+        <div id="Antidote" class="slots"></div>
+        <div id="Revive" class="slots"></div>
+        <div id="Torch" class="slots"></div>
+        <div id="DeathP" class="slots"></div>
       </div>
       
       <div id="Botoes-container">
