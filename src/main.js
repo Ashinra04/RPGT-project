@@ -22,3 +22,7 @@ window.mudarTela = function (idParaMostrar) {
         console.error("A tela " + idParaMostrar + " não foi encontrada!");
     }
 }
+
+let Inventario = {
+  
+}

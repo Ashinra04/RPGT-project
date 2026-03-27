@@ -73,14 +73,22 @@
       </div>
       
       <div id="Items-container">
-        <div class="slotsE"><</div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slotsE">></div>
-        <div class="slots"></div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slots"></div>
-        <div class="slots"></div> <div class="slots"></div>
+        <div id="slot1E" class="slotsE"><</div>
+        <div id="slot2" class="slots"></div>
+        <div id="slot3" class="slots"></div>
+        <div id="slot4E" class="slotsE">></div>
+        <div id="slot5" class="slots"></div>
+        <div id="slot6" class="slots"></div>
+        <div id="slot7" class="slots"></div>
+        <div id="slot8" class="slots"></div>
+        <div id="slot9" class="slots"></div>
+        <div id="slot10" class="slots"></div>
+        <div id="slot11" class="slots"></div>
+        <div id="slot12" class="slots"></div>
+        <div id="slot13" class="slots"></div>
+        <div id="slot14" class="slots"></div>
+        <div id="slot15" class="slots"></div>
+        <div id="slot16" class="slots"></div>
       </div>
       
       <div id="Botoes-container">
@@ -169,7 +177,7 @@
       <div id="Guild-Title">GUILDA</div>
       <div id="GNPC"></div>
       
-      <div id="guilda-body">
+      <div id="guilda-body" class="conteudo">
         <div id="Linha1">
           <div id="Missoes"></div>
           <div id="Bestiario"></div>
@@ -179,10 +187,14 @@
           <div id="ALL1">...</div>
         </div>
       </div>
+      
+      <div id="guilda-body2" class="conteudo oculto">
+      </div>
         
-        <div id="Botoes-container">
-        <button class="btnG">CONVERSAR</button>
-        <button class="btnG" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      <div id="Botoes-container">
+        <button class="btnG" onclick="mudarConteudo('guilda-body2')">CONVERSAR</button>
+        <button class="btnG" onclick="mudarConteudo('guilda-body')">menu</button>
+        <button class="btnG" onclick="mudarTela('torre-tela'); mudarConteudo('guilda-body')">VOLTAR</button>
       </div>
     </div>
 <!----------------------------------------------------->

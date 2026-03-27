@@ -23,15 +23,23 @@
   background-size: cover;
   border: 2px solid #d28f22;
 }
+
+#guilda-body2 {
+  flex-grow: 1;
+  width: 100%;
+  background-color: #252628;
+  border: 2px solid #d28f22;
+  display: flex;
+}
    
-  #guilda-body {
-    flex-grow: 1;
-    width: 100%;
-    background-color: #252628;
-    border: 2px solid #d28f22;
-    display: flex;
-    flex-direction: column;
-  }
+#guilda-body {
+  flex-grow: 1;
+  width: 100%;
+  background-color: #252628;
+  border: 2px solid #d28f22;
+  display: flex;
+  flex-direction: column;
+}
   
 #Linha1, #Linha2 {
   width: 100%;
@@ -75,10 +83,10 @@
   background-color: #cbdb0c;
 }
    
-  .btnG {
-    height: auto;
-    width: 50vw;
-    background-color: #5d0018;
-    border: 2px solid #d28f22;
-    color: white;
-  }
+.btnG {
+  height: auto;
+  width: 33vw;
+  background-color: #5d0018;
+  border: 2px solid #d28f22;
+  color: white;
+}
