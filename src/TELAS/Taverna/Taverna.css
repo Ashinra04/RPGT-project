@@ -5,12 +5,10 @@
 #taverna-tela {
   background-color: #252628;
 }
-   
-   /* Titulo-CAIXA */
+/* Titulo-TAVERNA */
 #Taverna-Title{
   height: 10vh;
   background-color: #252628;
-  display: flex;
   justify-content: center;
   align-items: center;
   background-color: #5d0018;
@@ -18,22 +16,19 @@
   color: white;
 }
    
-   /* NPC-CAIXA */
+/* NPC-CAIXA */
 #Taverna-NPC {
   height: 30vh;
   background-color: #252628;
   border: 2px solid #d28f22;
-  display: flex;
   flex-direction: row;
 }
-   
-#NPC-T {
+#TNPC {
   width: 50vw;
   background-image: url('/imagens/Sprites/Innkeeper.png');
   background-size: cover;
 }
-   
-#NPCT-falas {
+#TNPC-falas {
   width: 50vw;
   background-color: #252628;
   border-left: 2px solid #d28f22; 
@@ -43,23 +38,18 @@
 }
    
 /* CONTEUDO-CAIXA */
-#taverna-body {
+#TAVERNAOpcoes {
   width: 100%;
   flex-grow: 1;
   background-color: #252628;
-  border: 2px solid #d28f22;
-  display: flex;
   flex-direction: column;
 }
 
 /* ROWS-CAIXA */
 #row1, #row2 {
-  width: 100%;
   height: 50%;
   background-color: #252628;
-  display: flex;
   flex-direction: column;
-  box-sizing: border-box;
 }
 #row1 {
   padding: 20px 20px 10px 20px;
@@ -68,10 +58,8 @@
   padding: 10px 20px 20px 20px;
 }
    
-#rowTitle, #rowImagens, #rowImagens2 {
-  width: 100%;
+#rowTitle, #rowImagens2, #IMGs-Cont-Desc {
   background-color: #252628;
-  display: flex;
   flex-direction: row;
   color: white;
 }
@@ -81,47 +69,20 @@
   gap: 10px;
 }
 
-#rowImagens {
+#IMGs-Cont-Desc {
   height: 80%;
   gap: 10px;
 }
 
-#rowImagens2 {
-  height: 100%;
-}
-
 /* CONTEUDO-DAS-ROWS */
-#Title-contratar, #Title-descansar, #Title-ST1 {
-  width: 100%;
-  height: 100%;
-  border: 2px solid #d28f22;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-   
-   
-#Contratar, #Sleep, #ST1 {
-  width: 100%;
-  height: 100%;
-  border: 2px solid #d28f22;
-}
-   
-#Contratar {
+
+#STATUS-BOX {
   background-color: purple;
 }
 
-#Sleep {
-  background-color: #0a080a;
-  image-rendering: pixelated;
-}
 #IMG {
   width: 100%;
   height: 100%;
-}
-
-#ST1 {
-  background-color: purple;
 }
    
 /* BOTOES-CAIXA */

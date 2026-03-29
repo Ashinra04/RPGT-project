@@ -1,144 +1,134 @@
 /* =========================================
    TELA SHOP STYLES
-   ========================================= */
-   
+========================================= */
+
 #Shop-tela{
   background-color: #121312;
 }
-   
-   /* Titulo-CAIXA */
+
+/*---------------------------------*/
+/* Titulo-CAIXA */
 #Title-container {
   height: 7vh;
   background-color: #5d0018;
   color: white;
-  display: flex;
   flex-direction: row;
-  border: 2px solid #d28f22;
 }
-   
 #titulo {
-  min-width: 100%;
-  display: flex;
-  align-items: center;
+  min-width: 60%;
+  justify-content: right;
+}
+#coinPlayer {
+  min-width: 40%;
   justify-content: center;
 }
-   
-    /* NPC-CAIXA */
-#NPC-container {
+/*---------------------------------*/
+
+/* NPC-CAIXA */
+#NPC-CONTAINER {
   height: 33vh;
   background-color: #121312;
-  display: flex;
   flex-direction: row;
-  border: 2px solid #d28f22;
 }
    
-#NPC {
+#NPC-SPRITE {
   width: 50vw;
   background-image: url('/imagens/Sprites/Lojista.png');
   background-size: cover;
 }
    
-#div-dialogo {
+#ITEMS-CONTAINER {
   width: 50vw;
   background-color: #252628;
-  border-left: 2px solid #d28f22;
-  box-sizing: border-box;
   padding: 7px;
   color: white;
-  display: flex;
   flex-direction: column;
+  border-left: 3px solid #d28f22;
 }
 
-#InformacoesItems {
-  width: 100%;
+#ITEMS-PAI {
   height: 80%;
   color: white;
-  display: flex;
   flex-direction: column;
 }
-#ItemsInfos {
-  width: 100%;
+
+/* 1° DIV DO ITEMS-PAI*/
+#ITEMSInfos-PAI {
   height: 30%;
-  display: flex;
   flex-direction: row;
 }
-
-#ItemIcon{
+#ITEM-Icon{
   width: 40%;
-  height: 100%;
 }
-#ItemIcon img {
+#ITEM-Icon img {
   width: 100%;
   height: 100%;
-  border: 2px solid #d28f22;
 }
-
-#ItemNome {
+#NOMEdoITEM {
   width: 60%;
-  height: 100%;
   border-right: 2px solid #d28f22;
   border-top: 2px solid #d28f22;
   border-bottom: 2px solid #d28f22;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-#ItemInfo {
-  width: 100%;
+/* 2° DIV DO ITEMS-PAI*/
+#ITEMSDescricoes-PAI {
   height: 70%;
   background-color: #252628;
   border-right: 2px solid #d28f22;
   border-left: 2px solid #d28f22;
-  box-sizing: border-box;
   padding: 5px;
-  display: flex;
   flex-direction: column;
-  justify-content: center;
 }
-#text {
+#ITEMDescricao {
+  height: 80%;
   font-size: 14px;
+  line-height: 1.4;
 }
 
+#QUANTIDADEPlayer {
+  height: 20%;
+  border-top: 2px solid #d28f22;
+  padding-top: 5px;
+}
+
+/*---------------------------------*/
 #btnComprar {
-  width: 100%;
   height: 20%;
   border-top: 2px solid #d28f22; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
   padding-top: 6px;
 }
-#btnComprar button{
-  width: 100%;
+#btnComprar button {
   height: 100%;
   color: white;
   background-color: #5d0018;
-  border: 3px solid #d28f22;
 }
-   
+
+/*---------------------------------*/
 /* ITEMS-CAIXA */
-#Items-container {
+#InventarioDosItems {
   height: 50vh;
   background-color: #252628;
-  border: 2px solid #d28f22;
   display: grid;
+  border-left: 2px solid #d28f22;
+  border-top: 2px solid #d28f22;
+  border-right: 2px solid #d28f22;
+  border-bottom: 2px solid #d28f22;
+  
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  box-sizing: border-box;
   gap: 10px;
   padding: 7px;
 }
    
 .slots, .slotsE {
-  border: 2px solid #d28f22;
   width: auto;
   height: auto;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px solid #d28f22;
 }
 .slotsE {
   background-color: #5d0018;
@@ -146,61 +136,48 @@
 }
 #Potion {
   background-image: url('/imagens/Items/Potion.png');
-  background-size: cover;
 }
 #Potionx2 {
   background-image: url('/imagens/Items/Potionx2.png');
-  background-size: cover;
 }
 #Energy {
   background-image: url('/imagens/Items/Energy.png');
-  background-size: cover;
 }
 #Energyx2 {
   background-image: url('/imagens/Items/Energyx2.png');
-  background-size: cover;
 }
 #Elixir {
   background-image: url('/imagens/Items/Elixir.png');
-  background-size: cover;
 }
 #Full_heal {
   background-image: url('/imagens/Items/Full heal.png');
-  background-size: cover;
 }
 #PoisonP {
   background-image: url('/imagens/Items/PoisonP.png');
-  background-size: cover;
 }
 #FireP {
   background-image: url('/imagens/Items/FireP.png');
-  background-size: cover;
 }
 #FreezeP {
   background-image: url('/imagens/Items/FreezeP.png');
-  background-size: cover;
 }
 #ElectricP {
   background-image: url('/imagens/Items/ElectricP.png');
-  background-size: cover;
 }
 #Antidote {
   background-image: url('/imagens/Items/Antidote.png');
-  background-size: cover;
 }
 #Revive {
   background-image: url('/imagens/Items/Revive.png');
-  background-size: cover;
 }
 #Torch {
   background-image: url('/imagens/Items/Torch.png');
-  background-size: cover;
 }
 #DeathP {
   background-image: url('/imagens/Items/Death potion.png');
-  background-size: cover;
 }
-   
+/*---------------------------------*/
+
 /* ITEMS-CAIXA */
 .btnL {
   height: auto;

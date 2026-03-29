@@ -14,6 +14,10 @@ body {
   height: 100dvh;
   background-color: #1a1a1a;
   overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .tela {
@@ -63,7 +67,42 @@ body {
   cursor: pointer;
 }
 
+/* divs com BORDERS*/
+.Border-2px-Solid{
+  border: 2px solid #d28f22;
+}
+
+/* divs com DISPLAY FLEX*/
+.DisplayFlex {
+  display: flex;
+}
+
+/* Divs com ALIGN-ITEMS CENTER */
+.A-I_Center {
+  align-items: center;
+}
+/* Divs com JUSTIFY-CONTENT CENTER */
+.J-C_Center {
+  justify-content: center;
+}
+
+/* Imagens com cover */
+.ImgCover {
+  background-size: cover;
+}
+
+/* divs com BOX-SIZING */
+.BoxSizing {
+  box-sizing: border-box;
+}
+
+/* divs com width 100% */
 .width100 {
+  width: 100%;
+}
+
+/* divs com height 100% */
+.heigth100 {
   width: 100%;
 }
 

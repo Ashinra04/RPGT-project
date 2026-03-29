@@ -1,0 +1,62 @@
+<!-----------------------------------------------------
+     TELA DO MARKET
+------------------------------------------------------>
+    <div id="Shop-tela" class="tela oculto">
+      
+      <div id="Title-container" class="Container width100 DisplayFlex Border-2px-Solid">
+        <div id="titulo" class="DisplayFlex A-I_Center"><h2>Market</h2></div>
+        <div id="coinPlayer" class="DisplayFlex A-I_Center"></div>
+      </div>
+      
+      <div id="NPC-CONTAINER" class="Container width100 DisplayFlex Border-2px-Solid">
+        <div id="NPC-SPRITE"></div>
+        
+        <div id="ITEMS-CONTAINER" class="DisplayFlex BoxSizing Border-2px-Solid">
+          <div id="ITEMS-PAI" class="DisplayFlex width100">
+            
+            <div id="ITEMSInfos-PAI" class="DisplayFlex width100">
+              <div id="ITEM-Icon" class="DisplayFlex heigth100 Border-2px-Solid">
+                <img src="/imagens/Items/Potion.png" alt=""></div>
+              <div id="NOMEdoITEM" class="DisplayFlex A-I_Center J-C_Center heigth100">POTION</div>
+            </div>
+            
+            <div id="ITEMSDescricoes-PAI" class="DisplayFlex BoxSizing J-C_Center width100">
+              <div id="ITEMDescricao" class="J-C_Center width100"><h3 id="oxe"></h3></div>
+                
+              <div id="QUANTIDADEPlayer" class="DisplayFlex BoxSizing A-I_Center J-C_Center width100">
+                <h2 id="text">Voce tem: (valor)</h2>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div id="btnComprar" onclick="comprarItem()" class="DisplayFlex A-I_Center BoxSizing width100 J-C_Center"><button class="btnComprar width100 Border-2px-Solid">COMPRAR</button></div>
+        </div>
+      </div>
+      
+      <div id="InventarioDosItems" class="BoxSizing width100">
+        <div id="slot1E" class="slotsE" ImgCover>❮</div>
+        <div id="Potion" class="slots ImgCover" onclick="mudarItem('Potion')"></div>
+        <div id="Potionx2" class="slots ImgCover" onclick="mudarItem('Potionx2')"></div>
+        <div id="slot4E" class="slotsE" ImgCover>❯</div>
+        <div id="Energy" class="slots ImgCover" onclick="mudarItem('Energy')"></div>
+        <div id="Energyx2" class="slots ImgCover" onclick="mudarItem('Energyx2')"></div>
+        <div id="Elixir" class="slots ImgCover" onclick="mudarItem('Elixir')"></div>
+        <div id="Full_heal" class="slots ImgCover" onclick="mudarItem('Full_heal')"></div>
+        <div id="PoisonP" class="slots ImgCover" onclick="mudarItem('PoisonP')"></div>
+        <div id="FireP" class="slots ImgCover" onclick="mudarItem('FireP')"></div>
+        <div id="FreezeP" class="slots ImgCover" onclick="mudarItem('FreezeP')"></div>
+        <div id="ElectricP" class="slots ImgCover" onclick="mudarItem('ElectricP')"></div>
+        <div id="Antidote" class="slots ImgCover" onclick="mudarItem('Antidote')"></div>
+        <div id="Revive" class="slots ImgCover" onclick="mudarItem('Revive')"></div>
+        <div id="Torch" class="slots ImgCover" onclick="mudarItem('Torch')"></div>
+        <div id="DeathP" class="slots ImgCover" onclick="mudarItem('DeathP')"></div>
+      </div>
+      
+      <div id="Botoes-container">
+        <button class="btnL">BUY</button>
+        <button class="btnL">SELL</button>
+        <button class="btnL" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      </div>
+    </div>
+<!----------------------------------------------------->
