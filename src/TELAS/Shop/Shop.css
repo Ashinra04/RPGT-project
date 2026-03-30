@@ -71,16 +71,17 @@
   border-right: 2px solid #d28f22;
   border-top: 2px solid #d28f22;
   border-bottom: 2px solid #d28f22;
+  background-color: #0d0f36;
 }
 
 /* 2° DIV DO ITEMS-PAI*/
 #ITEMSDescricoes-PAI {
   height: 70%;
-  background-color: #252628;
   border-right: 2px solid #d28f22;
   border-left: 2px solid #d28f22;
   padding: 5px;
   flex-direction: column;
+  background-color: #0d0f36;
 }
 #ITEMDescricao {
   height: 60%;

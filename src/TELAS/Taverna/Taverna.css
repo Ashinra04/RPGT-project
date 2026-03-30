@@ -5,41 +5,86 @@
 #taverna-tela {
   background-color: #252628;
 }
+
 /* Titulo-TAVERNA */
 #Taverna-Title{
-  height: 10vh;
-  background-color: #252628;
+  height: 7vh;
   justify-content: center;
   align-items: center;
   background-color: #5d0018;
-  border: 2px solid #d28f22;
   color: white;
 }
    
 /* NPC-CAIXA */
 #Taverna-NPC {
-  height: 30vh;
+  height: 33vh;
   background-color: #252628;
-  border: 2px solid #d28f22;
   flex-direction: row;
 }
+
 #TNPC {
   width: 50vw;
   background-image: url('/imagens/Sprites/Innkeeper.png');
   background-size: cover;
 }
-#TNPC-falas {
+
+#INFO-STATUS {
   width: 50vw;
   background-color: #252628;
   border-left: 2px solid #d28f22; 
   box-sizing: border-box;
   padding: 7px;
   color: white;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#TStatus {
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  background-color: #0d0f36;
+}
+
+#STATUS{
+  height: 85%;
+  flex-direction: column;
+  background-color: #0d0f36;
+}
+
+#playerIN {
+  height: 40%;
+  flex-direction: row;
+}
+
+#playerICON {
+  height: 100%;
+  width: 40%;
+  border-right: 2px solid #d28f22; 
+  border-bottom: 1px solid #d28f22;
+  background-color: #6e4522;
+  background-image: url('/imagens/Icons/Character.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#playerN {
+  height: 100%;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #d28f22;
+}
+
+.TRow {
+  height: 20%;
+  border-top: 1px solid #d28f22; 
+  justify-content: center;
+  align-items: center;
 }
    
 /* CONTEUDO-CAIXA */
 #TAVERNAOpcoes {
-  width: 100%;
   flex-grow: 1;
   background-color: #252628;
   flex-direction: column;
@@ -57,9 +102,23 @@
 #row2 {
   padding: 10px 20px 20px 20px;
 }
-   
-#rowTitle, #rowImagens2, #IMGs-Cont-Desc {
-  background-color: #252628;
+#TNPC-Dialogo {
+  height: 100%;
+  color: white;
+  align-items: center;
+  padding: 20px;
+  background-color: #0d0f36;
+}
+
+.colors {
+  color: #0d0f36;
+  color: #294380;
+  color: #69d2cd;
+  color: #b9f1d6;
+}
+
+#rowTitle, #IMGs-Cont-Desc {
+  background-color: #0d0f36;
   flex-direction: row;
   color: white;
 }
@@ -76,20 +135,117 @@
 
 /* CONTEUDO-DAS-ROWS */
 
-#STATUS-BOX {
-  background-color: purple;
-}
-
 #IMG {
   width: 100%;
   height: 100%;
 }
+.IMB {
+  border-bottom: 2px solid #d28f22; 
+  border-left: 2px solid #d28f22; 
+  border-right: 2px solid #d28f22; 
+}
    
 /* BOTOES-CAIXA */
+
 .btnT {
   height: auto;
-  width: 50vw;
+  width: 100vw;
   background-color: #5d0018;
-  border: 2px solid #d28f22;
+  border: 3px solid #d28f22;
   color: white;
+}
+
+/* =========================================
+    TELA MERCENARIOS STYLES
+   ========================================= */
+#MERCENARIOS-body {
+  height: 80vh;
+  width: 100%;
+  border-left: 2px solid #d28f22; 
+  border-right: 2px solid #d28f22;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 15px;
+  gap: 10px;
+}
+
+#MercenariosTITLE {
+  height: 8%;
+  width: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #d28f22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#Mercenariosl1, #Mercenariosl2 {
+  height: 30%;
+  width: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #d28f22;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 15px;
+  gap: 20px;
+}
+.MSlot {
+  height: 100%;
+  width: 50%;
+  background-color: #294380;
+  border: 2px solid #d28f22;
+  background-image: url('/imagens/Icons/Character.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#dd {
+  height: 32%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  display: flex;
+  flex-direction: row;
+}
+#IconMercenario {
+  height: 100%;
+  width: 40%;
+  border-right: 2px solid #d28f22;
+  background-color: #294380;
+  background-image: url('/imagens/Icons/Character.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#PerfilMercenario {
+  height: 100%;
+  width: 60%;
+  background-color: #0d0f36;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.StatusMe {
+  height: 20%;
+  width: 100%;
+  border-bottom: 1px solid #d28f22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding-bottom: 5px;
+}
+
+#DANOMercenario {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
