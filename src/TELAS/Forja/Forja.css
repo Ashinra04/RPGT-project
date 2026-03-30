@@ -50,10 +50,12 @@
    }
    
    /* BOTOES-CAIXA */
-   .btnF {
-     height: auto;
-     width: 25vw;
-     background-color: #5d0018;
-     border: 2px solid #d28f22;
-     color: white;
-   }
+.btnF {
+   height: auto;
+  width: 25vw;
+   background-color: #5d0018;
+  border: 2px solid #d28f22;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+}

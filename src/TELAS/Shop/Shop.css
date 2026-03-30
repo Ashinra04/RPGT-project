@@ -193,4 +193,6 @@
   background-color: #5d0018;
   border: 3px solid #d28f22;
   color: white;
+  cursor: pointer;
+  font-family: inherit;
 }

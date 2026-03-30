@@ -2,18 +2,18 @@
      TELA DA TAVERNA
 ------------------------------------------------------>
     <div id="taverna-tela" class="tela oculto">
-      <div id="Taverna-Title" class="Border-2px-Solid width100 DisplayFlex">TAVERNA</div>
+      <div id="Taverna-Title" class="Border-2px-Solid width100 DisplayFlex A-I_Center J-C_Center">TAVERNA</div>
       
      <div id="Taverna-NPC" class="Border-2px-Solid width100 DisplayFlex">
         <div id="TNPC"></div>
         
         <div id="INFO-STATUS" class="DisplayFlex">
-          <div id="TStatus" class="Border-2px-Solid DisplayFlex width100">STATUS</div>
+          <div id="TStatus" class="Border-2px-Solid DisplayFlex width100 A-I_Center J-C_Center">STATUS</div>
           
           <div id="STATUS" class="Border-2px-Solid width100">
             <div id="playerIN" class="DisplayFlex width100">
-              <div id="playerICON" class="ImgCover"></div>
-              <div id="playerN" class="DisplayFlex"></div>
+              <div id="playerICON" class="ImgCover heigth100"></div>
+              <div id="playerN" class="heigth100 DisplayFlex A-I_Center J-C_Center"></div>
             </div>
             
             <div id="playerNVL" class="TRow DisplayFlex width100"></div>
@@ -26,7 +26,7 @@
       <div id="TAVERNAOpcoes" class="width100 DisplayFlex Border-2px-Solid">
         
         <div id="row1" class="DisplayFlex width100 BoxSizing">
-          <div id="TNPC-Dialogo" class="heigth100 width100 DisplayFlex Border-2px-Solid BoxSizing">Você pode recuperar seu HP e mana descansando, você também pode contratar mercenários para ajudar na sua jornada.</div>
+          <div id="TNPC-Dialogo" class="heigth100 width100 DisplayFlex A-I_Center Border-2px-Solid BoxSizing">Você pode recuperar seu HP e mana descansando, você também pode contratar mercenários para ajudar na sua jornada.</div>
         </div>
         
         <div id="row2" class="DisplayFlex width100 BoxSizing">
@@ -57,16 +57,17 @@
     <!-----------------------------------------------------
      TELA MERCENARIOS
 ------------------------------------------------------>
-    <div id="MERCENARIOS-tela" class="tela oculto">
-      <div id="Taverna-Title" class="Border-2px-Solid width100 DisplayFlex">TAVERNA</div>
+  <div id="MERCENARIOS-tela" class="tela oculto">
+    <div id="Taverna-Title" class="Border-2px-Solid width100 DisplayFlex A-I_Center J-C_Center">TAVERNA
+      </div>
 
-    <div id="MERCENARIOS-body">
+    <div id="CONTRATAR-body" class="Mbody oculto">
 
       <div id="Botoes-container">
         <button class="btnT Border-2px-Solid" onclick="NomeMercenario()">RECARREGAR</button>
       </div>
 
-      <div id="MercenariosTITLE">MERCENARIOS</div>
+      <div id="MercenariosTITLE" class="width100 DisplayFlex A-I_Center J-C_Center Border2S">MERCENARIOS</div>
 
       <div id="Mercenariosl1">
         <div id="Mercenario1" class="MSlot" onclick="perfilmercenario('mercenario1')"></div>
@@ -78,27 +79,87 @@
         <div id="Mercenario4" class="MSlot" onclick="perfilmercenario('mercenario4')"></div>
       </div>
 
-      <div id="MercenariosTITLE">PERFIL</div>
+      <div id="MercenariosTITLE" class="width100 DisplayFlex A-I_Center J-C_Center Border2S">PERFIL</div>
 
       <div id="dd">
         
-        <div id="IconMercenario" class=""></div>
+        <div id="IMercenario">
+          <div id="IconMercenario" class=""></div>
+          <button class="btnp" onclick="contratarMercenario()">CONTRATAR</button>
+        </div>
+        
         <div id="PerfilMercenario" class="">
-
           <div id="NOMEMercenario" class="StatusMe"></div>
           <div id="CLASSEMercenario" class="StatusMe"></div>
           <div id="HPMercenario" class="StatusMe"></div>
           <div id="MANAMercenario" class="StatusMe"></div>
           <div id="DANOMercenario" class=""></div>
+        </div>
+
+      </div>
+    </div>
+    
+    <div id="MERCENARIOS-body" class="Mbody">
+      
+      <div id="MContratos">MERCENÁRIOS CONTRATADOS</div>
+      
+      <div id="MeuMercenario1" class="MMBox">
+        <div id="IconButtonsM">
+          <div id="IconM1"></div>
           
+          <div id="buttonsMercenarios">
+            <button class="btnMT Border-2px-Solid">EQUIPAMENTOS</button>
+            <button class="btnMT Border-2px-Solid">SKILLS</button>
+            <button class="btnMT Border-2px-Solid">INFO</button>
+            <button class="btnMT Border-2px-Solid" onclick="expulsarMercenario(1)">EXPULSAR</button>
+          </div>
+        </div>
+        
+        <div id="SttM">
+          <div id="StatusMMercenario">
+            <div id="M1-Nome" class="MMS">Nome: </div>
+            <div id="M1-Classe" class="MMS">Classe: </div>
+            <div id="M1-Nivel" class="MMS">Nivel: </div>
+            <div id="M1-HP" class="MMS">HP: </div>
+            <div id="M1-Mana" class="MMS">Mana: </div>
+            <div id="M1-Ataque" class="MMS">Ataque: </div>
+            <div id="M1-Def" class="MMS">Defesa: </div>
+          </div>
         </div>
       </div>
+      
+      <div id="MeuMercenario2" class="MMBox">
+        
+        <div id="IconButtonsM">
+          <div id="IconM2"></div>
+          
+          <div id="buttonsMercenarios">
+            <button class="btnMT Border-2px-Solid">EQUIPAMENTOS</button>
+            <button class="btnMT Border-2px-Solid">SKILLS</button>
+            <button class="btnMT Border-2px-Solid">INFO</button>
+            <button class="btnMT Border-2px-Solid" onclick="expulsarMercenario(2)">EXPULSAR</button>
+          </div>
+        </div>
+        
+        <div id="SttM">
+          <div id="StatusMMercenario">
+            <div id="M2-Nome" class="MMS">Nome: </div>
+            <div id="M2-Classe" class="MMS">Classe: </div>
+            <div id="M2-Nivel" class="MMS">Nivel: </div>
+            <div id="M2-HP" class="MMS">HP: </div>
+            <div id="M2-Mana" class="MMS">Mana: </div>
+            <div id="M2-Ataque" class="MMS">Ataque: </div>
+            <div id="M2-Def" class="MMS">Defesa: </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
 
     <div id="Botoes-container">
-      <button class="btnT Border-2px-Solid" onclick="NomeMercenario()">SEUS MERCENARIOS</button>
-        <button class="btnT Border-2px-Solid" onclick="">CONTRATAR</button>
+      <button class="btnT Border-2px-Solid" onclick="mudarMBody('MERCENARIOS-body'); atualizarTelaGrupo()">SEUS MERCENARIOS</button>
+        <button class="btnT Border-2px-Solid" onclick="mudarMBody('CONTRATAR-body')">MERCENARIOS</button>
         <button class="btnT Border-2px-Solid" onclick="mudarTela('taverna-tela')">VOLTAR</button>
-      </div>
     </div>
+  </div>
 <!----------------------------------------------------->

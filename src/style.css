@@ -71,6 +71,9 @@ body {
 .Border-2px-Solid{
   border: 2px solid #d28f22;
 }
+.Border2S{
+  border: 2px solid #d28f22;
+}
 
 /* divs com DISPLAY FLEX*/
 .DisplayFlex {
