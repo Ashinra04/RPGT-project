@@ -1,22 +1,87 @@
 <!-----------------------------------------------------
      TELA DA FORJA
 ------------------------------------------------------>
-    <div id="forja-tela" class="tela oculto">
-      <div id="Forja-Title">FORJA</div>
+<div id="forja-tela" class="tela oculto">
+  
+  <div id="Forja-Title" class="width100 DisplayFlex A-I_Center J-C_Center">FORJA</div>
         
-      <div id="forja-NPC">
-        <div id="NPC-F">
-        </div>
-        <div id="NPCF-falas"></div>
-      </div>
+  <div id="forja-NPC" class="width100 Border2S DisplayFlex">
+    <div id="FNPC"></div>
+    <div id="NPCF-falas" class=""></div>
+  </div>
         
-      <div id="Forja-body"></div>
-        
-      <div id="Botoes-container">
-        <button class="btnF">BUY</button>
-        <button class="btnF">UPGRADE</button>
-        <button class="btnF">ENCHANTER</button>
-        <button class="btnF" onclick="mudarTela('torre-tela')">VOLTAR</button>
+  <div id="Forja-body" class="Forja oculto">oxi</div>
+      
+  <div id="Enchanter-body" class="Forja oculto">
+    <div id="coluna1" class="colunaEnchanter">
+      <div id="ItemIcon" class=""></div>
+      <div id="Recursos" class="">
+        <div id="RecursosTitle">MATERIAIS</div>
+        <div id="RecursosList"></div>
       </div>
     </div>
+    
+    <div id="coluna2" class="colunaEnchanter">
+      <div id="EnchanterTitle" class="">ENCANTAMENTOS</div>
+      <div id="BtnLista">
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+        <div id="" class="BtnList"></div>
+      </div>
+    </div>
+  </div>
+      
+  <div id="Upgrade-body" class="Forja">
+    
+    <div id="UpgradeL1" class="">
+      
+      <div id="UpMateriais1" class="UpBtns">
+        <div id="UPslot1" class="Upslot"></div>
+        <div id="UpSlot2" class="Upslot"></div>
+      </div>
+      
+      <div id="UpItem" class="">
+        <div id="UpItemIcon" class=""></div>
+        <div id="btnUpar" class="">Upgrade</div>
+      </div>
+      
+      <div id="UpMateriais2" class="UpBtns">
+        <div id="UPslot3" class="Upslot"></div>
+        <div id="UpSlot4" class="Upslot"></div>
+      </div>
+      
+    </div>
+    
+    <div id="UpgradeL2" class="">
+      <div id="UpMateriais">
+        <div id="UpMateriaisTitle" class="">MATERIAIS</div>
+        <div id="UpMateriaisList" class=""></div>
+      </div>
+      <div id="UpItemsContainer" class="">
+        <div id="ItemsCTitle">INVENTARIO</div>
+        <div id="ITEMSLIST">
+          <div id="" class="meusItems"></div>
+          <div id="" class="meusItems"></div>
+          <div id="" class="meusItems"></div>
+          <div id="" class="meusItems"></div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+      
+  <div id="Botoes-container">
+    <button class="btnF" onclick="mudarTelaForja('Forja-body')">BUY</button>
+    <button class="btnF" onclick="mudarTelaForja('Upgrade-body')">UPGRADE</button>
+    <button class="btnF" onclick="mudarTelaForja('Enchanter-body')">ENCHANTER</button>
+    <button class="btnF" onclick="mudarTela('torre-tela')">VOLTAR</button>
+  </div>
+  
+</div> 
 <!----------------------------------------------------->

@@ -1,61 +1,287 @@
 /* =========================================
     TELA FORJA
    ========================================= */
-   
-   #forja-tela {
-     background-color: #121312;
-   }
+
+.colors {
+  color: #0d0f36;
+  color: #294380;
+  color: #69d2cd;
+  color: #b9f1d6;
+}
+
+#forja-tela {
+  background-color: #121312;
+}
    
    /* TITLE-CAIXA */
-   #Forja-Title {
-     width: 100%;
-     height: 10vh;
-     color: white;
-     border: 2px solid #d28f22;
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     background-color: #5d0018;
-   }
+#Forja-Title {
+  height: 7vh;
+  color: white;
+  background-color: #5d0018;
+  border-left: 2px solid #d28f22;
+  border-right: 2px solid #d28f22;
+  border-top: 2px solid #d28f22;
+}
    
    /* NPC-CAIXA */
-   #forja-NPC {
-     width: 100%;
-     height: 30vh;
-     display: flex;
-     flex-direction: row;
-     border: 2px solid #d28f22;
-   }
+#forja-NPC {
+  height: 20vh;
+  flex-direction: row;
+}
    
-   #NPC-F {
-     width: 50%;
-     height: auto;
-     background-image: url('/imagens/Sprites/Mercador_Mobile.png');
-     background-size: cover;
-   }
+#FNPC {
+  width: 50%;
+  height: 100%;
+  background-image: url('/imagens/Sprites/Mercador_Mobile.png');
+  background-size: cover;
+}
    
-   #NPCF-falas {
-     width: 50%;
-     height: auto;
-     background-color: #252628;
-     border-left: 3px solid #d28f22;
-   }
+#NPCF-falas {
+  width: 50%;
+  height: 100%;
+  background-color: #252628;
+  border-left: 2px solid #d28f22;
+}
    
-   /* CENTRAL-CAIXA */
-   #Forja-body {
-     flex-grow: 1;
-     width: 100%;
-     background-color: #252628;
-     border: 2px solid #d28f22;
-   }
-   
-   /* BOTOES-CAIXA */
-.btnF {
-   height: auto;
-  width: 25vw;
-   background-color: #5d0018;
+/* CENTRAL-CAIXA */
+.Forja {
+  flex-grow: 1;
+  width: 100%;
+  background-color: #252628;
+  border-left: 2px solid #d28f22;
+  border-right: 2px solid #d28f22;
+  display: flex;
+  box-sizing: border-box;
+}
+
+/* ENCHANTER-CAIXA */
+#Enchanter-body {
+  flex-direction: row;
+  padding: 10px;
+  gap: 10px;
+}
+
+.colunaEnchanter{
+  height: 100%;
+  width: 50%;
+  background-color: #5d0018;
+  border: 2px solid #d28f22;
+}
+/* COLUNA1 de ENCHANTER */
+#coluna1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 5px;
+  gap: 1px;
+}
+#ItemIcon {
+  height: 35%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+  background-image: url('/imagens/Icons/Backpack.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#Recursos {
+  height: 65%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 4px;
+}
+#RecursosTitle {
+  height: 12%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #0d0f36;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#RecursosList {
+  height: 88%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+}
+
+/* COLUNA2 de ENCHANTER */
+#coluna2 {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 5px;
+  gap: 4px;
+}
+
+#EnchanterTitle {
+  height: 12%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #0d0f36;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#BtnLista {
+  height: 88%;
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 5px;
+  gap: 4px;
+}
+.BtnList {
+  height: 12%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+}
+
+/* UPGRADE-CAIXA */
+#Upgrade-body {
+  flex-direction: column;
+  padding: 10px;
+  gap: 10px;
+}
+
+/* UPGRADE-LINHA1 */
+#UpgradeL1 {
+  height: 50%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  gap: 5px;
+}
+#UpItem {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+#UpItemIcon {
+  height: 80%;
+  width: 100%;
+  background-image: url('/imagens/Icons/Backpack.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#btnUpar {
+  height: 20%;
+  width: 100%;
+  background-color: #5d0018;
   border: 2px solid #d28f22;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.UpBtns {
+  height: 100%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+}
+
+.Upslot {
+  height: 50%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #0d0f36;
+}
+
+/* UPGRADE-LINHA2 */
+#UpgradeL2 {
+  height: 50%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  gap: 5px;
+}
+#UpMateriais {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#UpMateriaisTitle {
+  height: 15%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  background-color: #0d0f36;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#UpMateriaisList {
+  height: 85%;
+  width: 100%;
+  border: 2px solid #d28f22;
+}
+
+#UpItemsContainer {
+  height: 100%;
+  width: 60%;
+  border: 2px solid #d28f22;
+  display: flex;
+  flex-direction: column;
+}
+#ItemsCTitle {
+  height: 15%;
+  width: 100%;
+  border-bottom: 1px solid #d28f22;
+  background-color: #0d0f36;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+#ITEMSLIST {
+  height: 85%;
+  width: 100%;
+  border: 2px solid #d28f22;
+  box-sizing: border-box;
+  padding: 3px;
+  gap: 5px;
+}
+.meusItems {
+  height: 25%;
+  width: 100%;
+  border: 2px solid #d28f22;
+}
+
+/* BOTOES-CAIXA */
+
+.btnF {
+  height: auto;
+  width: 25vw;
+  background-color: #5d0018;
+  border: 2px solid #d28f22;
+  color: white; 
   cursor: pointer;
   font-family: inherit;
-}
+} 

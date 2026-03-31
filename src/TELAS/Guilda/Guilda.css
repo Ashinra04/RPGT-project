@@ -7,7 +7,7 @@
 }
    
 #Guild-Title {
-  height: 10vh;
+  height: 7vh;
   background-color: #252628;
   justify-content: center;
   align-items: center;
@@ -46,8 +46,12 @@
   padding: 7px 15px 15px 15px;
 }
    
-#Missoes, #Bestiario, #AllMissoes, #ALL1 {
+#Missoes, #Bestiario, {
   width: 50%;
+}
+
+#xx {
+  width: 100%;
 }
    
 #Missoes {
@@ -55,12 +59,6 @@
 }
 #Bestiario {
   background-image: url('/imagens/Sprites/Bestiario.png');
-}
-#AllMissoes {
-  background-color: #cbdb0c;
-}
-#ALL1 {
-  background-color: #cbdb0c;
 }
    
 .btnG {
