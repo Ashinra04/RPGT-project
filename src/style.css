@@ -212,3 +212,118 @@ body {
         color: white;
     }
 }
+
+/* =========================================
+   ESTILOS PARA TELA BATALHA
+========================================= */
+.colors{
+  color: #0d0f36;
+  color: #294380;
+  color: #69d2cd;
+  color: #b9f1d6;
+}
+
+#battle-tela {
+  box-sizing: border-box;
+  gap: 5px;
+}
+
+#BATTLE-BAR {
+  height: 10vh;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
+}
+.btnBattle {
+  width: 100%;
+  height: 7vh;
+  font-size: 12px;
+  color: white;
+  background-color: #121312;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+#BATTLE-TOWER {
+  height: 93vh;
+  width: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #69d2cd;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: flex-end;
+  gap: 2px;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.Floors {
+  width: 100%;
+  min-height: 24%;
+  border: 2px solid white;
+  background-color: #294380;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.Separador {
+  width: 100%;
+  min-height: 5%;
+  border: 2px solid white;
+  background-color: balck;
+}
+
+.BattlesTitles {
+  width: 100%;
+  height: 70%;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+  box-sizing: border-box;
+  padding: 8px;
+  color: white;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonSlot {
+  width: 100%;
+  height: 30%;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.btnPBattle {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: white;
+  background-color: #121312;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.buttonSlotB {
+  width: 100%;
+  height: 30%;
+  font-size: 12px;
+  color: white;
+  background-color: #121312;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+/* =========================================
+   ESTILOS PARA TELA COMBATE
+========================================= */
+
+#combate-tela {
+  background-image: url('/imagens/cenarios/Tower_Cenario.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
