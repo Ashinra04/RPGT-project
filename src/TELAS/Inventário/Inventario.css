@@ -1,0 +1,224 @@
+/* =========================================
+   ESTILOS PARA TELA INVENTARIO
+========================================= */
+
+.colors{
+  color: #0d0f36;
+  color: #294380;
+  color: #69d2cd;
+  color: #b9f1d6;
+  color: #5d0018;
+}
+.bordas {
+  color: #d28f22;
+  color: #a0abbc;
+  color: #2a7f8a;
+}
+
+.btnI {
+  height: auto;
+  width: 50vw;
+  background-color: #5d0018;
+  border: 2px solid #a0abbc;
+  color: white; 
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#inventario-tela {
+  box-sizing: border-box;
+  gap: 5px;
+}
+
+#inventario-body {
+  flex-grow: 1;
+  width: 100%;
+  background-color: #black;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #d28f22;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 10px;
+}
+
+#IRow1, #IRow2 {
+  height: 50%;
+  width: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #a0abbc;
+}
+
+#IRow1 {
+  
+}
+#IRow2 {
+  
+}
+
+.GSboxes {
+  height: 90%;
+  width: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #a0abbc;
+}
+#BtnSG {
+  height: 10%;
+  width: 100%;
+  background-color: #0d0f36;
+  display: flex;
+  flex-direction: row;
+}
+
+/*GEARS BOX */
+
+#Gears-box {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 10px;
+}
+
+.GearsColumn {
+  height: 100%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 6px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Gslots {
+  height: 25%;
+  width: 80%;
+  background-color: white;
+  border: 2px solid #a0abbc;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.svazio {
+  height: 25%;
+  width: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#SWeapon  {
+  background-image: url('/imagens/Icons/sword.png');
+}
+#SBelt {
+  background-image: url('/imagens/Icons/belt.png');
+}
+#SRing1 {
+  background-image: url('/imagens/Icons/Rings.png');
+}
+
+#SHelemt {
+  background-image: url('/imagens/Icons/helmet.png');
+}
+#SArmor {
+  background-image: url('/imagens/Icons/armor.png');
+}
+#SPants {
+  background-image: url('/imagens/Icons/pants.png');
+}
+#SBoots {
+  background-image: url('/imagens/Icons/boots.png');
+}
+
+#SAmulet {
+  background-image: url('/imagens/Icons/amulet.png');
+}
+#SShield  {
+  background-image: url('/imagens/Icons/shield.png');
+}
+#SGloves {
+  background-image: url('/imagens/Icons/gloves.png');
+}
+#SRing2 {
+  background-image: url('/imagens/Icons/Rings.png');
+}
+
+/*ITEMS BOX */
+
+#items-box {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+#CategoriaItems{
+  height: 18%;
+  width: 100%;
+  background-color: #294380;
+  border: 2px solid #a0abbc;
+  display: flex;
+  flex-direction: row;
+}
+
+#CategoriaItems {
+  box-sizing: border-box;
+  gap: 2px;
+}
+.SlotCategory {
+  height: 100%;
+  width: 20%;
+  border: 2px solid #d28f22;
+}
+
+#ItemsSlots{
+  height: 82%;
+  width: 100%;
+  background-color: gray;
+  border: 2px solid #a0abbc;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 2px;
+  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.SlotInven {
+  min-height: 30%;
+  width: 100%;
+  border: 2px solid #d28f22;
+}
+
+/* O FUNDO ESCURO */
+#fundo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.7); /* Preto com 70% de transparência */
+  z-index: 9999; /* Garante que vai ficar na frente do menu, das barras, de TUDO */
+  
+  /* Flexbox para centralizar a caixa no meio da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* A CAIXA FLUTUANTE */
+#caixa-flutuante {
+  width: 80%;
+  height: auto;
+  min-height: 40%;
+  background-color: #0d0f36; /* Azul escuro do seu jogo */
+  border: 2px solid #d28f22; /* Borda dourada */
+  display: flex;
+  flex-direction: column;
+}

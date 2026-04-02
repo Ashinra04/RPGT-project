@@ -39,70 +39,35 @@
               
           <div id="guilda" class="contrucao" onclick="mudarTela('guilda-tela')">GUILDA</div>
         </div>
+        
         <div id="MENU-BAR" class="width100 DisplayFlex">
-          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Character.png" alt=""></div>
           
-          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Backpack.png" alt=""></div>
+          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Character.png" alt="" onclick="mudarTela('perfil-tela')"></div>
+          
+          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Backpack.png" alt="" onclick="mudarTela('inventario-tela')"></div>
+          
             <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Sprites/INN.png" alt=""></div>
             
           <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Mapa.png" alt=""></div>
         </div>
       </div>
     </div>
-<!----------------------------------------------------->
-
 
 <!-----------------------------------------------------
-     TELA DE BATALHA
+     TELA DE PERDIL
 ------------------------------------------------------>
-    <div id="battle-tela" class="tela oculto">
+    <div id="perfil-tela" class="tela oculto">
       
-      <div id="BATTLE-TOWER" class="">
-        
-        <div id="Floor4" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 4</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor3" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 3</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor2" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 2</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor1" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 1</div>
-          <div id="" class="buttonSlotB"></div>
-        </div>
+      <div id="Perfil-body" class="">
         
       </div>
-    
-      <div id="BATTLE-BAR" class="width100 DisplayFlex">
-          <button id="btn-voltar" class="btnBattle" onclick="mudarTela('torre-tela')">VOLTAR</button>
-      </div>
       
+      <div id="Botoes-container">
+        <button class="btnPL" onclick="">SEI NAO</button>
+        <button class="btnPL" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      </div>
     </div>
-<!----------------------------------------------------->
 
-<!-----------------------------------------------------
-     TELA DE COMBATE
------------------------------------------------------->
-    <div id="combate-tela" class="tela oculto">
-      
-      <div id="" class=""></div>
-      
-    </div>
-        
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

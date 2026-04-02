@@ -1,0 +1,80 @@
+<!-----------------------------------------------------
+     TELA DE INVENTARIO
+------------------------------------------------------>
+<div id="inventario-tela" class="tela oculto">
+  <div id="inventario-body" class="">
+    <div id="IRow1" class="">
+          
+      <div id="Gears-box" class="GSboxes">
+        <div id="GearsColumn1" class="GearsColumn">
+          <div id="" class="svazio"></div>
+          <div id="SWeapon" class="Gslots"></div>
+          <div id="SBelt" class="Gslots"></div>
+          <div id="SRing1" class="Gslots"></div>
+        </div>
+            
+        <div id="GearsColumn2" class="GearsColumn">
+          <div id="SHelemt" class="Gslots"></div>
+          <div id="SArmor" class="Gslots"></div>
+          <div id="SPants" class="Gslots"></div>
+          <div id="SBoots" class="Gslots"></div>
+        </div>
+            
+        <div id="GearsColumn3" class="GearsColumn">
+          <div id="SAmulet" class="Gslots"></div>
+          <div id="SShield" class="Gslots"></div>
+          <div id="SGloves" class="Gslots"></div>
+          <div id="SRing2" class="Gslots"></div>
+        </div>
+      </div>
+          
+      <div id="Status-box" class="GSboxes oculto">
+        <button class="btnI" onclick="">STATUS</button>
+        <div id="" class=""></div>
+      </div>
+          
+      <div id="BtnSG">
+        <button class="btnI" onclick="mudarBox('Gears-box')">EQUIPAMENTOS</button>
+        <button class="btnI" onclick="mudarBox('Status-box')">STATUS</button>
+      </div>
+    </div>
+        
+    <div id="IRow2" class="">
+      <div id="items-box" class="">
+        <div id="CategoriaItems" class="">
+          <div id="CWeapons" class="SlotCategory"></div>
+          <div id="CArmors" class="SlotCategory"></div>
+          <div id="CPotions" class="SlotCategory"></div>
+          <div id="CKeys" class="SlotCategory"></div>
+          <div id="COthers" class="SlotCategory"></div>
+        </div>
+        <div id="ItemsSlots" class="">
+          <div id="slot1" onclick="abrirModal()" class="SlotInven"></div>
+          <div id="slot2" class="SlotInven"></div>
+          <div id="slot3" class="SlotInven"></div>
+          <div id="slot4" class="SlotInven"></div>
+          <div id="slot5" class="SlotInven"></div>
+        </div>
+      </div>
+        </div>
+    <div id="fundo-overlay" class="oculto" onclick="fecharModal(event)">
+      
+      <div id="caixa-flutuante">
+        <div class="BattlesTitles">Nome do Item</div>
+          <p style="color: white; padding: 10px;">Descrição do item aparece aqui...</p>
+        
+        <div id="Botoes-container">
+          <button class="btnI" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
+        </div>
+      </div>
+    
+    </div>
+    
+  </div>
+      
+  <div id="Botoes-container">
+    <button class="btnI" onclick="">SEI SIM</button>
+    <button class="btnI" onclick="mudarTela('torre-tela')">VOLTAR</button>
+  </div>
+</div>
+<!----------------------------------------------------->
