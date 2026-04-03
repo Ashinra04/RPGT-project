@@ -1,6 +1,56 @@
 /* =========================================
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
+/* divs com BORDERS*/
+.Border2S{
+  border: 2px solid #d28f22;
+}
+
+/* divs com DISPLAY FLEX*/
+.DisplayFlex {
+  display: flex;
+}
+
+/* Divs com ALIGN-ITEMS CENTER */
+.A-I_Center {
+  align-items: center;
+}
+/* Divs com JUSTIFY-CONTENT CENTER */
+.J-C_Center {
+  justify-content: center;
+}
+/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
+.DFlexALCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagens com cover */
+.ImgCover {
+  background-size: cover;
+}
+
+/* divs com BOX-SIZING */
+.BoxSizing {
+  box-sizing: border-box;
+}
+
+/* divs com width 100% */
+.width100 {
+  width: 100%;
+}
+
+/* divs com height 100% */
+.heigth100 {
+  width: 100%;
+}
+/* divs imagem contain% */
+.imgContain {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 
 .colors{
   color: #0d0f36;
@@ -9,6 +59,7 @@
   color: #b9f1d6;
   color: #5d0018;
 }
+
 .bordas {
   color: #d28f22;
   color: #a0abbc;
@@ -27,7 +78,6 @@
 
 #inventario-tela {
   box-sizing: border-box;
-  gap: 5px;
 }
 
 #inventario-body {
@@ -36,7 +86,9 @@
   background-color: #black;
   display: flex;
   flex-direction: column;
-  border: 2px solid #d28f22;
+  border-top: 2px solid #d28f22;
+  border-left: 2px solid #d28f22;
+  border-right: 2px solid #d28f22;
   box-sizing: border-box;
   padding: 5px;
   gap: 10px;
@@ -46,14 +98,14 @@
   height: 50%;
   width: 100%;
   background-color: #0d0f36;
-  border: 2px solid #a0abbc;
+  
 }
 
 #IRow1 {
   
 }
 #IRow2 {
-  
+  border: 2px solid #a0abbc;
 }
 
 .GSboxes {
@@ -96,7 +148,7 @@
   height: 25%;
   width: 80%;
   background-color: white;
-  border: 2px solid #a0abbc;
+  border: 1px solid #a0abbc;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -159,41 +211,61 @@
 #CategoriaItems{
   height: 18%;
   width: 100%;
-  background-color: #294380;
-  border: 2px solid #a0abbc;
+  background-color: #5d0018;
   display: flex;
   flex-direction: row;
-}
-
-#CategoriaItems {
+  border-bottom: 2px solid #a0abbc;
   box-sizing: border-box;
   gap: 2px;
+  padding: 3px;
 }
+
 .SlotCategory {
   height: 100%;
   width: 20%;
   border: 2px solid #d28f22;
 }
+#CAll {
+  color: white;
+  font-size: 20px;
+}
+#CWeapons {
+  background-image: url('/imagens/Icons/sword.png');
+}
+#CArmors {
+  background-image: url('/imagens/Icons/armor.png');
+}
+#CPotions {
+  background-image: url('/imagens/Icons/sword.png');
+}
+#CKeys {
+  background-image: url('/imagens/Icons/sword.png');
+}
 
 #ItemsSlots{
   height: 82%;
   width: 100%;
-  background-color: gray;
-  border: 2px solid #a0abbc;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  gap: 2px;
+  background-color: #0d0f36;
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 12vh;
+  gap: 5px;
+  padding: 5px;
+}
+
+#ItemsSlots::-webkit-scrollbar {
+  display: none; 
 }
 
 .SlotInven {
-  min-height: 30%;
-  width: 100%;
   border: 2px solid #d28f22;
+  background-color: #5d0018;
+  display: flex;
+  flex-direction: row;
 }
 
 /* O FUNDO ESCURO */
@@ -203,13 +275,8 @@
   left: 0;
   width: 100vw;
   height: 100dvh;
-  background-color: rgba(0, 0, 0, 0.7); /* Preto com 70% de transparência */
-  z-index: 9999; /* Garante que vai ficar na frente do menu, das barras, de TUDO */
-  
-  /* Flexbox para centralizar a caixa no meio da tela */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
 }
 
 /* A CAIXA FLUTUANTE */

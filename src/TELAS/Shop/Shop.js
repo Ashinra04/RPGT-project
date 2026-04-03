@@ -1,6 +1,6 @@
 // A lista de itens com os atributos deles
 
-let InventarioJogador = {
+window.InventarioJogador = {
     "Potion": 3,
     "Potionx2": 0,
     "Energy": 2,
