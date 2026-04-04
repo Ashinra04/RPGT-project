@@ -285,3 +285,53 @@
   cursor: pointer;
   font-family: inherit;
 } 
+
+/* ForjaBuy-CAIXA */
+#Forja-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#rowFC {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  height: 12%;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.FTitleC {
+  height: 100%;
+  width: 20%;
+  border: 2px solid #d28f22;
+  background-color: #5d0018;
+}
+#WCategoria {
+  background-image: url('/imagens/Icons/sword.png');
+}
+#ArmorCategoria {
+  background-image: url('/imagens/Icons/armor.png');
+}
+#AceCategoria {
+  background-image: url('/imagens/Icons/Rings.png');
+}
+
+#ForjaItemsContainer {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.fslot {
+  height: 100%;
+  width: au%;
+  border: 2px solid #d28f22;
+  background-color: #294380;
+}
