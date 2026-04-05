@@ -334,4 +334,9 @@
   width: au%;
   border: 2px solid #d28f22;
   background-color: #294380;
+  
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }

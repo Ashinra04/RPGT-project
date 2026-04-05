@@ -15,55 +15,57 @@ window.mudarTelaForja = function (idDaTelaAlvo) {
 }
 
 let inventarioForja = {
-  Armas: [
-    "Iron_sword",
-    "Iron_lance",
-    "Iron_Shield",
-    "Iron_dagger",
-    "bow",
-    "pistol",
-    "rifle",
-    "axe",
-    "mace",
-    "mangual"
-  ],
-  Armors: {
+  weapon: {
+    "Sword": "/imagens/Forja/WSword.png",
+    "Lance": "/imagens/Forja/WLance.png",
+    "Shield": "/imagens/Forja/WShield.png",
+    "Dagger": "/imagens/Forja/WDagger.png",
+    "bow": "/imagens/Forja/WBow.png",
+    "Staff": "/imagens/Forja/WStaff.png",
+    "Wand": "/imagens/Forja/Wand.png",
+    "WBook": "/imagens/Forja/WBook.png"
+  },
+  armor: {
+    "Iron_armor": "/imagens/Forja/Iron_helmet.png",
+    "Iron_helmet": "/imagens/Forja/Iron_armor.png",
+    "Iron_pants": "/imagens/Forja/Iron_pants.png",
+    "Iron_gloves": "/imagens/Forja/Iron_gloves.png",
+    "Iron_boots": "/imagens/Forja/Iron_boots.png",
     "Leather_helmet": "/imagens/Forja/Leather_helmet.png",
     "Leather_armor": "/imagens/Forja/Leather_armor.png",
     "Leather_pants": "/imagens/Forja/Leather_pants.png",
     "Leather_gloves": "/imagens/Forja/Leather_gloves.png",
     "Leather_boots": "/imagens/Forja/Leather_boots.png"
-  },
-  acessorio: [
-    "ring",
-    "amulet",
-    "cinto"
-    ]
+  }
 };
 
-/* "Iron_armor",
-    "Iron_helmet",
-    "Iron_pants",
-    "Iron_gloves",
-    "Iron_boots", */
+let categoriaSelecionada = null;
 
 window.categoriaId = function(idCategoria) {
+  let container = document.getElementById('ForjaItemsContainer');
+  container.innerHTML = ''; 
+  
+  let listaItems = inventarioForja[idCategoria];
 
-  if(idCategoria === weapon) {
-    forEach() {
-      document.createElement('div');
-      divItem.id = nome;
+  if (listaItems) {
+    
+    for (let item in listaItems) {
+      const divSlot = document.createElement('div');
+      divSlot.classList.add('fslot');
+      divSlot.id = item;
+      const caminhoImagem = listaItems[item];
+      const img = document.createElement('img');
+      img.src = caminhoImagem;
+      img.style.width = "100%";
+      
+      divSlot.appendChild(img);
+      container.appendChild(divSlot);
     }
-  }
-  
-  else if(idCategoria === armors) {
     
+  } else {
+    console.log("Essa categoria ainda não existe no objeto inventarioForja!");
   }
-  else if(idCategoria === accessories) {
-    
-  }
-  
-}
+};
 
 window.DesenharForjaBuy = function() {
   
