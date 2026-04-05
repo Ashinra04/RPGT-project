@@ -49,6 +49,7 @@ body {
   width: 100%;
   height: 8vh;
   background-color: #121312;
+  font-family: 'MedievalSharp', cursive;
   border: 2px solid #d28f22;
   display: flex;
   flex-direction: row;

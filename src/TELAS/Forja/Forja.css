@@ -1,6 +1,25 @@
-/* =========================================
-    TELA FORJA
-   ========================================= */
+/* Importação única (está correta!) */
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=MedievalSharp&family=Saira+Stencil:ital,wght@0,100..900;1,100..900&display=swap');
+
+.saira-stencil {
+  font-family: "Saira Stencil", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.medievalsharp {
+  font-family: "MedievalSharp", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.jersey-15 {
+  font-family: "Jersey 15", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 .colors {
   color: #0d0f36;
@@ -9,11 +28,13 @@
   color: #b9f1d6;
 }
 
+/* =========================================
+    TELA FORJA
+=========================================== */
 #forja-tela {
   background-color: #121312;
 }
-   
-   /* TITLE-CAIXA */
+
 #Forja-Title {
   height: 7vh;
   color: white;
@@ -334,9 +355,100 @@
   width: au%;
   border: 2px solid #d28f22;
   background-color: #294380;
-  
   display: flex;  
   justify-content: center;
   align-items: center;
   overflow: hidden;
+}
+
+#ForjaPopUp {
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+#PopUpInfos {
+  width: 80%;
+  height: 60%;
+  background-color: #294380;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #a0abbc;
+}
+
+#FItemsNome {
+  width: 100%;
+  height: 12%;
+  border-bottom: 3px solid #a0abbc;
+  background-color: #0d0f36;
+  color: white;
+  font-size: 24px;
+}
+#FitemsIconInfo {
+  width: 100%;
+  height: 58%;
+  border-bottom: 3px solid #a0abbc;
+  display: flex;
+  flex-direction: row;
+  box-shadow: border-box;
+  padding: 4px;
+  gap: 2px;
+}
+#FItemIcon {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #d28f22;
+}
+.FItemIcon-filho {
+  background-color: #0d0f36;
+}
+#ImgF {
+  width: 100%;
+  height: 40%;
+  border-bottom: 2px solid #d28f22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#ImgF img {
+  max-width: 95%; 
+  max-height: 95%; 
+  object-fit: contain;
+}
+
+#InfoF {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+}
+.STatusRow, .STatusRow2 {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  color: white;
+  box-sizing: border-box;
+  padding-left: 5px;
+  font-size: 12px;
+}
+.STatusRow {
+  border-bottom: 1px solid #d28f22;
+}
+
+#FItemInfo {
+  display: flex;
+  border: 2px solid #d28f22;
+}
+.FC {
+  width: 50%;
+  height: 100%;
+}
+
+#FBoxButtons {
+  width: 100%;
+  height: 30%;
 }

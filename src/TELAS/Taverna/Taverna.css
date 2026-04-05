@@ -137,6 +137,7 @@
   color: white;
   cursor: pointer;
   font-family: inherit;
+  font-size: 17px;
 }
 
 /* =========================================
@@ -313,11 +314,4 @@
   align-items: center;
   box-sizing: border-box;
   padding-left: 8px;
-}
-
-.colors {
-  color: #0d0f36;
-  color: #294380;
-  color: #69d2cd;
-  color: #b9f1d6;
 }

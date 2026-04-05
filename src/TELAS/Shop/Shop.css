@@ -110,6 +110,8 @@
   height: 100%;
   color: white;
   background-color: #5d0018;
+  font-family: "MedievalSharp", cursive;
+  font-size: 18px;
 }
 
 /*---------------------------------*/
@@ -195,4 +197,5 @@
   color: white;
   cursor: pointer;
   font-family: inherit;
+  font-size: 18px;
 }
