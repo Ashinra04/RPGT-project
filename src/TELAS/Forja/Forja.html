@@ -22,11 +22,11 @@
       <div id="ForjaItemsContainer" class="Frow"></div>
       
       <div id="ForjaPopUp" onclick="OcultarInfoContainer()" class="oculto DFlexALCenter">
+        <div id="PopUp-money"></div>
         <div id="PopUpInfos">
-          <div id="FItemsNome" class="medievalsharp DFlexALCenter">
-            ITEM NAME
-          </div>
-          <div id="FitemsIconInfo">
+          <div id="PopUp-ItemNome" class="medievalsharp DFlexALCenter"></div>
+          
+          <div id="PopUp-IconInfo">
             <div id="FItemIcon" class="FC">
               <div id="ImgF" class="DFlexALCenter FItemIcon-filho"></div>
               <div id="InfoF" class="FItemIcon-filho">
@@ -38,9 +38,31 @@
                 <div id="DES" class="STatusRow2">AGILIDADE: </div>
               </div>
             </div>
-            <div id="FItemInfo" class="FC"></div>
+            
+            <div id="PopUp-Comparacao" class="xx oculto FC">
+              <div id="ImgFCom" class="DFlexALCenter FItemIcon-filho"></div>
+              <div id="InfoFCom" class="FItemIcon-filho">
+                <div id="atk-armor" class="STatusRow">DANO: 
+                </div>
+                <div id="vit" class="STatusRow">VITALIDADE: </div>
+                <div id="for" class="STatusRow">FORÇA:</div>
+                <div id="int" class="STatusRow">INTELIGENCIA:</div>
+                <div id="des" class="STatusRow2">AGILIDADE: </div>
+              </div>
+            </div>
+            
+            <div id="PopUp-itemInfo" class="xx FC">
+              <div id="za" class=""></div>
+              <div id="PrecosITEMS" class="">PREÇO: </div>
+            </div>
+            
           </div>
-          <div id="FBoxButtons"></div>
+          
+          <div id="PopUp-Buttons">
+            <div id="" onclick="COMPOrDETA('PopUp-itemInfo')" class="PopUpBtn">DETALHES</div>
+            <div id="" onclick="COMPOrDETA('PopUp-Comparacao')" class="PopUpBtn">COMPARAR</div>
+            <div id="PopUp-BTNcomprar" onclick="comprarItem()" class="PopUpBtn">COMPRAR</div>
+          </div>
         </div>
       </div>
   </div>

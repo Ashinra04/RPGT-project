@@ -12,41 +12,27 @@ window.mudarTelaForja = function (idDaTelaAlvo) {
     }
 }
 
-let inventarioForja = {
-  weapon: {
-    "Sword": "/imagens/Forja/WSword.png",
-    "Lance": "/imagens/Forja/WLance.png",
-    "Shield": "/imagens/Forja/WShield.png",
-    "Dagger": "/imagens/Forja/WDagger.png",
-    "bow": "/imagens/Forja/WBow.png",
-    "Staff": "/imagens/Forja/WStaff.png",
-    "Wand": "/imagens/Forja/Wand.png",
-    "Book": "/imagens/Forja/WBook.png"
-  },
-  armor: {
-    "Iron_helmet": "/imagens/Forja/Iron_helmet.png",
-    "Iron_armor": "/imagens/Forja/Iron_armor.png",
-    "Iron_pants": "/imagens/Forja/Iron_pants.png",
-    "Iron_gloves": "/imagens/Forja/Iron_gloves.png",
-    "Iron_boots": "/imagens/Forja/Iron_boots.png",
-    "Leather_helmet": "/imagens/Forja/Leather_helmet.png",
-    "Leather_armor": "/imagens/Forja/Leather_armor.png",
-    "Leather_pants": "/imagens/Forja/Leather_pants.png",
-    "Leather_gloves": "/imagens/Forja/Leather_gloves.png",
-    "Leather_boots": "/imagens/Forja/Leather_boots.png"
+window.COMPOrDETA = function(idComInfo) {
+  if(idComInfo === "PopUp-itemInfo") {
+    document.getElementById('PopUp-itemInfo').classList.remove('oculto');
+    document.getElementById('PopUp-Comparacao').classList.add('oculto');
   }
-};
+  else if(idComInfo === "PopUp-Comparacao") {
+    document.getElementById('PopUp-Comparacao').classList.remove('oculto');
+    document.getElementById('PopUp-itemInfo').classList.add('oculto');
+  }
+}
 
 let ItemsPerfil = {
   weapon: {
-    "Sword":  { dano: 12, Vitalidade: 0, forca: 10, des: 6, int: 0 },  // 28
-    "Lance":  { dano: 10, Vitalidade: 0, forca: 14, des: 4, int: 0 },  // 28
-    "Shield": { def: 10,  Vitalidade: 0, forca: 12, des: 6, int: 0 }, // 28
-    "Dagger": { dano: 7,  Vitalidade: 0, forca: 5,  des: 16, int: 0 }, // 28
-    "bow":    { dano: 8,  Vitalidade: 0, forca: 8,  des: 12, int: 0 }, // 28
-    "Staff":  { dano: 8, Vitalidade: 0, forca: 4,  des: 6,  int: 10 }, // 28
-    "Wand":   { dano: 4,  Vitalidade: 0, forca: 0,  des: 10, int: 14 }, // 28
-    "Book":   { dano: 2,  Vitalidade: 0, forca: 0,  des: 8,  int: 18 }  // 28
+    "Sword":  { dano: 12, Vitalidade: 0, forca: 10, des: 6, int: 0, preco: 80 },  // 28
+    "Lance":  { dano: 10, Vitalidade: 0, forca: 14, des: 4, int: 0, preco: 115 },  // 28
+    "Shield": { def: 10,  Vitalidade: 0, forca: 12, des: 6, int: 0, preco: 60 }, // 28
+    "Dagger": { dano: 7,  Vitalidade: 0, forca: 5,  des: 16, int: 0, preco: 70 }, // 28
+    "bow":    { dano: 8,  Vitalidade: 0, forca: 8,  des: 12, int: 0, preco: 110 }, // 28
+    "Staff":  { dano: 8, Vitalidade: 0, forca: 4,  des: 6,  int: 10, preco: 100 }, // 28
+    "Wand":   { dano: 4,  Vitalidade: 0, forca: 0,  des: 10, int: 14, preco: 50 }, // 28
+    "Book":   { dano: 2,  Vitalidade: 0, forca: 0,  des: 8,  int: 18, preco: 150 }  // 28
 },
   armor: {
     "Iron_helmet": { Armadura: 8, Vitalidade: 14, forca: 12, des: 2, int: 0 },
@@ -64,19 +50,24 @@ let ItemsPerfil = {
 
 let categoriaSelecionada = null;
 
+let itemAComprar = null;
+let categoriaDoItem = null;
+
 window.categoriaId = function(idCategoria) {
   let container = document.getElementById('ForjaItemsContainer');
   container.innerHTML = ''; 
   
-  let listaItems = inventarioForja[idCategoria];
+  // ADAPTAÇÃO: Puxando as imagens direto do banco global!
+  let listaImagens = window.BancoDeimgDosItems[idCategoria];
 
-  if (listaItems) {
-    for (let item in listaItems) {
+  if (listaImagens) {
+    for (let item in listaImagens) { // item vai ser "Sword", "Lance", etc
       const divSlot = document.createElement('div');
       divSlot.classList.add('fslot');
       divSlot.id = item;
       
-      const caminhoImagem = listaItems[item];
+      // ADAPTAÇÃO: O caminho da imagem agora vem do banco
+      const caminhoImagem = listaImagens[item]; 
       const img = document.createElement('img');
       img.src = caminhoImagem;
       img.style.width = "100%";
@@ -91,10 +82,11 @@ window.categoriaId = function(idCategoria) {
   }
 };
 
-// Adicionamos 'categoria' nos parâmetros
 window.MostrarInfoContainer = function(nomeItem, urlImagem, categoria) {
   const infoContainer = document.getElementById('ForjaPopUp');
   infoContainer.classList.remove('oculto');
+  
+  document.getElementById('PopUp-money').innerText = "GOLD: " + window.goldPlayer;
 
   const divImagemDestino = document.getElementById('ImgF');
   divImagemDestino.innerHTML = ''; 
@@ -102,18 +94,21 @@ window.MostrarInfoContainer = function(nomeItem, urlImagem, categoria) {
   imgGrande.src = urlImagem;
   divImagemDestino.appendChild(imgGrande);
   
-  document.getElementById('FItemsNome').innerText = nomeItem;
+  document.getElementById('PopUp-ItemNome').innerText = nomeItem;
   
   const dados = ItemsPerfil[categoria][nomeItem];
+  
+  itemAComprar = nomeItem;
+  categoriaDoItem = categoria;
 
   if (dados) {
     const danoDefElem = document.getElementById('DANO-DEF');
   
     if (categoria === 'weapon') {
       if (nomeItem === "Shield") {
-        danoDefElem.innerText = "Defesa: " + (dados.def || 0);
+        danoDefElem.innerText = "DEFESA: " + (dados.def || 0);
       } else {
-        danoDefElem.innerText = "Dano: " + (dados.dano || 0);
+        danoDefElem.innerText = "DANO: " + (dados.dano || 0);
       }
     } 
     else if (categoria === 'armor') {
@@ -124,6 +119,7 @@ window.MostrarInfoContainer = function(nomeItem, urlImagem, categoria) {
     document.getElementById('FOR').innerText = "FORÇA: " + (dados.forca || 0);
     document.getElementById('INT').innerText = "INTELIGENCIA: " + (dados.int || 0);
     document.getElementById('DES').innerText = "DESTREZA: " + (dados.des || 0);
+    document.getElementById('PrecosITEMS').innerText = "PREÇO: " + (dados.preco || 0);
   }
 }
 
@@ -133,3 +129,30 @@ window.OcultarInfoContainer = function() {
   }
 }
 
+window.comprarItem = function() {
+
+  const dadosItem = ItemsPerfil[categoriaDoItem][itemAComprar];
+  const preco = dadosItem.preco || 0;
+
+  if (window.goldPlayer >= preco) {
+    
+    window.goldPlayer -= preco;
+
+    if (window.InventarioJogador[itemAComprar] !== undefined) {
+      window.InventarioJogador[itemAComprar] += 1;
+    } else {
+      window.InventarioJogador[itemAComprar] = 1;
+    }
+
+    // 5. ATUALIZAR A INTERFACE (Mude o ID para o ID onde aparece seu ouro na tela)
+    const goldDisplay = document.getElementById('GoldDisplayGeral'); 
+    if(goldDisplay) goldDisplay.innerText = window.goldPlayer;
+
+    alert("Você comprou: " + itemAComprar + "!");
+    
+    document.getElementById('ForjaPopUp').classList.add('oculto');
+
+  } else {
+    alert("Ouro insuficiente! Você precisa de " + preco + " Gold.");
+  }
+}
