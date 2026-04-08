@@ -6,6 +6,13 @@
   color: #294380;
   color: #69d2cd;
   color: #b9f1d6;
+  color: #5d0018;
+}
+
+.bordas {
+  color: #d28f22;
+  color: #a0abbc;
+  color: #2a7f8a;
 }
 
 #battle-tela {
@@ -107,8 +114,70 @@
 ========================================= */
 
 #combate-tela {
-  background-image: url('/imagens/cenarios/Tower_Cenario.jpeg');
-  background-position: center;
+  width: 100vw;
+  height: 100dvh;
+  background-color: #294380;
+  display: flex;
+  flex-direction: column;
+}
+
+#InfoRow {
+  width: 100%;
+  height: 15%; 
+  border: 1px solid white;
+}
+
+.battlefield-row {
+  width: 100%;
+  height: 55%; 
+  position: relative;
+  border: 1px solid white;
+}
+
+.ui-row {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a2a4f;
+  border-top: 2px solid #a0abbc;
+  border: 1px solid white;
+}
+
+.Aliados, .Enemies {
+  position: absolute;
+  width: 25%;
+  height: 50%;
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center bottom; 
+  filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.4));
+}
+
+/* === INIMIGOS (Coluna da Direita) === */
+.Enemies {
+  background-image: url('/imagens/monstros/goblinE.png');
+}
+
+#Enemy3 { right: 5%; bottom: 65%;  z-index: 1; }
+#Enemy1 { right: 5%; bottom: 45%; z-index: 2; }
+#Enemy2 { right: 5%; bottom: 25%; z-index: 3; } 
+
+/* === ALIADOS (Coluna da Esquerda) === */
+.Aliados {
+  background-image: url('/imagens/Characters/knight_batle.png');
+}
+#Aliado2 { left: 5%; bottom: 60%;  z-index: 1; } 
+#Player  { left: 5%; bottom: 40%; z-index: 2; } 
+#Aliado1 { left: 5%; bottom: 20%; z-index: 3; }
+
+
+/* === CAIXA PRETA DE AÇÕES === */
+#BoxAcoesInfos {
+  width: 95%; 
+  height: 90%;
+  background-color: #121212;
+  border: 2px solid #2a7f8a;
+  border-radius: 8px;
 }

@@ -1,70 +1,6 @@
 /* =========================================
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
-/* divs com BORDERS*/
-.Border2S{
-  border: 2px solid #d28f22;
-}
-
-/* divs com DISPLAY FLEX*/
-.DisplayFlex {
-  display: flex;
-}
-
-/* Divs com ALIGN-ITEMS CENTER */
-.A-I_Center {
-  align-items: center;
-}
-/* Divs com JUSTIFY-CONTENT CENTER */
-.J-C_Center {
-  justify-content: center;
-}
-/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
-.DFlexALCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Imagens com cover */
-.ImgCover {
-  background-size: cover;
-}
-
-/* divs com BOX-SIZING */
-.BoxSizing {
-  box-sizing: border-box;
-}
-
-/* divs com width 100% */
-.width100 {
-  width: 100%;
-}
-
-/* divs com height 100% */
-.heigth100 {
-  width: 100%;
-}
-/* divs imagem contain% */
-.imgContain {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.colors{
-  color: #0d0f36;
-  color: #294380;
-  color: #69d2cd;
-  color: #b9f1d6;
-  color: #5d0018;
-}
-
-.bordas {
-  color: #d28f22;
-  color: #a0abbc;
-  color: #2a7f8a;
-}
 
 .btnI {
   height: auto;
@@ -147,7 +83,7 @@
 .Gslots {
   height: 25%;
   width: 80%;
-  background-color: white;
+  background-color: #5d0018;
   border: 1px solid #a0abbc;
   background-position: center;
   background-repeat: no-repeat;
@@ -224,9 +160,18 @@
   height: 100%;
   width: 20%;
   border: 2px solid #d28f22;
+  background-color: #69d2cd;
 }
+
+.CategorySelect {
+  height: 100%;
+  width: 20%;
+  border: 2px solid black;
+  background-color: #2a7f8a;
+}
+
 #CAll {
-  color: white;
+  color: black;
   font-size: 20px;
 }
 #CWeapons {
@@ -236,10 +181,10 @@
   background-image: url('/imagens/Icons/armor.png');
 }
 #CPotions {
-  background-image: url('/imagens/Icons/sword.png');
+  background-image: url('/imagens/Icons/IconPotion.png');
 }
 #CKeys {
-  background-image: url('/imagens/Icons/sword.png');
+  background-image: url('/imagens/Icons/Rings.png');
 }
 
 #ItemsSlots{
@@ -270,7 +215,7 @@
 
 /* O FUNDO ESCURO */
 #fundo-overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -279,13 +224,67 @@
   z-index: 9999;
 }
 
-/* A CAIXA FLUTUANTE */
 #caixa-flutuante {
   width: 80%;
-  height: auto;
-  min-height: 40%;
-  background-color: #0d0f36; /* Azul escuro do seu jogo */
-  border: 2px solid #d28f22; /* Borda dourada */
+  height: 70%;
+  background-color: #0d0f36;
+  border: 2px solid #d28f22;
   display: flex;
   flex-direction: column;
+}
+
+#ItemTitleName {
+  width: 100%;
+  height: 8%; 
+  border-bottom: 2px solid #d28f22; 
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+#ItemsDescricoesbox {
+  width: 100%;
+  flex-grow: 1;
+}
+
+/* 1. O CONTAINER PAI (A Caixa dos Botões) */
+#BotoesBOX {
+  width: 100%;
+  height: 20%; 
+  border-top: 2px solid #d28f22;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+}
+
+/* 2. O ESTILO DOS BOTÕES */
+.btnInventory {
+  width: 100%;  
+  height: 100%;
+  background-color: #5d0018;
+  border: 2px solid #a0abbc;
+  color: white; 
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* 3. AS POSIÇÕES (A Batalha Naval) */
+#btnEQUIPAR {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+#btnCOMPARAR {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+#btnFECHAR {
+  grid-row: 2;
+  grid-column: 1 / 3;
 }

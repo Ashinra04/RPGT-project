@@ -25,26 +25,26 @@ window.COMPOrDETA = function(idComInfo) {
 
 let ItemsPerfil = {
   weapon: {
-    "Sword":  { dano: 12, Vitalidade: 0, forca: 10, des: 6, int: 0, preco: 80 },  // 28
-    "Lance":  { dano: 10, Vitalidade: 0, forca: 14, des: 4, int: 0, preco: 115 },  // 28
-    "Shield": { def: 10,  Vitalidade: 0, forca: 12, des: 6, int: 0, preco: 60 }, // 28
-    "Dagger": { dano: 7,  Vitalidade: 0, forca: 5,  des: 16, int: 0, preco: 70 }, // 28
-    "bow":    { dano: 8,  Vitalidade: 0, forca: 8,  des: 12, int: 0, preco: 110 }, // 28
-    "Staff":  { dano: 8, Vitalidade: 0, forca: 4,  des: 6,  int: 10, preco: 100 }, // 28
-    "Wand":   { dano: 4,  Vitalidade: 0, forca: 0,  des: 10, int: 14, preco: 50 }, // 28
-    "Book":   { dano: 2,  Vitalidade: 0, forca: 0,  des: 8,  int: 18, preco: 150 }  // 28
+    "Sword":  { dano: 12, Vitalidade: 0, forca: 10, des: 6, int: 0, preco: 80, tipoSlot: "weapon" },  // 28
+    "Lance":  { dano: 10, Vitalidade: 0, forca: 14, des: 4, int: 0, preco: 115, tipoSlot: "weapon" },  // 28
+    "Shield": { def: 10,  Vitalidade: 0, forca: 12, des: 6, int: 0, preco: 60, tipoSlot: "segunda_mao" }, // 28
+    "Dagger": { dano: 7,  Vitalidade: 0, forca: 5,  des: 16, int: 0, preco: 70, tipoSlot: "weapon" }, // 28
+    "bow":    { dano: 8,  Vitalidade: 0, forca: 8,  des: 12, int: 0, preco: 110, tipoSlot: "weapon" }, // 28
+    "Staff":  { dano: 8, Vitalidade: 0, forca: 4,  des: 6,  int: 10, preco: 100, tipoSlot: "weapon" }, // 28
+    "Wand":   { dano: 4,  Vitalidade: 0, forca: 0,  des: 10, int: 14, preco: 50, tipoSlot: "weapon" }, // 28
+    "Book":   { dano: 2,  Vitalidade: 0, forca: 0,  des: 8,  int: 18, preco: 150, tipoSlot: "segunda_mao" }  // 28
 },
   armor: {
-    "Iron_helmet": { Armadura: 8, Vitalidade: 14, forca: 12, des: 2, int: 0 },
-    "Iron_armor": { Armadura: 16, Vitalidade: 12, forca: 8, des: 0, int: 0 },
-    "Iron_pants": { Armadura: 13, Vitalidade: 10, forca: 12, des: 1, int: 0 },
-    "Iron_gloves": { Armadura: 7, Vitalidade: 12, forca: 15, des: 2, int: 0 },
-    "Iron_boots": { Armadura: 5, Vitalidade: 13, forca: 15, des: 3, int: 0 },
-    "Leather_helmet": { Armadura: 4, Vitalidade: 6, forca: 0, des: 6, int: 12 },
-    "Leather_armor": { Armadura: 8, Vitalidade: 11, forca: 0, des: 5, int: 4 },
-    "Leather_pants": { Armadura: 5, Vitalidade: 9, forca: 0, des: 7, int: 7 },
-    "Leather_gloves": { Armadura: 3, Vitalidade: 7, forca: 0, des: 9, int: 9 },
-    "Leather_boots": { Armadura: 2, Vitalidade: 6, forca: 0, des: 12, int: 8 }
+    "Iron_helmet": { Armadura: 8, Vitalidade: 14, forca: 12, des: 2, int: 0, tipoSlot: "helmet" },
+    "Iron_armor": { Armadura: 16, Vitalidade: 12, forca: 8, des: 0, int: 0, tipoSlot: "armor" },
+    "Iron_pants": { Armadura: 13, Vitalidade: 10, forca: 12, des: 1, int: 0, tipoSlot: "pants" },
+    "Iron_gloves": { Armadura: 7, Vitalidade: 12, forca: 15, des: 2, int: 0, tipoSlot: "gloves" },
+    "Iron_boots": { Armadura: 5, Vitalidade: 13, forca: 15, des: 3, int: 0, tipoSlot: "boots" },
+    "Leather_helmet": { Armadura: 4, Vitalidade: 6, forca: 0, des: 6, int: 12, tipoSlot: "helmet" },
+    "Leather_armor": { Armadura: 8, Vitalidade: 11, forca: 0, des: 5, int: 4, tipoSlot: "armor" },
+    "Leather_pants": { Armadura: 5, Vitalidade: 9, forca: 0, des: 7, int: 7, tipoSlot: "pants" },
+    "Leather_gloves": { Armadura: 3, Vitalidade: 7, forca: 0, des: 9, int: 9, tipoSlot: "gloves" },
+    "Leather_boots": { Armadura: 2, Vitalidade: 6, forca: 0, des: 12, int: 8, tipoSlot: "boots" }
   }
 };
 
@@ -129,7 +129,7 @@ window.OcultarInfoContainer = function() {
   }
 }
 
-window.comprarItem = function() {
+window.comprarGear = function() {
 
   const dadosItem = ItemsPerfil[categoriaDoItem][itemAComprar];
   const preco = dadosItem.preco || 0;
@@ -138,16 +138,16 @@ window.comprarItem = function() {
     
     window.goldPlayer -= preco;
 
-    if (window.InventarioJogador[itemAComprar] !== undefined) {
-      window.InventarioJogador[itemAComprar] += 1;
+
+    if (window.InventarioJogador[categoriaDoItem]) {
+        window.InventarioJogador[categoriaDoItem].push(itemAComprar);
     } else {
-      window.InventarioJogador[itemAComprar] = 1;
+        console.error("A categoria " + categoriaDoItem + " não existe no InventarioJogador!");
     }
 
-    // 5. ATUALIZAR A INTERFACE (Mude o ID para o ID onde aparece seu ouro na tela)
     const goldDisplay = document.getElementById('GoldDisplayGeral'); 
     if(goldDisplay) goldDisplay.innerText = window.goldPlayer;
-
+    
     alert("Você comprou: " + itemAComprar + "!");
     
     document.getElementById('ForjaPopUp').classList.add('oculto');

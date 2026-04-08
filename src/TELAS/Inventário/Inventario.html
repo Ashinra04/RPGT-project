@@ -7,9 +7,8 @@
           
       <div id="Gears-box" class="GSboxes">
         <div id="GearsColumn1" class="GearsColumn">
-          <div id="" class="svazio"></div>
+          <div id="SAmulet" class="Gslots"></div>
           <div id="SWeapon" class="Gslots"></div>
-          <div id="SBelt" class="Gslots"></div>
           <div id="SRing1" class="Gslots"></div>
         </div>
             
@@ -21,9 +20,8 @@
         </div>
             
         <div id="GearsColumn3" class="GearsColumn">
-          <div id="SAmulet" class="Gslots"></div>
-          <div id="SShield" class="Gslots"></div>
           <div id="SGloves" class="Gslots"></div>
+          <div id="SShield" class="Gslots"></div>
           <div id="SRing2" class="Gslots"></div>
         </div>
       </div>
@@ -42,26 +40,37 @@
     <div id="IRow2" class="">
       <div id="items-box" class="">
         <div id="CategoriaItems" class="">
-          <div id="CAll" class="SlotCategory DFlexALCenter">ALL</div>
-          <div id="CWeapons" class="SlotCategory imgContain"></div>
-          <div id="CArmors" class="SlotCategory imgContain"></div>
-          <div id="CPotions" class="SlotCategory imgContain"></div>
-          <div id="CKeys" class="SlotCategory imgContain"></div>
+          <div id="CAll" class="SlotCategory DFlexALCenter" onclick="criarInventario(); categoriaSelecionada('CAll')">ALL</div>
+          
+          <div id="CWeapons" class="SlotCategory imgContain" onclick="categoriaWeapon(); categoriaSelecionada('CWeapons')"></div>
+          
+          <div id="CArmors" class="SlotCategory imgContain" onclick="categoriaArmors(); categoriaSelecionada('CArmors')"></div>
+          
+          <div id="CKeys" class="SlotCategory imgContain" onclick="categoriaAcessorios(); categoriaSelecionada('CKeys')"></div>
+          
+          <div id="CPotions" class="SlotCategory imgContain" onclick="categoriaPotions(); categoriaSelecionada('CPotions')"></div>
         </div>
+        
         <div id="ItemsSlots" class="">
           <div onclick="abrirModal()" class="SlotInven">
           </div>
         </div>
       </div>
-        </div>
+    </div>
+    
     <div id="fundo-overlay" class="oculto DFlexALCenter" onclick="fecharModal(event)">
       
       <div id="caixa-flutuante">
-        <div class="BattlesTitles">Nome do Item</div>
-          <p style="color: white; padding: 10px;">Descrição do item aparece aqui...</p>
+        <div id="ItemTitleName"></div>
         
-        <div id="Botoes-container">
-          <button class="btnI" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
+        <div id="ItemsDescricoesbox">
+          <p style="color: white; padding: 10px;">Descrição do item aparece aqui...</p>
+        </div>
+        
+        <div id="BotoesBOX">
+          <button id="btnEQUIPAR" class="btnInventory">EQUIPAR</button>
+          <button id="btnCOMPARAR" class="btnInventory" onclick="">COMPARAR</button>
+          <button id="btnFECHAR" class="btnInventory" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
         </div>
       </div>
     

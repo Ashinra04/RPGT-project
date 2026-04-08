@@ -1,4 +1,30 @@
-window.goldPlayer = 60;
+window.goldPlayer = 120;
+
+window.GearsEquipados = {
+  helmet: null,
+  armor: null,
+  pants: null,
+  boots: null,
+  gloves: null,
+  weapon: null,
+  segunda_mao: null,
+  ring1: null,
+  ring2: null,
+  amulet: null
+}
+
+const MapaIdsDosSlots = {
+  helmet: 'SHelemt',
+  armor: 'SArmor',
+  pants: 'SPants',
+  boots: 'SBoots',
+  gloves: 'SGloves', 
+  weapon: 'SWeapon',
+  segunda_mao: 'SShield',
+  amulet: 'SAmulet',
+  ring1: 'SRing1',
+  ring2: 'SRing2'
+};
 
 window.BancoDeimgDosItems = {
   icons: {
@@ -87,15 +113,10 @@ window.criarInventario = function() {
     const container = document.getElementById('ItemsSlots');
     if (!container) return;
     
-    // RADAR DE ERRO: Verifica se o banco de imagens existe mesmo
     if (!window.BancoDeimgDosItems) {
       alert("ERRO: O JavaScript não encontrou o 'window.BancoDeimgDosItems'! Verifique o nome da variável no topo do arquivo.");
-      return; // Para a função aqui para não dar crash
+      return; 
     }
-    
-    container.innerHTML = ''; 
-    
-    // ... (resto do seu código do for...in continua aqui) ...
     
     container.innerHTML = ''; 
     
@@ -106,10 +127,11 @@ window.criarInventario = function() {
       for (let nomeItem of arrayDeItens) {
         const slotItem = document.createElement('div');
         slotItem.className = 'SlotInven';
+        
+        slotItem.id = nomeItem;
           
         const img = document.createElement('img');
         
-        // SE HOUVER UM ERRO DE LETRA MAIÚSCULA, VAI QUEBRAR AQUI:
         img.src = window.BancoDeimgDosItems[categoria][nomeItem];
         img.style.width = '100%';
           
@@ -117,7 +139,7 @@ window.criarInventario = function() {
           
         slotItem.onclick = function() {
           if (typeof window.abrirModal === "function") {
-              window.abrirModal();
+              window.abrirModal(nomeItem, categoria); 
           }
         };
           
@@ -125,7 +147,6 @@ window.criarInventario = function() {
       }
     }
 
-    // === 2. CRIAR SLOTS DE CONSUMÍVEIS ===
     let consumiveis = window.InventarioConsumables.consumables;
     
     for (let nomePoçao in consumiveis) {
@@ -140,9 +161,10 @@ window.criarInventario = function() {
         img.style.width = '100%';
           
         slotItem.appendChild(img);
+        
         slotItem.onclick = function() {
           if (typeof window.abrirModal === "function") {
-              window.abrirModal();
+              window.abrirModal(nomePoçao, 'consumables'); 
           }
         };
           
@@ -153,6 +175,101 @@ window.criarInventario = function() {
   } catch (erro) {
     // O "catch" pega o erro se o jogo travar e mostra na tela!
     alert("CRASH NO INVENTÁRIO: " + erro.message);
+  }
+};
+
+window.categoriaWeapon = function() {
+  const container = document.getElementById('ItemsSlots');
+  container.innerHTML = ''; 
+    
+  let arrayDeArmas = window.InventarioJogador.weapon;
+  
+  if (arrayDeArmas) {
+    for (let nomeItem of arrayDeArmas) {
+      const slotItem = document.createElement('div');
+      slotItem.className = 'SlotInven';
+      
+      slotItem.id = nomeItem;
+          
+      const img = document.createElement('img');
+        
+      img.src = window.BancoDeimgDosItems['weapon'][nomeItem];
+      img.style.width = '100%';
+          
+      slotItem.appendChild(img);
+          
+      slotItem.onclick = function() {
+        if (typeof window.abrirModal === "function") {
+            window.abrirModal(nomeItem, 'weapon'); 
+        }
+      };
+          
+      container.appendChild(slotItem);
+    }
+  }
+};
+
+window.categoriaArmors = function() {
+  const container = document.getElementById('ItemsSlots');
+  container.innerHTML = ''; 
+    
+  let arrayDeArmors = window.InventarioJogador.armor;
+  
+  if (arrayDeArmors) {
+    for (let nomeItem of arrayDeArmors) {
+      const slotItem = document.createElement('div');
+      slotItem.className = 'SlotInven';
+          
+      const img = document.createElement('img');
+        
+      img.src = window.BancoDeimgDosItems['armor'][nomeItem];
+      img.style.width = '100%';
+          
+      slotItem.appendChild(img);
+          
+      slotItem.onclick = function() {
+        if (typeof window.abrirModal === "function") {
+            window.abrirModal(nomeItem, 'armor');
+        }
+      };
+          
+      container.appendChild(slotItem);
+    }
+  }
+}
+
+window.categoriaAcessorios = function() {
+  const container = document.getElementById('ItemsSlots');
+  container.innerHTML = ''; 
+}
+
+window.categoriaPotions = function() {
+  const container = document.getElementById('ItemsSlots');
+  container.innerHTML = ''; 
+  
+  let consumiveis = window.InventarioConsumables.consumables;
+    
+  for (let nomePoçao in consumiveis) {
+    let quantidade = consumiveis[nomePoçao];
+      
+    if (quantidade > 0) {
+      const slotItem = document.createElement('div');
+      slotItem.className = 'SlotInven';
+          
+      const img = document.createElement('img');
+      img.src = window.BancoDeimgDosItems.consumables[nomePoçao];
+      img.style.width = '100%';
+          
+      slotItem.appendChild(img);
+      
+      slotItem.onclick = function() {
+        if (typeof window.abrirModal === "function") {
+            window.abrirModal(nomePoçao, 'consumables'); // Avisa que é consumível
+        }
+      };
+          
+      container.appendChild(slotItem);
+    }
   }
 };
 
@@ -168,8 +285,17 @@ window.mudarBox = function (idBoxAlvo) {
   }
 }
 
-window.abrirModal = function() {
+window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
+
+  document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
+  
+  const botaoEquipar = document.getElementById('btnEQUIPAR');
+  
+  botaoEquipar.onclick = function() {
+  
+    window.equiparGear(nomeDoItemClicado, categoriaDoItem);
+  };
 }
 
 window.fecharModal = function(event) {
@@ -178,3 +304,45 @@ window.fecharModal = function(event) {
     document.getElementById('fundo-overlay').classList.add('oculto');
   }
 }
+
+window.categoriaSelecionada =  function(IdCategoria) {
+  const todasAsAbas = document.querySelectorAll('.SlotCategory, .CategorySelect');
+  
+  todasAsAbas.forEach(tela => tela.classList.remove('CategorySelect'));
+  todasAsAbas.forEach(tela => tela.classList.add('SlotCategory'));
+  
+  const CategoriaCor = document.getElementById(IdCategoria);
+    if (CategoriaCor) {
+        CategoriaCor.classList.remove('SlotCategory');
+        CategoriaCor.classList.add('CategorySelect');
+        
+    } else {
+        console.error("A tela " + IdCategoria + " não foi encontrada!");
+    }
+};
+
+
+window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
+  
+  const dadosDoItem = ItemsPerfil[categoriaDoItem][nomeDoItemClicado];
+  
+  if (!dadosDoItem || !dadosDoItem.tipoSlot) {
+    console.error("Este item não tem um tipoSlot configurado no ItemsPerfil!");
+    return;
+  }
+
+  const slotDoItem = dadosDoItem.tipoSlot; 
+
+  window.GearsEquipados[slotDoItem] = nomeDoItemClicado;
+
+  const idDaDivHtml = MapaIdsDosSlots[slotDoItem];
+  const slotDiv = document.getElementById(idDaDivHtml);
+
+  if (slotDiv) {
+    const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
+    
+    slotDiv.innerHTML = `<img src="${caminhoDaImagem}" style="width: 100%; height: 100%; object-fit: contain;">`;
+    
+    alert("Você equipou: " + nomeDoItemClicado);
+  }
+};

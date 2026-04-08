@@ -1,5 +1,4 @@
 
-/*
 let andarAtual = 1;
 
 window.atualizarTorre = function() {
@@ -45,5 +44,3 @@ window.vencerBatalha = function() {
         andarAtual = 1; // Reset ou fim de jogo
     }
 }
-*/
-

@@ -19,9 +19,9 @@ const ItemsLoja = {
 };
 
 window.mudarItem = function (idItem) {
-  // TRAVA DE SEGURANÇA 1: Se o inventário não existir, cria um vazio na hora
-  if (!window.InventarioJogador) window.InventarioJogador = {};
-  // TRAVA DE SEGURANÇA 2: Se o ouro não existir, define como 0
+  
+  if (!window.InventarioConsumables) window.InventarioConsumables = { consumables: {} };
+  
   if (typeof window.goldPlayer === 'undefined') window.goldPlayer = 0;
 
   const imagemDoItem = document.querySelector('#ITEM-Icon img');
@@ -32,11 +32,10 @@ window.mudarItem = function (idItem) {
     document.getElementById('NOMEdoITEM').innerText = itemEscolhido.nome;
     document.getElementById('ITEMDescricao').innerText = itemEscolhido.descricao;
     
-    const quantidadeAtual = window.InventarioJogador[idItem] || 0;
+    const quantidadeAtual = window.InventarioConsumables.consumables[idItem] || 0;
     document.getElementById('QUANTIDADEPlayer').innerText = "Você tem: " + quantidadeAtual;
     
     document.getElementById('coinPlayer').innerText = "🪙 " + window.goldPlayer;
-    
     document.getElementById('PrecoItem').innerText = "Preço:  " + itemEscolhido.Preco;
   } else {
     console.error("Erro: O item " + idItem + " não existe no objeto ItemsLoja.");
@@ -45,9 +44,8 @@ window.mudarItem = function (idItem) {
   ItemSelecionado = idItem;
 };
 
-window.comprarItem = function () {
-  // Garante que as variáveis existem antes de tentar fazer a compra
-  if (!window.InventarioJogador) window.InventarioJogador = {};
+window.comprarPotion = function () {
+  if (!window.InventarioConsumables) window.InventarioConsumables = { consumables: {} };
   if (typeof window.goldPlayer === 'undefined') window.goldPlayer = 0;
   
   if (ItemSelecionado === null) {
@@ -58,11 +56,14 @@ window.comprarItem = function () {
   const ItemPreco = ItemsLoja[ItemSelecionado].Preco;
   
   if(window.goldPlayer >= ItemPreco) {
-    window.goldPlayer -= ItemPreco;
-    window.InventarioJogador.consumables[ItemSelecionado] = (window.InventarioJogador.consumables[ItemSelecionado] || 0) + 1;
 
+    window.goldPlayer -= ItemPreco;
+    
+    window.InventarioConsumables.consumables[ItemSelecionado] = (window.InventarioConsumables.consumables[ItemSelecionado] || 0) + 1;
+
+  
     document.getElementById('coinPlayer').innerText = "🪙 " + window.goldPlayer;
-    document.getElementById('QUANTIDADEPlayer').innerText = "Você tem: " + window.InventarioJogador.consumables[ItemSelecionado];
+    document.getElementById('QUANTIDADEPlayer').innerText = "Você tem: " + window.InventarioConsumables.consumables[ItemSelecionado];
     
   } else {
     alert("Ouro insuficiente para comprar " + ItemSelecionado + "!");

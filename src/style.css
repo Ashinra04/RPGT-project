@@ -1,7 +1,58 @@
 /* =========================================
    ESTILOS PARA O BODY E LAYOUTS
-   ========================================= */
-   
+========================================= */
+
+/* divs com BORDERS*/
+.Border2S{
+  border: 2px solid #d28f22;
+}
+
+/* divs com DISPLAY FLEX*/
+.DisplayFlex {
+  display: flex;
+}
+
+/* Divs com ALIGN-ITEMS CENTER */
+.A-I_Center {
+  align-items: center;
+}
+/* Divs com JUSTIFY-CONTENT CENTER */
+.J-C_Center {
+  justify-content: center;
+}
+/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
+.DFlexALCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagens com cover */
+.ImgCover {
+  background-size: cover;
+}
+
+/* divs com BOX-SIZING */
+.BoxSizing {
+  box-sizing: border-box;
+}
+
+/* divs com width 100% */
+.width100 {
+  width: 100%;
+}
+
+/* divs com height 100% */
+.heigth100 {
+  width: 100%;
+}
+/* divs imagem contain% */
+.imgContain {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 * {
   margin: 0;
   padding: 0;
