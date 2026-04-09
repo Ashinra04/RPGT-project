@@ -3,7 +3,7 @@
 ------------------------------------------------------>
     <div id="battle-tela" class="tela oculto">
       
-      <div id="BATTLE-TOWER" class="">
+      <div id="BATTLE-TOWER" class="width100 BoxSizing">
         
          <div id="Floor4" class="Floors">
           <div id="" class="BattlesTitles">FLOOR 4</div>
@@ -43,25 +43,79 @@
 <!-----------------------------------------------------
      TELA DE COMBATE
 ------------------------------------------------------>
-<div id="combate-tela" class="tela oculto">
+<div id="combate-tela" class="tela oculto DisplayFlex">
   
-  <div id="InfoRow" class="">
-    
+  <div id="InfoRow" class="width100 DisplayFlex">
+    <div id="IconAlvo" class="imgContain"></div>
+    <div id="InfoAlvo" class="">
+      <div id="RowNome" class="RowInfo DFlexALCenter">NOME DO ALVO</div>
+      <div id="RowNvlClass" class="RowInfo">
+        <div id="NvlAlvo" class="NvlClass">NVL: </div>
+        <div id="ClasseAlvo" class="NvlClass">CLASSE: </div>
+      </div>
+      <div id="HPBar" class="RowInfo">HP: 000/000</div>
+      <div id="ManaBar" class="RowInfo">MANA: 000/000</div>
+    </div>
   </div>
   
   <div id="Combaterow1" class="battlefield-row">
-    <div id="Enemy3" class="Enemies"></div>
-    <div id="Enemy1" class="Enemies"></div>
-    <div id="Enemy2" class="Enemies"></div>
+    <div id="Enemy3" class="Enemies" onclick="InformacoesDoAlvo('Enemy3')">
+      <div id="nameEnemy3" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
+      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+    </div>
+    
+    <div id="Enemy1" class="Enemies" onclick="InformacoesDoAlvo('Enemy1')">
+      <div id="nameEnemy1" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
+      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+    </div>
+    
+    <div id="Enemy2" class="Enemies" onclick="InformacoesDoAlvo('Enemy2')">
+      <div id="nameEnemy2" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
+      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+    </div>
   
-    <div id="Aliado2" class="Aliados"></div>
-    <div id="Player" class="Aliados"></div> 
-    <div id="Aliado1" class="Aliados"></div>
+    <div id="Aliado2" class="Aliados" onclick="InformacoesDoAlvo('aliado2')"></div>
+    <div id="Player" class="Aliados" onclick="InformacoesDoAlvo('Player')"></div> 
+    <div id="Aliado1" class="Aliados" onclick="InformacoesDoAlvo('aliado1')"></div>
   </div>
   
-  <div id="Combaterow2" class="ui-row">
-    <div id="BoxAcoesInfos">
+  <div id="Combaterow2" class="ui-row DFlexALCenter">
+    
+    <div id="BoxAcoesInfos" class="">
+      <div id="btnATK" class="btnAcao DFlexALCenter" onclick="BoxAtacarFechar('atk')">ATACAR</div>
+      <div id="BTNDefender" class="btnAcao DFlexALCenter">DEFENDER</div>
+      <div id="BTNItems" class="btnAcao DFlexALCenter">ITEMS</div>
+      <div id="BTNRun" class="btnAcao DFlexALCenter">FUGIR</div>
+    </div>
+    
+    <div id="BoxATACAR" class="oculto">
+      <div id="Enemies">
+        <div id="Enemy1Slot" class="enemyslot">
+          <div id="iconInimigo1" class="IconEnemies imgContain"></div>
+          <div id="InfoEnemy1" class="InfosEnemies ">
+            <div id="BARName1" class="BarNameHP DFlexALCenter BARNAME"></div>
+            <div id="BARlife1" class="BarNameHP DFlexALCenter BARHP"></div>
+          </div>
+        </div>
+        
+        <div id="Enemy2Slot" class="enemyslot">
+          <div id="iconInimigo2" class="IconEnemies imgContain"></div>
+          <div id="InfoEnemy2" class="InfosEnemies">
+            <div id="BARName2" class="BarNameHP DFlexALCenter BARNAME"></div>
+            <div id="BARlife2" class="BarNameHP DFlexALCenter BARHP"></div>
+          </div>
+        </div>
+        
+        <div id="Enemy3Slot" class="enemyslot">
+          <div id="iconInimigo3" class="IconEnemies imgContain"></div>
+          <div id="InfoEnemy3" class="InfosEnemies">
+            <div id="BARName3" class="BarNameHP DFlexALCenter BARNAME"></div>
+            <div id="BARlife3" class="BarNameHP DFlexALCenter BARHP"></div>
+          </div>
+        </div>
       </div>
+      <div id="btnFechar" class="BTNFechar DFlexALCenter" onclick="BoxAtacarFechar('fechar')">FECHAR</div>
+    </div>
   </div>
   
 </div>

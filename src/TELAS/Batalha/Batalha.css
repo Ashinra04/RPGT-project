@@ -15,6 +15,57 @@
   color: #2a7f8a;
 }
 
+/* divs com BORDERS*/
+.Border2S{
+  border: 2px solid #d28f22;
+}
+
+/* divs com DISPLAY FLEX*/
+.DisplayFlex {
+  display: flex;
+}
+
+/* Divs com ALIGN-ITEMS CENTER */
+.A-I_Center {
+  align-items: center;
+}
+/* Divs com JUSTIFY-CONTENT CENTER */
+.J-C_Center {
+  justify-content: center;
+}
+/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
+.DFlexALCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagens com cover */
+.ImgCover {
+  background-size: cover;
+}
+
+/* divs com BOX-SIZING */
+.BoxSizing {
+  box-sizing: border-box;
+}
+
+/* divs com width 100% */
+.width100 {
+  width: 100%;
+}
+
+/* divs com height 100% */
+.heigth100 {
+  width: 100%;
+}
+/* divs imagem contain% */
+.imgContain {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 #battle-tela {
   box-sizing: border-box;
   gap: 5px;
@@ -22,7 +73,6 @@
 
 #BATTLE-BAR {
   height: 10vh;
-  width: 100%;
   position: sticky;
   bottom: 0;
   z-index: 100;
@@ -39,12 +89,10 @@
 
 #BATTLE-TOWER {
   height: 93vh;
-  width: 100%;
   background-color: #0d0f36;
   border: 2px solid #69d2cd;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   justify-content: flex-end;
   gap: 2px;
   padding: 5px;
@@ -117,16 +165,65 @@
   width: 100vw;
   height: 100dvh;
   background-color: #294380;
+  flex-direction: column;
+}
+/* CONTEUDO InfoRow */
+#InfoRow {
+  height: 15%; 
+  border: 1px solid white;
+  flex-direction: row;
+}
+#IconAlvo {
+  width: 30%;
+  height: 100%;
+  border: 1px solid white;
+  background-color: #0d0f36;
+  background-image: url('/imagens/Sprites/archer_retrato.png');
+}
+#InfoAlvo {
+  width: 70%;
+  height: 100%;
+  border-top: 1px solid white;
   display: flex;
   flex-direction: column;
 }
-
-#InfoRow {
+.RowInfo {
   width: 100%;
-  height: 15%; 
-  border: 1px solid white;
+  height: 25%;
+  border-bottom: 1px solid white;
+}
+.NvlClass, #HPBar, #ManaBar {
+  color: white;
+  padding-top: 4px;
+  padding-left: 5px;
+}
+#RowNome {
+  color: white;
+  background-color: #121312;
+}
+#RowNvlClass {
+  display: flex;
+  flex-direction: row;
+}
+.NvlClass {
+  height: 100%;
+  background-color: #121312;
+}
+#NvlAlvo {
+  width: 40%;
+  border-right: 1px solid white;
+}
+#ClasseAlvo {
+  width: 60%;
+}
+#HPBar {
+  background-color: #157407;
+}
+#ManaBar {
+  background-color: #0280cf;
 }
 
+/* SPRITES DO INIMIGOS E ALIADOS NO MEIO */
 .battlefield-row {
   width: 100%;
   height: 55%; 
@@ -137,47 +234,134 @@
 .ui-row {
   width: 100%;
   height: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #1a2a4f;
   border-top: 2px solid #a0abbc;
   border: 1px solid white;
 }
 
+#Combaterow1 {
+ /* background-image: url('/imagens/cenarios/Seila.jpeg');
+  background-size: cover;
+  background-position: center; */
+}
+
 .Aliados, .Enemies {
   position: absolute;
   width: 25%;
-  height: 50%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center bottom; 
   filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.4));
 }
+.Aliados {
+  height: 30%;
+}
 
-/* === INIMIGOS (Coluna da Direita) === */
 .Enemies {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SpriteEnemyView {
+  width: 100%;
+  height: 80%;
   background-image: url('/imagens/monstros/goblinE.png');
 }
-
-#Enemy3 { right: 5%; bottom: 65%;  z-index: 1; }
-#Enemy1 { right: 5%; bottom: 45%; z-index: 2; }
-#Enemy2 { right: 5%; bottom: 25%; z-index: 3; } 
-
-/* === ALIADOS (Coluna da Esquerda) === */
-.Aliados {
-  background-image: url('/imagens/Characters/knight_batle.png');
+.NameEnemiesView {
+  width: 100%;
+  height: 20%;
+  color: white;
 }
+
+.Aliados {
+  background-image: url('/imagens/Characters/archer_batle.png');
+}
+
+#Enemy1 { right: 5%; bottom: 67%;  z-index: 1; }
+#Enemy2 { right: 5%; bottom: 37%; z-index: 2; }
+#Enemy3 { right: 5%; bottom: 7%; z-index: 3; } 
 #Aliado2 { left: 5%; bottom: 60%;  z-index: 1; } 
-#Player  { left: 5%; bottom: 40%; z-index: 2; } 
-#Aliado1 { left: 5%; bottom: 20%; z-index: 3; }
+#Player  { left: 5%; bottom: 33%; z-index: 2; } 
+#Aliado1 { left: 5%; bottom: 5%; z-index: 3; }
 
-
-/* === CAIXA PRETA DE AÇÕES === */
+/* === CAIXA DE AÇÕES === */
 #BoxAcoesInfos {
   width: 95%; 
   height: 90%;
   background-color: #121212;
   border: 2px solid #2a7f8a;
   border-radius: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 20px;
+  gap: 20px;
+}
+.btnAcao {
+  width: 100%; 
+  height: 100%;
+  border: 1px solid white;
+  background-color: gray;
+  color: white;
+}
+
+#BoxATACAR {
+  width: 100%; 
+  height: 100%;
+  border: 1px solid white;
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+}
+
+#btnFechar {
+  width: 100%; 
+  height: 18%;
+  border: 1px solid white;
+  background-color: #5d0018;
+  color: white;
+}
+#Enemies {
+  width: 100%; 
+  height: 82%;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+  gap: 5px;
+}
+
+.enemyslot {
+  width: 34%; 
+  height: 100%;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+}
+
+.IconEnemies {
+  width: 100%; 
+  height: 60%;
+  background-color: #0d0f36;
+  background-image: url('/imagens/monstros/goblinE.png');
+}
+.InfosEnemies {
+  width: 100%; 
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.BarNameHP {
+  width: 100%; 
+  height: 50%;
+}
+.BARNAME {
+  background-color: black;
+  color: white;
+  
+}
+.BARHP {
+  background-color: green;
+  color: white;
 }
