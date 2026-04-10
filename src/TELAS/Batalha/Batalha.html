@@ -1,98 +1,97 @@
-<!-----------------------------------------------------
-     TELA DE BATALHA
------------------------------------------------------->
-    <div id="battle-tela" class="tela oculto">
-      
-      <div id="BATTLE-TOWER" class="width100 BoxSizing">
-        
-         <div id="Floor4" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 4</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor3" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 3</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor2" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 2</div>
-          <div id="" class="buttonSlot"></div>
-        </div>
-        
-        <div id="" class="Separador"></div>
-        
-        <div id="Floor1" class="Floors">
-          <div id="" class="BattlesTitles">FLOOR 1</div>
-          <div id="" class="buttonSlotB"></div>
-        </div>
-        
-      </div>
-    
-      <div id="BATTLE-BAR" class="width100 DisplayFlex">
-          <button id="btn-voltar" class="btnBattle" onclick="mudarTela('torre-tela')">VOLTAR</button>
-      </div>
-      
-    </div>
-<!----------------------------------------------------->
-
-<!-----------------------------------------------------
-     TELA DE COMBATE
------------------------------------------------------->
-<div id="combate-tela" class="tela oculto DisplayFlex">
+<!----------------------------------------------------------
+       TELA BATALHA
+----------------------------------------------------------->
+<div id="battle-tela" class="tela oculto">
   
-  <div id="InfoRow" class="width100 DisplayFlex">
+  <div id="BATTLE-TOWER" class="width100 BoxSizing">
+    <div id="Floor4" class="Floors">
+      <div class="BattlesTitles">FLOOR 4</div>
+      <div class="buttonSlot"></div>
+    </div>
+    
+    <div class="Separador"></div>
+    
+    <div id="Floor3" class="Floors">
+      <div class="BattlesTitles">FLOOR 3</div>
+      <div class="buttonSlot"></div>
+    </div>
+    
+    <div class="Separador"></div>
+    
+    <div id="Floor2" class="Floors">
+      <div class="BattlesTitles">FLOOR 2</div>
+      <div class="buttonSlot"></div>
+    </div>
+    
+    <div class="Separador"></div>
+    
+    <div id="Floor1" class="Floors">
+      <div class="BattlesTitles">FLOOR 1</div>
+      <div class="buttonSlotB"></div>
+    </div>
+  </div>
+
+  <div id="BATTLE-BAR" class="width100 DisplayFlex">
+      <button id="btn-voltar" class="btnBattle" onclick="mudarTela('torre-tela')">VOLTAR</button>
+  </div>
+  
+</div>
+<!----------------------------------------------------------
+----------------------------------------------------------->
+
+<!----------------------------------------------------------
+       TELA XOMBATE
+----------------------------------------------------------->
+<div id="combate-tela" class="tela oculto">
+  
+  <div id="InfoRow" class="width100">
     <div id="IconAlvo" class="imgContain"></div>
-    <div id="InfoAlvo" class="">
+    <div id="InfoAlvo">
       <div id="RowNome" class="RowInfo DFlexALCenter">NOME DO ALVO</div>
       <div id="RowNvlClass" class="RowInfo">
-        <div id="NvlAlvo" class="NvlClass">NVL: </div>
-        <div id="ClasseAlvo" class="NvlClass">CLASSE: </div>
+        <div id="NvlAlvo" class="NvlClass DFlexALCenter">NVL: </div>
+        <div id="ClasseAlvo" class="NvlClass DFlexALCenter">CLASSE: </div>
       </div>
-      <div id="HPBar" class="RowInfo">HP: 000/000</div>
-      <div id="ManaBar" class="RowInfo">MANA: 000/000</div>
+      <div id="HPBar" class="RowInfo DFlexALCenter" style="justify-content: flex-start;">HP: 000/000</div>
+      <div id="ManaBar" class="RowInfo DFlexALCenter" style="justify-content: flex-start;">MANA: 000/000</div>
     </div>
   </div>
   
   <div id="Combaterow1" class="battlefield-row">
-    <div id="Enemy3" class="Enemies" onclick="InformacoesDoAlvo('Enemy3')">
+    
+    <div id="Enemy3" class="Enemies" onclick="InformacoesDoAlvo2('Enemy3'); FecharInfo('abrir')">
       <div id="nameEnemy3" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
-      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+      <div id="SpriteEnemy3" class="SpriteEnemyView imgContain"></div> 
     </div>
     
-    <div id="Enemy1" class="Enemies" onclick="InformacoesDoAlvo('Enemy1')">
+    <div id="Enemy1" class="Enemies" onclick="InformacoesDoAlvo2('Enemy1'); FecharInfo('abrir')">
       <div id="nameEnemy1" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
-      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div> 
     </div>
     
-    <div id="Enemy2" class="Enemies" onclick="InformacoesDoAlvo('Enemy2')">
+    <div id="Enemy2" class="Enemies" onclick="InformacoesDoAlvo2('Enemy2'); FecharInfo('abrir')">
       <div id="nameEnemy2" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
-      <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div>
+      <div id="SpriteEnemy2" class="SpriteEnemyView imgContain"></div> 
     </div>
-  
-    <div id="Aliado2" class="Aliados" onclick="InformacoesDoAlvo('aliado2')"></div>
-    <div id="Player" class="Aliados" onclick="InformacoesDoAlvo('Player')"></div> 
-    <div id="Aliado1" class="Aliados" onclick="InformacoesDoAlvo('aliado1')"></div>
-  </div>
-  
-  <div id="Combaterow2" class="ui-row DFlexALCenter">
     
-    <div id="BoxAcoesInfos" class="">
-      <div id="btnATK" class="btnAcao DFlexALCenter" onclick="BoxAtacarFechar('atk')">ATACAR</div>
-      <div id="BTNDefender" class="btnAcao DFlexALCenter">DEFENDER</div>
-      <div id="BTNItems" class="btnAcao DFlexALCenter">ITEMS</div>
-      <div id="BTNRun" class="btnAcao DFlexALCenter">FUGIR</div>
+    <div id="Aliado2" class="Aliados" onclick="InformacoesDoAlvo2('aliado2'); FecharInfo('abrir')"></div>
+    <div id="Player" class="Aliados" onclick="InformacoesDoAlvo2('Player'); FecharInfo('abrir')"></div> 
+    <div id="Aliado1" class="Aliados" onclick="InformacoesDoAlvo2('aliado1'); FecharInfo('abrir')"></div>
+    
+  </div> <div id="Combaterow2" class="ui-row">
+    
+    <div id="BoxAcoesInfos">
+      <div id="btnATK" class="btnAcao" onclick="BoxAtacarFechar('atk')">ATACAR</div>
+      <div id="BTNDefender" class="btnAcao">DEFENDER</div>
+      <div id="BTNItems" class="btnAcao">ITEMS</div>
+      <div id="BTNRun" class="btnAcao">FUGIR</div>
     </div>
     
     <div id="BoxATACAR" class="oculto">
       <div id="Enemies">
         <div id="Enemy1Slot" class="enemyslot">
           <div id="iconInimigo1" class="IconEnemies imgContain"></div>
-          <div id="InfoEnemy1" class="InfosEnemies ">
+          <div id="InfoEnemy1" class="InfosEnemies">
             <div id="BARName1" class="BarNameHP DFlexALCenter BARNAME"></div>
             <div id="BARlife1" class="BarNameHP DFlexALCenter BARHP"></div>
           </div>
@@ -114,8 +113,31 @@
           </div>
         </div>
       </div>
-      <div id="btnFechar" class="BTNFechar DFlexALCenter" onclick="BoxAtacarFechar('fechar')">FECHAR</div>
+      <div id="btnFechar" onclick="BoxAtacarFechar('fechar')">FECHAR</div>
     </div>
-  </div>
-  
-</div>
+  </div> <div id="PersonagensInfosPopUp" onclick="FecharInfo('fechar')" class="oculto">
+    <div id="nomeP" class="DFlexALCenter">NOME DO PERSONAGEM</div> 
+    <div id="InfosBoxes">
+      <div id="ImgP" class="imgContain"></div>
+      
+      <div id="InfoP">
+        <div class="StatBox">
+          <div class="StatTitle DFlexALCenter">LIFE</div>
+          <div id="hpContainer" class="BarContainer">
+            <div id="HPFill" class="PreenchimentoHP"></div>
+            <div id="HPText" class="TextoBarra">HP: 000/000</div>
+          </div>
+        </div>
+        
+        <div class="StatBox">
+          <div class="StatTitle DFlexALCenter">MANA</div>
+          <div id="manaContainer" class="BarContainer">
+            <div id="manaFill" class="PreenchimentoMANA"></div>
+            <div id="manaText" class="TextoBarra">MP: 000/000</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> </div>
+<!----------------------------------------------------------
+----------------------------------------------------------->

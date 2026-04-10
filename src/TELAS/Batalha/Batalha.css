@@ -1,71 +1,49 @@
-/* =========================================
-   ESTILOS PARA TELA BATALHA
-========================================= */
-.colors{
-  color: #0d0f36;
-  color: #294380;
-  color: #69d2cd;
-  color: #b9f1d6;
-  color: #5d0018;
+/* =========================================================================
+   1. VARIÁVEIS E CLASSES UTILITÁRIAS (A Base do Jogo)
+========================================================================= */
+:root {
+  /* Paleta de Cores do Jogo (Use com var(--nome-da-cor)) */
+  --bg-escuro: #0d0f36;
+  --bg-batalha: #294380;
+  --bg-ui: #1a2a4f;
+  --bg-preto: #121312;
+  --borda-ouro: #d28f22;
+  --borda-prata: #a0abbc;
+  --borda-ciano: #2a7f8a;
+  --cor-vida: #157407;
+  --cor-mana: #0284ba;
+  --cor-alerta: #5d0018;
 }
 
-.bordas {
-  color: #d28f22;
-  color: #a0abbc;
-  color: #2a7f8a;
-}
+/* Classes Utilitárias */
+.Border2S { border: 2px solid var(--borda-ouro); }
+.DisplayFlex { display: flex; }
+.A-I_Center { align-items: center; }
+.J-C_Center { justify-content: center; }
+.DFlexALCenter { display: flex; align-items: center; justify-content: center; }
+.ImgCover { background-size: cover; }
+.imgContain { background-position: center; background-repeat: no-repeat; background-size: contain; }
+.BoxSizing { box-sizing: border-box; }
+.width100 { width: 100%; }
+.height100 { height: 100%; } /* Corrigido o erro de digitação de heigth100 */
 
-/* divs com BORDERS*/
-.Border2S{
-  border: 2px solid #d28f22;
-}
-
-/* divs com DISPLAY FLEX*/
-.DisplayFlex {
+/* Botões Padrões (Agrupados para não repetir código) */
+.btnBattle, .btnPBattle, .buttonSlotB, .btnAcao, #btnFechar {
+  color: white;
+  background-color: var(--bg-preto);
+  border: 1px solid white;
+  cursor: pointer;
   display: flex;
-}
-
-/* Divs com ALIGN-ITEMS CENTER */
-.A-I_Center {
+  justify-content: center;
   align-items: center;
 }
-/* Divs com JUSTIFY-CONTENT CENTER */
-.J-C_Center {
-  justify-content: center;
-}
-/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
-.DFlexALCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.btnBattle { height: 7vh; border: 2px solid white; }
+.btnPBattle, .buttonSlotB, .btnAcao { width: 100%; height: 100%; }
 
-/* Imagens com cover */
-.ImgCover {
-  background-size: cover;
-}
 
-/* divs com BOX-SIZING */
-.BoxSizing {
-  box-sizing: border-box;
-}
-
-/* divs com width 100% */
-.width100 {
-  width: 100%;
-}
-
-/* divs com height 100% */
-.heigth100 {
-  width: 100%;
-}
-/* divs imagem contain% */
-.imgContain {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
+/* =========================================================================
+   2. TELA DA TORRE (Menu de Seleção de Andares)
+========================================================================= */
 #battle-tela {
   box-sizing: border-box;
   gap: 5px;
@@ -77,19 +55,10 @@
   bottom: 0;
   z-index: 100;
 }
-.btnBattle {
-  width: 100%;
-  height: 7vh;
-  font-size: 12px;
-  color: white;
-  background-color: #121312;
-  border: 2px solid white;
-  cursor: pointer;
-}
 
 #BATTLE-TOWER {
   height: 93vh;
-  background-color: #0d0f36;
+  background-color: var(--bg-escuro);
   border: 2px solid #69d2cd;
   display: flex;
   flex-direction: column;
@@ -103,7 +72,7 @@
   width: 100%;
   min-height: 24%;
   border: 2px solid white;
-  background-color: #294380;
+  background-color: var(--bg-batalha);
   box-sizing: border-box;
   padding: 5px;
 }
@@ -112,15 +81,14 @@
   width: 100%;
   min-height: 5%;
   border: 2px solid white;
-  background-color: balck;
+  background-color: black;
 }
 
 .BattlesTitles {
   width: 100%;
   height: 70%;
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
+  border: 2px solid white;
+  border-bottom: none;
   box-sizing: border-box;
   padding: 8px;
   color: white;
@@ -129,57 +97,42 @@
   justify-content: center;
   align-items: center;
 }
+
 .buttonSlot {
   width: 100%;
   height: 30%;
-  border-bottom: 2px solid white;
-  border-left: 2px solid white;
-  border-right: 2px solid white;
+  border: 2px solid white;
+  border-top: none;
 }
 
-.btnPBattle {
-  width: 100%;
-  height: 100%;
-  font-size: 12px;
-  color: white;
-  background-color: #121312;
-  border: 1px solid white;
-  cursor: pointer;
-}
 
-.buttonSlotB {
-  width: 100%;
-  height: 30%;
-  font-size: 12px;
-  color: white;
-  background-color: #121312;
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-/* =========================================
-   ESTILOS PARA TELA COMBATE
-========================================= */
-
+/* =========================================================================
+   3. TELA DE COMBATE (Header e Campos)
+========================================================================= */
 #combate-tela {
   width: 100vw;
   height: 100dvh;
-  background-color: #294380;
+  background-color: var(--bg-batalha);
+  display: flex; /* Adicionado para o flex-direction funcionar */
   flex-direction: column;
 }
-/* CONTEUDO InfoRow */
+
+/* Header de Informações (Topo) */
 #InfoRow {
   height: 15%; 
   border: 1px solid white;
+  display: flex;
   flex-direction: row;
 }
+
 #IconAlvo {
   width: 30%;
   height: 100%;
   border: 1px solid white;
-  background-color: #0d0f36;
+  background-color: var(--bg-escuro);
   background-image: url('/imagens/Sprites/archer_retrato.png');
 }
+
 #InfoAlvo {
   width: 70%;
   height: 100%;
@@ -187,43 +140,28 @@
   display: flex;
   flex-direction: column;
 }
+
 .RowInfo {
   width: 100%;
   height: 25%;
   border-bottom: 1px solid white;
 }
+
 .NvlClass, #HPBar, #ManaBar {
   color: white;
   padding-top: 4px;
   padding-left: 5px;
 }
-#RowNome {
-  color: white;
-  background-color: #121312;
-}
-#RowNvlClass {
-  display: flex;
-  flex-direction: row;
-}
-.NvlClass {
-  height: 100%;
-  background-color: #121312;
-}
-#NvlAlvo {
-  width: 40%;
-  border-right: 1px solid white;
-}
-#ClasseAlvo {
-  width: 60%;
-}
-#HPBar {
-  background-color: #157407;
-}
-#ManaBar {
-  background-color: #0280cf;
-}
 
-/* SPRITES DO INIMIGOS E ALIADOS NO MEIO */
+#RowNome { color: white; background-color: var(--bg-preto); }
+#RowNvlClass { display: flex; flex-direction: row; }
+.NvlClass { height: 100%; background-color: var(--bg-preto); }
+#NvlAlvo { width: 40%; border-right: 1px solid white; }
+#ClasseAlvo { width: 60%; }
+#HPBar { background-color: var(--cor-vida); }
+#ManaBar { background-color: var(--cor-mana); }
+
+/* Campos de Batalha e UI (Meio e Fundo) */
 .battlefield-row {
   width: 100%;
   height: 55%; 
@@ -234,17 +172,15 @@
 .ui-row {
   width: 100%;
   height: 30%;
-  background-color: #1a2a4f;
-  border-top: 2px solid #a0abbc;
+  background-color: var(--bg-ui);
+  border-top: 2px solid var(--borda-prata);
   border: 1px solid white;
 }
 
-#Combaterow1 {
- /* background-image: url('/imagens/cenarios/Seila.jpeg');
-  background-size: cover;
-  background-position: center; */
-}
 
+/* =========================================================================
+   4. PERSONAGENS (Sprites no Campo de Batalha)
+========================================================================= */
 .Aliados, .Enemies {
   position: absolute;
   width: 25%;
@@ -253,8 +189,10 @@
   background-position: center bottom; 
   filter: drop-shadow(0px 10px 5px rgba(0, 0, 0, 0.4));
 }
+
 .Aliados {
   height: 30%;
+  background-image: url('/imagens/Characters/archer_batle.png');
 }
 
 .Enemies {
@@ -268,29 +206,32 @@
   height: 80%;
   background-image: url('/imagens/monstros/goblinE.png');
 }
+
 .NameEnemiesView {
   width: 100%;
   height: 20%;
   color: white;
 }
 
-.Aliados {
-  background-image: url('/imagens/Characters/archer_batle.png');
-}
-
-#Enemy1 { right: 5%; bottom: 67%;  z-index: 1; }
+/* Posições Inimigos */
+#Enemy1 { right: 5%; bottom: 67%; z-index: 1; }
 #Enemy2 { right: 5%; bottom: 37%; z-index: 2; }
-#Enemy3 { right: 5%; bottom: 7%; z-index: 3; } 
-#Aliado2 { left: 5%; bottom: 60%;  z-index: 1; } 
-#Player  { left: 5%; bottom: 33%; z-index: 2; } 
-#Aliado1 { left: 5%; bottom: 5%; z-index: 3; }
+#Enemy3 { right: 5%; bottom: 7%;  z-index: 3; } 
 
-/* === CAIXA DE AÇÕES === */
+/* Posições Aliados */
+#Aliado2 { left: 5%; bottom: 64%; z-index: 1; } 
+#Player  { left: 5%; bottom: 34%; z-index: 2; } 
+#Aliado1 { left: 5%; bottom: 5%;  z-index: 3; }
+
+
+/* =========================================================================
+   5. MENU DE AÇÕES E ATAQUE (Parte Inferior)
+========================================================================= */
 #BoxAcoesInfos {
   width: 95%; 
   height: 90%;
   background-color: #121212;
-  border: 2px solid #2a7f8a;
+  border: 2px solid var(--borda-ciano);
   border-radius: 8px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -298,13 +239,8 @@
   padding: 20px;
   gap: 20px;
 }
-.btnAcao {
-  width: 100%; 
-  height: 100%;
-  border: 1px solid white;
-  background-color: gray;
-  color: white;
-}
+
+.btnAcao { background-color: gray; } /* Subscreve a cor do botão padrão */
 
 #BoxATACAR {
   width: 100%; 
@@ -315,13 +251,8 @@
   flex-direction: column;
 }
 
-#btnFechar {
-  width: 100%; 
-  height: 18%;
-  border: 1px solid white;
-  background-color: #5d0018;
-  color: white;
-}
+#btnFechar { height: 18%; background-color: var(--cor-alerta); }
+
 #Enemies {
   width: 100%; 
   height: 82%;
@@ -343,25 +274,116 @@
 .IconEnemies {
   width: 100%; 
   height: 60%;
-  background-color: #0d0f36;
+  background-color: var(--bg-escuro);
   background-image: url('/imagens/monstros/goblinE.png');
 }
+
 .InfosEnemies {
   width: 100%; 
   height: 40%;
   display: flex;
   flex-direction: column;
 }
-.BarNameHP {
-  width: 100%; 
+
+.BarNameHP { width: 100%; height: 50%; }
+.BARNAME { background-color: black; color: white; }
+.BARHP { background-color: green; color: white; }
+
+
+/* =========================================================================
+   6. POP-UPS E MODAIS (Ex: Modal de Info do Personagem)
+========================================================================= */
+#PersonagensInfosPopUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; 
+  align-items: center;
+  gap: 5px; 
+  padding-bottom: 5%; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+#nomeP {
+  width: 80%;
+  height: 8%;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  color: white;
+  font-size: 25px;
+}
+
+#InfosBoxes {
+  width: 80%;
+  height: 30%;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: row;
+}
+
+#ImgP {
+  width: 50%;
+  height: 100%;
+  border-right: 2px solid var(--borda-ouro);
+  background-image: url('/imagens/Characters/archer_batle.png');
+}
+
+#InfoP {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 10px;
+}
+
+.StatBox {
+  width: 100%;
   height: 50%;
-}
-.BARNAME {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--borda-ouro);
   background-color: black;
-  color: white;
-  
 }
-.BARHP {
-  background-color: green;
+
+.StatTitle { width: 100%; height: 45%; color: white; font-size: 16px; }
+
+.BarContainer {
+  width: 100%;
+  height: 55%;
+  background-color: black;
+  position: relative;
+  box-sizing: border-box;
+  padding: 2px;
+}
+
+.PreenchimentoHP, .PreenchimentoMANA {
+  border: 1px solid var(--borda-ouro);
+  width: 100%;
+  height: 100%;
+  transition: width 0.3s ease-in-out; 
+}
+
+.PreenchimentoHP { background-color: var(--cor-vida); }
+.PreenchimentoMANA { background-color: var(--cor-mana); }
+
+.TextoBarra {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
 }
