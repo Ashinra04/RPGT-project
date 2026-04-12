@@ -32,7 +32,7 @@
   </div>
 
   <div id="BATTLE-BAR" class="width100 DisplayFlex">
-      <button id="btn-voltar" class="btnBattle" onclick="mudarTela('torre-tela')">VOLTAR</button>
+      <button id="btn-voltar" class="btnBattle width100" onclick="mudarTela('torre-tela')">VOLTAR</button>
   </div>
   
 </div>
@@ -59,11 +59,6 @@
   
   <div id="Combaterow1" class="battlefield-row">
     
-    <div id="Enemy3" class="Enemies" onclick="InformacoesDoAlvo2('Enemy3'); FecharInfo('abrir')">
-      <div id="nameEnemy3" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
-      <div id="SpriteEnemy3" class="SpriteEnemyView imgContain"></div> 
-    </div>
-    
     <div id="Enemy1" class="Enemies" onclick="InformacoesDoAlvo2('Enemy1'); FecharInfo('abrir')">
       <div id="nameEnemy1" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
       <div id="SpriteEnemy1" class="SpriteEnemyView imgContain"></div> 
@@ -74,22 +69,31 @@
       <div id="SpriteEnemy2" class="SpriteEnemyView imgContain"></div> 
     </div>
     
-    <div id="Aliado2" class="Aliados" onclick="InformacoesDoAlvo2('aliado2'); FecharInfo('abrir')"></div>
-    <div id="Player" class="Aliados" onclick="InformacoesDoAlvo2('Player'); FecharInfo('abrir')"></div> 
-    <div id="Aliado1" class="Aliados" onclick="InformacoesDoAlvo2('aliado1'); FecharInfo('abrir')"></div>
+    <div id="Enemy3" class="Enemies" onclick="InformacoesDoAlvo2('Enemy3'); FecharInfo('abrir')">
+      <div id="nameEnemy3" class="NameEnemiesView DFlexALCenter">INIMIGO</div>
+      <div id="SpriteEnemy3" class="SpriteEnemyView imgContain"></div> 
+    </div>
     
-  </div> <div id="Combaterow2" class="ui-row">
+    <div id="Aliado2" class="Aliados" onclick="InformacoesDoAlvo2('Aliado2'); FecharInfo('abrir')"></div>
+    <div id="Player" class="Aliados AlvoTurno" onclick="InformacoesDoAlvo2('Player'); FecharInfo('abrir')"></div> 
+    <div id="Aliado1" class="Aliados" onclick="InformacoesDoAlvo2('Aliado1'); FecharInfo('abrir')"></div>
+    
+    <div id="EfeitoDeAtacar" class="imgContain atacarInimigo3 oculto"></div>
+    
+  </div>
+  
+  <div id="Combaterow2" class="ui-row DFlexALCenter">
     
     <div id="BoxAcoesInfos">
       <div id="btnATK" class="btnAcao" onclick="BoxAtacarFechar('atk')">ATACAR</div>
-      <div id="BTNDefender" class="btnAcao">DEFENDER</div>
-      <div id="BTNItems" class="btnAcao">ITEMS</div>
-      <div id="BTNRun" class="btnAcao">FUGIR</div>
+      <div id="BTNDefender" onclick="atacarVisual('')" class="btnAcao">DEFENDER</div>
+      <div id="BTNItems" onclick="TurnoAtual()" class="btnAcao">ITEMS</div>
+      <div id="BTNRun" onclick="TurnoAtual()" class="btnAcao">FUGIR</div>
     </div>
     
     <div id="BoxATACAR" class="oculto">
       <div id="Enemies">
-        <div id="Enemy1Slot" class="enemyslot">
+        <div id="Enemy1Slot" class="enemyslot" onclick="ExecutarAtaqueDoPlayer('Enemy1')">
           <div id="iconInimigo1" class="IconEnemies imgContain"></div>
           <div id="InfoEnemy1" class="InfosEnemies">
             <div id="BARName1" class="BarNameHP DFlexALCenter BARNAME"></div>
@@ -97,7 +101,7 @@
           </div>
         </div>
         
-        <div id="Enemy2Slot" class="enemyslot">
+        <div id="Enemy2Slot" class="enemyslot" onclick="ExecutarAtaqueDoPlayer('Enemy2')">
           <div id="iconInimigo2" class="IconEnemies imgContain"></div>
           <div id="InfoEnemy2" class="InfosEnemies">
             <div id="BARName2" class="BarNameHP DFlexALCenter BARNAME"></div>
@@ -105,7 +109,7 @@
           </div>
         </div>
         
-        <div id="Enemy3Slot" class="enemyslot">
+        <div id="Enemy3Slot" class="enemyslot" onclick="ExecutarAtaqueDoPlayer('Enemy3')">
           <div id="iconInimigo3" class="IconEnemies imgContain"></div>
           <div id="InfoEnemy3" class="InfosEnemies">
             <div id="BARName3" class="BarNameHP DFlexALCenter BARNAME"></div>
@@ -115,7 +119,9 @@
       </div>
       <div id="btnFechar" onclick="BoxAtacarFechar('fechar')">FECHAR</div>
     </div>
-  </div> <div id="PersonagensInfosPopUp" onclick="FecharInfo('fechar')" class="oculto">
+  </div>
+  
+  <div id="PersonagensInfosPopUp" onclick="FecharInfo('fechar')" class="oculto">
     <div id="nomeP" class="DFlexALCenter">NOME DO PERSONAGEM</div> 
     <div id="InfosBoxes">
       <div id="ImgP" class="imgContain"></div>

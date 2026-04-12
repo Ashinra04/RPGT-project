@@ -40,7 +40,6 @@
 .btnBattle { height: 7vh; border: 2px solid white; }
 .btnPBattle, .buttonSlotB, .btnAcao { width: 100%; height: 100%; }
 
-
 /* =========================================================================
    2. TELA DA TORRE (Menu de Seleção de Andares)
 ========================================================================= */
@@ -76,7 +75,7 @@
   box-sizing: border-box;
   padding: 5px;
 }
-
+  
 .Separador {
   width: 100%;
   min-height: 5%;
@@ -215,16 +214,52 @@
 
 /* Posições Inimigos */
 #Enemy1 { right: 5%; bottom: 67%; z-index: 1; }
-#Enemy2 { right: 5%; bottom: 37%; z-index: 2; }
+#Enemy2 { right: 10%; bottom: 37%; z-index: 2; }
 #Enemy3 { right: 5%; bottom: 7%;  z-index: 3; } 
 
 /* Posições Aliados */
 #Aliado2 { left: 5%; bottom: 64%; z-index: 1; } 
-#Player  { left: 5%; bottom: 34%; z-index: 2; } 
+#Player  { left: 10%; bottom: 34%; z-index: 2; } 
 #Aliado1 { left: 5%; bottom: 5%;  z-index: 3; }
 
+/* ==========================================================
+   5.5. EFEITOS DO COMBATE
+===========================================================*/
 
-/* =========================================================================
+#EfeitoDeAtacar {
+  position: absolute;
+  background-image: url('/imagens/Icons/Slice.png');
+  z-index: 90;
+  width: 20%;
+  height: 20%;
+}
+
+.atacarInimigo1 {
+  right: 8%;
+  bottom: 68%;
+}
+.atacarInimigo2 {
+  right: 12%;
+  bottom: 36%;
+}
+.atacarInimigo3 {
+  bottom: 8%;
+  right: 8%;
+}
+
+@keyframes pulsar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); } 
+  100% { transform: scale(1); }
+}
+
+.AlvoTurno {
+  filter: drop-shadow(0 0 10px #f5884f) drop-shadow(0 0 30px #f5884f) brightness(1.20); 
+  transition: filter 0.3s ease;
+  animation: pulsar 1.5s ease-in-out infinite; 
+}
+
+/* ========================================================================
    5. MENU DE AÇÕES E ATAQUE (Parte Inferior)
 ========================================================================= */
 #BoxAcoesInfos {
@@ -288,7 +323,6 @@
 .BarNameHP { width: 100%; height: 50%; }
 .BARNAME { background-color: black; color: white; }
 .BARHP { background-color: green; color: white; }
-
 
 /* =========================================================================
    6. POP-UPS E MODAIS (Ex: Modal de Info do Personagem)
