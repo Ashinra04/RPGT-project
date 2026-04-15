@@ -45,15 +45,95 @@
 <div id="combate-tela" class="tela oculto">
   
   <div id="InfoRow" class="width100">
-    <div id="IconAlvo" class="imgContain"></div>
-    <div id="InfoAlvo">
-      <div id="RowNome" class="RowInfo DFlexALCenter">NOME DO ALVO</div>
-      <div id="RowNvlClass" class="RowInfo">
-        <div id="NvlAlvo" class="NvlClass DFlexALCenter">NVL: </div>
-        <div id="ClasseAlvo" class="NvlClass DFlexALCenter">CLASSE: </div>
+  
+    <div id="PerfilPlayerEAliados" class="ColumnDoPerfis">
+      
+      <div id="PerfilAliado1" class="PerfilContainer">
+        <div id="IconAliado1" class="iconsPerfils imgContain"></div>
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillAliado1" class="FillHP"></div>
+            <div id="HPTextAliado1" class="BarraTexto">HP 30/30</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillAliado1" class="FillMana"></div>
+            <div id="ManaTextAliado1" class="BarraTexto">MP 20/80</div>
+          </div>
+        </div>
       </div>
-      <div id="HPBar" class="RowInfo DFlexALCenter" style="justify-content: flex-start;">HP: 000/000</div>
-      <div id="ManaBar" class="RowInfo DFlexALCenter" style="justify-content: flex-start;">MANA: 000/000</div>
+      
+      <div id="PerfilPlayer" class="PerfilContainer">
+        <div id="IconPlayer" class="iconsPerfils imgContain"></div>
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillPlayer" class="FillHP"></div>
+            <div id="HPTextPlayer" class="BarraTexto">HP 60/60</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillPlayer" class="FillMana"></div>
+            <div id="ManaTextPlayer" class="BarraTexto">MP 30/100</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="PerfilAliado2" class="PerfilContainer">
+        <div id="IconAliado2" class="iconsPerfils imgContain"></div>
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillAliado2" class="FillHP"></div>
+            <div id="HPTextAliado2" class="BarraTexto">HP 20/20</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillAliado2" class="FillMana"></div>
+            <div id="ManaTextAliado2" class="BarraTexto">MP 10/50</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="PerfilMonstros" class="ColumnDoPerfis">
+      
+      <div id="PerfilEnemy1" class="PerfilContainer">
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillEnemy1" class="FillHP inimigoHP"></div>
+            <div id="HPTextEnemy1" class="BarraTexto">HP 24/24</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillEnemy1" class="FillMana"></div>
+            <div id="ManaTextEnemy1" class="BarraTexto">MP 0/0</div>
+          </div>
+        </div>
+        <div id="IconEnemy1" class="iconsPerfilsE imgContain"></div>
+      </div>
+      
+      <div id="PerfilEnemy2" class="PerfilContainer">
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillEnemy2" class="FillHP inimigoHP"></div>
+            <div id="HPTextEnemy2" class="BarraTexto">HP 24/24</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillEnemy2" class="FillMana"></div>
+            <div id="ManaTextEnemy2" class="BarraTexto">MP 0/0</div>
+          </div>
+        </div>
+        <div id="IconEnemy2" class="iconsPerfilsE imgContain"></div>
+      </div>
+      
+      <div id="PerfilEnemy3" class="PerfilContainer">
+        <div class="BarsPerfies">
+          <div class="BarraContainer">
+            <div id="HPFillEnemy3" class="FillHP inimigoHP"></div>
+            <div id="HPTextEnemy3" class="BarraTexto">HP 24/24</div>
+          </div>
+          <div class="BarraContainer">
+            <div id="ManaFillEnemy3" class="FillMana"></div>
+            <div id="ManaTextEnemy3" class="BarraTexto">MP 0/0</div>
+          </div>
+        </div>
+        <div id="IconEnemy3" class="iconsPerfilsE imgContain"></div>
+      </div>
     </div>
   </div>
   
@@ -86,9 +166,9 @@
     
     <div id="BoxAcoesInfos">
       <div id="btnATK" class="btnAcao" onclick="BoxAtacarFechar('atk')">ATACAR</div>
-      <div id="BTNDefender" onclick="atacarVisual('')" class="btnAcao">DEFENDER</div>
-      <div id="BTNItems" onclick="TurnoAtual()" class="btnAcao">ITEMS</div>
-      <div id="BTNRun" onclick="TurnoAtual()" class="btnAcao">FUGIR</div>
+      <div id="BTNDefender" onclick="TurnoAtual()" class="btnAcao">DEFENDER</div>
+      <div id="BTNItems" onclick="" class="btnAcao">ITEMS</div>
+      <div id="BTNRun" onclick="InformacoesDoAlvo()" class="btnAcao">FUGIR</div>
     </div>
     
     <div id="BoxATACAR" class="oculto">

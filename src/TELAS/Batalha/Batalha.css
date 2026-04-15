@@ -118,47 +118,91 @@
 
 /* Header de Informações (Topo) */
 #InfoRow {
-  height: 15%; 
-  border: 1px solid white;
+  height: 25%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid var(--borda-ouro, #d28f22);
 }
 
-#IconAlvo {
-  width: 30%;
+.ColumnDoPerfis {
+  width: 48%;
   height: 100%;
-  border: 1px solid white;
-  background-color: var(--bg-escuro);
-  background-image: url('/imagens/Sprites/archer_retrato.png');
-}
-
-#InfoAlvo {
-  width: 70%;
-  height: 100%;
-  border-top: 1px solid white;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px;
+  gap: 10px;
 }
 
-.RowInfo {
+.PerfilContainer {
   width: 100%;
-  height: 25%;
-  border-bottom: 1px solid white;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
-.NvlClass, #HPBar, #ManaBar {
+.iconsPerfils, .iconsPerfilsE {
+  border: 1px solid var(--borda-ouro, #d28f22);
+  width: 30%;
+  height: 100%;
+  background-color: #1a1a24;
+}
+
+.BarsPerfies {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+}
+
+/* O fundo preto da barra */
+.BarraContainer {
+  position: relative;
+  width: 100%;
+  height: 45%; 
+  background-color: #222;
+  border: 1px solid var(--borda-ouro, #d28f22);
+  overflow: hidden;
+}
+
+.FillHP {
+  height: 100%;
+  width: 100%;
+  background-color: #2ca538;
+  transition: width 0.3s ease-in-out;
+}
+
+.inimigoHP {
+  background-color: #c92a2a;
+}
+
+.FillMana {
+  height: 100%;
+  width: 100%;
+  background-color: #2273c4;
+  transition: width 0.3s ease-in-out;
+}
+
+.BarraTexto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
-  padding-top: 4px;
-  padding-left: 5px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+  z-index: 2;
 }
-
-#RowNome { color: white; background-color: var(--bg-preto); }
-#RowNvlClass { display: flex; flex-direction: row; }
-.NvlClass { height: 100%; background-color: var(--bg-preto); }
-#NvlAlvo { width: 40%; border-right: 1px solid white; }
-#ClasseAlvo { width: 60%; }
-#HPBar { background-color: var(--cor-vida); }
-#ManaBar { background-color: var(--cor-mana); }
 
 /* Campos de Batalha e UI (Meio e Fundo) */
 .battlefield-row {
@@ -170,7 +214,7 @@
 
 .ui-row {
   width: 100%;
-  height: 30%;
+  height: 25%;
   background-color: var(--bg-ui);
   border-top: 2px solid var(--borda-prata);
   border: 1px solid white;
@@ -420,4 +464,10 @@
   font-size: 14px;
   font-weight: bold;
   text-shadow: 1px 1px 2px black;
+}
+
+.dmg { animation: jumpUp 1s ease-out; }
+  @keyframes jumpUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
 }

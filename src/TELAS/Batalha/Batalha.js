@@ -5,12 +5,12 @@
 window.andarAtual = 1;
 
 window.PersonagensEmCampo = {
-  Enemy1: { name: "Goblin", classe: "Guerreiro", level: 3, HP: 17, HPMAX: 24, mana: 0, manaMAX: 0, inciativa: 6, sprite: '/imagens/monstros/slime.png' },
-  Enemy2: { name: "Goblin2", classe: "Guerreiro", level: 3, HP: 16, HPMAX: 24, mana: 0, manaMAX: 0, inciativa: 10, sprite: '/imagens/monstros/slime.png' },
-  Enemy3: { name: "Goblin3", classe: "Guerreiro", level: 3, HP: 15, HPMAX: 24, mana: 0, manaMAX: 0, inciativa: 1, sprite: '/imagens/monstros/slime.png' },
-  Player: { name: "Herói", classe: "Cavaleiro", level: 5, HP: 60, HPMAX: 60, mana: 30, manaMAX: 100, inciativa: 3, sprite: '/imagens/Sprites/archer_retrato.png' },
-  Aliado1: { name: "Aliado1", classe: "Mago", level: 4, HP: 30, HPMAX: 30, mana: 20, manaMAX: 80, inciativa: 4, sprite: '/imagens/Sprites/cavaleiro_retrato.png' },
-  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 20, HPMAX: 20, mana: 10, manaMAX: 50, inciativa: 11, sprite: '/imagens/Sprites/wizard_retrato.png' } 
+  Enemy1: { name: "Goblin", classe: "Guerreiro", level: 3, HP: 17, HPMAX: 24, mana: 0, manaMAX: 0, dano: 20, inciativa: 6, sprite: '/imagens/monstros/slime.png' },
+  Enemy2: { name: "Goblin2", classe: "Guerreiro", level: 3, HP: 16, HPMAX: 24, mana: 0, manaMAX: 0, dano: 15, inciativa: 10, sprite: '/imagens/monstros/slime.png' },
+  Enemy3: { name: "Goblin3", classe: "Guerreiro", level: 3, HP: 15, HPMAX: 24, mana: 0, manaMAX: 0, dano: 9, inciativa: 1, sprite: '/imagens/monstros/slime.png' },
+  Player: { name: "Herói", classe: "Cavaleiro", level: 5, HP: 60, HPMAX: 60, mana: 30, manaMAX: 30, inciativa: 3, sprite: '/imagens/Sprites/cavaleiro_retrato.png' },
+  Aliado1: { name: "Aliado1", classe: "Mago", level: 4, HP: 30, HPMAX: 30, mana: 60, manaMAX: 60, inciativa: 4, sprite: '/imagens/Sprites/wizard_retrato.png' },
+  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 20, HPMAX: 20, mana: 40, manaMAX: 40, inciativa: 11, sprite: '/imagens/Sprites/archer_retrato.png' } 
 };
 
 /* window.PersonagensEmCampo.Player.sprite = BancoDeClasses.Arqueiro.sprite; */
@@ -92,32 +92,32 @@ window.GerarMonstros = function() {
     const slotsInimigos = ['Enemy1', 'Enemy2', 'Enemy3'];
 
     slotsInimigos.forEach((nomeDoSlot, index) => {
-        // Sorteia o monstro
         const randomIndex = Math.floor(Math.random() * monstrosPossiveis.length);
         const nomeMonstroSorteado = monstrosPossiveis[randomIndex]; 
         const dadosDoMonstro = window.SpritesMonstros[nomeMonstroSorteado];
 
-        // Atualiza a Imagem e o Nome no HTML
         const idDaImagem = 'SpriteEnemy' + (index + 1); 
         const idDoNome = 'nameEnemy' + (index + 1);
         
         document.getElementById(idDaImagem).style.backgroundImage = `url('${dadosDoMonstro.sprite}')`;
         document.getElementById(idDoNome).innerText = dadosDoMonstro.nome;
 
-        // Padronizado para usar HP e HPMAX como no resto do seu código
         window.PersonagensEmCampo[nomeDoSlot] = {
-            name: dadosDoMonstro.nome,
-            classe: dadosDoMonstro.classe,
-            level: dadosDoMonstro.level,
-            HPMAX: dadosDoMonstro.vida,
-            HP: dadosDoMonstro.vida, 
-            mana: 0,
-            manaMAX: 0,
-            xp: dadosDoMonstro.XP,
-            ouro: dadosDoMonstro.ouro,
-            sprite: dadosDoMonstro.sprite
+          name: dadosDoMonstro.nome,
+          classe: dadosDoMonstro.classe,
+          level: dadosDoMonstro.level,
+          HPMAX: dadosDoMonstro.vida,
+          HP: dadosDoMonstro.vida, 
+          mana: 0,
+          manaMAX: 0,
+          dano: dadosDoMonstro.dano, 
+          inciativa: 5,
+          xp: dadosDoMonstro.XP,
+          ouro: dadosDoMonstro.ouro,
+          sprite: dadosDoMonstro.sprite
         };
     });
+    window.InformacoesDoAlvo();
 };
 
 window.NomearMobs = function() {
@@ -126,22 +126,80 @@ window.NomearMobs = function() {
   document.getElementById('nameEnemy3').innerText = window.PersonagensEmCampo.Enemy3.name;
 };
 
+window.SincronizarInimigos = function() {
+  const todosOsIds = Object.keys(window.PersonagensEmCampo);
+
+  todosOsIds.forEach(id => {
+    if (id.includes("Enemy")) {
+      const monstro = window.PersonagensEmCampo[id];
+      monstro.HP = monstro.HPMAX;
+      monstro.mana = monstro.manaMAX;
+    }
+  });
+};
+
 // =========================================================
 // 4. INTERFACE E INFORMAÇÕES DA BATALHA
 // =========================================================
 
-window.InformacoesDoAlvo = function(Alvo) {
-  const dados = window.PersonagensEmCampo[Alvo];
+window.InformacoesDoAlvo = function() {
+  const dados = window.PersonagensEmCampo;
+
+  for (let i = 0; i <= 3; i++) {
+    
+    let chaveInimigo = `Enemy${i}`;
+    let infoInimigo = dados[chaveInimigo];
+    let idDiv = `IconEnemy${i}`;
+
+    if (infoInimigo) {
+      document.getElementById(idDiv).style.backgroundImage = `url('${infoInimigo.sprite}')`;
+      document.getElementById(`HPTextEnemy${i}`).innerText = `HP ${infoInimigo.HP}/${infoInimigo.HPMAX}`;
+      
+      // Barra de preenchimento (calculando a porcentagem)
+      let porcentagemHP = (infoInimigo.HP / infoInimigo.HPMAX) * 100;
+      document.getElementById(`HPFillEnemy${i}`).style.width = porcentagemHP + "%";
+    }
+  }
+
+  for (let i = 0; i <= 2; i++) { 
+    
+    let chaveAliado = `Aliado${i}`;
+    let infoAliado = dados[chaveAliado];
+    let DivId = `IconAliado${i}`;
+    
+    if (infoAliado) {
+      document.getElementById(DivId).style.backgroundImage = `url('${infoAliado.sprite}')`;
+      document.getElementById(`HPTextAliado${i}`).innerText = "HP: " + (infoAliado.HP || 0) + " / " + infoAliado.HPMAX; 
+      document.getElementById(`ManaTextAliado${i}`).innerText = "MANA: " + (infoAliado.mana || 0) + " / " + infoAliado.manaMAX;
+      
+      let porcentagemHP = (infoAliado.HP / infoAliado.HPMAX) * 100;
+      document.getElementById(`HPFillAliado${i}`).style.width = porcentagemHP + "%";
+      
+      if (infoAliado.manaMAX > 0) {
+        let porcentagemMana = (infoAliado.mana / infoAliado.manaMAX) * 100;
+        document.getElementById(`ManaFillAliado${i}`).style.width = porcentagemMana + "%";
+      } else {
+        document.getElementById(`ManaFillAliado${i}`).style.width = "0%";
+      }
+    }
+  }
+
+  let infoPlayer = dados["Player"]; 
   
-  if (dados) {
-    document.getElementById('RowNome').innerText = dados.name;
-    document.getElementById('NvlAlvo').innerText = "NVL: " + (dados.level || 0);
-    document.getElementById('ClasseAlvo').innerText = "CLASSE: " + (dados.classe || "???");
-    document.getElementById('HPBar').innerText = "HP: " + (dados.HP || 0) + " / " + dados.HPMAX; 
-    document.getElementById('ManaBar').innerText = "MANA: " + (dados.mana || 0) + " / " + dados.manaMAX;
-    document.getElementById('IconAlvo').style.backgroundImage = `url('${dados.sprite}')`;
-  } else {
-    console.error("Personagem não encontrado: " + Alvo);
+  if (infoPlayer) { 
+    document.getElementById('IconPlayer').style.backgroundImage = `url('${infoPlayer.sprite}')`;
+    document.getElementById('HPTextPlayer').innerText = "HP: " + (infoPlayer.HP || 0) + " / " + infoPlayer.HPMAX; 
+    document.getElementById('ManaTextPlayer').innerText = "MANA: " + (infoPlayer.mana || 0) + " / " + infoPlayer.manaMAX;
+    
+    let porcentagemHP = (infoPlayer.HP / infoPlayer.HPMAX) * 100;
+    document.getElementById('HPFillPlayer').style.width = porcentagemHP + "%";
+    
+    if (infoPlayer.manaMAX > 0) {
+      let porcentagemMana = (infoPlayer.mana / infoPlayer.manaMAX) * 100;
+      document.getElementById('ManaFillPlayer').style.width = porcentagemMana + "%";
+    } else {
+      document.getElementById('ManaFillPlayer').style.width = "0%";
+    }
   }
 };
 
@@ -208,101 +266,132 @@ window.TurnoAtual = function() {
   else if (QuemEaVez === "Enemy2") { QuemEaVez = "Enemy3"; }
   else if (QuemEaVez === "Enemy3") { QuemEaVez = "Player"; }
 
-  InformacoesDoAlvo(QuemEaVez); 
+  InformacoesDoAlvo(); 
   document.getElementById(QuemEaVez).classList.add('AlvoTurno');
-}
 
-window.atacarVisual = function(idAtacante) {
-  
-  idAtacante = QuemEaVez;
-
-  const personagem = document.getElementById(idAtacante);
-
-  personagem.classList.remove('AlvoTurno');
-
-  let deslocamentoX = 40; 
-  
-  if (idAtacante.includes("Enemy")) {
-    deslocamentoX = -80;
-  }
-
-  personagem.style.transition = "0.3s ease-in-out"; 
-  personagem.style.transform = `translate(${deslocamentoX}px, 0px)`;
-
-  setTimeout(function() {
-    personagem.style.transform = "translate(0, 0)";
+  if (QuemEaVez === "Player" || QuemEaVez.includes("Aliado")) {
     
-    TurnoAtual();
-  }, 300);
-}
-
-window.EfeitoAtacar = function(alvoDoEfeito) {
-  const efeitoDiv = document.getElementById('EfeitoDeAtacar');
-  
-  efeitoDiv.classList.remove('atacarInimigo1', 'atacarInimigo2', 'atacarInimigo3');
-  
-  efeitoDiv.classList.remove('oculto');
-  
-  if(alvoDoEfeito === "Enemy1") {
-    efeitoDiv.classList.add('atacarInimigo1');
+    document.getElementById('BoxAcoesInfos').classList.remove('oculto');
+    
+  } else if (QuemEaVez.includes("Enemy")) {
+    
+    document.getElementById('BoxAcoesInfos').classList.add('oculto');
+    document.getElementById('BoxATACAR').classList.add('oculto');
+    
+    setTimeout(() => {
+      TurnoDosMonstros();
+    }, 800); 
   }
-  else if(alvoDoEfeito === "Enemy2") {
-    efeitoDiv.classList.add('atacarInimigo2');
-  }
-  else if(alvoDoEfeito === "Enemy3") {
-    efeitoDiv.classList.add('atacarInimigo3');
-  }
-  
-  setTimeout(() => {
-    efeitoDiv.classList.add('oculto');
-  }, 400); // <-- Ajuste esse número para ser igual ao tempo do seu @keyframes no CSS!
 }
 
 window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
 
+  // 1. ESCONDER A INTERFACE
   window.BoxAtacarFechar('fechar');
+  document.getElementById('BoxAcoesInfos').classList.add('oculto');
 
-  window.atacarVisual('Player');
+  // 2. PREPARAR O ATACANTE (Herói ou Aliado)
+  const personagem = document.getElementById(window.QuemEaVez);
+  let deslocamentoX = 40; 
 
+  // 3. O AVANÇO (Dash)
+  personagem.style.transition = "0.3s ease-in-out"; 
+  personagem.style.transform = `translate(${deslocamentoX}px, 0px)`;
+
+  // 4. O MOMENTO DO IMPACTO (Acontece 150ms depois, bem no meio do pulo)
   setTimeout(() => {
-    window.EfeitoAtacar(idAlvoEscolhido);
     
-    // (Futuramente, o cálculo de tirar vida vai aqui também!)
+    // --- A. O Efeito Visual do Corte ---
+    const efeitoDiv = document.getElementById('EfeitoDeAtacar');
+    efeitoDiv.classList.remove('atacarInimigo1', 'atacarInimigo2', 'atacarInimigo3', 'oculto');
     
+    if(idAlvoEscolhido === "Enemy1") efeitoDiv.classList.add('atacarInimigo1');
+    else if(idAlvoEscolhido === "Enemy2") efeitoDiv.classList.add('atacarInimigo2');
+    else if(idAlvoEscolhido === "Enemy3") efeitoDiv.classList.add('atacarInimigo3');
+    
+    setTimeout(() => efeitoDiv.classList.add('oculto'), 400); // Some depois de 400ms
+
+    // --- B. O Dano e o Texto Flutuante ---
+    let dano = window.PersonagensEmCampo[window.QuemEaVez].dano || 10;
+    window.PersonagensEmCampo[idAlvoEscolhido].HP -= dano;
+    
+    const el = document.createElement('div');
+    el.className = 'dmg jump';
+    el.innerText = dano; 
+    document.getElementById(idAlvoEscolhido).appendChild(el); 
+    
+    setTimeout(() => el.remove(), 1000); // Lixeira do texto flutuante
+    
+    // Atualiza a barra de vida vermelha do monstro lá em cima
+    window.InformacoesDoAlvo(); 
+
   }, 150);
-}
+
+  // 5. A VOLTA E PASSAGEM DE TURNO (Acontece 300ms depois, quando o pulo termina)
+  setTimeout(function() {
+    personagem.style.transform = "translate(0, 0)";
     
-/* window.atacarInimigo = function(idAtacante, idAlvo) {
-  const atacante = document.getElementById(idAtacante);
-  const alvo = document.getElementById(idAlvo);
-
-  // 1. Calcula a distância (O "Jeito Ninja")
-  const posAtacante = atacante.getBoundingClientRect();
-  const posAlvo = alvo.getBoundingClientRect();
+    // Espera a animação de voltar terminar para finalmente passar a vez
+    setTimeout(() => {
+      window.TurnoAtual(); 
+    }, 300);
+    
+  }, 300);
   
-  // Ajuste de -60px para ele parar NA FRENTE do alvo e não em cima
-  const distX = (posAlvo.left - posAtacante.left) - 60;
-  const distY = posAlvo.top - posAtacante.top;
+}
 
-  // 2. Executa o Avanço
+window.TurnoDosMonstros = function() {
+  
+  const idMonstro = window.QuemEaVez; 
+  const atacante = document.getElementById(idMonstro);
+
+  if (!atacante) return;
+
+  let numAlvo = Math.floor(Math.random() * 3) + 1;
+  let idAlvo;
+
+  if (numAlvo === 1) idAlvo = "Aliado1";
+  else if (numAlvo === 2) idAlvo = "Player";
+  else idAlvo = "Aliado2";
+
+  const alvoElemento = document.getElementById(idAlvo);
+
+  const posAtacante = atacante.getBoundingClientRect();
+  const posAlvo = alvoElemento.getBoundingClientRect();
+
+  const distX = (posAlvo.left - posAtacante.left) + 60; 
+  const distY = (posAlvo.top - posAtacante.top);
+
+  atacante.classList.remove('AlvoTurno'); 
   atacante.style.zIndex = "100";
-  atacante.style.transition = "all 0.3s ease-in";
+  atacante.style.transition = "0.4s ease-in";
   atacante.style.transform = `translate(${distX}px, ${distY}px)`;
 
-  // 3. O Momento do Impacto (Meio da animação)
+  // 4. Momento do Impacto (Dano e Efeito)
   setTimeout(() => {
-     console.log("POW! Dano causado!");
-     // Aqui você chamaria sua função de tirar vida:
-     // window.causarDano(idAlvo, 10); 
-  }, 300);
 
-  // 4. A Volta
-  setTimeout(() => {
-    atacante.style.transition = "all 0.5s ease-out"; // Volta um pouco mais devagar
-    atacante.style.transform = "translate(0, 0)";
+    let dano = window.PersonagensEmCampo[idMonstro].dano || 5;
+    window.PersonagensEmCampo[idAlvo].HP -= dano;
     
-    // Reset do Z-index após a volta
-    setTimeout(() => { atacante.style.zIndex = ""; }, 500);
-  }, 450);
+    const el = document.createElement('div');
+    el.className = 'dmg jump';
+    el.innerText = dano; 
+    
+    alvoElemento.appendChild(el); 
+    
+    setTimeout(() => el.remove(), 1000);
+    
+    InformacoesDoAlvo();
+  }, 400);
+
+  setTimeout(() => {
+    atacante.style.transition = "0.4s ease-out";
+    atacante.style.transform = "translate(0, 0)";
+
+    setTimeout(() => {
+      atacante.style.zIndex = "";
+      window.TurnoAtual();
+    
+    }, 400);
+  }, 600);
 }
-*/
