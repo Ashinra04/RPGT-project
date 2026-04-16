@@ -1,37 +1,55 @@
    /* =========================================
     TELA guilda
    ========================================= */
-   
+
+:root {
+  /* Paleta de Cores do Jogo (Use com var(--nome-da-cor)) */
+  --bg-escuro: #0d0f36;
+  --bg-batalha: #294380;
+  --bg-ui: #1a2a4f;
+  --bg-preto: #121312;
+  --borda-ouro: #d28f22;
+  --borda-prata: #a0abbc;
+  --borda-ciano: #2a7f8a;
+  --cor-vida: #157407;
+  --cor-mana: #0284ba;
+  --cor-alerta: #5d0018;
+}
+
 #guilda-tela {
-  background-color: #252628;
+  background-color: var(--bg-preto);
 }
    
-#Guild-Title {
+.TelasTitles {
   height: 7vh;
   background-color: #252628;
   background-color: #5d0018;
   color: white;
+  border: 2px solid var(--borda-prata);
 }
    
 #GNPC {
   height: 30vh;
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
+  border-bottom: 2px solid var(--borda-prata);
   background-image: url('/imagens/Sprites/Receptionist.png');
 }
 
 #guilda-body2 {
   flex-grow: 1;
-  background-color: #252628;
 }
    
 #guilda-body {
   flex-grow: 1;
-  background-color: #252628;
   flex-direction: column;
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
 }
   
 #Linha1, #Linha2 {
   height: 50%;
-  background-color: #252628;
+  background-color: var(--bg-escuro);
   flex-direction: row;
   gap: 20px;
   color: white;
@@ -46,6 +64,8 @@
    
 #Missoes, #Bestiario, {
   width: 50%;
+  background-color: var(--bg-ui);
+  border: solid 2px var(--borda-ouro);
 }
 
 #xx {
@@ -59,13 +79,66 @@
   background-image: url('/imagens/Sprites/Bestiario.png');
 }
    
-.btnG {
+.btnG, .btnBS {
   height: auto;
-  width: 33vw;
   background-color: #5d0018;
   border: 2px solid #d28f22;
   color: white;
   cursor: pointer;
   font-family: inherit;
   font-size: 18px;
+}
+.btnG {
+  width: 33vw;
+}
+/* =========================================
+    TELA BESTIARIO
+========================================= */
+.btnBS {
+  width: 100vw;
+}
+
+#BestiarioBody{
+  flex-grow: 1;
+  background-color: var(--bg-escuro);
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
+  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-columns: 18vh; */
+  gap: 6px;
+  padding: 8px;
+}
+.Cards {
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--borda-ciano);
+  background-color: var(--bg-batalha);
+}
+
+.BestiarioRows {
+  height: 60%;
+  width: 100%;
+  border: 2px solid var(--borda-ouro);
+  background-color: var(--bg-preto);
+  display: flex;
+  flex-direction: column;
+}
+.BesTitles {
+  height: 20%;
+  width: 100%;
+  border-bottom: 2px solid var(--borda-ouro);
+  background-color: var(--cor-alerta);
+  color: white;
+}
+.BestBody {
+  height: 80%;
+  width: 100%;
+  background-color: var(--cor-alerta);
 }

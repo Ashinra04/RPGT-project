@@ -15,18 +15,6 @@
   --cor-alerta: #5d0018;
 }
 
-/* Classes Utilitárias */
-.Border2S { border: 2px solid var(--borda-ouro); }
-.DisplayFlex { display: flex; }
-.A-I_Center { align-items: center; }
-.J-C_Center { justify-content: center; }
-.DFlexALCenter { display: flex; align-items: center; justify-content: center; }
-.ImgCover { background-size: cover; }
-.imgContain { background-position: center; background-repeat: no-repeat; background-size: contain; }
-.BoxSizing { box-sizing: border-box; }
-.width100 { width: 100%; }
-.height100 { height: 100%; } /* Corrigido o erro de digitação de heigth100 */
-
 /* Botões Padrões (Agrupados para não repetir código) */
 .btnBattle, .btnPBattle, .buttonSlotB, .btnAcao, #btnFechar {
   color: white;

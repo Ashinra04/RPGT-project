@@ -1,56 +1,31 @@
 /* =========================================
    ESTILOS PARA O BODY E LAYOUTS
 ========================================= */
+/* Classes Utilitárias */
+.Border2S { border: 2px solid var(--borda-ouro); }
+.DisplayFlex { display: flex; }
+.A-I_Center { align-items: center; }
+.J-C_Center { justify-content: center; }
+.DFlexALCenter { display: flex; align-items: center; justify-content: center; }
+.ImgCover { background-size: cover; }
+.imgContain { background-position: center; background-repeat: no-repeat; background-size: contain; }
+.BoxSizing { box-sizing: border-box; }
+.width100 { width: 100%; }
+.height100 { height: 100%; }
+.heigth100 { width: 100%; }
 
-/* divs com BORDERS*/
-.Border2S{
-  border: 2px solid #d28f22;
-}
-
-/* divs com DISPLAY FLEX*/
-.DisplayFlex {
-  display: flex;
-}
-
-/* Divs com ALIGN-ITEMS CENTER */
-.A-I_Center {
-  align-items: center;
-}
-/* Divs com JUSTIFY-CONTENT CENTER */
-.J-C_Center {
-  justify-content: center;
-}
-/* Divs com Display FLEX, ALIGN e JUSTIFY: CENTER */
-.DFlexALCenter {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Imagens com cover */
-.ImgCover {
-  background-size: cover;
-}
-
-/* divs com BOX-SIZING */
-.BoxSizing {
-  box-sizing: border-box;
-}
-
-/* divs com width 100% */
-.width100 {
-  width: 100%;
-}
-
-/* divs com height 100% */
-.heigth100 {
-  width: 100%;
-}
-/* divs imagem contain% */
-.imgContain {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+:root {
+  /* Paleta de Cores do Jogo (Use com var(--nome-da-cor)) */
+  --bg-escuro: #0d0f36;
+  --bg-batalha: #294380;
+  --bg-ui: #1a2a4f;
+  --bg-preto: #121312;
+  --borda-ouro: #d28f22;
+  --borda-prata: #a0abbc;
+  --borda-ciano: #2a7f8a;
+  --cor-vida: #157407;
+  --cor-mana: #0284ba;
+  --cor-alerta: #5d0018;
 }
 
 * {
@@ -101,11 +76,11 @@ body {
   height: 8vh;
   background-color: #121312;
   font-family: 'MedievalSharp', cursive;
-  border: 2px solid #d28f22;
+  border: 2px solid var(--borda-prata);
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 7px;
   gap: 3px;
 }
 
@@ -186,25 +161,6 @@ body {
 }
 
 /* =========================================
-   PALETA DE BORDAS DO JOGO
-   ========================================= */
-
-/* Borda Padrão (Ouro) - Itens importantes, painéis principais */
-.borda-ouro {
-  border: 2px solid #d28f22;
-}
-
-/* Borda Secundária (Prata) - Slots vazios, itens comuns, painéis secundários */
-.borda-prata {
-  border: 2px solid #a0abbc;
-}
-
-/* Borda Mágica/Especial (Teal) - Itens mágicos, mana, Biblioteca */
-.borda-magica {
-  border: 2px solid #2a7f8a;
-}
-
-/* =========================================
    MEDIA QUERY (TELA DE COMPUTADOR / TABLET)
    ========================================= */
 
@@ -245,18 +201,6 @@ body {
 /* =========================================
    ESTILOS PARA TELA PERFIL
 ========================================= */
-.colors{
-  color: #0d0f36;
-  color: #294380;
-  color: #69d2cd;
-  color: #b9f1d6;
-  color: #5d0018;
-}
-.bordas {
-  color: #d28f22;
-  color: #a0abbc;
-  color: #2a7f8a;
-}
 
 #perfil-tela {
   box-sizing: border-box;
