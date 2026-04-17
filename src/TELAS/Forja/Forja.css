@@ -364,7 +364,7 @@
 /*======≠===========================
         POPUP da FORJA 
 ====================================*/
-#ForjaPopUp {
+.PopUps, #ForjaPopUp {
   position: absolute;
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.7);

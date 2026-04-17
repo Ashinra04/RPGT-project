@@ -7,7 +7,7 @@
 .A-I_Center { align-items: center; }
 .J-C_Center { justify-content: center; }
 .DFlexALCenter { display: flex; align-items: center; justify-content: center; }
-.ImgCover { background-size: cover; }
+.ImgCover { background-size: cover; background-position: center;}
 .imgContain { background-position: center; background-repeat: no-repeat; background-size: contain; }
 .BoxSizing { box-sizing: border-box; }
 .width100 { width: 100%; }

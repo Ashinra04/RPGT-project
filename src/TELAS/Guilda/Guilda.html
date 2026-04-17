@@ -18,7 +18,7 @@
           
       <div id="Missoes" class="Border2S imgContain heigth100"></div>
           
-      <div id="Bestiario" class="Border2S imgContain heigth100" onclick="mudarTela('Tela-Bestiario')"></div>
+      <div id="Bestiario" class="Border2S imgContain heigth100" onclick="criarBestiario(); mudarTela('Tela-Bestiario')"></div>
         <!--  criarBestiario(); -->
     </div>
   </div>
@@ -38,11 +38,25 @@
   
   <div id="BestiarioBody" class="">
     <div id="BRow1" class="BestiarioRows">
-      <div id="RowTitle" class="BesTitles DFlexALCenter">ANDAR XX</div>
-      <div id="RowBody" class="BestBody"></div>
+      <div class="BesTitles DFlexALCenter">ANDAR XX</div>
+      <div id="RowBody" class="BestBody">
+        <div id="MonstroId" class="MonstroCard"></div>
+      </div>
     </div>
-    <div id="BRow1" class="BestiarioRows"></div>
-    <div id="BRow1" class="BestiarioRows"></div>
+  </div>
+  
+  <div id="BestiarioPopUp" class="oculto">
+    <div id="BPopUpFundo" class="PopUps DFlexALCenter" onclick="PopBestiario('ocultar')">
+      <div id="BPopUpBox" class="">
+        <div id="BPopUpImg" class="ImgCover"></div>
+        <div id="BPopConteudo">
+          <div id="BestMonstrosInfos">
+            <div id="BestMonstroDetalhes" class="BeatMonstroRowPop"></div>
+            <div id="BestMonstroStatus" class="BeatMonstroRowPop"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   
   <div id="Botoes-container">

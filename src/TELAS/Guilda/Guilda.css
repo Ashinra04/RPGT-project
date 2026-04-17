@@ -22,7 +22,6 @@
    
 .TelasTitles {
   height: 7vh;
-  background-color: #252628;
   background-color: #5d0018;
   color: white;
   border: 2px solid var(--borda-prata);
@@ -80,7 +79,7 @@
 }
    
 .btnG, .btnBS {
-  height: auto;
+  height: 100%;
   background-color: #5d0018;
   border: 2px solid #d28f22;
   color: white;
@@ -91,11 +90,22 @@
 .btnG {
   width: 33vw;
 }
+
+#Botoes-container {
+  flex-shrink: 0; 
+}
 /* =========================================
     TELA BESTIARIO
 ========================================= */
 .btnBS {
   width: 100vw;
+}
+#BestiarioTitle {
+  height: 7vh;
+  flex-shrink: 0; 
+  background-color: #5d0018;
+  color: white;
+  border: 2px solid var(--borda-prata);
 }
 
 #BestiarioBody{
@@ -103,27 +113,17 @@
   background-color: var(--bg-escuro);
   border-left: 2px solid var(--borda-prata);
   border-right: 2px solid var(--borda-prata);
-  overflow: hidden;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
   display: flex;
   flex-direction: column;
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-columns: 18vh; */
   gap: 6px;
   padding: 8px;
 }
-.Cards {
-  height: 100%;
-  width: 100%;
-  border: 2px solid var(--borda-ciano);
-  background-color: var(--bg-batalha);
-}
 
 .BestiarioRows {
-  height: 60%;
+  height: auto;
   width: 100%;
   border: 2px solid var(--borda-ouro);
   background-color: var(--bg-preto);
@@ -131,14 +131,84 @@
   flex-direction: column;
 }
 .BesTitles {
-  height: 20%;
   width: 100%;
+  padding: 10px 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-bottom: 2px solid var(--borda-ouro);
   background-color: var(--cor-alerta);
   color: white;
 }
 .BestBody {
-  height: 80%;
+  flex: 1;
   width: 100%;
   background-color: var(--cor-alerta);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 12vh;
+  padding: 5px;
+  gap: 5px;
+}
+.MonstroCard {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--borda-ciano);
+  background-color: var(--bg-batalha);
+}
+
+.PopUps {
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+}
+
+#BPopUpBox {
+  width: 80%;
+  height: 70%;
+  background-color: #294380;
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #a0abbc;
+}
+
+#BPopUpImg {
+  width: 100%;
+  height: 45%;
+  background-image: url('/imagens/cenarios/Bestiario_fundo.png');
+}
+#BPopConteudo {
+  width: 100%;
+  height: 55%;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 5px;
+  padding-bottom: 30px;
+}
+#BestMonstrosInfos {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-top: 3px solid var(--borda-ouro);
+  border-bottom: 3px solid var(--borda-ouro);
+  border-left: 1px solid var(--borda-ouro);
+  border-right: 1px solid var(--borda-ouro);
+  background-color: var(--cor-alerta);
+}
+.BeatMonstroRowPop {
+  width: 50%;
+  height: 100%;
+}
+#BestMonstroStatus {
+  border-left: 1px solid var(--borda-ouro);
 }
