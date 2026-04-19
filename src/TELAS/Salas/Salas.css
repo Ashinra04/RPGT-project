@@ -1,0 +1,173 @@
+:root {
+  --bg-escuro: #0d0f36;
+  --bg-batalha: #294380;
+  --bg-ui: #1a2a4f;
+  --bg-preto: #121312;
+  --bg-cinza: #252628;
+  --borda-ouro: #d28f22;
+  --borda-prata: #a0abbc;
+  --borda-ciano: #2a7f8a;
+  --cor-vida: #157407;
+  --cor-mana: #0284ba;
+  --cor-alerta: #5d0018;
+}
+/* ======================================================
+    SALAS TELA
+======================================================*/
+#salas-tela {
+  border: 2px solid var(--borda-ouro);
+  position: relative;
+}
+
+#miniMap {
+  width: 30%;
+  height: 20%;
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  border: 2px solid var(--borda-ouro);
+  background-color: var(--bg-batalha);
+}
+
+/* ======================================================
+    MAPA TELA
+======================================================*/
+#mapa-tela {
+  background-color: var(--bg-cinza);
+  z-index: 1;
+  overflow-y: hidden;
+  overflow-x: auto;
+  position: relative;
+}
+/* MAPA TELA FILHOS */
+#MapaTitle {
+  height: 8vh;
+  z-index: 10;
+  width: 50%;
+  border: 2px solid var(--borda-prata);
+  background-color: var(--bg-ui);
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  align-items: center; 
+  position: fixed; 
+  left: 25%;
+  text-shadow: 2px 2px 4px black; 
+  color: white;
+}
+#mapa-conteudo {
+  width: max-content; 
+  min-width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box; 
+  padding-top: 10vh; 
+  padding-bottom: 15vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 5;
+  display: grid;
+  grid-template-rows: repeat(5, auto);
+  grid-auto-columns: 14vh;
+  gap: 20px;
+  align-content: center; 
+  border: 2px solid var(--borda-prata);
+  background-image: linear-gradient(to top, #0d0f36, #294380);
+}
+#mapaBotoes {
+  height: 9vh;
+  z-index: 10;
+  width: 95%;
+  padding: 1%;
+  gap: 1%;
+  background-color: var(--bg-preto);
+  border: 2px solid var(--borda-prata);
+  display: flex;
+  flex-direction: row;
+  position: fixed; 
+  bottom: 0%;
+  left: 3%;
+  text-shadow: 2px 2px 4px black; 
+  color: white;
+}
+
+.salaSlot {
+  width: 12vh;
+  height: 12vh;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem; 
+}
+.salaSemPlayer {
+  border: 2px solid white;
+}
+.salaDoPlayer {
+  border: 2px solid var(--borda-ouro);
+}
+.mapaBtn {
+  width: 25%;
+  height: 100%;
+  background-color: var(--cor-alerta);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#Sala1_1 { grid-row: 3; grid-column: 1; }
+#Sala1_2 { grid-row: 3; grid-column: 2; }
+#Sala1_3 { grid-row: 3; grid-column: 3; }
+#Sala1_4 { grid-row: 3; grid-column: 4; }
+#Sala1_5 { grid-row: 3; grid-column: 5; }
+#Sala1_6 { grid-row: 3; grid-column: 6; }
+#Sala1_7 { grid-row: 3; grid-column: 7; }
+#Sala1_8 { grid-row: 3; grid-column: 8; }
+#Sala1_9 { grid-row: 4; grid-column: 3; }
+#Sala1_10 { grid-row: 5; grid-column: 3; }
+#Sala1_11 { grid-row: 2; grid-column: 4; }
+#Sala1_12 { grid-row: 1; grid-column: 4; }
+#Sala1_13 { grid-row: 1; grid-column: 5; }
+#Sala1_14 { grid-row: 1; grid-column: 6; }
+#Sala1_15 { grid-row: 1; grid-column: 7; }
+#Sala1_16 { grid-row: 2; grid-column: 7; }
+
+#Sala2_1 { grid-row: 3; grid-column: 1; }
+#Sala2_2 { grid-row: 2; grid-column: 1; }
+#Sala2_3 { grid-row: 1; grid-column: 1; }
+#Sala2_4 { grid-row: 1; grid-column: 2; }
+#Sala2_5 { grid-row: 1; grid-column: 3; }
+#Sala2_6 { grid-row: 2; grid-column: 3; }
+#Sala2_7 { grid-row: 3; grid-column: 3; }
+#Sala2_8 { grid-row: 4; grid-column: 3; }
+#Sala2_9 { grid-row: 4; grid-column: 4; }
+#Sala2_10 { grid-row: 4; grid-column: 5; }
+#Sala2_11 { grid-row: 4; grid-column: 6; }
+#Sala2_12 { grid-row: 4; grid-column: 7; }
+#Sala2_13 { grid-row: 1; grid-column: 4; }
+#Sala2_14 { grid-row: 1; grid-column: 5; }
+#Sala2_15 { grid-row: 3; grid-column: 7; }
+#Sala2_16 { grid-row: 3; grid-column: 8; }
+
+#Sala3_1 { grid-row: 3; grid-column: 1; }
+#Sala3_2 { grid-row: 3; grid-column: 2; }
+#Sala3_3 { grid-row: 3; grid-column: 3; }
+#Sala3_4 { grid-row: 3; grid-column: 4; }
+#Sala3_5 { grid-row: 3; grid-column: 5; }
+#Sala3_6 { grid-row: 3; grid-column: 6; }
+#Sala3_7 { grid-row: 2; grid-column: 3; }
+#Sala3_8 { grid-row: 1; grid-column: 3; }
+#Sala3_9 { grid-row: 1; grid-column: 4; }
+#Sala3_10 { grid-row: 1; grid-column: 5; }
+#Sala3_11 { grid-row: 1; grid-column: 6; }
+#Sala3_12 { grid-row: 2; grid-column: 6; }
+#Sala3_13 { grid-row: 4; grid-column: 3; }
+#Sala3_14 { grid-row: 5; grid-column: 3; }
+#Sala3_15 { grid-row: 3; grid-column: 7; }
+#Sala3_16 { grid-row: 3; grid-column: 8; }
+#Sala3_17 { grid-row: 5; grid-column: 4; }
+#Sala3_18 { grid-row: 5; grid-column: 5; }
+#Sala3_19 { grid-row: 5; grid-column: 6; }
+#Sala3_20 { grid-row: 4; grid-column: 6; }

@@ -9,9 +9,6 @@
   <div id="guilda-body" class="conteudo DisplayFlex width100">
         
     <div id="Linha1" class="DisplayFlex width100 BoxSizing">
-          
-      <div id="XX" class="Border2S heigth100"></div>
-          
     </div>
         
     <div id="Linha2" class="DisplayFlex width100 BoxSizing">
@@ -19,7 +16,6 @@
       <div id="Missoes" class="Border2S imgContain heigth100"></div>
           
       <div id="Bestiario" class="Border2S imgContain heigth100" onclick="criarBestiario(); mudarTela('Tela-Bestiario')"></div>
-        <!--  criarBestiario(); -->
     </div>
   </div>
       
@@ -48,10 +44,50 @@
   <div id="BestiarioPopUp" class="oculto">
     <div id="BPopUpFundo" class="PopUps DFlexALCenter" onclick="PopBestiario('ocultar')">
       <div id="BPopUpBox" class="">
-        <div id="BPopUpImg" class="ImgCover"></div>
+        
+        <div id="BPopUpImg" class="ImgCover DFlexALCenter">
+          <div id="BpopupMonster" class="imgContain"></div>
+        </div>
+        
         <div id="BPopConteudo">
           <div id="BestMonstrosInfos">
-            <div id="BestMonstroDetalhes" class="BeatMonstroRowPop"></div>
+            
+            <div id="BestMonstroDetalhes" class="BeatMonstroRowPop">
+              <div id="BMonsterNome">
+                <div id="BNomedoMonstro" class="BNomedoMonstro">Goblin</div>
+                <p class="BMonstroTitulo">Tipo: inseto</p>
+              </div>
+              
+              <div id="BMonsterBase" class="DFlexALCenter">STATUS BASE</div>
+              
+              <div id="BmonsterInfos" class="DFlexALCenter">
+                <h2 id="TipoM" class="InfoText"></h2>
+                <h2 id="HpBase" class="InfoText">HP: 10 | mana: 0</h2>
+                <h2 id="danoBase" class="InfoText">dano: 5 | Def: 13</h2>
+              </div>
+              
+              <div id="BMonsterAtributos">
+                <div id="STRMonster" class="AtributosM">
+                  <div id="STRm" class="AtMon">STR</div>
+                  <div id="STRn" class="NumbMons">10</div>
+                </div>
+                <div id="DEXMonster" class="AtributosM">
+                  <div id="DEXm" class="AtMon">DEX</div>
+                  <div id="DEXn" class="NumbMons">10</div>
+                </div>
+                <div id="CONMonster" class="AtributosM">
+                  <div id="CONTm" class="AtMon">CON</div>
+                  <div id="CONn" class="NumbMons">10</div>
+                </div>
+                <div id="INTMonster" class="AtributosM">
+                  <div id="INTm" class="AtMon">INT</div>
+                  <div id="INTn" class="NumbMons">10</div>
+                </div>
+              </div>
+              
+              <div id="BMonsterSkills"></div>
+            </div>
+            
             <div id="BestMonstroStatus" class="BeatMonstroRowPop"></div>
           </div>
         </div>

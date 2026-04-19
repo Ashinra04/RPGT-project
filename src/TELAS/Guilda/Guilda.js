@@ -13,52 +13,52 @@ window.mudarConteudo = function (idParaIr) {
 window.MonstrosBestiario = {
   "Andar 1/9": { 
     Goblin: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/goblin.png' },
-    Goblin_Mago: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/goblin.png' },
-    Goblin_Rastreador : { habitat: '1 a 9 andar', sprite: '/imagens/monstros/goblin.png' },
+    Goblin_Mago: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/vazio.png' },
+    Goblin_Rastreador : { habitat: '1 a 9 andar', sprite: '/imagens/monstros/vazio.png' },
     Slime: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/slime.png' },
-    Slime_Flamejante: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/slime.png' },
+    Slime_Flamejante: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/vazio.png' },
     Spider: { habitat: '1 a 9 andar', sprite: '/imagens/monstros/spider.png' },
   },
   
   "Andar 11/19": { 
-    Kobold: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/spider.png' },
-    Kobold_Lanceiro: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/spider.png' },
-    Rat: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/spider.png' },
-    Rat_Toxico: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/spider.png' },
+    Kobold: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/vazio.png' },
+    Kobold_Lanceiro: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/vazio.png' },
+    Rat: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/vazio.png' },
+    Rat_Toxico: { habitat: '11 a 19 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 21/29": { 
-    Bat: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/spider.png' },
-    Orc: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/spider.png' },
-    Orc_Berseker: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/spider.png' }
+    Bat: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/vazio.png' },
+    Orc: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/vazio.png' },
+    Orc_Berseker: { habitat: '21 a 29 andar', sprite: '/imagens/monstros/vazio.png' }
   },
   
   "Andar 31/39": { 
-    Bat1: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat1: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 41/49": { 
-    Bat2: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat2: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 51/59": { 
-    Bat3: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat3: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 61/69": { 
-    Bat4: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat4: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 71/79": { 
-    Bat5: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat5: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 81/89": { 
-    Bat6: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat6: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   },
   
   "Andar 91/99": { 
-    Bat6: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/spider.png' },
+    Bat6: { habitat: '31 a 39 andar', sprite: '/imagens/monstros/vazio.png' },
   }
 }
 
@@ -106,8 +106,21 @@ window.criarBestiario = function() {
       AndarBody.appendChild(cardMonster);
       
       cardMonster.onclick = function() {
-        window.PopBestiario('aparecer');
+        
+        let spriteMonstro = monstrosDesteAndar[nomeDoMonstro].sprite;
+        window.InforPopUpBestiario(spriteMonstro, nomeDoMonstro)
       }
     });
   });
+}
+
+window.InforPopUpBestiario = function(imagemRecebida, nomeRecebido) {
+  let imgIconB = document.getElementById('BpopupMonster');
+  imgIconB.style.backgroundImage = `url('${imagemRecebida}')`;
+  
+  document.getElementById('BNomedoMonstro').innerText = nomeRecebido;
+  
+  let tipoMBest = document.getElementById('BMonstroTitulo');
+  
+  window.PopBestiario('aparecer');
 }

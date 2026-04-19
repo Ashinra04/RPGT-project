@@ -47,7 +47,8 @@ window.atualizarTorre = function() {
             btn.className = 'btnPBattle';
             
             btn.onclick = function() {
-                mudarTela('combate-tela');
+                // mudarTela('combate-tela');
+                mudarTela('salas-tela');
                 window.GerarMonstros(); 
                 window.NomearMobs();
                 window.InformacoesDoAlvo('Player');

@@ -8,6 +8,7 @@
   --bg-batalha: #294380;
   --bg-ui: #1a2a4f;
   --bg-preto: #121312;
+  --bg-cinza: #252628;
   --borda-ouro: #d28f22;
   --borda-prata: #a0abbc;
   --borda-ciano: #2a7f8a;
@@ -22,7 +23,7 @@
    
 .TelasTitles {
   height: 7vh;
-  background-color: #5d0018;
+  background-color: #1a2a4f;
   color: white;
   border: 2px solid var(--borda-prata);
 }
@@ -42,13 +43,13 @@
 #guilda-body {
   flex-grow: 1;
   flex-direction: column;
+  background-color: var(--bg-cinza);
   border-left: 2px solid var(--borda-prata);
   border-right: 2px solid var(--borda-prata);
 }
   
 #Linha1, #Linha2 {
   height: 50%;
-  background-color: var(--bg-escuro);
   flex-direction: row;
   gap: 20px;
   color: white;
@@ -63,24 +64,20 @@
    
 #Missoes, #Bestiario, {
   width: 50%;
-  background-color: var(--bg-ui);
-  border: solid 2px var(--borda-ouro);
-}
-
-#xx {
-  width: 100%;
 }
    
 #Missoes {
   background-image: url('/imagens/Sprites/Mission.png');
+  background-color: var(--cor-alerta);
 }
 #Bestiario {
   background-image: url('/imagens/Sprites/Bestiario.png');
+  background-color: var(--cor-alerta);
 }
    
 .btnG, .btnBS {
   height: 100%;
-  background-color: #5d0018;
+  background-color: var(--cor-alerta);
   border: 2px solid #d28f22;
   color: white;
   cursor: pointer;
@@ -103,7 +100,7 @@
 #BestiarioTitle {
   height: 7vh;
   flex-shrink: 0; 
-  background-color: #5d0018;
+  background-color: #1a2a4f;
   color: white;
   border: 2px solid var(--borda-prata);
 }
@@ -137,13 +134,13 @@
   justify-content: center;
   align-items: center;
   border-bottom: 2px solid var(--borda-ouro);
-  background-color: var(--cor-alerta);
+  background-color: var(--bg-ui);
   color: white;
 }
 .BestBody {
   flex: 1;
   width: 100%;
-  background-color: var(--cor-alerta);
+  background-color: var(--bg-escuro);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 12vh;
@@ -153,10 +150,11 @@
 .MonstroCard {
   width: 100%;
   height: 100%;
-  border: 2px solid var(--borda-ciano);
-  background-color: var(--bg-batalha);
+  border: 2px solid var(--borda-ouro);
+  background-color: var(--bg-cinza);
 }
 
+/* PopUp do BESTUARIO */
 .PopUps {
   position: absolute;
   z-index: 9999;
@@ -170,7 +168,7 @@
 
 #BPopUpBox {
   width: 80%;
-  height: 70%;
+  height: 75%;
   background-color: #294380;
   display: flex;
   flex-direction: column;
@@ -178,10 +176,20 @@
 }
 
 #BPopUpImg {
+  position: relative;
   width: 100%;
   height: 45%;
   background-image: url('/imagens/cenarios/Bestiario_fundo.png');
 }
+#BpopupMonster {
+  width: 40%;
+  height: 50%;
+  position: absolute;
+  top: 43%;
+  z-index: 50;
+  background-image: url('/imagens/monstros/spider.png');
+}
+
 #BPopConteudo {
   width: 100%;
   height: 55%;
@@ -195,20 +203,109 @@
   height: 100%;
   display: flex;
   flex-direction: row;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  padding: 2px;
   border-top: 3px solid var(--borda-ouro);
   border-bottom: 3px solid var(--borda-ouro);
   border-left: 1px solid var(--borda-ouro);
   border-right: 1px solid var(--borda-ouro);
-  background-color: var(--cor-alerta);
+  background-color: var(--bg-escuro);
 }
 .BeatMonstroRowPop {
   width: 50%;
   height: 100%;
 }
+#BestMonstroDetalhes {
+  display: flex;
+  flex-direction: column;
+}
 #BestMonstroStatus {
   border-left: 1px solid var(--borda-ouro);
 }
+
+/* BestMonstroDetalhes filhos */
+/* filho 1 */
+#BMonsterNome {
+  width: 100%;
+  height: 15%;
+  border-bottom: 1px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  gap: 5px;
+}
+.BNomedoMonstro {
+  color: white;
+  font-size: 16px;
+}
+.BMonstroTitulo {
+  color: white;
+  font-size: 12px;
+}
+
+/* filho 5 */
+#BMonsterBase {
+  width: 100%;
+  height: 10%;
+  font-size: 14px;
+  padding: 5px;
+  color: white;
+  border-bottom: 1px solid var(--borda-ouro);
+}
+
+/* filho 2 */
+#BmonsterInfos {
+  width: 100%;
+  height: 14%;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  gap: 3px;
+}
+.InfoText {
+  color: white;
+  font-size: 10px;
+}
+
+/* filho 3 */
+#BMonsterAtributos {
+  width: 100%;
+  height: 17%;
+  border-bottom: 1px solid var(--borda-ouro);
+  display: grid;
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  padding: 5px;
+  gap: 5px;
+}
+.AtributosM {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: column;
+}
+.AtMon {
+  width: 100%;
+  height: 70%;
+  color: white;
+  font-size: 12px;
+}
+.NumbMons {
+  width: 100%;
+  height: 70%;
+  color: white;
+  font-size: 10px;
+}
+.NumbMons, .AtMon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* filho 4 */
+#BMonsterSkills {
+  width: 100%;
+  height: 35%;
+}
+
+/* BestMonstroStatus filhos */
