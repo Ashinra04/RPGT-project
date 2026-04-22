@@ -1,45 +1,39 @@
 <!----------------------------------------------------------
        TELA SAlas
 ----------------------------------------------------------->
-<div id="salas-tela" class="tela oculto">
-  
-  
+<div id="salas-tela" class="tela">
   <div id="miniMap" class="" onclick="mudarTela('mapa-tela')"></div>
+  
+  <div id="parteDeCima" class="">
+    <div id="Porta1" class="Portas"></div>
+    <div id="Porta2" class="Portas"></div>
+    <div id="Porta3" class="Portas"></div>
+  </div>
+  
+  <div id="parteDeBaixo" class="">
+    <div id="mapaBotoes">
+      <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
+      <div class="mapaBtn" onclick="criarPortas()">Perfil</div>
+      <div class="mapaBtn">aliados</div>
+      <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+    </div>
+  </div>
+  
 </div>
 
-<div id="mapa-tela" class="tela">
+<div id="mapa-tela" class="tela oculto">
   
   <div id="MapaTitle">XXX ANDAR</div>
   
-  <div id="mapa-conteudo" class="">
-    <div id="Sala3_1" class="salaSlot salaDoPlayer">🛏️</div>
-    <div id="Sala3_2" class="salaSlot salaSemPlayer">💀</div>
-    <div id="Sala3_3" class="salaSlot salaSemPlayer">⛺</div>
-    <div id="Sala3_4" class="salaSlot salaSemPlayer">💀</div>
-    <div id="Sala3_5" class="salaSlot salaSemPlayer">💀</div>
-    <div id="Sala3_6" class="salaSlot salaSemPlayer">🗝️</div>
-    <div id="Sala3_7" class="salaSlot salaSemPlayer">☠️</div>
-    <div id="Sala3_8" class="salaSlot salaSemPlayer">🪜</div>
-    <div id="Sala3_9" class="salaSlot salaSemPlayer">9</div>
-    <div id="Sala3_10" class="salaSlot salaSemPlayer">10</div>
-    <div id="Sala3_11" class="salaSlot salaSemPlayer">11</div>
-    <div id="Sala3_12" class="salaSlot salaSemPlayer">12</div>
-    <div id="Sala3_13" class="salaSlot salaSemPlayer">13</div>
-    <div id="Sala3_14" class="salaSlot salaSemPlayer">14</div>
-    <div id="Sala3_15" class="salaSlot salaSemPlayer">☠️</div>
-    <div id="Sala3_16" class="salaSlot salaSemPlayer">🪜</div>
-    
-    <div id="Sala3_17" class="salaSlot oculto salaSemPlayer">🪜</div>
-    <div id="Sala3_18" class="salaSlot oculto salaSemPlayer">🪜</div>
-    <div id="Sala3_19" class="salaSlot oculto salaSemPlayer">🪜</div>
-    <div id="Sala3_20" class="salaSlot oculto salaSemPlayer">🪜</div>
-  </div>
+  <div id="mapa-conteudo" class=""></div>
   
   <div id="mapaBotoes">
-    <div class="mapaBtn" onclick="MapaLayouts()">Inven</div>
-    <div class="mapaBtn">Perfil</div>
+    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
+    <div class="mapaBtn" onclick="criarPortas()">Perfil</div>
     <div class="mapaBtn">aliados</div>
-    <div class="mapaBtn">sair</div>
+    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
   </div>
-  
+<!-----------------------------------------------------------
+  >☠️< ">🪜</ ">💀</ ">⛺</  ">🗝️<
+------------------------------------------------------------>
 </div>
