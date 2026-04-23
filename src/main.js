@@ -54,4 +54,5 @@ document.addEventListener("DOMContentLoaded", function() {
   window.NomeMercenario();
   window.mostrarStatusTaverna();
   window.atualizarTorre();
+  window.GerarMapaCompleto();
 });

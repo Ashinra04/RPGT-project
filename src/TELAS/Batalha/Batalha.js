@@ -47,7 +47,7 @@ window.atualizarTorre = function() {
             btn.className = 'btnPBattle';
             
             btn.onclick = function() {
-                // mudarTela('combate-tela');
+                //mudarTela('combate-tela');
                 mudarTela('salas-tela');
                 window.GerarMonstros(); 
                 window.NomearMobs();
@@ -299,7 +299,7 @@ window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
   personagem.style.transition = "0.3s ease-in-out"; 
   personagem.style.transform = `translate(${deslocamentoX}px, 0px)`;
 
-  // 4. O MOMENTO DO IMPACTO (Acontece 150ms depois, bem no meio do pulo)
+  // 4. O MOMENTO DO IMPACTO
   setTimeout(() => {
     
     // --- A. O Efeito Visual do Corte ---
@@ -310,7 +310,7 @@ window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
     else if(idAlvoEscolhido === "Enemy2") efeitoDiv.classList.add('atacarInimigo2');
     else if(idAlvoEscolhido === "Enemy3") efeitoDiv.classList.add('atacarInimigo3');
     
-    setTimeout(() => efeitoDiv.classList.add('oculto'), 400); // Some depois de 400ms
+    setTimeout(() => efeitoDiv.classList.add('oculto'), 400);
 
     // --- B. O Dano e o Texto Flutuante ---
     let dano = window.PersonagensEmCampo[window.QuemEaVez].dano || 10;
@@ -321,18 +321,15 @@ window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
     el.innerText = dano; 
     document.getElementById(idAlvoEscolhido).appendChild(el); 
     
-    setTimeout(() => el.remove(), 1000); // Lixeira do texto flutuante
+    setTimeout(() => el.remove(), 1000);
     
-    // Atualiza a barra de vida vermelha do monstro lá em cima
     window.InformacoesDoAlvo(); 
 
   }, 150);
 
-  // 5. A VOLTA E PASSAGEM DE TURNO (Acontece 300ms depois, quando o pulo termina)
+  // 5. A VOLTA E PASSAGEM DE TURNO
   setTimeout(function() {
     personagem.style.transform = "translate(0, 0)";
-    
-    // Espera a animação de voltar terminar para finalmente passar a vez
     setTimeout(() => {
       window.TurnoAtual(); 
     }, 300);
@@ -395,4 +392,28 @@ window.TurnoDosMonstros = function() {
     
     }, 400);
   }, 600);
+}
+
+window.verificarSeAlguemMorreu = function() {
+  for(let i = 1; i < 3; i++) {
+    let alvoAltual = PersonagensEmCampo.[`Enemy + ${i}`];
+    
+    if(alvoAltual.hp <= 0) {
+      alert('Ta morto');
+    }
+    else {
+      alert('Ta vivo')
+    }
+  }
+  
+  let TimeAliado = ["Player", "Aliado1", "Aliado2"]
+  
+  TimeAliado.forEach(nome => {
+    if(PersonagensEmCampo[nome].hp <= 0) {
+      alert('Ta morto');
+    }
+    else {
+      alert('Ta vivo')
+    }
+  });
 }

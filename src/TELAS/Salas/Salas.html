@@ -1,7 +1,7 @@
 <!----------------------------------------------------------
-       TELA SAlas
+       TELA SALAS
 ----------------------------------------------------------->
-<div id="salas-tela" class="tela">
+<div id="salas-tela" class="tela oculto">
   <div id="miniMap" class="" onclick="mudarTela('mapa-tela')"></div>
   
   <div id="parteDeCima" class="">
@@ -21,7 +21,10 @@
   
 </div>
 
-<div id="mapa-tela" class="tela oculto">
+<!----------------------------------------------------------
+       TELA DO MAPA
+----------------------------------------------------------->
+<div id="mapa-tela" class="tela oculto Salas">
   
   <div id="MapaTitle">XXX ANDAR</div>
   
@@ -33,7 +36,72 @@
     <div class="mapaBtn">aliados</div>
     <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
   </div>
-<!-----------------------------------------------------------
-  >☠️< ">🪜</ ">💀</ ">⛺</  ">🗝️<
------------------------------------------------------------->
+</div>
+
+<!----------------------------------------------------------
+   TELA TESOURO
+----------------------------------------------------------->
+<div id="Tesouro-tela" class="tela oculto Salas">
+  
+  <div id="TesouroTitle">TESOURO TELA</div>
+  
+  <div id="Tesouro-conteudo" class=""></div>
+  
+  <div id="TesouroBotoes">
+    <div class="tesouroBtn" onclick="">1</div>
+    <div class="tesouroBtn" onclick="">2</div>
+    <div class="tesouroBtn" onclick="">3</div>
+    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+  </div>
+</div>
+
+<!----------------------------------------------------------
+   TELA SAFEROOM
+----------------------------------------------------------->
+<div id="safeRoom-tela" class="tela oculto Salas">
+  
+  <div id="SaferoomTitle">DESCANSO TELA</div>
+  
+  <div id="saferoom-conteudo" class=""></div>
+  
+  <div id="TesouroBotoes">
+    <div class="tesouroBtn" onclick="">1</div>
+    <div class="tesouroBtn" onclick="">2</div>
+    <div class="tesouroBtn" onclick="">3</div>
+    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+  </div>
+</div>
+
+<!----------------------------------------------------------
+   TELA EVENTO
+----------------------------------------------------------->
+<div id="encontro-tela" class="tela oculto Salas">
+  
+  <div id="EventosTitle">EVENTO TELA</div>
+  
+  <div id="Eventos-conteudo" class=""></div>
+  
+  <div id="EventosBotoes">
+    <div class="tesouroBtn" onclick="">1</div>
+    <div class="tesouroBtn" onclick="">2</div>
+    <div class="tesouroBtn" onclick="">3</div>
+    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+  </div>
+</div>
+
+<!----------------------------------------------------------
+   TELA DE SUBIDA
+----------------------------------------------------------->
+<div id="Subida-tela" class="tela oculto Salas">
+  
+  <div id="SubidaTitle">SUBIDA DE ANDAR</div>
+  
+  <div id="Subida-conteudo" class=""></div>
+  
+  <div id="SubidaBotoes">
+    <div class="tesouroBtn" onclick="">1</div>
+    <div class="tesouroBtn" onclick="">2</div>
+    <div class="tesouroBtn" onclick="">3</div>
+    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 window.TiposSalas16 = [
   'batalha', 'batalha', 'batalha', 'batalha', 'batalha', 'batalha', 'batalha',
-  'encontro', 'encontro', 'miniBoss', 'miniBoss', 'Tesouro', 'safeRoom'
+  'encontro', 'encontro', 'miniBoss', 'Tesouro', 'Tesouro', 'safeRoom'
 ];
 
 window.TiposSalas20 = [
@@ -25,13 +25,13 @@ window.Layout1 = {
   1: { proximasSalas: [2] },
   2: { proximasSalas: [3] },
   3: { proximasSalas: [4, 9] },
-  4: { proximasSalas: [5, 11] },
-  5: { proximasSalas: [7] },
+  4: { proximasSalas: [11, 5] },
+  5: { proximasSalas: [6] },
   6: { proximasSalas: [15] },
   7: { proximasSalas: [8] },
   8: { proximasSalas: [15] },
   9: { proximasSalas: [10] },
-  10: { proximasSalas: [] },
+  10: { proximasSalas: [3] },
   11: { proximasSalas: [12] },
   12: { proximasSalas: [13] },
   13: { proximasSalas: [14] },
@@ -40,44 +40,93 @@ window.Layout1 = {
   16: { proximasSalas: [] }
 };
 
-// ========================================================
-// 2. FUNÇÃO DE GERAR AS PORTAS
-// ========================================================
+window.Layout2 = {
+  1: { proximasSalas: [2] },
+  2: { proximasSalas: [3] },
+  3: { proximasSalas: [4] },
+  4: { proximasSalas: [5] },
+  5: { proximasSalas: [13, 6] },
+  6: { proximasSalas: [7] },
+  7: { proximasSalas: [8] },
+  8: { proximasSalas: [9] },
+  9: { proximasSalas: [10] },
+  10: { proximasSalas: [11] },
+  11: { proximasSalas: [12] },
+  12: { proximasSalas: [15] },
+  13: { proximasSalas: [14] },
+  14: { proximasSalas: [5] },
+  15: { proximasSalas: [16] },
+  16: { proximasSalas: [] }
+};
 
-window.criarPortas = function() {
-  let PortasBox = document.getElementById('parteDeCima');
-  PortasBox.innerHTML = "";
-  let Portas = window.Layout1[posicaoPlayer].proximasSalas;
-  
-  if(Portas.length === 1) {
-    let Sala1 = Portas[0];
-    let porta1 = document.createElement('div');
-    porta1.className = 'Portas';
-    porta1.id = Sala1;
-    PortasBox.appendChild(porta1)
-  }
-  else if(Portas.length === 2) {
-    let Sala1 = Portas[0];
-    let Sala2 = Portas[1];
-    for(let i = 0; i < 2; i++) {
-      
-    }
-    let porta1 = document.createElement('div');
-    porta1.className = 'Portas';
-    porta1.id = Sala1;
-    PortasBox.appendChild(porta1)
-  }
-  else if(Portas.length === 3) {
-    let Sala1 = Portas[0];
-    let Sala2 = Portas[1];
-    let Sala3 = Portas[2];
-    alert(Sala1);
-    alert(Sala2);
-    alert(Sala3);
-  } else {
-    console.log('beco sem saida');
-  }
-}
+window.Layout3 = {
+  1: { proximasSalas: [2] },
+  2: { proximasSalas: [3] },
+  3: { proximasSalas: [7, 4, 13] },
+  4: { proximasSalas: [5] },
+  5: { proximasSalas: [6] },
+  6: { proximasSalas: [15] },
+  7: { proximasSalas: [8] },
+  8: { proximasSalas: [9] },
+  9: { proximasSalas: [10] },
+  10: { proximasSalas: [11] },
+  11: { proximasSalas: [12] },
+  12: { proximasSalas: [6] },
+  13: { proximasSalas: [14] },
+  14: { proximasSalas: [17] },
+  15: { proximasSalas: [16] },
+  16: { proximasSalas: [] },
+  17: { proximasSalas: [18] },
+  18: { proximasSalas: [19] },
+  19: { proximasSalas: [20] },
+  20: { proximasSalas: [6] }
+};
+
+window.Layout4 = {
+  1: { proximasSalas: [2] },
+  2: { proximasSalas: [20, 3] },
+  3: { proximasSalas: [4] },
+  4: { proximasSalas: [5] },
+  5: { proximasSalas: [6] },
+  6: { proximasSalas: [7] },
+  7: { proximasSalas: [8] },
+  8: { proximasSalas: [9] },
+  9: { proximasSalas: [10] },
+  10: { proximasSalas: [11] },
+  11: { proximasSalas: [12] },
+  12: { proximasSalas: [15] },
+  13: { proximasSalas: [15] },
+  14: { proximasSalas: [13] },
+  15: { proximasSalas: [16] },
+  16: { proximasSalas: [] },
+  17: { proximasSalas: [14] },
+  18: { proximasSalas: [17] },
+  19: { proximasSalas: [18] },
+  20: { proximasSalas: [19] }
+};
+
+window.Layout5 = {
+  1: { proximasSalas: [2] },
+  2: { proximasSalas: [3] },
+  3: { proximasSalas: [4] },
+  4: { proximasSalas: [5] },
+  5: { proximasSalas: [6] },
+  6: { proximasSalas: [7] },
+  7: { proximasSalas: [8] },
+  8: { proximasSalas: [9] },
+  9: { proximasSalas: [10] },
+  10: { proximasSalas: [11] },
+  11: { proximasSalas: [12] },
+  12: { proximasSalas: [13] },
+  13: { proximasSalas: [14] },
+  14: { proximasSalas: [17] },
+  15: { proximasSalas: [16] },
+  16: { proximasSalas: [] },
+  17: { proximasSalas: [18] },
+  18: { proximasSalas: [19] },
+  19: { proximasSalas: [20] },
+  20: { proximasSalas: [15] }
+};
 
 // ========================================================
 // 1. FUNÇÃO DE GERAR MAPA
@@ -125,12 +174,76 @@ window.GerarMapaCompleto = function() {
     }
 
     let tipoDaSala = window.SalasDoAndar[i];
-    // salaElemento.innerText = EmojisSalas[tipoDaSala];
-    salaElemento.innerText = i;
+    salaElemento.innerText = EmojisSalas[tipoDaSala] + i;
     mapaConteudo.appendChild(salaElemento);
   }
-
+  
+  criarPortas(salaLayout);
   console.log("Mapa Gerado com Sucesso!", window.SalasDoAndar);
+};
+
+// ========================================================
+// 2. FUNÇÃO DE GERAR AS PORTAS E COLOCAR OS EMOJIS
+// ========================================================
+window.criarPortas = function(Nlayout) {
+  let PortasBox = document.getElementById('parteDeCima');
+  PortasBox.innerHTML = "";
+
+  let layoutAlvo = window["Layout" + Nlayout];
+  let Portas = layoutAlvo[window.posicaoPlayer].proximasSalas;
+  
+  if (Portas.length === 0) {
+    console.log('Beco sem saída ou Fim do Andar!');
+    PortasBox.innerHTML = "<div style='color: white;'>FIM DO ANDAR</div>";
+  } else {
+    Portas.forEach((idDaSala, index) => {
+      let porta = document.createElement('div');
+      porta.className = 'Portas';
+      porta.id = idDaSala;
+      
+      let tipoDaSala = window.SalasDoAndar[idDaSala];
+      let emojiDaSala = EmojisSalas[tipoDaSala];
+      
+      porta.innerHTML = `
+        <div style="display: flex; flex-direction: column; align-items: center; line-height: 1.2;">
+          <span style="font-size: 40px;">${emojiDaSala}</span>
+          <span style="font-size: 16px; color: #ddd; font-weight: bold;">Sala ${idDaSala}</span>
+        </div>
+      `;
+      
+      // porta.innerText = emojiDaSala;
+
+      porta.onclick = function() {
+        console.log("O jogador entrou na sala " + idDaSala);
+        window.posicaoPlayer = idDaSala;
+        
+        let salaAntiga = document.querySelector('.salaDoPlayer');
+        if (salaAntiga) {
+          salaAntiga.classList.remove('salaDoPlayer');
+          salaAntiga.classList.add('salaSemPlayer');
+        }
+
+        let idHtmlDaNovaSala = `Sala${Nlayout}_${idDaSala}`;
+        let salaNova = document.getElementById(idHtmlDaNovaSala);
+        
+        if (salaNova) {
+          salaNova.classList.remove('salaSemPlayer');
+          salaNova.classList.add('salaDoPlayer');
+        }
+        
+        window.criarPortas(Nlayout);
+
+        if (['boss', 'batalha', 'miniboss'].includes(tipoDaSala)) {
+          mudarTela('combate-tela');
+          
+        } else {
+          window.PegarTipoDaSala(tipoDaSala);
+        }
+      };
+      
+      PortasBox.appendChild(porta);
+    });
+  }
 };
 
 // ========================================================
@@ -142,3 +255,40 @@ window.voltarParaSalas = function() {
   Mapa.classList.add('oculto');
   Salas.classList.remove('oculto');
 }
+
+window.PegarTipoDaSala = function(tipoDaSalaAlvo){
+  if(tipoDaSalaAlvo) {
+    let todasAsTelas = document.querySelectorAll('.Salas'); 
+    
+    todasAsTelas.forEach(tela => {
+      tela.classList.add('oculto');
+    });
+
+    let nomeDoId = tipoDaSalaAlvo + '-tela';
+    document.getElementById(nomeDoId).classList.remove('oculto');
+    
+    console.log("Abrindo a tela: " + nomeDoId);
+  }
+}
+
+ window.MudarParaSala = function() {
+   
+ }
+ window.avancarProxSala = function() {
+  console.log("O jogador está voltando para o corredor...");
+
+  let telaCombate = document.getElementById('combate-tela');
+  if (telaCombate) {
+    telaCombate.classList.add('oculto');
+  }
+
+  let todasAsTelas = document.querySelectorAll('.Salas'); 
+  todasAsTelas.forEach(tela => {
+    tela.classList.add('oculto');
+  });
+
+  let telaDeSalas = document.getElementById('salas-tela');
+  if (telaDeSalas) {
+    telaDeSalas.classList.remove('oculto');
+  }
+};

@@ -117,7 +117,7 @@
 /*---------------------------------*/
 /* ITEMS-CAIXA */
 #InventarioDosItems {
-  height: 50vh;
+  flex: 1;
   background-color: #252628;
   display: grid;
   border-left: 2px solid #d28f22;

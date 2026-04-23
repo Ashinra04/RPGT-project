@@ -2,24 +2,18 @@
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
 
-.btnI {
-  height: auto;
-  width: 50vw;
-  background-color: #5d0018;
-  border: 2px solid #a0abbc;
-  color: white; 
-  cursor: pointer;
-  font-family: inherit;
-}
-
+/* 1. CONTAINER PRINCIPAL DA TELA */
 #inventario-tela {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
+  background-color: black;
 }
 
 #inventario-body {
-  flex-grow: 1;
-  width: 100%;
-  background-color: #black;
+  flex: 1; 
   display: flex;
   flex-direction: column;
   border-top: 2px solid #d28f22;
@@ -27,41 +21,70 @@
   border-right: 2px solid #d28f22;
   box-sizing: border-box;
   padding: 5px;
-  gap: 10px;
+  gap: 5px;
+  overflow: hidden;
 }
 
+/* 2. DIVISÃO DA TELA (50/50) */
 #IRow1, #IRow2 {
-  height: 50%;
+  flex: 1;
   width: 100%;
   background-color: #0d0f36;
-  
+  display: flex;
+  flex-direction: column;
 }
 
-#IRow1 {
-  
-}
 #IRow2 {
   border: 2px solid #a0abbc;
+  overflow: hidden;
 }
 
 .GSboxes {
-  height: 90%;
+  flex: 1; 
   width: 100%;
   background-color: #0d0f36;
   border: 2px solid #a0abbc;
 }
+
+/* 3. BOTÕES */
+.btnI {
+  flex: 1; 
+  height: 100%;
+  background-color: #5d0018;
+  border: 2px solid #a0abbc;
+  color: white; 
+  cursor: pointer;
+  font-family: inherit;
+}
+
 #BtnSG {
-  height: 10%;
+  height: 5vh;
   width: 100%;
   background-color: #0d0f36;
   display: flex;
   flex-direction: row;
+  gap: 5px; 
+  margin-top: 5px;
 }
 
-/*GEARS BOX */
+/* BOTOES DE BAIXO (FALTAVA ESSE CSS) */
+#Botoes-INVEN {
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+  background-color: #0d0f36;
+  border: 2px solid #a0abbc;
+  box-sizing: border-box;
+}
 
+/* 4. GEARS BOX (EQUIPAMENTOS) */
 #Gears-box {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: row;
   box-sizing: border-box;
   padding: 5px;
@@ -98,44 +121,19 @@
   background-size: contain;
 }
 
-#SWeapon  {
-  background-image: url('/imagens/Icons/sword.png');
-}
-#SBelt {
-  background-image: url('/imagens/Icons/belt.png');
-}
-#SRing1 {
-  background-image: url('/imagens/Icons/Rings.png');
-}
+#SWeapon  { background-image: url('/imagens/Icons/sword.png'); }
+#SBelt { background-image: url('/imagens/Icons/belt.png'); }
+#SRing1 { background-image: url('/imagens/Icons/Rings.png'); }
+#SHelemt { background-image: url('/imagens/Icons/helmet.png'); }
+#SArmor { background-image: url('/imagens/Icons/armor.png'); }
+#SPants { background-image: url('/imagens/Icons/pants.png'); }
+#SBoots { background-image: url('/imagens/Icons/boots.png'); }
+#SAmulet { background-image: url('/imagens/Icons/amulet.png'); }
+#SShield  { background-image: url('/imagens/Icons/shield.png'); }
+#SGloves { background-image: url('/imagens/Icons/gloves.png'); }
+#SRing2 { background-image: url('/imagens/Icons/Rings.png'); }
 
-#SHelemt {
-  background-image: url('/imagens/Icons/helmet.png');
-}
-#SArmor {
-  background-image: url('/imagens/Icons/armor.png');
-}
-#SPants {
-  background-image: url('/imagens/Icons/pants.png');
-}
-#SBoots {
-  background-image: url('/imagens/Icons/boots.png');
-}
-
-#SAmulet {
-  background-image: url('/imagens/Icons/amulet.png');
-}
-#SShield  {
-  background-image: url('/imagens/Icons/shield.png');
-}
-#SGloves {
-  background-image: url('/imagens/Icons/gloves.png');
-}
-#SRing2 {
-  background-image: url('/imagens/Icons/Rings.png');
-}
-
-/*ITEMS BOX */
-
+/* 5. ITEMS BOX (MOCHILA) */
 #items-box {
   display: flex;
   flex-direction: column;
@@ -145,7 +143,7 @@
 }
 
 #CategoriaItems{
-  height: 18%;
+  height: 8vh;
   width: 100%;
   background-color: #5d0018;
   display: flex;
@@ -157,8 +155,7 @@
 }
 
 .SlotCategory {
-  height: 100%;
-  width: 20%;
+  flex: 1;
   border: 2px solid #d28f22;
   background-color: #69d2cd;
 }
@@ -174,32 +171,24 @@
   color: black;
   font-size: 20px;
 }
-#CWeapons {
-  background-image: url('/imagens/Icons/sword.png');
-}
-#CArmors {
-  background-image: url('/imagens/Icons/armor.png');
-}
-#CPotions {
-  background-image: url('/imagens/Icons/IconPotion.png');
-}
-#CKeys {
-  background-image: url('/imagens/Icons/Rings.png');
-}
+#CWeapons { background-image: url('/imagens/Icons/sword.png'); }
+#CArmors { background-image: url('/imagens/Icons/armor.png'); }
+#CPotions { background-image: url('/imagens/Icons/IconPotion.png'); }
+#CKeys { background-image: url('/imagens/Icons/Rings.png'); }
 
 #ItemsSlots{
-  height: 82%;
+  flex-grow: 1;
   width: 100%;
   background-color: #0d0f36;
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
-  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 12vh;
   gap: 5px;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 #ItemsSlots::-webkit-scrollbar {
@@ -213,7 +202,7 @@
   flex-direction: row;
 }
 
-/* O FUNDO ESCURO */
+/* 6. MODAL FLUTUANTE (O FUNDO ESCURO) */
 #fundo-overlay {
   position: fixed;
   top: 0;
@@ -222,6 +211,9 @@
   height: 100dvh;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 #caixa-flutuante {
@@ -235,7 +227,7 @@
 
 #ItemTitleName {
   width: 100%;
-  height: 8%; 
+  height: 10%; 
   border-bottom: 2px solid #d28f22; 
   color: white;
   font-size: 1.5rem;
@@ -249,7 +241,7 @@
   flex-grow: 1;
 }
 
-/* 1. O CONTAINER PAI (A Caixa dos Botões) */
+/* A Caixa dos Botões do Modal */
 #BotoesBOX {
   width: 100%;
   height: 20%; 
@@ -259,9 +251,9 @@
   grid-template-rows: 1fr 1fr;
   gap: 5px;
   padding: 5px;
+  box-sizing: border-box;
 }
 
-/* 2. O ESTILO DOS BOTÕES */
 .btnInventory {
   width: 100%;  
   height: 100%;
@@ -273,18 +265,6 @@
   font-size: 1rem;
 }
 
-/* 3. AS POSIÇÕES (A Batalha Naval) */
-#btnEQUIPAR {
-  grid-row: 1;
-  grid-column: 1;
-}
-
-#btnCOMPARAR {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-#btnFECHAR {
-  grid-row: 2;
-  grid-column: 1 / 3;
-}
+#btnEQUIPAR { grid-row: 1; grid-column: 1; }
+#btnCOMPARAR { grid-row: 1; grid-column: 2; }
+#btnFECHAR { grid-row: 2; grid-column: 1 / 3; }

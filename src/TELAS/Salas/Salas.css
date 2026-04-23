@@ -21,12 +21,16 @@
 
 #miniMap {
   width: 30%;
-  height: 20%;
+  height: 15%;
   position: absolute;
   top: 2%;
   right: 2%;
   border: 2px solid var(--borda-ouro);
   background-color: var(--bg-batalha);
+  background-image: url('/imagens/Icons/Mapa.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 #parteDeCima {
@@ -36,7 +40,7 @@
   display: flex;
   flex-direction: row;
   gap: 4%;
-  padding: 3%;
+  padding: 1%;
   justify-content: center;
   align-items: flex-end;
 }
@@ -45,6 +49,11 @@
   border: 2px solid var(--borda-ciano);
   width: 30%;
   height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: white;
 }
 
 #parteDeBaixo{
@@ -143,6 +152,194 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+}
+
+/* ======================================================
+    TESOURO TELA
+======================================================*/
+#Tesouro-tela {
+  background-color: black;
+  z-index: 10;
+}
+
+#TesouroTitle {
+  width: 100%;
+  height: 8vh;
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#Tesouro-conteudo {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid var(--borda-ouro);
+}
+
+#TesouroBotoes {
+  width: 100%;
+  height: 10dvh;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 2%;
+}
+.tesouroBtn {
+  width: 33%;
+  height: 100%;
+  background-color: var(--bg-escuro);
+  border: 1px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* ======================================================
+    SAFEROOM TELA
+======================================================*/
+#safeRoom-tela  {
+  background-color: black;
+  z-index: 11;
+}
+
+#SaferoomTitle {
+  width: 100%;
+  height: 8vh;
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#saferoom-conteudo {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid var(--borda-ouro);
+}
+
+#saferoomBotoes {
+  width: 100%;
+  height: 10dvh;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 2%;
+}
+.tesouroBtn {
+  width: 33%;
+  height: 100%;
+  background-color: var(--bg-escuro);
+  border: 1px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* ======================================================
+    EVENTOS TELA
+======================================================*/
+#encontro-tela  {
+  background-color: black;
+  z-index: 12;
+}
+
+#EventosTitle {
+  width: 100%;
+  height: 8vh;
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#Eventos-conteudo {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid var(--borda-ouro);
+}
+
+#EventosBotoes {
+  width: 100%;
+  height: 10dvh;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 2%;
+}
+.tesouroBtn {
+  width: 33%;
+  height: 100%;
+  background-color: var(--bg-escuro);
+  border: 1px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+}
+
+/* ======================================================
+    SUBIDA TELA
+======================================================*/
+#Subida-tela  {
+  background-color: black;
+  z-index: 12;
+}
+
+#SubidaTitle {
+  width: 100%;
+  height: 8vh;
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+#Subida-conteudo {
+  flex-grow: 1;
+  width: 100%;
+  border: 2px solid var(--borda-ouro);
+}
+
+#SubidaBotoes {
+  width: 100%;
+  height: 10dvh;
+  background-color: var(--bg-escuro);
+  border: 2px solid var(--borda-ouro);
+  display: flex;
+  flex-direction: row;
+  padding: 1%;
+  gap: 2%;
+}
+.tesouroBtn {
+  width: 33%;
+  height: 100%;
+  background-color: var(--bg-escuro);
+  border: 1px solid var(--borda-ouro);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
   color: white;
 }
 
