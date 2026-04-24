@@ -5,12 +5,12 @@
 window.andarAtual = 1;
 
 window.PersonagensEmCampo = {
-  Enemy1: { name: "Goblin", classe: "Guerreiro", level: 3, HP: 17, HPMAX: 24, mana: 0, manaMAX: 0, dano: 20, inciativa: 6, sprite: '/imagens/monstros/slime.png' },
-  Enemy2: { name: "Goblin2", classe: "Guerreiro", level: 3, HP: 16, HPMAX: 24, mana: 0, manaMAX: 0, dano: 15, inciativa: 10, sprite: '/imagens/monstros/slime.png' },
-  Enemy3: { name: "Goblin3", classe: "Guerreiro", level: 3, HP: 15, HPMAX: 24, mana: 0, manaMAX: 0, dano: 9, inciativa: 1, sprite: '/imagens/monstros/slime.png' },
-  Player: { name: "Herói", classe: "Cavaleiro", level: 5, HP: 60, HPMAX: 60, mana: 30, manaMAX: 30, inciativa: 3, sprite: '/imagens/Sprites/cavaleiro_retrato.png' },
-  Aliado1: { name: "Aliado1", classe: "Mago", level: 4, HP: 30, HPMAX: 30, mana: 60, manaMAX: 60, inciativa: 4, sprite: '/imagens/Sprites/wizard_retrato.png' },
-  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 20, HPMAX: 20, mana: 40, manaMAX: 40, inciativa: 11, sprite: '/imagens/Sprites/archer_retrato.png' } 
+  Enemy1: { name: "Goblin", classe: "Guerreiro", level: 3, HP: 17, HPMAX: 24, mana: 0, manaMAX: 0, dano: 20, estado: 'vivo', inciativa: 6, sprite: '/imagens/monstros/slime.png' },
+  Enemy2: { name: "Goblin2", classe: "Guerreiro", level: 3, HP: 16, HPMAX: 24, mana: 0, manaMAX: 0, dano: 15, estado: 'vivo', inciativa: 10, sprite: '/imagens/monstros/slime.png' },
+  Enemy3: { name: "Goblin3", classe: "Guerreiro", level: 3, HP: 15, HPMAX: 24, mana: 0, manaMAX: 0, dano: 9, estado: 'vivo', inciativa: 1, sprite: '/imagens/monstros/slime.png' },
+  Player: { name: "Herói", classe: "Cavaleiro", level: 5, HP: 60, HPMAX: 60, mana: 30, manaMAX: 30, inciativa: 3, estado: 'vivo', sprite: '/imagens/Sprites/cavaleiro_retrato.png' },
+  Aliado1: { name: "Aliado1", classe: "Mago", level: 4, HP: 30, HPMAX: 30, mana: 60, manaMAX: 60, estado: 'vivo', inciativa: 4, sprite: '/imagens/Sprites/wizard_retrato.png' },
+  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 20, HPMAX: 20, mana: 40, manaMAX: 40, inciativa: 11, estado: 'vivo', sprite: '/imagens/Sprites/archer_retrato.png' } 
 };
 
 /* window.PersonagensEmCampo.Player.sprite = BancoDeClasses.Arqueiro.sprite; */
@@ -111,6 +111,7 @@ window.GerarMonstros = function() {
           HP: dadosDoMonstro.vida, 
           mana: 0,
           manaMAX: 0,
+          estado: 'vivo',
           dano: dadosDoMonstro.dano, 
           inciativa: 5,
           xp: dadosDoMonstro.XP,
@@ -119,6 +120,16 @@ window.GerarMonstros = function() {
         };
     });
     window.InformacoesDoAlvo();
+    
+    for (let i = 1; i <= 3; i++) {
+      let alvo = document.getElementById(`Enemy${i}`);
+      let IninigoBoxAtacar = document.getElementById(`Enemy${i}Slot`);
+    
+      if (alvo) {
+        alvo.classList.remove('oculto');
+        IninigoBoxAtacar.classList.remove('oculto');
+      }
+    }
 };
 
 window.NomearMobs = function() {
@@ -146,7 +157,7 @@ window.SincronizarInimigos = function() {
 window.InformacoesDoAlvo = function() {
   const dados = window.PersonagensEmCampo;
 
-  for (let i = 0; i <= 3; i++) {
+  for (let i = 1; i <= 3; i++) {
     
     let chaveInimigo = `Enemy${i}`;
     let infoInimigo = dados[chaveInimigo];
@@ -254,21 +265,63 @@ window.FecharInfo = function(abrirOrFechar) {
 // ========================================================
 window.QuemEaVez = "Player";
 
-window.TurnoAtual = function() {
+/* window.TurnoAtual = function() {
   
   document.querySelectorAll('.Aliados, .Enemies').forEach(personagem => {
     personagem.classList.remove('AlvoTurno');
   });
   
-  if (QuemEaVez === "Player") { QuemEaVez = "Aliado1"; }
-  else if (QuemEaVez === "Aliado1") { QuemEaVez = "Aliado2"; }
-  else if (QuemEaVez === "Aliado2") { QuemEaVez = "Enemy1"; }
-  else if (QuemEaVez === "Enemy1") { QuemEaVez = "Enemy2"; }
-  else if (QuemEaVez === "Enemy2") { QuemEaVez = "Enemy3"; }
-  else if (QuemEaVez === "Enemy3") { QuemEaVez = "Player"; }
+  if (QuemEaVez === "Player") { 
+    if(PersonagensEmCampo.Aliado1.estado === 'morto') {
+      QuemEaVez = "Aliado2"; 
+    } else{
+      QuemEaVez = "Aliado1"; 
+    }
+    
+  }
+  else if (QuemEaVez === "Aliado1") { 
+    if(PersonagensEmCampo.Aliado2.estado === 'morto') {
+      QuemEaVez = "Aliado3"; 
+    } else{
+      QuemEaVez = "Aliado2"; 
+    }
+    
+  }
+  else if (QuemEaVez === "Aliado2") { 
+    if(PersonagensEmCampo.Aliado3.estado === 'morto') {
+      QuemEaVez = "Enemy1"; 
+    } else{
+      QuemEaVez = "Aliado3"; 
+    }
+    
+  }
+  else if (QuemEaVez === "Enemy1") { 
+    if(PersonagensEmCampo.Enemy2.estado === 'morto') {
+      QuemEaVez = "Enemy3"; 
+    } else{
+      QuemEaVez = "Enemy2"; 
+    }
+  }
+  else if (QuemEaVez === "Enemy2") { 
+    if(PersonagensEmCampo.Enemy3.estado === 'morto') {
+      QuemEaVez = "Player"; 
+    } else{
+      QuemEaVez = "Enemy3"; 
+    }
+    
+  }
+  else if (QuemEaVez === "Enemy3") { 
+    if(PersonagensEmCampo.Player.estado === 'morto') {
+      QuemEaVez = "Aliado1"; 
+    } else {
+      QuemEaVez = "Player"; 
+    }
+    
+  }
 
   InformacoesDoAlvo(); 
   document.getElementById(QuemEaVez).classList.add('AlvoTurno');
+  window.verificarSeAlguemMorreu();
 
   if (QuemEaVez === "Player" || QuemEaVez.includes("Aliado")) {
     
@@ -282,6 +335,51 @@ window.TurnoAtual = function() {
     setTimeout(() => {
       TurnoDosMonstros();
     }, 800); 
+  }
+} */
+
+window.TurnoAtual = function() {
+  // 1. Remove o destaque visual de todos
+  document.querySelectorAll('.Aliados, .Enemies').forEach(p => p.classList.remove('AlvoTurno'));
+
+  // 2. Define a ordem da fila
+  const ordemDosTurnos = ["Player", "Aliado1", "Aliado2", "Enemy1", "Enemy2", "Enemy3"];
+  
+  // 3. Acha a posição de quem acabou de jogar
+  let indiceAtual = ordemDosTurnos.indexOf(window.QuemEaVez);
+  
+  // 4. Procura o próximo personagem vivo
+  let encontrouProximo = false;
+  
+  while (!encontrouProximo) {
+    indiceAtual++;
+    
+    // Se passar do último (Enemy3), volta para o primeiro (Player)
+    if (indiceAtual >= ordemDosTurnos.length) {
+      indiceAtual = 0;
+    }
+
+    let proximoCandidato = ordemDosTurnos[indiceAtual];
+    
+    // Verifica se o personagem existe e está vivo
+    if (window.PersonagensEmCampo[proximoCandidato] && 
+        window.PersonagensEmCampo[proximoCandidato].estado !== 'morto') {
+      window.QuemEaVez = proximoCandidato;
+      encontrouProximo = true;
+    }
+  }
+
+  // --- RESTO DO SEU CÓDIGO ---
+  InformacoesDoAlvo(); 
+  document.getElementById(window.QuemEaVez).classList.add('AlvoTurno');
+  window.verificarSeAlguemMorreu();
+
+  if (window.QuemEaVez === "Player" || window.QuemEaVez.includes("Aliado")) {
+    document.getElementById('BoxAcoesInfos').classList.remove('oculto');
+  } else {
+    document.getElementById('BoxAcoesInfos').classList.add('oculto');
+    document.getElementById('BoxATACAR').classList.add('oculto');
+    setTimeout(() => { TurnoDosMonstros(); }, 800); 
   }
 }
 
@@ -315,6 +413,10 @@ window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
     // --- B. O Dano e o Texto Flutuante ---
     let dano = window.PersonagensEmCampo[window.QuemEaVez].dano || 10;
     window.PersonagensEmCampo[idAlvoEscolhido].HP -= dano;
+    if(window.PersonagensEmCampo[idAlvoEscolhido].HP < 0) {
+      let alvo = PersonagensEmCampo[idAlvoEscolhido];
+      alvo.HP = 0;
+    }
     
     const el = document.createElement('div');
     el.className = 'dmg jump';
@@ -339,10 +441,9 @@ window.ExecutarAtaqueDoPlayer = function(idAlvoEscolhido) {
 }
 
 window.TurnoDosMonstros = function() {
-  
   const idMonstro = window.QuemEaVez; 
   const atacante = document.getElementById(idMonstro);
-
+  
   if (!atacante) return;
 
   let numAlvo = Math.floor(Math.random() * 3) + 1;
@@ -395,25 +496,35 @@ window.TurnoDosMonstros = function() {
 }
 
 window.verificarSeAlguemMorreu = function() {
-  for(let i = 1; i < 3; i++) {
-    let alvoAltual = PersonagensEmCampo.[`Enemy + ${i}`];
+  
+  let vitoria = [1, 2, 3].every(i => PersonagensEmCampo[`Enemy${i}`].HP <= 0);
+
+  for(let i = 1; i <= 3; i++) {
+    let alvoAtual = PersonagensEmCampo[`Enemy${i}`];
+    let elementoHTML = document.getElementById(`Enemy${i}`);
+    let IninigoBoxAtacar = document.getElementById(`Enemy${i}Slot`);
     
-    if(alvoAltual.hp <= 0) {
-      alert('Ta morto');
-    }
-    else {
-      alert('Ta vivo')
+    if(alvoAtual.HP <= 0) {
+      if(elementoHTML) {
+        alvoAtual.HP = 0;
+        InformacoesDoAlvo();
+        elementoHTML.classList.add('oculto');
+        IninigoBoxAtacar.classList.add('oculto');
+      }
+      console.log(`Inimigo ${i} foi derrotado!`);
+      alvoAtual.estado = 'morto';
     }
   }
-  
-  let TimeAliado = ["Player", "Aliado1", "Aliado2"]
-  
+
+  if(vitoria) {
+    vencerBatalha();
+  }
+
+  let TimeAliado = ["Player", "Aliado1", "Aliado2"];
   TimeAliado.forEach(nome => {
-    if(PersonagensEmCampo[nome].hp <= 0) {
-      alert('Ta morto');
-    }
-    else {
-      alert('Ta vivo')
+    if(PersonagensEmCampo[nome].HP <= 0) {
+      alert(`${nome} caiu em combate!`);
+      // Aqui você poderia colocar uma lógica de 'Game Over' se o Player morrer
     }
   });
-}
+};
