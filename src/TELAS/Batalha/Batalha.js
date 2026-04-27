@@ -10,7 +10,7 @@ window.PersonagensEmCampo = {
   Enemy3: { name: "Goblin3", classe: "Guerreiro", level: 3, HP: 15, HPMAX: 24, mana: 0, manaMAX: 0, dano: 9, estado: 'vivo', inciativa: 1, sprite: '/imagens/monstros/slime.png' },
   Player: { name: "Herói", classe: "Cavaleiro", level: 5, HP: 60, HPMAX: 60, mana: 30, manaMAX: 30, inciativa: 3, estado: 'vivo', sprite: '/imagens/Sprites/cavaleiro_retrato.png' },
   Aliado1: { name: "Aliado1", classe: "Mago", level: 4, HP: 30, HPMAX: 30, mana: 60, manaMAX: 60, estado: 'vivo', inciativa: 4, sprite: '/imagens/Sprites/wizard_retrato.png' },
-  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 20, HPMAX: 20, mana: 40, manaMAX: 40, inciativa: 11, estado: 'vivo', sprite: '/imagens/Sprites/archer_retrato.png' } 
+  Aliado2: { name: "Aliado2", classe: "Clérigo", level: 4, HP: 30, HPMAX: 20, mana: 40, manaMAX: 40, inciativa: 11, estado: 'vivo', sprite: '/imagens/Sprites/archer_retrato.png' } 
 };
 
 /* window.PersonagensEmCampo.Player.sprite = BancoDeClasses.Arqueiro.sprite; */
@@ -67,7 +67,7 @@ window.atualizarTorre = function() {
     }
 };
 
-window.vencerBatalha = function() {
+window.subirDeAndar = function() {
     window.andarAtual++; // Sobe para o próximo nível
     window.atualizarTorre(); // Redesenha a torre com o novo andar no fundo
     mudarTela('battle-tela'); // Volta para a tela da torre
@@ -76,6 +76,11 @@ window.vencerBatalha = function() {
         alert("PARABÉNS! VOCÊ ZEROU A TORRE!");
         window.andarAtual = 1; // Reset ou fim de jogo
     }
+};
+
+window.vencerBatalha = function() {
+    window.atualizarTorre(); 
+    mudarTela('combate-tela');
 };
 
 // =========================================================
@@ -265,79 +270,6 @@ window.FecharInfo = function(abrirOrFechar) {
 // ========================================================
 window.QuemEaVez = "Player";
 
-/* window.TurnoAtual = function() {
-  
-  document.querySelectorAll('.Aliados, .Enemies').forEach(personagem => {
-    personagem.classList.remove('AlvoTurno');
-  });
-  
-  if (QuemEaVez === "Player") { 
-    if(PersonagensEmCampo.Aliado1.estado === 'morto') {
-      QuemEaVez = "Aliado2"; 
-    } else{
-      QuemEaVez = "Aliado1"; 
-    }
-    
-  }
-  else if (QuemEaVez === "Aliado1") { 
-    if(PersonagensEmCampo.Aliado2.estado === 'morto') {
-      QuemEaVez = "Aliado3"; 
-    } else{
-      QuemEaVez = "Aliado2"; 
-    }
-    
-  }
-  else if (QuemEaVez === "Aliado2") { 
-    if(PersonagensEmCampo.Aliado3.estado === 'morto') {
-      QuemEaVez = "Enemy1"; 
-    } else{
-      QuemEaVez = "Aliado3"; 
-    }
-    
-  }
-  else if (QuemEaVez === "Enemy1") { 
-    if(PersonagensEmCampo.Enemy2.estado === 'morto') {
-      QuemEaVez = "Enemy3"; 
-    } else{
-      QuemEaVez = "Enemy2"; 
-    }
-  }
-  else if (QuemEaVez === "Enemy2") { 
-    if(PersonagensEmCampo.Enemy3.estado === 'morto') {
-      QuemEaVez = "Player"; 
-    } else{
-      QuemEaVez = "Enemy3"; 
-    }
-    
-  }
-  else if (QuemEaVez === "Enemy3") { 
-    if(PersonagensEmCampo.Player.estado === 'morto') {
-      QuemEaVez = "Aliado1"; 
-    } else {
-      QuemEaVez = "Player"; 
-    }
-    
-  }
-
-  InformacoesDoAlvo(); 
-  document.getElementById(QuemEaVez).classList.add('AlvoTurno');
-  window.verificarSeAlguemMorreu();
-
-  if (QuemEaVez === "Player" || QuemEaVez.includes("Aliado")) {
-    
-    document.getElementById('BoxAcoesInfos').classList.remove('oculto');
-    
-  } else if (QuemEaVez.includes("Enemy")) {
-    
-    document.getElementById('BoxAcoesInfos').classList.add('oculto');
-    document.getElementById('BoxATACAR').classList.add('oculto');
-    
-    setTimeout(() => {
-      TurnoDosMonstros();
-    }, 800); 
-  }
-} */
-
 window.TurnoAtual = function() {
   // 1. Remove o destaque visual de todos
   document.querySelectorAll('.Aliados, .Enemies').forEach(p => p.classList.remove('AlvoTurno'));
@@ -445,16 +377,33 @@ window.TurnoDosMonstros = function() {
   const atacante = document.getElementById(idMonstro);
   
   if (!atacante) return;
+  
+  let personagensA = ["Player", "Aliado1", "Aliado2"];
+  
+  let alvosVivos = personagensA.filter(id => {
+    let personagem = window.PersonagensEmCampo[id];
+    return personagem && personagem.HP > 0;
+  });
 
-  let numAlvo = Math.floor(Math.random() * 3) + 1;
-  let idAlvo;
+  // 3. Sistema anti-travamento: E se todo mundo morreu?
+  if (alvosVivos.length === 0) {
+    console.log("Todos os heróis morreram! Game Over.");
+    // Aqui no futuro você pode colocar sua função de tela de Game Over.
+    // Por enquanto, só passamos o turno para não congelar:
+    window.TurnoAtual();
+    return;
+  }
 
-  if (numAlvo === 1) idAlvo = "Aliado1";
-  else if (numAlvo === 2) idAlvo = "Player";
-  else idAlvo = "Aliado2";
-
+  let indiceSorteado = Math.floor(Math.random() * alvosVivos.length);
+  
+  // 5. O alvo definitivo escolhido
+  let idAlvo = alvosVivos[indiceSorteado];
+  
   const alvoElemento = document.getElementById(idAlvo);
 
+  if (!alvoElemento) return; // Prevenção de segurança
+
+  // ======== A PARTIR DAQUI A ANIMAÇÃO CONTINUA NORMAL ========
   const posAtacante = atacante.getBoundingClientRect();
   const posAlvo = alvoElemento.getBoundingClientRect();
 
@@ -466,9 +415,8 @@ window.TurnoDosMonstros = function() {
   atacante.style.transition = "0.4s ease-in";
   atacante.style.transform = `translate(${distX}px, ${distY}px)`;
 
-  // 4. Momento do Impacto (Dano e Efeito)
+  // Momento do Impacto (Dano e Efeito)
   setTimeout(() => {
-
     let dano = window.PersonagensEmCampo[idMonstro].dano || 5;
     window.PersonagensEmCampo[idAlvo].HP -= dano;
     
@@ -480,7 +428,10 @@ window.TurnoDosMonstros = function() {
     
     setTimeout(() => el.remove(), 1000);
     
-    InformacoesDoAlvo();
+    // Atualiza a barra vermelha
+    if (typeof window.InformacoesDoAlvo === "function") {
+      window.InformacoesDoAlvo();
+    }
   }, 400);
 
   setTimeout(() => {
@@ -493,7 +444,7 @@ window.TurnoDosMonstros = function() {
     
     }, 400);
   }, 600);
-}
+};
 
 window.verificarSeAlguemMorreu = function() {
   
@@ -522,8 +473,12 @@ window.verificarSeAlguemMorreu = function() {
 
   let TimeAliado = ["Player", "Aliado1", "Aliado2"];
   TimeAliado.forEach(nome => {
+    let alvoAtual = PersonagensEmCampo[nome];
     if(PersonagensEmCampo[nome].HP <= 0) {
-      alert(`${nome} caiu em combate!`);
+      alvoAtual.HP = 0;
+      InformacoesDoAlvo();
+      alvoAtual.estado = 'morto';
+      document.getElementById(nome).classList.add('oculto');
       // Aqui você poderia colocar uma lógica de 'Game Over' se o Player morrer
     }
   });
