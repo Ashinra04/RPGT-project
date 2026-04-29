@@ -103,7 +103,7 @@
   width: 100vw;
   height: 100dvh;
   background-color: var(--bg-batalha);
-  display: flex; /* Adicionado para o flex-direction funcionar */
+  display: flex;
   flex-direction: column;
 }
 

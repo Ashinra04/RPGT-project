@@ -16,14 +16,21 @@
 ======================================================*/
 #salas-tela {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background-color: var(--bg-preto);
+  background-image: url('/imagens/cenarios/Tresporta.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
-
+/*
 #miniMap {
-  width: 30%;
-  height: 15%;
+  width: 20%;
+  height: 10%;
   position: absolute;
   top: 2%;
+  z-index: 999;
   right: 2%;
   border: 2px solid var(--borda-ouro);
   background-color: var(--bg-batalha);
@@ -31,38 +38,199 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-}
+}*/
 
 #parteDeCima {
-  width: 100%;
-  height: 60%;
-  background-color: var(--bg-escuro);
   display: flex;
-  flex-direction: row;
-  gap: 4%;
-  padding: 1%;
-  justify-content: center;
+  justify-content: space-around; 
   align-items: flex-end;
+  width: 100%;
+  height: 65%;
+  position: absolute;
+  bottom: 25%;
+  gap: 7%;
+  padding: 1%;
 }
+
 .Portas {
-  background-color: var(--borda-prata);
-  border: 2px solid var(--borda-ciano);
-  width: 30%;
-  height: 50%;
+  width: 23%;
+  height: 60%;
+  position: relative;
+  bottom: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.PortasE {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.emojis {
+  width: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
-  color: white;
+  position: absolute; 
+  transform: translateX(-50%);
+  opacity: 0.9; 
+  mix-blend-mode: hard-light;
+}
+.emojis span:first-child {
+  font-size: 60px;
+  filter: grayscale(30%) contrast(1.2) drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.9));
+}
+.emojis span:last-child {
+  font-size: 14px;
+  color: #999; 
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
 }
 
-#parteDeBaixo{
-  background-color: var(--bg-cinza);
-  border-top: 2px solid var(--borda-ouro);
+/* =========================================
+   AJUSTES INDIVIDUAIS (MÓDULOS)
+   ========================================= */
+
+/* --- PORTA 1 (Esquerda) --- */
+#Porta1 .emojis {
+  transform: translateX(-50%) perspective(500px) rotateY(50deg) skewY(11deg); 
+  height: 30%;
+  top: 8%;
+  left: 35%;
+}
+#Porta1 .PortasE {
+  transform: skewY(-12deg);
+  height: 50%;
+  width: 80%;
+}
+#Porta1 {
+  left: 5%;
+}
+
+/* --- PORTA 2 (Meio) --- */
+#Porta2 .emojis {
+  transform: translateX(-50%) perspective(0) rotateY(0deg); 
+  top: 20%;
+  width: 70%;
+  left: 45%;
+  height: 25%;
+}
+#Porta2 .PortasE {
+  transform: skewY(0deg); 
+  height: 45%;
   width: 100%;
-  height: 40%;
 }
 
+#Porta2 {
+  bottom: 18%;
+}
+
+/* --- PORTA 3 (Direita) --- */
+#Porta3 .emojis {
+  transform: translateX(-50%) perspective(500px) rotateY(-50deg) skewY(-12deg); 
+  height: 30%;
+  top: 8%;
+  left: 42%;
+}
+#Porta3 .PortasE {
+  transform: skewY(10deg);
+  height: 50%;
+  width: 75%;
+}
+
+#Porta3 {
+  right: 2%;
+}
+
+#divDaTocha {
+  height: 10%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid var(--borda-ouro);
+  background-color: var(--bg-preto);
+}
+.TochaBar {
+  height: 100%;
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row;
+  padding: 1%;
+  gap: 1%;
+  /*border: 1px solid var(--borda-ouro);*/
+}
+.torchBox {
+  height: 80%;
+  width: 34%;
+  border: 1px solid var(--borda-ouro);
+  background-color: var(--bg-ui);
+}
+#TochaIcon {
+  height: 100%;
+  width: 20%;
+  border: 1px solid var(--borda-ouro);
+  background-image: url('/imagens/Items/Torch.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#SetasSalas {
+  height: 10%;
+  width: 75%;
+  display: flex;
+  flex-basis: row;
+  position: relative;
+  top: 65%;
+  left: 13%;
+}
+.Setas{
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--borda-prata);
+  color: white;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#PlyrEAliados {
+  height: 25%;
+  width: 75%;
+  position: relative;
+  top: 66%;
+  left: 13%;
+  /*display: grid;
+  grid-auto-columns: 100%%;
+  grid-template-rows: repeat(1, 1fr);*/
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  gap: 2%;
+  border: 2px solid var(--borda-ouro);
+}
+.persEmCmapo {
+  height: 100%;
+  width: 100%;
+  border: 2px solid var(--borda-prata);
+  background-image: url('/imagens/Characters/knight_front.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#PlyrECampo {
+  
+}
+#Aliado1EmCampo {
+  
+}
+#Aliado1EmCampo {
+  
+}
 /* ======================================================
     MAPA TELA - ESTRUTURA PRINCIPAL
 ======================================================*/
@@ -80,11 +248,9 @@
   position: fixed; 
   left: 25%;
   z-index: 10;
-  
   display: flex;
   justify-content: center;
   align-items: center; 
-  
   background-color: var(--bg-ui);
   border: 2px solid var(--borda-prata);
   color: white;
@@ -99,25 +265,23 @@
   padding: 10vh 20px 15vh 20px;
   box-sizing: border-box; 
   z-index: 5;
-  
   display: grid;
   grid-template-rows: repeat(5, auto);
   grid-auto-columns: 14vh;
   gap: 20px;
   align-content: center; 
-  
   background-image: linear-gradient(to top, #0d0f36, #294380);
   border: 2px solid var(--borda-prata);
 }
 
 #mapaBotoes {
   height: 9vh;
-  width: 95%;
+  width: 98%;
   padding: 1%;
   gap: 1%;
   position: fixed; 
   bottom: 0;
-  left: 3%;
+  left: 1%;
   z-index: 10;
   display: flex;
   flex-direction: row;
@@ -125,6 +289,13 @@
   border: 2px solid var(--borda-prata);
   color: white;
   text-shadow: 2px 2px 4px black; 
+}
+
+#miniMap {
+  background-image: url('/imagens/Icons/Mapa.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* ======================================================
@@ -156,6 +327,66 @@
 }
 
 /* ======================================================
+    PERFIL TELA 
+======================================================*/
+#perfilC-tela {
+  background-color: var(--bg-cinza);
+  z-index: 1;
+  position: relative;
+}
+
+#PerfilCTitle {
+  height: 6vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-prata);
+  color: white;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px black; 
+}
+#PerfiesC {
+  background-image: url('/imagens/Icons/Character.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#perfilC-conteudo {
+  flex-grow: 1;
+  height: 85dvh;
+  display: grid;
+  grid-auto-columns: auto;
+  flex-flow: column;
+  background-image: linear-gradient(to top, #0d0f36, #294380);
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
+}
+#perfilPlayer {
+  width: 100%;
+  height: 100%;
+}
+#perfilAliado1 {
+  width: 100%;
+  height: 100%;
+}
+#perfilAliado2 {
+  width: 100%;
+  min-height: 7vh;
+}
+.BoxPerfies {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: var(--bg-ui);
+  border: 2px solid var(--borda-prata);
+  color: white;
+  font-size: 30px;
+}
+
+/* ======================================================
     TESOURO TELA
 ======================================================*/
 #Tesouro-tela {
@@ -177,7 +408,8 @@
 #Tesouro-conteudo {
   flex-grow: 1;
   width: 100%;
-  border: 2px solid var(--borda-ouro);
+  border-right: 2px solid var(--borda-ouro);
+  border-left: 2px solid var(--borda-ouro);
 }
 
 #TesouroBotoes {

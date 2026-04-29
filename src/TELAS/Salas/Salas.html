@@ -2,21 +2,53 @@
        TELA SALAS
 ----------------------------------------------------------->
 <div id="salas-tela" class="tela oculto">
-  <div id="miniMap" class="" onclick="mudarTela('mapa-tela')"></div>
-  
-  <div id="parteDeCima" class="">
-    <div id="Porta1" class="Portas"></div>
-    <div id="Porta2" class="Portas"></div>
-    <div id="Porta3" class="Portas"></div>
+
+  <div id="divDaTocha" class="oculto">
+    <div id="TochaBarDireita" class="TochaBar">
+      <div id="" class="torchBox"></div>
+      <div id="" class="torchBox"></div>
+      <div id="" class="torchBox"></div>
+    </div>
+    <div id="TochaIcon" class=""></div>
+    <div id="TochaBarDireita" class="TochaBar">
+      <div id="" class="torchBox"></div>
+      <div id="" class="torchBox"></div>
+      <div id="" class="torchBox"></div>
+    </div>
   </div>
   
-  <div id="parteDeBaixo" class="">
-    <div id="mapaBotoes">
-      <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-      <div class="mapaBtn" onclick="criarPortas()">Perfil</div>
-      <div class="mapaBtn">aliados</div>
-      <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+  <div id="parteDeCima" class="">
+    <div id="Porta1" class="Portas">
+      <div id="placaEmoji1" class="emojis">💀</div>
+      <div id="portaEntrar1" class="PortasE"></div>
     </div>
+    <div id="Porta2" class="Portas">
+      <div id="placaEmoji2" class="emojis">💀</div>
+      <div id="portaEntrar2" class="PortasE"></div>
+    </div>
+    <div id="Porta3" class="Portas">
+      <div id="placaEmoji3" class="emojis">💀</div>
+      <div id="portaEntrar3" class="PortasE"></div>
+    </div>
+  </div>
+  
+  <div id="SetasSalas" class="oculto">
+    <div id="setaDireita" class="Setas">\</div>
+    <div id="setaMeio" class="Setas">|</div>
+    <div id="setaEsquerda" class="Setas">/</div>
+  </div>
+  
+  <div id="PlyrEAliados" class="oculto">
+    <div id="PlyrECampo" class="persEmCmapo"></div>
+    <div id="Aliado1EmCampo" class="persEmCmapo"></div>
+    <div id="Aliado2EmCampo" class="persEmCmapo"></div>
+  </div>
+  
+  <div id="mapaBotoes" class="">
+    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
+    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
+    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
   </div>
   
 </div>
@@ -30,10 +62,31 @@
   
   <div id="mapa-conteudo" class=""></div>
   
-  <div id="mapaBotoes">
+   <div id="mapaBotoes" class="">
     <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-    <div class="mapaBtn" onclick="criarPortas()">Perfil</div>
-    <div class="mapaBtn">aliados</div>
+    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
+    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+  </div>
+</div>
+
+<!----------------------------------------------------------
+       TELA PERFIL
+----------------------------------------------------------->
+<div id="perfilC-tela" class="tela oculto">
+  
+  <div id="PerfilCTitle">PERFIES</div>
+  
+  <div id="perfilC-conteudo" class="">
+    <div id="perfilPlayer" class="BoxPerfies"></div>
+    <div id="perfilAliado1" class="BoxPerfies"></div>
+    <div id="perfilAliado2" class="BoxPerfies"></div>
+  </div>
+  
+   <div id="mapaBotoes" class="">
+    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
+    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
     <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
   </div>
 </div>

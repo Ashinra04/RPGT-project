@@ -80,7 +80,7 @@ window.subirDeAndar = function() {
 
 window.vencerBatalha = function() {
     window.atualizarTorre(); 
-    mudarTela('combate-tela');
+    mudarTela('salas-tela');
 };
 
 // =========================================================

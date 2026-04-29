@@ -137,8 +137,8 @@ window.GerarMapaCompleto = function() {
   let limiteDeSalas = (salaLayout === 1 || salaLayout === 2) ? 16 : 20;
 
   document.getElementById('MapaTitle').innerText = 'LAYOUT: ' + salaLayout + ' (' + limiteDeSalas + ' Salas)';
-
-  // PASSO 2: Cria o mapa vazio (Coloca a Base, Boss e Subida no lugar certo)
+  
+  // PASSO 2: Cria o mapa vazio
   window.SalasDoAndar = {}; 
   for (let i = 1; i <= limiteDeSalas; i++) {
     if (i === 1) window.SalasDoAndar[i] = 'base';
@@ -177,7 +177,7 @@ window.GerarMapaCompleto = function() {
     salaElemento.innerText = EmojisSalas[tipoDaSala] + i;
     mapaConteudo.appendChild(salaElemento);
   }
-  
+  window.posicaoPlayer = 1;
   criarPortas(salaLayout);
   console.log("Mapa Gerado com Sucesso!", window.SalasDoAndar);
 };
@@ -190,30 +190,55 @@ window.criarPortas = function(Nlayout) {
   PortasBox.innerHTML = "";
 
   let layoutAlvo = window["Layout" + Nlayout];
-  let Portas = layoutAlvo[window.posicaoPlayer].proximasSalas;
+  let PortasIds = layoutAlvo[window.posicaoPlayer].proximasSalas;
+  let salasBackGround = document.getElementById('salas-tela');
   
-  if (Portas.length === 0) {
+  if (PortasIds.length === 0) {
     console.log('Beco sem saída ou Fim do Andar!');
-    PortasBox.innerHTML = "<div style='color: white;'>FIM DO ANDAR</div>";
-  } else {
-    Portas.forEach((idDaSala, index) => {
-      let porta = document.createElement('div');
-      porta.className = 'Portas';
-      porta.id = idDaSala;
+    PortasBox.innerHTML = "<div style='color: white; font-size: 30px; margin-bottom: 20%;'>FIM DO ANDAR</div>";
+    return;
+  } 
+  let mapaDasPortas = [null, null, null]; 
+
+  if (PortasIds.length === 3) {
+    salasBackGround.style.backgroundImage = "url('/imagens/cenarios/Tresporta.jpg')"
+    mapaDasPortas[0] = PortasIds[0];
+    mapaDasPortas[1] = PortasIds[1];
+    mapaDasPortas[2] = PortasIds[2]; 
+  } else if (PortasIds.length === 2) {
+    salasBackGround.style.backgroundImage = "url('/imagens/cenarios/Doisporta.png')"
+    mapaDasPortas[0] = PortasIds[0]; // 
+    mapaDasPortas[1] = null;
+    mapaDasPortas[2] = PortasIds[1];
+  } else if (PortasIds.length === 1) {
+    salasBackGround.style.backgroundImage = "url('/imagens/cenarios/Umaporta.png')"
+    mapaDasPortas[0] = null;
+    mapaDasPortas[1] = PortasIds[0];
+    mapaDasPortas[2] = null;
+  }
+
+  mapaDasPortas.forEach((idDaSala, index) => {
+    let porta = document.createElement('div');
+    porta.className = 'Portas';
+    porta.id = `Porta${index + 1}`; 
+    
+    if (idDaSala !== null) {
+      let portaEmoji = document.createElement('div');
+      portaEmoji.className = 'emojis';
+      
+      let portaInteracao = document.createElement('div');
+      portaInteracao.className = 'PortasE';
       
       let tipoDaSala = window.SalasDoAndar[idDaSala];
       let emojiDaSala = EmojisSalas[tipoDaSala];
       
-      porta.innerHTML = `
+      portaEmoji.innerHTML = `
         <div style="display: flex; flex-direction: column; align-items: center; line-height: 1.2;">
-          <span style="font-size: 40px;">${emojiDaSala}</span>
-          <span style="font-size: 16px; color: #ddd; font-weight: bold;">Sala ${idDaSala}</span>
+          <span style="font-size: 50px;">${emojiDaSala}</span>
         </div>
       `;
-      
-      // porta.innerText = emojiDaSala;
 
-      porta.onclick = function() {
+      portaInteracao.onclick = function() {
         console.log("O jogador entrou na sala " + idDaSala);
         window.posicaoPlayer = idDaSala;
         
@@ -230,20 +255,22 @@ window.criarPortas = function(Nlayout) {
           salaNova.classList.remove('salaSemPlayer');
           salaNova.classList.add('salaDoPlayer');
         }
-        
+
         window.criarPortas(Nlayout);
 
         if (['boss', 'batalha', 'miniboss'].includes(tipoDaSala)) {
-          mudarTela('combate-tela');
-          
+          window.mudarTela('combate-tela');
         } else {
           window.PegarTipoDaSala(tipoDaSala);
         }
       };
       
-      PortasBox.appendChild(porta);
-    });
-  }
+      porta.appendChild(portaEmoji);
+      porta.appendChild(portaInteracao);
+    } 
+    
+    PortasBox.appendChild(porta);
+  });
 };
 
 // ========================================================
@@ -271,12 +298,8 @@ window.PegarTipoDaSala = function(tipoDaSalaAlvo){
   }
 }
 
- window.MudarParaSala = function() {
-   
- }
- window.avancarProxSala = function() {
+window.avancarProxSala = function() {
   console.log("O jogador está voltando para o corredor...");
-
   let telaCombate = document.getElementById('combate-tela');
   if (telaCombate) {
     telaCombate.classList.add('oculto');
