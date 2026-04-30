@@ -77,11 +77,17 @@
   
   <div id="PerfilCTitle">PERFIES</div>
   
-  <div id="perfilC-conteudo" class="">
+  <div id="perfilConteudo" class="">
     <div id="perfilPlayer" class="BoxPerfies"></div>
     <div id="perfilAliado1" class="BoxPerfies"></div>
     <div id="perfilAliado2" class="BoxPerfies"></div>
   </div>
+  
+  <div id="perfilConteudo2" class="">
+    
+  </div>
+    
+
   
    <div id="mapaBotoes" class="">
     <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
@@ -96,15 +102,16 @@
 ----------------------------------------------------------->
 <div id="Tesouro-tela" class="tela oculto Salas">
   
-  <div id="TesouroTitle">TESOURO TELA</div>
+  <div id="TesouroTitle">Dentro da sala voce encontra um bau misterioso, que açao voce deseja tomar...</div>
   
-  <div id="Tesouro-conteudo" class=""></div>
+  <div id="Tesouro-conteudo" class="">
+    <div id="BauImg" class=""></div>
+  </div>
   
   <div id="TesouroBotoes">
-    <div class="tesouroBtn" onclick="">1</div>
-    <div class="tesouroBtn" onclick="">2</div>
-    <div class="tesouroBtn" onclick="">3</div>
-    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+    <div class="tesouroBtn" onclick="">Tentar abrir o bau.</div>
+    <div class="tesouroBtn" onclick="">Usar uma chave para abrir o bau.</div>
+    <div class="tesouroBtn" onclick="avancarProxSala()">Deixar o bau de lado e sair.</div>
   </div>
 </div>
 
@@ -117,11 +124,11 @@
   
   <div id="saferoom-conteudo" class=""></div>
   
-  <div id="TesouroBotoes">
-    <div class="tesouroBtn" onclick="">1</div>
-    <div class="tesouroBtn" onclick="">2</div>
-    <div class="tesouroBtn" onclick="">3</div>
-    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+  <div id="safeRoomBotoes">
+    <div class="SaferoomBTN" onclick="">1</div>
+    <div class="SaferoomBTN" onclick="">2</div>
+    <div class="SaferoomBTN" onclick="">3</div>
+    <div class="SaferoomBTN" onclick="avancarProxSala()">@</div>
   </div>
 </div>
 
@@ -135,10 +142,10 @@
   <div id="Eventos-conteudo" class=""></div>
   
   <div id="EventosBotoes">
-    <div class="tesouroBtn" onclick="">1</div>
-    <div class="tesouroBtn" onclick="">2</div>
-    <div class="tesouroBtn" onclick="">3</div>
-    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+    <div class="EventosBTN" onclick="">1</div>
+    <div class="EventosBTN" onclick="">2</div>
+    <div class="EventosBTN" onclick="">3</div>
+    <div class="EventosBTN" onclick="avancarProxSala()">@</div>
   </div>
 </div>
 
@@ -152,9 +159,9 @@
   <div id="Subida-conteudo" class=""></div>
   
   <div id="SubidaBotoes">
-    <div class="tesouroBtn" onclick="">1</div>
-    <div class="tesouroBtn" onclick="">2</div>
-    <div class="tesouroBtn" onclick="">3</div>
-    <div class="tesouroBtn" onclick="avancarProxSala()">@</div>
+    <div class="SubidaBTN" onclick="">1</div>
+    <div class="SubidaBTN" onclick="">2</div>
+    <div class="SubidaBTN" onclick="">3</div>
+    <div class="SubidaBTN" onclick="avancarProxSala()">@</div>
   </div>
 </div>
