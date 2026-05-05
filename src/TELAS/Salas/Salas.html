@@ -46,7 +46,7 @@
   
   <div id="mapaBotoes" class="">
     <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela'); GerarPerfilE()"></div>
     <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
     <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
   </div>
@@ -73,7 +73,7 @@
 <!----------------------------------------------------------
        TELA PERFIL
 ----------------------------------------------------------->
-<div id="perfilC-tela" class="tela oculto">
+<div id="perfilC-tela" class="tela">
   
   <div id="PerfilCTitle">PERFIES</div>
   
@@ -84,10 +84,11 @@
   </div>
   
   <div id="perfilConteudo2" class="">
-    
+    <div id="PersonagemIdle" class="BoxPerfilC"></div>
+    <div id="PersonagemInfosBase" class="BoxPerfilC"></div>
+    <div id="PersonagemSkills" class="BoxPerfilC"></div>
+    <div id="PersonagemEquipament" class="BoxPerfilC"></div>
   </div>
-    
-
   
    <div id="mapaBotoes" class="">
     <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>

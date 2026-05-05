@@ -320,10 +320,14 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  height: 100dvh;
+  padding-bottom: 12vh;
+  box-sizing: border-box;
 }
 
 #PerfilCTitle {
   height: 6vh;
+  flex-shrink: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -342,7 +346,7 @@
 }
 
 #perfilConteudo {
-  height: 20%;
+  flex: 1;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -367,23 +371,34 @@
 }
 
 #perfilConteudo2 {
-  flex: 1;
+  flex: 2.5;
   width: 100%;
+  padding: 2%;
+  gap: 2%;
   background-color: var(--cor-principal-azul);
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   border-left: 2px solid var(--borda-prata);
   border-right: 2px solid var(--borda-prata);
+}
+.BoxPerfilC {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--borda-prata);
 }
 
 .BoxPerfies {
   display: flex;
   justify-content: center;
   align-items: center; 
-  background-color: var(--cor-ui-azulMarinho);
+  background-color: black;
   border: 2px solid var(--borda-prata);
   color: white;
   font-size: 30px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* ======================================================
