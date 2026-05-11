@@ -1,21 +1,7 @@
 <!----------------------------------------------------------
        TELA SALAS
 ----------------------------------------------------------->
-<div id="salas-tela" class="tela oculto">
-
-  <div id="divDaTocha" class="oculto">
-    <div id="TochaBarDireita" class="TochaBar">
-      <div id="" class="torchBox"></div>
-      <div id="" class="torchBox"></div>
-      <div id="" class="torchBox"></div>
-    </div>
-    <div id="TochaIcon" class=""></div>
-    <div id="TochaBarDireita" class="TochaBar">
-      <div id="" class="torchBox"></div>
-      <div id="" class="torchBox"></div>
-      <div id="" class="torchBox"></div>
-    </div>
-  </div>
+<div id="salas-tela" class="tela oculto imgContain">
   
   <div id="parteDeCima" class="">
     <div id="Porta1" class="Portas">
@@ -73,7 +59,7 @@
 <!----------------------------------------------------------
        TELA PERFIL
 ----------------------------------------------------------->
-<div id="perfilC-tela" class="tela">
+<div id="perfilC-tela" class="tela oculto">
   
   <div id="PerfilCTitle">PERFIES</div>
   
@@ -82,15 +68,61 @@
     <div id="perfilAliado1" class="BoxPerfies"></div>
     <div id="perfilAliado2" class="BoxPerfies"></div>
   </div>
-  
+
   <div id="perfilConteudo2" class="">
-    <div id="PersonagemIdle" class="BoxPerfilC"></div>
-    <div id="PersonagemInfosBase" class="BoxPerfilC"></div>
-    <div id="PersonagemSkills" class="BoxPerfilC"></div>
-    <div id="PersonagemEquipament" class="BoxPerfilC"></div>
+    
+    <div id="" class="BoxPerfilC">
+      <div id="PersIdle" class="PContainer imgContain">
+        <div id="PersIdleTitle" class="PTContainer">NOME</div>
+      </div>
+      <div id="Persstatus" class="PContainer">
+        <div id="PersstatusTitle" class="PTContainer">STATUS</div>
+        <div id="PerStatusDivs" class="">
+          <div id="PerStatusDivsLvlHpMana">
+            <div id="LVLDiv" class="DivPerfil">LEVEL: 10</div>
+            <div id="HPDiv" class="DivPerfil">
+              <div id="HpTextDiv">HP:</div>
+              <div id="HpFillDiv">100/100</div>
+            </div>
+            <div id="MANADiv" class="DivPerfil">
+              <div id="ManaTextDiv">MANA:</div>
+              <div id="ManaFillDiv">100/100</div>
+            </div>
+          </div>
+          <div id="PerStatusDivsStatus">
+            <div id="" class="DivsStatus">ATK: 10</div>
+            <div id="" class="DivsStatus">DEF: 10</div>
+            <div id="" class="DivsStatus">FOR: 10</div>
+            <div id="" class="DivsStatus">INT: 10</div>
+            <div id="" class="DivsStatus">AGI: 10</div>
+            <div id="" class="DivsStatus">INI: 10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="" class="BoxPerfilC">
+      <div id="PersGears" class="PContainer">
+        <div id="PersGearsTitle" class="PTContainer">EQUIPAMENTOS</div>
+        <div id="gersSlots" class="">
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          <div id="11" class="ll"></div>
+          </div>
+      </div>
+      <div id="PersSkills" class="PContainer">
+        <div id="PersSkillsTitle" class="PTContainer">SKILLS</div>
+      </div>
+    </div>
+    
   </div>
   
-   <div id="mapaBotoes" class="">
+  <div id="perfilBotoes" class="">
     <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
     <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
     <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
@@ -101,12 +133,12 @@
 <!----------------------------------------------------------
    TELA TESOURO
 ----------------------------------------------------------->
-<div id="Tesouro-tela" class="tela oculto Salas">
+<div id="Tesouro-tela" class="tela oculto ImgCover Salas">
   
   <div id="TesouroTitle">Dentro da sala voce encontra um bau misterioso, que açao voce deseja tomar...</div>
   
   <div id="Tesouro-conteudo" class="">
-    <div id="BauImg" class=""></div>
+    <div id="BauImg" class="ImgCover"></div>
   </div>
   
   <div id="TesouroBotoes">

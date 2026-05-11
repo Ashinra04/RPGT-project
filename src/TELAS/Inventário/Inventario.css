@@ -122,16 +122,13 @@
 }
 
 #SWeapon  { background-image: url('/imagens/Icons/sword.png'); }
-#SBelt { background-image: url('/imagens/Icons/belt.png'); }
-#SRing1 { background-image: url('/imagens/Icons/Rings.png'); }
+#SRing { background-image: url('/imagens/Icons/Rings.png'); }
 #SHelemt { background-image: url('/imagens/Icons/helmet.png'); }
 #SArmor { background-image: url('/imagens/Icons/armor.png'); }
 #SPants { background-image: url('/imagens/Icons/pants.png'); }
 #SBoots { background-image: url('/imagens/Icons/boots.png'); }
 #SAmulet { background-image: url('/imagens/Icons/amulet.png'); }
 #SShield  { background-image: url('/imagens/Icons/shield.png'); }
-#SGloves { background-image: url('/imagens/Icons/gloves.png'); }
-#SRing2 { background-image: url('/imagens/Icons/Rings.png'); }
 
 /* 5. ITEMS BOX (MOCHILA) */
 #items-box {

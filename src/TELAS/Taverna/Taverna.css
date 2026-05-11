@@ -4,6 +4,7 @@
    
 #taverna-tela {
   background-color: #252628;
+  z-index: 7;
 }
 
 /* Titulo-TAVERNA */
