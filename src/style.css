@@ -12,7 +12,6 @@
 .BoxSizing { box-sizing: border-box; }
 .width100 { width: 100%; }
 .height100 { height: 100%; }
-.heigth100 { width: 100%; }
 
 :root {
   --cor-principal-azul: #294380;
@@ -234,27 +233,74 @@ body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
+  gap: 2%;
+}
+
+#CriacaoTitle {
+  width: 100%; height: 8%;
+  border: 2px solid var(--cor-principal-azul);
+  background-color: gray;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+}
+
+#CriacaoinfoPersonagens {
+  width: 100%; height: 28%;
+  border: 2px solid var(--cor-principal-azul);
+  background-color: var(--cor-complementar-cinza);
+}
+
+#CriacaoPersonagens {
+  width: 91%; flex: 1;
+  background-image: url('/imagens/Characters/knight_front.png');
+  background-position: center;
+  background-size: 50%;
+  background-repeat: no-repeat;
 }
 
 #CriacaoIconsPersonagens {
-  width: 100%; height: 20%;
+  width: 100%; height: 10%;
   border: 2px solid var(--cor-principal-azul);
+  background-color: black;
   display: grid;
   gap: 1%; padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
 }
 .PIconCriacao {
   width: 100%; height: 100%;
   border: 2px solid var(--cor-principal-azul);
   background-color: #e2e80272;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-#CriacaoPersonagens {
-  width: 100%; height: 50%;
-  border: 2px solid var(--cor-principal-azul);
+#knight {
+  background-image: url('/imagens/Sprites/cavaleiro_retrato.png');
 }
-#CriacaoinfoPersonagens {
-  width: 100%; height: 30%;
-  border: 2px solid var(--cor-principal-azul);
+#archer {
+  background-image: url('/imagens/Sprites/archer_retrato.png');
+}
+#wizard {
+  background-image: url('/imagens/Sprites/wizard_retrato.png');
+}
+
+#BtnConfirmarPersonagem {
+  width: 65%; height: 7%;
+  border: 2px solid var(--cor-quartiaria-roxo);
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  z-index: 3;
+  position: relative;
+  left: 18%;
+  display: flex;
+  place-content: center;
+  place-items: center;
 }

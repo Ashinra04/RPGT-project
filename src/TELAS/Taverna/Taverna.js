@@ -1,5 +1,6 @@
-let Player = {
+window.Player = {
   nome: "jogador",
+  classe: "nada",
   nvl: 1,
   HP: 90,
   HPMAX: 100,
@@ -7,7 +8,7 @@ let Player = {
   manaMAX: 40,
   Ataque: 10,
   def: 3,
-}
+};
 
 const NOMEMercenarios = {
   Feminino: {

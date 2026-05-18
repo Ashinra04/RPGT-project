@@ -12,19 +12,20 @@
       </div>
 
     <div id="Criacao-tela" class="tela oculto">
-      <div id="CriacaoIconsPersonagens">
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-        <div id="" class="PIconCriacao"></div>
-
-      </div>
-      <div id="CriacaoPersonagens" class="container"></div>
+      <div id="CriacaoTitle">Escolha seu personagem</div>
+      
       <div id="CriacaoinfoPersonagens"></div>
+      
+      <div id="CriacaoPersonagens" class="container"></div>
+      
+      <div id="BtnConfirmarPersonagem" onclick="confirmarPersonagem()">Escolher</div>
+      
+      <div id="CriacaoIconsPersonagens">
+        <div id="knight" class="PIconCriacao" onclick="mudarPersonagem('knight')"></div>
+        <div id="archer" class="PIconCriacao" onclick="mudarPersonagem('archer')"></div>
+        <div id="wizard" class="PIconCriacao" onclick="mudarPersonagem('wizard')"></div>
+        <div id="" class="PIconCriacao"></div>
+      </div>
     </div>
     
     <div id="torre-tela" class="tela oculto">
@@ -54,29 +55,14 @@
         
         <div id="MENU-BAR" class="width100 DisplayFlex">
           
-          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Character.png" alt="" onclick="mudarTela('perfil-tela')"></div>
+          <div class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Character.png" onclick="mudarTela('perfilC-tela'); GerarPerfilE()"></div>
           
-          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Backpack.png" alt="" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll')"></div>
+          <div class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Backpack.png" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll')"></div>
           
-            <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Sprites/INN.png" alt=""></div>
+            <div  class="XX ImgCover"><img id="IMG" src="/imagens/Sprites/INN.png"></div>
             
           <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Mapa.png" alt=""></div>
         </div>
-      </div>
-    </div>
-
-<!-----------------------------------------------------
-     TELA DE PERDIL
------------------------------------------------------->
-    <div id="perfil-tela" class="tela oculto">
-      
-      <div id="Perfil-body" class="">
-        
-      </div>
-      
-      <div id="Botoes-container">
-        <button class="btnPL" onclick="">SEI NAO</button>
-        <button class="btnPL" onclick="mudarTela('torre-tela')">VOLTAR</button>
       </div>
     </div>
 

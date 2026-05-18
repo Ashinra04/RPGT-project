@@ -1,5 +1,4 @@
 // CSS DAS TELAS
-
 import './style.css'
 import './TELAS/Shop/Shop.css';
 import './TELAS/Forja/Forja.css';
@@ -56,3 +55,24 @@ document.addEventListener("DOMContentLoaded", function() {
   window.atualizarTorre();
   window.GerarMapaCompleto();
 });
+
+window.personagemIndex = 'knight';
+
+window.PersonagensIcons = {
+  "knight": { sprite: '/imagens/Characters/knight_front.png', icon: '/imagens/Sprites/cavaleiro_retrato.png' },
+  "archer": { sprite: '/imagens/Characters/archer_front.png', icon: '/imagens/Sprites/archer_retrato.png'},
+  "wizard": { sprite: '/imagens/Characters/wizard_front.png', icon: '/imagens/Sprites/wizard_retrato.png' }
+};
+
+window.mudarPersonagem = function(classe) {
+  const personagem = { ...PersonagensIcons };
+  personagemIndex = classe;
+  let DivIcon = document.getElementById('CriacaoPersonagens');
+  DivIcon.style.backgroundImage = `url('${personagem[classe].sprite}')`;
+};
+
+window.confirmarPersonagem = function() {
+  window.Player.classe = window.personagemIndex;
+  console.log(personagemIndex);
+  window.mudarTela('torre-tela');
+}
