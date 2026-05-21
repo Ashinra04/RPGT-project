@@ -251,6 +251,7 @@ body {
   width: 100%; height: 28%;
   border: 2px solid var(--cor-principal-azul);
   background-color: var(--cor-complementar-cinza);
+  opacity: 0;
 }
 
 #CriacaoPersonagens {

@@ -1,0 +1,243 @@
+/* ======================================================
+    PERFIL TELA 
+======================================================*/
+#perfilC-tela {
+  background-color: var(--cor-complementar-cinza);
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  box-sizing: border-box;
+}
+
+#perfilBotoes {
+  height: 9vh;
+  width: 100%;
+  position: relative;
+  left: 1px;
+  padding: 1%;
+  gap: 1%;
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  border: 2px solid var(--borda-prata);
+  color: white;
+  text-shadow: 2px 2px 4px black; 
+}
+
+#PerfilCTitle {
+  height: 6vh;
+  flex-shrink: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  background-color: var(--cor-ui-azulMarinho);
+  border: 2px solid var(--borda-prata);
+  color: white;
+  font-size: 30px;
+  text-shadow: 2px 2px 4px black; 
+}
+#PerfiesC {
+  background-image: url('/imagens/Icons/Character.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#perfilConteudo {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+  gap: 2%;
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
+  border-bottom: 2px solid var(--borda-prata);
+}
+.BoxPerfies {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  border: 2px solid var(--borda-prata);
+  color: white;
+  font-size: 30px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#perfilConteudo2 {
+  flex: 5;
+  width: 100%;
+  padding: 1%;
+  gap: 1%;
+  background-color: var(--cor-principal-azul);
+  display: flex;
+  flex-direction: row;
+  border-left: 2px solid var(--borda-prata);
+  border-right: 2px solid var(--borda-prata);
+}
+.BoxPerfilC {
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  padding: 2%;
+  padding-top: 4%;
+}
+.PContainer {
+  border: 1px solid var(--borda-prata);
+  background-color: rgb(46,49,50);
+}
+.PTContainer {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--borda-prata);
+  background-color: rgb(46,49,50);
+}
+#PersIdleTitle {
+  width: 80%; height: 12%;
+  position: relative; left: 10%; bottom: 5%;
+  z-index: 1;
+}
+#PersIdle { 
+  width: 100%; height: 50%; 
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+#PersGears { width: 100%; height: 60%; }
+#PersGearsTitle {
+  width: 80%; height: 10%;
+  position: relative; left: 10%; bottom: 5%;
+  z-index: 1;
+}
+#gersSlots {
+  width: 100%; height: 90%;
+  border: 1px solid var(--borda-prata);
+  background-color: rgb(46,49,50);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  padding: 1%;
+  gap: 1%;
+}
+.ll {
+  width: 100%; height: 100%;
+  border: 1px solid var(--borda-prata);
+  background-color: rgb(6,100,131);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#weaponGEAR { background-image: url('/imagens/Icons/sword.png'); }
+#secondmaoGEAR { background-image: url('/imagens/Icons/shield.png'); }
+#helmetGEAR { background-image: url('/imagens/Icons/helmet.png'); }
+#armorGEAR { background-image: url('/imagens/Icons/armor.png'); }
+#pantsGEAR { background-image: url('/imagens/Icons/pants.png'); }
+#bootGEAR { background-image: url('/imagens/Icons/boots.png'); }
+#ringGEAR { background-image: url('/imagens/Icons/Rings.png'); }
+#amuletGEAR { background-image: url('/imagens/Icons/amulet.png'); }
+
+#Persstatus { width: 100%; height: 50%; }
+#PersstatusTitle {
+  width: 80%; height: 12%;
+  position: relative; left: 10%; bottom: 4%;
+  z-index: 1;
+}
+#PerStatusDivs {
+  width: 100%; height: 88%;
+  border-top: 1px solid var(--borda-prata);
+  background-color: rgb(6,100,131);
+}
+#PerStatusDivsLvlHpMana {
+  width: 100%; height: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.DivPerfil {
+  width: 100%; height: 100%;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 3%;
+}
+
+#PerStatusDivsStatus {
+  width: 100%; height: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+.DivsStatus {
+  width: 100%; height: 100%;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#PersSkills { 
+  width: 100%; height: 40%;
+  display: flex; flex-direction: column;
+  padding: 1%; gap: 1%;
+}
+#PersSkillsTitle {
+  width: 80%; height: 15%;
+  position: relative; left: 10%; bottom: 5%;
+  z-index: 1;
+}
+.skillSlots {
+  width: 100%; height: 28.5%;
+  border: 1px solid var(--borda-prata);
+  display: flex; flex-direction: row;
+  padding: 1.5%; gap: 1%;
+}
+.skillsIcon {
+  width: 30%; height: 100%;
+  border: 1px solid var(--borda-ouro);
+}
+.skillName {
+  width: 70%; height: 100%;
+  border: 1px solid var(--borda-ouro);
+}
+
+#HPDiv, #MANADiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 2%;
+}
+#HpTextDiv, #ManaTextDiv {
+  width: 20%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#ManaTextDiv {
+  margin-left: 3%;
+}
+#HpFillDiv, #ManaFillDiv {
+  width: 70%; height: 100%;
+  border: 1px solid var(--borda-prata);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 2px black;
+}
+#HpFillDiv {
+  background-color: #106410;
+}
+#ManaFillDiv {
+  background-color: #0e6095;
+}

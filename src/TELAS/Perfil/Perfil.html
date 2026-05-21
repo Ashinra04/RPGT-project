@@ -1,0 +1,85 @@
+<!----------------------------------------------------------
+       TELA PERFIL
+----------------------------------------------------------->
+<div id="perfilC-tela" class="tela oculto">
+  
+  <div id="PerfilCTitle">PERFIES</div>
+  
+  <div id="perfilConteudo" class="">
+    <div id="perfilPlayer" class="BoxPerfies"></div>
+    <div id="perfilAliado1" class="BoxPerfies"></div>
+    <div id="perfilAliado2" class="BoxPerfies"></div>
+  </div>
+
+  <div id="perfilConteudo2" class="">
+    
+    <div id="" class="BoxPerfilC">
+      <div id="PersIdle" class="PContainer imgContain">
+        <div id="PersIdleTitle" class="PTContainer">NOME</div>
+      </div>
+      <div id="Persstatus" class="PContainer">
+        <div id="PersstatusTitle" class="PTContainer">STATUS</div>
+        <div id="PerStatusDivs" class="">
+          <div id="PerStatusDivsLvlHpMana">
+            <div id="LVLDiv" class="DivPerfil">LEVEL: 10</div>
+            <div id="HPDiv" class="DivPerfil">
+              <div id="HpTextDiv">HP:</div>
+              <div id="HpFillDiv">100/100</div>
+            </div>
+            <div id="MANADiv" class="DivPerfil">
+              <div id="ManaTextDiv">MANA:</div>
+              <div id="ManaFillDiv">100/100</div>
+            </div>
+          </div>
+          <div id="PerStatusDivsStatus">
+            <div id="ATKstatus" class="DivsStatus">ATK: 10</div>
+            <div id="DEFstatus" class="DivsStatus">DEF: 10</div>
+            <div id="FORstatus" class="DivsStatus">FOR: 10</div>
+            <div id="INTstatus" class="DivsStatus">INT: 10</div>
+            <div id="AGIstatus" class="DivsStatus">AGI: 10</div>
+            <div id="FAIstatus" class="DivsStatus">FAI: 10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="" class="BoxPerfilC">
+      <div id="PersGears" class="PContainer">
+        <div id="PersGearsTitle" class="PTContainer">EQUIPAMENTOS</div>
+        <div id="gersSlots" class="">
+          <div id="weaponGEAR" class="ll"></div>
+          <div id="secondmaoGEAR" class="ll" onclick="MudarStatus()"></div>
+          <div id="helmetGEAR" class="ll" onclick="confirmarSatusPlayer()"></div>
+          <div id="armorGEAR" class="ll"></div>
+          <div id="pantsGEAR" class="ll"></div>
+          <div id="bootGEAR" class="ll"></div>
+          <div id="ringGEAR" class="ll"></div>
+          <div id="amuletGEAR" class="ll"></div>
+        </div>
+      </div>
+      <div id="PersSkills" class="PContainer">
+        <div id="PersSkillsTitle" class="PTContainer">SKILLS</div>
+      <div id="Skill1" class="skillSlots">
+        <div class="skillsIcon"></div>
+        <div class="skillName"></div>
+      </div>
+      <div id="Skill2" class="skillSlots">
+        <div class="skillsIcon"></div>
+        <div class="skillName"></div>
+      </div>
+      <div id="Skill3" class="skillSlots">
+        <div class="skillsIcon"></div>
+        <div class="skillName"></div>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div id="perfilBotoes" class="">
+    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
+    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
+    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+  </div>
+</div>

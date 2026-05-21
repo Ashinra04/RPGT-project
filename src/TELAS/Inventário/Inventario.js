@@ -1,15 +1,13 @@
 window.goldPlayer = 120;
 
 window.GearsEquipados = {
+  weapon: 'WSword.png',
+  secondmao: null,
   helmet: null,
   armor: null,
   pants: null,
   boots: null,
-  gloves: null,
-  weapon: null,
-  segunda_mao: null,
-  ring1: null,
-  ring2: null,
+  ring: null,
   amulet: null
 }
 
@@ -18,12 +16,10 @@ const MapaIdsDosSlots = {
   armor: 'SArmor',
   pants: 'SPants',
   boots: 'SBoots',
-  gloves: 'SGloves', 
   weapon: 'SWeapon',
   segunda_mao: 'SShield',
   amulet: 'SAmulet',
   ring1: 'SRing1',
-  ring2: 'SRing2'
 };
 
 window.BancoDeimgDosItems = {
