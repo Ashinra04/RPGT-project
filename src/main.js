@@ -8,6 +8,7 @@ import './TELAS/Batalha/Batalha.css';
 import './TELAS/Salas/Salas.css';
 import './TELAS/Inventário/Inventario.css';
 import './TELAS/Perfil/Perfil.css';
+import './TELAS/BotoesStyles/Botoes.css';
 
 // JS DAS TELAS
 import './TELAS/Shop/Shop.js';
@@ -83,4 +84,6 @@ window.confirmarPersonagem = function(classe) {
   let IconPersonagem = document.getElementById('PersIdle');
   IconPersonagem.style.backgroundImage = `url('${PersonagensIcons[window.personagemIndex].sprite}')`
   document.getElementById('PersIdleTitle').innerText = personagemIndex.toUpperCase();
+  
+  window.confirmarSatusPlayer();
 }

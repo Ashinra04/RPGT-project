@@ -21,7 +21,7 @@
         <div id="PersstatusTitle" class="PTContainer">STATUS</div>
         <div id="PerStatusDivs" class="">
           <div id="PerStatusDivsLvlHpMana">
-            <div id="LVLDiv" class="DivPerfil">LEVEL: 10</div>
+            <div id="LVLDiv" class="DivPerfil">LEVEL: 1</div>
             <div id="HPDiv" class="DivPerfil">
               <div id="HpTextDiv">HP:</div>
               <div id="HpFillDiv">100/100</div>
@@ -48,8 +48,8 @@
         <div id="PersGearsTitle" class="PTContainer">EQUIPAMENTOS</div>
         <div id="gersSlots" class="">
           <div id="weaponGEAR" class="ll"></div>
-          <div id="secondmaoGEAR" class="ll" onclick="MudarStatus()"></div>
-          <div id="helmetGEAR" class="ll" onclick="confirmarSatusPlayer()"></div>
+          <div id="secondmaoGEAR" class="ll"></div>
+          <div id="helmetGEAR" class="ll"></div>
           <div id="armorGEAR" class="ll"></div>
           <div id="pantsGEAR" class="ll"></div>
           <div id="bootGEAR" class="ll"></div>
@@ -76,10 +76,12 @@
     
   </div>
   
-  <div id="perfilBotoes" class="">
-    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
-    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
-    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+  <div id="plBotoes" class="">
+    <div id="PerfiesC" class="BTNSglobais" onclick="mudarTela('perfilC-tela')"></div>
+    
+    <div id="BackC" class="BTNSglobais" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll'); MotrarGears()"></div>
+    
+    <div id="sairHome" class="BTNSglobais" onclick="mudarTela('torre-tela')">VOLTAR</div>
+    <div id="sairSalas" class="BTNSglobais oculto" onclick="mudarTela('salas-tela')">VOLTAR</div>
   </div>
 </div>

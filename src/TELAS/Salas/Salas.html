@@ -30,11 +30,12 @@
     <div id="Aliado2EmCampo" class="persEmCmapo"></div>
   </div>
   
-  <div id="mapaBotoes" class="">
-    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela'); GerarPerfilE()"></div>
-    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
-    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+  <div id="BotoesGLOBAL" class="">
+    <div id="PerfiesC" class="BTNSglobais" onclick="mudarTela('perfilC-tela'); FuncoesPerfil(); botoesPerfil('SALAS')"></div>
+    
+    <div id="BackC" class="BTNSglobais" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll')"></div>
+    
+    <div id="miniMap" class="BTNSglobais" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
   </div>
   
 </div>
@@ -48,11 +49,8 @@
   
   <div id="mapa-conteudo" class=""></div>
   
-   <div id="mapaBotoes" class="">
-    <div class="mapaBtn" onclick="GerarMapaCompleto()">Inven</div>
-    <div id="PerfiesC" class="mapaBtn" onclick="mudarTela('perfilC-tela')"></div>
-    <div id="miniMap" class="mapaBtn" onclick="mudarTela('mapa-tela'); esconderminiMap()"></div>
-    <div class="mapaBtn" onclick="voltarParaSalas()">sair</div>
+   <div id="BotoesGLOBAL" class="">
+    <div class="BTNSglobais" onclick="voltarParaSalas()">sair</div>
   </div>
 </div>
 

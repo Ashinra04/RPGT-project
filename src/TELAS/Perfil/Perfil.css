@@ -1,36 +1,43 @@
 /* ======================================================
     PERFIL TELA 
 ======================================================*/
+
+/* ======================================================
+    PERFIL TELA (AJUSTE DE ALINHAMENTO DA BASE)
+======================================================*/
 #perfilC-tela {
   background-color: var(--cor-complementar-cinza);
-  z-index: 1;
-  position: relative;
+  z-index: 5;
+  position: absolute;
   display: flex;
   flex-direction: column;
   height: 100dvh;
   box-sizing: border-box;
 }
-
-#perfilBotoes {
+#plBotoes {
   height: 9vh;
   width: 100%;
   position: relative;
   left: 1px;
+  top: 0.5%;
   padding: 1%;
   gap: 1%;
+  
   display: flex;
   flex-direction: row;
+  
   background-color: black;
   border: 2px solid var(--borda-prata);
   color: white;
   text-shadow: 2px 2px 4px black; 
+  box-sizing: border-box;
 }
 
 #PerfilCTitle {
   height: 6vh;
-  flex-shrink: 0;
   width: 100%;
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center; 
   background-color: var(--cor-ui-azulMarinho);
@@ -38,12 +45,6 @@
   color: white;
   font-size: 30px;
   text-shadow: 2px 2px 4px black; 
-}
-#PerfiesC {
-  background-image: url('/imagens/Icons/Character.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 #perfilConteudo {
@@ -72,7 +73,7 @@
 }
 
 #perfilConteudo2 {
-  flex: 5;
+  flex: 6;
   width: 100%;
   padding: 1%;
   gap: 1%;
@@ -163,6 +164,11 @@
   width: 100%; height: 40%;
   display: flex;
   flex-direction: column;
+}
+#LVLDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .DivPerfil {
   width: 100%; height: 100%;

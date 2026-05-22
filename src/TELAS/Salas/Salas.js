@@ -182,16 +182,6 @@ window.GerarMapaCompleto = function() {
   console.log("Mapa Gerado com Sucesso!", window.SalasDoAndar);
 };
 
-window.GerarPerfilE = function() {
-  const PlayerPerfilIcon = document.getElementById('perfilPlayer');
-  const PlayerAliado1Icon = document.getElementById('perfilAliado1');
-  const PlayerAliado2Icon = document.getElementById('perfilAliado2');
-  PlayerAliado1Icon.style.backgroundImage = "url('/imagens/Sprites/wizard_retrato.png')";
-  PlayerAliado2Icon.style.backgroundImage = "url('/imagens/Sprites/wizard_retrato.png')";
-  
-  PlayerPerfilIcon.style.backgroundImage = `url('${PersonagensIcons[personagemIndex].icon}')`;
-}
-
 // ========================================================
 // 2. FUNÇÃO DE GERAR AS PORTAS E COLOCAR OS EMOJIS
 // ========================================================

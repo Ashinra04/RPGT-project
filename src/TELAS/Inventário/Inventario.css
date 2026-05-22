@@ -2,7 +2,6 @@
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
 
-/* 1. CONTAINER PRINCIPAL DA TELA */
 #inventario-tela {
   width: 100vw;
   height: 100dvh;
@@ -11,7 +10,30 @@
   box-sizing: border-box;
   background-color: black;
 }
-
+#inventarioTITLE {
+  height: 6vh;
+  width: 100%;
+  background-color: #0d0f36;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-left: 2px solid #a0abbc;
+  border-right: 2px solid #a0abbc;
+  border-top: 2px solid #a0abbc;
+  color: white; 
+}
+#inventarioBTN {
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+  background-color: #0d0f36;
+  border: 2px solid #a0abbc;
+  box-sizing: border-box;
+}
 #inventario-body {
   flex: 1; 
   display: flex;
@@ -25,7 +47,7 @@
   overflow: hidden;
 }
 
-/* 2. DIVISÃO DA TELA (50/50) */
+/* 2. DIVISÃO DA TELA */
 #IRow1, #IRow2 {
   flex: 1;
   width: 100%;
@@ -34,103 +56,84 @@
   flex-direction: column;
 }
 
-#IRow2 {
-  border: 2px solid #a0abbc;
-  overflow: hidden;
-}
-
-.GSboxes {
-  flex: 1; 
-  width: 100%;
-  background-color: #0d0f36;
-  border: 2px solid #a0abbc;
-}
-
-/* 3. BOTÕES */
-.btnI {
-  flex: 1; 
-  height: 100%;
-  background-color: #5d0018;
-  border: 2px solid #a0abbc;
-  color: white; 
-  cursor: pointer;
-  font-family: inherit;
-}
-
-#BtnSG {
-  height: 5vh;
-  width: 100%;
-  background-color: #0d0f36;
-  display: flex;
-  flex-direction: row;
-  gap: 5px; 
-  margin-top: 5px;
-}
-
-/* BOTOES DE BAIXO (FALTAVA ESSE CSS) */
-#Botoes-INVEN {
-  height: 8vh;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  padding: 5px;
-  background-color: #0d0f36;
-  border: 2px solid #a0abbc;
-  box-sizing: border-box;
-}
-
-/* 4. GEARS BOX (EQUIPAMENTOS) */
 #Gears-box {
-  display: flex;
   width: 100%;
   height: 100%;
+  background-color: #0d0f36;
+  border: 2px solid #a0abbc;
   flex-direction: row;
   box-sizing: border-box;
-  padding: 5px;
+  padding: 2%;
   gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 
-.GearsColumn {
-  height: 100%;
-  width: 33%;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 6px;
-  gap: 5px;
-  justify-content: center;
-  align-items: center;
-}
 
+/*                     GEARS SLOTS                       */
 .Gslots {
-  height: 25%;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   background-color: #5d0018;
   border: 1px solid #a0abbc;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  image-rendering: pixelated; 
+  image-rendering: crisp-edges; 
+}
+#SpriteIdlePlayer {
+  height: 100%;
+  width: 100%;
+  background-color: #5d0018;
+  border: 1px solid #a0abbc;
+  grid-row: 1 / 5; 
+  grid-column: 2 / 4;
+}
+#SHelemt { 
+  background-image: url('/imagens/Icons/helmet.png'); 
+  grid-row: 1; grid-column: 1;
+}
+#SArmor { 
+  background-image: url('/imagens/Icons/armor.png'); 
+  grid-row: 2; grid-column: 1;
+}
+#SWeapon  { 
+  background-image: url('/imagens/Icons/sword.png'); 
+  grid-row: 3; grid-column: 1;
+}
+#SRing { 
+  background-image: url('/imagens/Icons/Rings.png'); 
+  grid-row: 4; grid-column: 1;
+}
+#SAmulet { 
+  background-image: url('/imagens/Icons/amulet.png'); 
+  grid-row: 1; grid-column: 4;
+}
+#SShield  { 
+  background-image: url('/imagens/Icons/shield.png'); 
+  grid-row: 2; grid-column: 4;
+}
+#SPants { 
+  background-image: url('/imagens/Icons/pants.png'); 
+  grid-row: 3; grid-column: 4;
+}
+#SBoots { 
+  background-image: url('/imagens/Icons/boots.png'); 
+  grid-row: 4; grid-column: 4;
+}
+/*--------------------------------------------------------*/
+
+
+/*--------------------------------------------------------*/
+/* 1. CONTAINER DE BAIXO DA TELA IRow2*/ 
+/*--------------------------------------------------------*/
+#IRow2 {
+  border: 2px solid #a0abbc;
+  overflow: hidden;
 }
 
-.svazio {
-  height: 25%;
-  width: 80%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-#SWeapon  { background-image: url('/imagens/Icons/sword.png'); }
-#SRing { background-image: url('/imagens/Icons/Rings.png'); }
-#SHelemt { background-image: url('/imagens/Icons/helmet.png'); }
-#SArmor { background-image: url('/imagens/Icons/armor.png'); }
-#SPants { background-image: url('/imagens/Icons/pants.png'); }
-#SBoots { background-image: url('/imagens/Icons/boots.png'); }
-#SAmulet { background-image: url('/imagens/Icons/amulet.png'); }
-#SShield  { background-image: url('/imagens/Icons/shield.png'); }
-
-/* 5. ITEMS BOX (MOCHILA) */
 #items-box {
   display: flex;
   flex-direction: column;
@@ -139,8 +142,9 @@
   height: 100%;
 }
 
+/*               CATEGORIAS CONTAINER                    */
 #CategoriaItems{
-  height: 8vh;
+  height: 7vh;
   width: 100%;
   background-color: #5d0018;
   display: flex;
@@ -156,7 +160,6 @@
   border: 2px solid #d28f22;
   background-color: #69d2cd;
 }
-
 .CategorySelect {
   height: 100%;
   width: 20%;
@@ -168,11 +171,18 @@
   color: black;
   font-size: 20px;
 }
-#CWeapons { background-image: url('/imagens/Icons/sword.png'); }
-#CArmors { background-image: url('/imagens/Icons/armor.png'); }
-#CPotions { background-image: url('/imagens/Icons/IconPotion.png'); }
-#CKeys { background-image: url('/imagens/Icons/Rings.png'); }
+#CWeapons { 
+  background-image: url('/imagens/Icons/sword.png'); }
+#CArmors { 
+  background-image: url('/imagens/Icons/armor.png'); }
+#CPotions { 
+  background-image: url('/imagens/Icons/IconPotion.png'); }
+#CKeys { 
+  background-image: url('/imagens/Icons/Rings.png'); }
+/*------------------------------------------------------*/
 
+
+/*               ITEMS SLOTS CONTAINER                    */
 #ItemsSlots{
   flex-grow: 1;
   width: 100%;
@@ -181,8 +191,8 @@
   overflow-y: auto;
   overflow-x: hidden;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: 12vh;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 10vh;
   gap: 5px;
   padding: 5px;
   box-sizing: border-box;
@@ -198,8 +208,10 @@
   display: flex;
   flex-direction: row;
 }
+/*------------------------------------------------------*/
 
-/* 6. MODAL FLUTUANTE (O FUNDO ESCURO) */
+
+/*              INFOS DOS ITEMS CONTAINER                 */
 #fundo-overlay {
   position: fixed;
   top: 0;
@@ -238,7 +250,7 @@
   flex-grow: 1;
 }
 
-/* A Caixa dos Botões do Modal */
+/* Caixa dos Botões */
 #BotoesBOX {
   width: 100%;
   height: 20%; 
@@ -265,3 +277,4 @@
 #btnEQUIPAR { grid-row: 1; grid-column: 1; }
 #btnCOMPARAR { grid-row: 1; grid-column: 2; }
 #btnFECHAR { grid-row: 2; grid-column: 1 / 3; }
+/*------------------------------------------------------*/

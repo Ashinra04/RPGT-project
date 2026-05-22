@@ -29,17 +29,6 @@
     </div>
     
     <div id="torre-tela" class="tela oculto">
-      
-      <div id="layout-pc">
-        <div id cidade-conteudo>
-          <div id="Forja" class="predio" onclick="mudarTela('forja-tela')">FORJA</div>
-          <div id="biblioteca" class="predio" onclick="mudarTela('biblioteca-tela')">BIBLIOTECA</div>
-          <div id="taverna" class="predio" onclick="mudarTela('taverna-tela')">TAVERNA</div>
-          <div id="guilda" class="predio" onclick="mudarTela('guilda-tela')">GUILDA</div>
-          <div id="templo" class="predio" onclick="mudarTela('templo-tela')">TEMPLO</div>
-        </div>
-      </div>
-        
       <div id="layout-mobile">
         <div id="torre-conteudo">
           <div id="Batalha" class="contrucao jersey-15" onclick="mudarTela('battle-tela'); atualizarTorre()">BATTLE</div>
@@ -53,15 +42,13 @@
           <div id="guilda" class="contrucao jersey-15" onclick="mudarTela('guilda-tela')">GUILDA</div>
         </div>
         
-        <div id="MENU-BAR" class="width100 DisplayFlex">
+        <div id="MENU-BAR" class="DisplayFlex">
           
-          <div class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Character.png" onclick="mudarTela('perfilC-tela'); GerarPerfilE()"></div>
+          <div id="perfilButtom" class="BTNSglobais" onclick="mudarTela('perfilC-tela'); FuncoesPerfil(); botoesPerfil('HOME')"></div>
           
-          <div class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Backpack.png" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll')"></div>
-          
-            <div  class="XX ImgCover"><img id="IMG" src="/imagens/Sprites/INN.png"></div>
+          <div id="backButtom" class="BTNSglobais" onclick="mudarTela('inventario-tela'); criarInventario(); categoriaSelecionada('CAll'); MotrarGears()"></div>
             
-          <div id="" class="XX ImgCover"><img id="IMG" src="/imagens/Icons/Mapa.png" alt=""></div>
+          <div id="mapaButton" class="BTNSglobais"></div>
         </div>
       </div>
     </div>

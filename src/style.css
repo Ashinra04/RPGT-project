@@ -97,10 +97,6 @@ body {
    ESTILO PADRÃO (MOBILE FIRST - CELULAR)
    ========================================= */
 
-#layout-pc {
-  display: none; 
-}
-
 #layout-mobile {
   display: block;
   width: 100%;
@@ -130,18 +126,27 @@ body {
 }
 
 #MENU-BAR {
-  height: 10vh;
+  height: 9vh;
+  width: 98%;
   position: sticky;
-  bottom: 0;
+  left: 1%;
   z-index: 100;
-
+  bottom: 0;
+  padding: 1%;
+  gap: 1%;
+  display: flex;
   flex-direction: row;
+  background-color: black;
+  border: 2px solid var(--borda-prata);
 }
-.XX {
-  background-color: #67507b;
-  height: 100%;
-  width: 100%;
-  border: 2px solid #d1b87a;
+#mapaButton {
+  background-image: url('/imagens/Icons/Mapa.png');
+}
+#backButtom {
+  background-image: url('/imagens/Icons/Backpack.png');
+}
+#perfilButtom {
+  background-image: url('/imagens/Icons/Character.png');
 }
 
 .contrucao {
@@ -158,70 +163,6 @@ body {
   cursor: pointer;
   font-size: 30px;
 }
-
-/* =========================================
-   MEDIA QUERY (TELA DE COMPUTADOR / TABLET)
-   ========================================= */
-
-@media (min-width: 768px) {
-    
-    #layout-mobile {
-        display: none; 
-    }
-
-    #layout-pc {
-        display: flex; 
-        width: 100%;
-        height: 100%;
-        background-color: #2c3e50;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #cidade-conteudo {
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-    }
-
-    .predio {
-        width: 150px;
-        height: 150px;
-        background-color: #8e44ad;
-        border: 2px solid white;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-    }
-}
-
-/* =========================================
-   ESTILOS PARA TELA PERFIL
-========================================= */
-#perfil-tela {
-  box-sizing: border-box;
-  gap: 5px;
-}
-
-#Perfil-body {
-  flex-grow: 1;
-  width: 100%;
-  background-color: #0d0f36;
-  border: 2px solid #d28f22;
-}
-
-.btnPL {
-  height: auto; 
-  width: 50vw;
-  background-color: #5d0018;
-  border: 2px solid #d28f22;
-  color: white; 
-  cursor: pointer;
-  font-family: inherit;
-} 
-
 /* =========================================
    ESTILOS PARA TELA CRIACAO
 ========================================= */
@@ -268,8 +209,10 @@ body {
   background-color: black;
   display: grid;
   gap: 1%; padding: 1%;
-  padding-left: 2%;
-  padding-right: 2%;
+  position: relative;
+  bottom: 0;
+  padding-left: 1%;
+  padding-right: 1%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, 1fr);
 }

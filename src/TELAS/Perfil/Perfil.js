@@ -4,7 +4,7 @@ window.ClassesStatus = {
   wizard: { HP: 30, HPMAX: 30, mana: 10, manaMAX: 10, ATK: 4, DEF: 4, FOR: 1, INT: 10, AGI: 3, FAI: 0, }
 }
 window.StatusPlayer = {
-  Player: { HP: '', mana: '', ATK: '', DEF: '', FOR: '', INT: '', AGI: '', FAI: '', }
+  Player: { HP: '', HPMAX: '', mana: '', manaMAX: '', ATK: '', DEF: '', FOR: '', INT: '', AGI: '', FAI: '', }
 }
 
 const Slots = [
@@ -27,6 +27,16 @@ const status = [
   'FAI',
 ]
 
+window.GerarPerfilE = function() {
+  const PlayerPerfilIcon = document.getElementById('perfilPlayer');
+  const PlayerAliado1Icon = document.getElementById('perfilAliado1');
+  const PlayerAliado2Icon = document.getElementById('perfilAliado2');
+  PlayerAliado1Icon.style.backgroundImage = "url('/imagens/Sprites/wizard_retrato.png')";
+  PlayerAliado2Icon.style.backgroundImage = "url('/imagens/Sprites/wizard_retrato.png')";
+  
+  PlayerPerfilIcon.style.backgroundImage = `url('${PersonagensIcons[personagemIndex].icon}')`;
+}
+
 window.EquiparGears = function() {
   Slots.forEach(function(slotName) {
     let idElemento = slotName + 'GEAR';
@@ -46,6 +56,8 @@ window.EquiparGears = function() {
 window.MudarStatus = function() {
   const HPFILL = document.getElementById('HpFillDiv');
   const manaFILL = document.getElementById('ManaFillDiv');
+  HPFILL.innerText = window.StatusPlayer.Player.HP + '/' + window.StatusPlayer.Player.HPMAX;
+  manaFILL.innerText = window.StatusPlayer.Player.mana + '/' + window.StatusPlayer.Player.manaMAX;
   
   status.forEach(function(statusName) {
     let idElemento = statusName + 'status';
@@ -60,6 +72,23 @@ window.MudarStatus = function() {
 window.confirmarSatusPlayer = function() {
   let classePlayer = window.personagemIndex;
   if(classePlayer) {
-    
+    Object.assign(window.StatusPlayer.Player, window.ClassesStatus[classePlayer]);
+  }
+}
+
+window.FuncoesPerfil = function() {
+  MudarStatus();
+  EquiparGears();
+  GerarPerfilE();
+}
+
+window.botoesPerfil = function(SalaPerfil) {
+  if(SalaPerfil === 'HOME') {
+    document.getElementById('sairHome').classList.remove('oculto')
+    document.getElementById('sairSalas').classList.add('oculto')
+  }
+  else  {
+    document.getElementById('sairSalas').classList.remove('oculto')
+    document.getElementById('sairHome').classList.add('oculto')
   }
 }

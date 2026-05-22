@@ -103,6 +103,33 @@ window.InventarioConsumables = {
   }
 };
 
+const Slots = [
+  'Weapon',
+  'Shield',
+  'Helemt',
+  'Armor',
+  'Pants',
+  'Boots',
+  'Ring',
+  'Amulet'
+];
+
+window.MotrarGears = function() {
+  Slots.forEach(function(slotName) {
+    let idElemento = 'S' + slotName;
+    let slotElement = document.getElementById(idElemento);
+    
+    if (slotElement) {
+      let imagem = window.GearsEquipados[slotName];
+      if (imagem) {,
+        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}')`;
+      } else {
+        slotElement.style.backgroundImage = '';
+      }
+    }
+  });
+}
+
 window.criarInventario = function() {
   // O "try" tenta rodar o seu código normalmente
   try {
@@ -269,18 +296,6 @@ window.categoriaPotions = function() {
   }
 };
 
-window.mudarBox = function (idBoxAlvo) {
-  const boxes = document.querySelectorAll('.GSboxes');
-  boxes.forEach(tela => tela.classList.add('oculto'));
-
-  const proximaBox = document.getElementById(idBoxAlvo);
-  if (proximaBox) {
-    proximaBox.classList.remove('oculto');
-  } else {
-    console.error("A tela " + idBoxAlvo + " não foi encontrada!");
-  }
-}
-
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
 
@@ -342,54 +357,3 @@ window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
     alert("Você equipou: " + nomeDoItemClicado);
   }
 };
-
-/* ia recomendou mudar para isso
-window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
-  
-  const dadosDoItem = ItemsPerfil[categoriaDoItem][nomeDoItemClicado];
-  
-  if (!dadosDoItem || !dadosDoItem.tipoSlot) {
-    console.error("Este item não tem um tipoSlot configurado no ItemsPerfil!");
-    return;
-  }
-
-  const slotDoItem = dadosDoItem.tipoSlot; 
-
-  // EQUIPA O NOVO ITEM
-  window.GearsEquipados[slotDoItem] = nomeDoItemClicado;
-
-  // ATUALIZA A IMAGEM NO BONECO
-  const idDaDivHtml = MapaIdsDosSlots[slotDoItem];
-  const slotDiv = document.getElementById(idDaDivHtml);
-
-  if (slotDiv) {
-    const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
-    slotDiv.innerHTML = `<img src="${caminhoDaImagem}" style="width: 100%; height: 100%; object-fit: contain;">`;
-    
-    // ==========================================
-    // NOVA LÓGICA: REMOVER ITEM DO INVENTÁRIO
-    // ==========================================
-    let arrayDoInventario = window.InventarioJogador[categoriaDoItem];
-    
-    // Procura em qual gaveta (index) a espada está guardada
-    let indexDoItem = arrayDoInventario.indexOf(nomeDoItemClicado);
-    
-    // Se achou a espada na bolsa (index for maior que -1)
-    if (indexDoItem > -1) {
-      // Remove exatamente 1 item daquela gaveta
-      arrayDoInventario.splice(indexDoItem, 1); 
-    }
-    
-    // ==========================================
-    
-    alert("Você equipou: " + nomeDoItemClicado);
-    
-    // (Opcional) Re-renderiza o inventário para a espada sumir da tela da bolsa
-    if (typeof window.criarInventario === "function") {
-        window.criarInventario();
-    }
-    
-    // Fecha o modal depois de equipar
-    document.getElementById('fundo-overlay').classList.add('oculto');
-  }
-}; */
