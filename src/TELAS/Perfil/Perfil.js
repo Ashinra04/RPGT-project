@@ -45,7 +45,7 @@ window.EquiparGears = function() {
     if (slotElement) {
       let imagem = window.GearsEquipados[slotName];
       if (imagem) {
-        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}')`;
+        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}.png')`;
       } else {
         slotElement.style.backgroundImage = '';
       }

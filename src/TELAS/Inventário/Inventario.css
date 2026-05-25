@@ -1,6 +1,19 @@
 /* =========================================
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
+:root {
+  --cor-principal-azul: #294380;
+  --cor-alerta-violeta: #5d0018;
+  --cor-complementar-cinza: #252628;
+  --cor-terceario-Verde: #31a35c;
+  --cor-secundaria-amarelo: #8a8300;
+  --cor-quartiaria-roxo: #400ca0;
+  --cor-ui-azulMarinho: #008ca3;
+  --borda-ouro: #d28f22;
+  --borda-prata: #a0abbc;
+  --cor-vida: #157407;
+  --cor-mana: #0284ba;
+}
 
 #inventario-tela {
   width: 100vw;
@@ -24,14 +37,19 @@
   color: white; 
 }
 #inventarioBTN {
-  height: 8vh;
-  width: 100%;
+  height: 9vh;
+  width: 98%;
+  position: relative;
+  left: 1%;
+  top: 0%;
+  padding: 1%;
+  gap: 1%;
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  padding: 5px;
-  background-color: #0d0f36;
-  border: 2px solid #a0abbc;
+  background-color: black;
+  border: 2px solid var(--borda-prata);
+  color: white;
+  text-shadow: 2px 2px 4px black; 
   box-sizing: border-box;
 }
 #inventario-body {
@@ -86,12 +104,12 @@
 #SpriteIdlePlayer {
   height: 100%;
   width: 100%;
-  background-color: #5d0018;
+  background-color: var(--cor-complementar-cinza);
   border: 1px solid #a0abbc;
   grid-row: 1 / 5; 
   grid-column: 2 / 4;
 }
-#SHelemt { 
+#SHelmet { 
   background-image: url('/imagens/Icons/helmet.png'); 
   grid-row: 1; grid-column: 1;
 }
@@ -186,7 +204,7 @@
 #ItemsSlots{
   flex-grow: 1;
   width: 100%;
-  background-color: #0d0f36;
+  background-color: var(--cor-complementar-cinza);
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
@@ -226,7 +244,7 @@
 }
 
 #caixa-flutuante {
-  width: 80%;
+  width: 90%;
   height: 70%;
   background-color: #0d0f36;
   border: 2px solid #d28f22;
@@ -248,21 +266,40 @@
 #ItemsDescricoesbox {
   width: 100%;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1%; gap: 1%;
+}
+#primeiraRow {
+  width: 100%; height: 40%; 
+  border: 2px solid #d28f22;
+  flex-direction: row;
+  display: flex;
+}
+#ItemImagemIcon {
+  width: 40%; height: 100%; 
+  border: 2px solid #d28f22;
+  background-color: white;
+}
+#ItemInfoBasicas {
+  width: 60%; height: 100%; 
+  border: 2px solid #d28f22;
+  background-color: var(--cor-ui-azulMarinho);
+}
+#ItemInfoGerais {
+  width: 100%; height: 60%; 
+  border: 2px solid #d28f22;
+  background-color: var(--cor-quartiaria-roxo);
 }
 
-/* Caixa dos Botões */
 #BotoesBOX {
-  width: 100%;
-  height: 20%; 
+  width: 100%; height: 20%; 
   border-top: 2px solid #d28f22;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 5px;
-  padding: 5px;
-  box-sizing: border-box;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px; padding: 5px;
 }
-
 .btnInventory {
   width: 100%;  
   height: 100%;
@@ -273,7 +310,6 @@
   font-family: inherit;
   font-size: 1rem;
 }
-
 #btnEQUIPAR { grid-row: 1; grid-column: 1; }
 #btnCOMPARAR { grid-row: 1; grid-column: 2; }
 #btnFECHAR { grid-row: 2; grid-column: 1 / 3; }

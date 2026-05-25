@@ -8,16 +8,16 @@
       <div id="Gears-box">
         <div id="SpriteIdlePlayer" class=""></div>
         
-        <div id="SAmulet" class="Gslots"></div>
-        <div id="SWeapon" class="Gslots"></div>
+        <div id="SAmulet" class="Gslots" onclick="abrirModalGearsEquipados('amulet')"></div>
+        <div id="SWeapon" class="Gslots" onclick="abrirModalGearsEquipados('weapon')"></div>
             
-        <div id="SHelemt" class="Gslots"></div>
-        <div id="SArmor" class="Gslots"></div>
-        <div id="SPants" class="Gslots"></div>
+        <div id="SHelmet" class="Gslots" onclick="abrirModalGearsEquipados('helmet')"></div>
+        <div id="SArmor" class="Gslots" onclick="abrirModalGearsEquipados('armor')"></div>
+        <div id="SPants" class="Gslots" onclick="abrirModalGearsEquipados('pants')"></div>
             
-        <div id="SRing" class="Gslots"></div>
-        <div id="SShield" class="Gslots"></div>
-        <div id="SBoots" class="Gslots"></div>
+        <div id="SRing" class="Gslots" onclick="abrirModalGearsEquipados('ring')"></div>
+        <div id="SShield" class="Gslots" onclick="abrirModalGearsEquipados('secondmao')"></div>
+        <div id="SBoots" class="Gslots" onclick="abrirModalGearsEquipados('boots')"></div>
       </div>
     </div>
         
@@ -43,12 +43,16 @@
     </div>
     
     <div id="fundo-overlay" class="oculto DFlexALCenter" onclick="fecharModal(event)">
-      
-      <div id="caixa-flutuante">
+      <div id="caixa-flutuante" class="">
         <div id="ItemTitleName"></div>
         
         <div id="ItemsDescricoesbox">
-          <p style="color: white; padding: 10px;">Descrição do item aparece aqui...</p>
+          <div id="primeiraRow">
+            <div id="ItemImagemIcon"></div>
+            <div id="ItemInfoBasicas"></div>
+          </div>
+          
+          <div id="ItemInfoGerais"></div>
         </div>
         
         <div id="BotoesBOX">
@@ -57,11 +61,11 @@
           <button id="btnFECHAR" class="btnInventory" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
         </div>
       </div>
-    
     </div>
   </div>
       
   <div id="inventarioBTN">
+    <div id="PerfiesC" class="BTNSglobais" onclick="mudarTela('perfilC-tela')"></div>
     <button class="BTNSglobais" onclick="mudarTela('torre-tela')">VOLTAR</button>
   </div>
 </div>

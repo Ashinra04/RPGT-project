@@ -1,8 +1,11 @@
+/*--------------------------------------------------------
+    OBJETOS DO INVENTARIO E ITEMS
+--------------------------------------------------------*/
 window.goldPlayer = 120;
 
 window.GearsEquipados = {
-  weapon: 'WSword.png',
-  secondmao: null,
+  weapon: 'WSword',
+  secondmao: 'WShield',
   helmet: null,
   armor: null,
   pants: null,
@@ -10,6 +13,34 @@ window.GearsEquipados = {
   ring: null,
   amulet: null
 }
+
+window.InventarioJogador = {
+  weapon: [
+    
+  ],
+  armor: [ 
+    "Leather_helmet",
+  ] 
+};
+
+window.InventarioConsumables = {
+  consumables: { 
+    "Potion": 3,
+    "Potionx2": 0,
+    "Energy": 2,
+    "Energyx2": 0,
+    "Elixir": 0,
+    "Full_heal": 0,
+    "PoisonP": 0,
+    "FreezeP": 0,
+    "FireP": 0,
+    "ElectricP": 0,
+    "Antidote": 0,
+    "Revive": 0,
+    "Torch": 0,
+    "DeathP": 0
+  }
+};
 
 const MapaIdsDosSlots = {
   helmet: 'SHelemt',
@@ -73,63 +104,47 @@ window.BancoDeimgDosItems = {
   }
 };
 
-window.InventarioJogador = {
-  weapon: [
-    "Sword",
-    "Shield"
-  ],
-  armor: [ 
-    "Leather_helmet",
-    "Leather_boots"
-  ] 
-};
-
-window.InventarioConsumables = {
-  consumables: { 
-    "Potion": 3,
-    "Potionx2": 0,
-    "Energy": 2,
-    "Energyx2": 0,
-    "Elixir": 0,
-    "Full_heal": 0,
-    "PoisonP": 0,
-    "FreezeP": 0,
-    "FireP": 0,
-    "ElectricP": 0,
-    "Antidote": 0,
-    "Revive": 0,
-    "Torch": 0,
-    "DeathP": 0
-  }
-};
-
 const Slots = [
   'Weapon',
   'Shield',
-  'Helemt',
+  'Helmet',
   'Armor',
   'Pants',
   'Boots',
   'Ring',
   'Amulet'
 ];
+/*--------------------------------------------------------*/
 
+
+/*--------------------------------------------------------
+    FUNÇÃO PARA COLOCAR OS GEARS NOS SLOTS CERTOS
+--------------------------------------------------------*/
 window.MotrarGears = function() {
   Slots.forEach(function(slotName) {
     let idElemento = 'S' + slotName;
     let slotElement = document.getElementById(idElemento);
     
     if (slotElement) {
-      let imagem = window.GearsEquipados[slotName];
-      if (imagem) {,
-        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}')`;
+      let slotNameMinuscula = slotName.toLowerCase();
+      let imagem = window.GearsEquipados[slotNameMinuscula];
+      if (imagem) {
+        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}.png')`;
       } else {
         slotElement.style.backgroundImage = '';
       }
     }
   });
+  let Secondmao = window.GearsEquipados.secondmao;
+  let secondaomao = document.getElementById('SShield');
+  secondaomao.style.backgroundImage = `url('/imagens/Forja/${Secondmao}.png')`;
 }
+/*--------------------------------------------------------*/
 
+
+/*--------------------------------------------------------
+    FUNCOES PARA CRIAR E GERENCIAR O INVENTARIO
+--------------------------------------------------------*/
 window.criarInventario = function() {
   // O "try" tenta rodar o seu código normalmente
   try {
@@ -196,7 +211,6 @@ window.criarInventario = function() {
     }
     
   } catch (erro) {
-    // O "catch" pega o erro se o jogo travar e mostra na tela!
     alert("CRASH NO INVENTÁRIO: " + erro.message);
   }
 };
@@ -295,11 +309,39 @@ window.categoriaPotions = function() {
     }
   }
 };
+/*--------------------------------------------------------*/
+
+
+/*--------------------------------------------------------
+    FUNCOES DE INTERACAO COM O INVENTARIO
+--------------------------------------------------------*/
+window.abrirModalGearsEquipados = function(categoria) {
+  let img = document.getElementById('ItemImagemIcon');
+  let TitleItemName = document.getElementById('ItemTitleName');
+  let ItemName = GearsEquipados[categoria];
+  let ItemNameModificado = ItemName.split('');
+  ItemNameModificado.splice(0, 1);
+  let ItemNameFinal = ItemNameModificado.join('');
+  
+  img.style.backgroundImage = `url('/imagens/Forja/${ItemNameFinal}.png')`;
+  
+  if (ItemNameFinal) {
+    TitleItemName.innerText = ItemNameFinal;
+  } else {
+    console.log('Elemento com ID "ItemTitleName" não encontrado.');
+  }
+
+  document.getElementById('fundo-overlay').classList.remove('oculto');
+};
 
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
-
+  let img = document.getElementById('ItemImagemIcon');
+  console.log(nomeDoItemClicado);
   document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
+  
+  // img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
+  img.style.backgroundImage = ;
   
   const botaoEquipar = document.getElementById('btnEQUIPAR');
   
@@ -332,28 +374,7 @@ window.categoriaSelecionada =  function(IdCategoria) {
     }
 };
 
-
-window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
+window.equiparGear = function() {
   
-  const dadosDoItem = ItemsPerfil[categoriaDoItem][nomeDoItemClicado];
-  
-  if (!dadosDoItem || !dadosDoItem.tipoSlot) {
-    console.error("Este item não tem um tipoSlot configurado no ItemsPerfil!");
-    return;
-  }
-
-  const slotDoItem = dadosDoItem.tipoSlot; 
-
-  window.GearsEquipados[slotDoItem] = nomeDoItemClicado;
-
-  const idDaDivHtml = MapaIdsDosSlots[slotDoItem];
-  const slotDiv = document.getElementById(idDaDivHtml);
-
-  if (slotDiv) {
-    const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
-    
-    slotDiv.innerHTML = `<img src="${caminhoDaImagem}" style="width: 100%; height: 100%; object-fit: contain;">`;
-    
-    alert("Você equipou: " + nomeDoItemClicado);
-  }
-};
+}
+/*--------------------------------------------------------*/
