@@ -4,7 +4,7 @@
 window.goldPlayer = 120;
 
 window.GearsEquipados = {
-  weapon: 'WSword',
+  weapon: null,
   secondmao: 'WShield',
   helmet: null,
   armor: null,
@@ -16,10 +16,12 @@ window.GearsEquipados = {
 
 window.InventarioJogador = {
   weapon: [
-    
+    "WSword"
   ],
   armor: [ 
     "Leather_helmet",
+    "Leather_helmet",
+    "Leather_armor"
   ] 
 };
 
@@ -68,6 +70,7 @@ window.BancoDeimgDosItems = {
     "WSword": "/imagens/Forja/WSword.png",
     "Lance": "/imagens/Forja/WLance.png",
     "Shield": "/imagens/Forja/WShield.png",
+    "WShield": "/imagens/Forja/WShield.png",
     "Dagger": "/imagens/Forja/WDagger.png",
     "bow": "/imagens/Forja/WBow.png",
     "Staff": "/imagens/Forja/WStaff.png",
@@ -83,7 +86,6 @@ window.BancoDeimgDosItems = {
     "Leather_helmet": "/imagens/Forja/Leather_helmet.png",
     "Leather_armor": "/imagens/Forja/Leather_armor.png",
     "Leather_pants": "/imagens/Forja/Leather_pants.png",
-    "Leather_gloves": "/imagens/Forja/Leather_gloves.png",
     "Leather_boots": "/imagens/Forja/Leather_boots.png"
   },
   consumables: { 
@@ -323,19 +325,15 @@ window.abrirModalGearsEquipados = function(categoria) {
   document.getElementById('btnEQUIPAR').classList.add('oculto');
   document.getElementById('btnDESEQUIPAR').classList.remove('oculto');
   
+  const btnDesequipar = document.getElementById('btnDESEQUIPAR');
+  btnDesequipar.onclick = function() {
+    window.deseguiparGear(); 
+  };
+  
   if (typeof ItemName !== 'string' || ItemName.length === 0) {
     console.log(`Slot '${categoria}' está vazio ou inválido. Nenhuma interação será realizada.`);
     return;
   }
-  
-  /* if (ItemName === null || ItemName === undefined || typeof ItemName !== 'string' || ItemName.length === 0) {
-    // Se não há item ou ele é null/undefined/não-string/vazio, trate como "nenhum item"
-    TitleItemName.innerText = "Nenhum item equipado"; // Ou qualquer texto padrão
-    img.style.backgroundImage = 'none'; // Limpa a imagem, se houver
-    document.getElementById('fundo-overlay').classList.remove('oculto');
-    console.log(`Nenhum item válido encontrado para a categoria: ${categoria}`);
-    return; // Sai da função, pois não há item para processar
-  } */
   
   let ItemNameModificado = ItemName.split('');
   ItemNameModificado.splice(0, 1);
@@ -354,24 +352,19 @@ window.abrirModalGearsEquipados = function(categoria) {
 
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
-  
+
   document.getElementById('btnDESEQUIPAR').classList.add('oculto');
   document.getElementById('btnEQUIPAR').classList.remove('oculto');
   
+  // 3. Atualiza textos e imagens
   let img = document.getElementById('ItemImagemIcon');
   document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
-  
   img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
   
+  // 4. Configura o botão EQUIPAR
   const botaoEquipar = document.getElementById('btnEQUIPAR');
-  
   botaoEquipar.onclick = function() {
-  
     window.equiparGear(nomeDoItemClicado, categoriaDoItem);
-  };
-  
-  onclick = function() {
-    window.deseguiparGear('nomeDoItemClicado');
   };
 }
 
@@ -403,24 +396,63 @@ window.categoriaSelecionada =  function(IdCategoria) {
 let slotGEARS = '';
 let GearType = '';
 
-window.registarSlotGear = function(slotSELECIONADO) {
+window.registarSlotGear = function(slotSELECIONADO, categoria) {
   slotGEARS = slotSELECIONADO;
-  
-  let SlotModificado = slotSELECIONADO.split('');
-  SlotModificado.splice(0, 1);
-  let SlotFinal = SlotModificado.join('');
-  let SlotName = SlotFinal.toLowerCase();
-  GearType = SlotName;
-  alert(SlotName);
+  GearType = categoria;
 }
 
-window.equiparGear = function() {
-}
+window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
+  let idSlotHTML;
+  let tipoSugerido;
+
+  // 1. Lista de itens que SEMPRE vão para a mão secundária
+  const itensMaoSecundaria = ['Shield', 'WShield', 'Book', 'Flecha', 'Wand'];
+
+  if (categoriaDoItem === 'armor') {
+    let partes = nomeDoItemClicado.split(/[-_]/);
+    tipoSugerido = partes[1];
+    idSlotHTML = "S" + tipoSugerido.charAt(0).toUpperCase() + tipoSugerido.slice(1);
+  } 
+  else if (categoriaDoItem === 'weapon') {
+    // 2. Verifica se o item clicado está na lista de itens de mão secundária
+    // O .some() checa se o nome do item contém alguma das palavras da lista
+    const ehMaoSecundaria = itensMaoSecundaria.some(item => nomeDoItemClicado.includes(item));
+
+    if (ehMaoSecundaria) {
+      tipoSugerido = 'secondmao';
+      idSlotHTML = 'SShield'; // O ID do seu HTML para a segunda mão
+    } else {
+      tipoSugerido = 'weapon';
+      idSlotHTML = 'SWeapon';
+    }
+  }
+
+  // --- RESTANTE DA LOGICA (Igual ao anterior) ---
+  let slotVisual = document.getElementById(idSlotHTML);
+
+  if (window.GearsEquipados[tipoSugerido] === null) {
+    if (slotVisual) {
+      window.GearsEquipados[tipoSugerido] = nomeDoItemClicado;
+      slotVisual.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
+
+      let index = window.InventarioJogador[categoriaDoItem].indexOf(nomeDoItemClicado);
+      if (index > -1) {
+        window.InventarioJogador[categoriaDoItem].splice(index, 1);
+      }
+
+      window.criarInventario();
+      document.getElementById('fundo-overlay').classList.add('oculto');
+    }
+  } else {
+    alert("Slot ocupado! Desequipe primeiro.");
+  }
+};
 
 window.deseguiparGear = function() {
   let SlotIDHTML = slotGEARS;
   let tipoDeGear = GearType;
   
+  //retirar imagem do slot, e trava
   let SlotGear = document.getElementById(SlotIDHTML);
   SlotGear.style.backgroundImage = '';
   
@@ -431,7 +463,14 @@ window.deseguiparGear = function() {
   let itemProInventario = window.GearsEquipados[tipoDeGear];
 
   if (itemProInventario && typeof itemProInventario === 'string' && itemProInventario.length > 0) {
-    window.InventarioJogador.weapon.push(itemProInventario);
+    
+    if(tipoDeGear === 'weapon' || tipoDeGear === 'secondmao') {
+      window.InventarioJogador.weapon.push(itemProInventario);
+    }
+    else {
+      window.InventarioJogador.armor.push(itemProInventario);
+    }
+    
     window.GearsEquipados[tipoDeGear] = null;
   } else {
     console.log(`Slot '${categoriaDoItem}' está vazio. Nenhuma adição ao inventário.`);
