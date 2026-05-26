@@ -8,16 +8,16 @@
       <div id="Gears-box">
         <div id="SpriteIdlePlayer" class=""></div>
         
-        <div id="SAmulet" class="Gslots" onclick="abrirModalGearsEquipados('amulet')"></div>
-        <div id="SWeapon" class="Gslots" onclick="abrirModalGearsEquipados('weapon')"></div>
+        <div id="SAmulet" class="Gslots" onclick="abrirModalGearsEquipados('amulet'); registarSlotGear('SAmulet')"></div>
+        <div id="SWeapon" class="Gslots" onclick="abrirModalGearsEquipados('weapon'); registarSlotGear('SWeapon')"></div>
             
-        <div id="SHelmet" class="Gslots" onclick="abrirModalGearsEquipados('helmet')"></div>
-        <div id="SArmor" class="Gslots" onclick="abrirModalGearsEquipados('armor')"></div>
-        <div id="SPants" class="Gslots" onclick="abrirModalGearsEquipados('pants')"></div>
+        <div id="SHelmet" class="Gslots" onclick="abrirModalGearsEquipados('helmet'); registarSlotGear('SHelmet')"></div>
+        <div id="SArmor" class="Gslots" onclick="abrirModalGearsEquipados('armor'); registarSlotGear('SArmor')"></div>
+        <div id="SPants" class="Gslots" onclick="abrirModalGearsEquipados('pants'); registarSlotGear('SPants')"></div>
             
-        <div id="SRing" class="Gslots" onclick="abrirModalGearsEquipados('ring')"></div>
-        <div id="SShield" class="Gslots" onclick="abrirModalGearsEquipados('secondmao')"></div>
-        <div id="SBoots" class="Gslots" onclick="abrirModalGearsEquipados('boots')"></div>
+        <div id="SRing" class="Gslots" onclick="abrirModalGearsEquipados('ring'); registarSlotGear('SRing')"></div>
+        <div id="SShield" class="Gslots" onclick="abrirModalGearsEquipados('secondmao'); registarSlotGear('SShield')"></div>
+        <div id="SBoots" class="Gslots" onclick="abrirModalGearsEquipados('boots'); registarSlotGear('SBoots')"></div>
       </div>
     </div>
         
@@ -56,7 +56,8 @@
         </div>
         
         <div id="BotoesBOX">
-          <button id="btnEQUIPAR" class="btnInventory">EQUIPAR</button>
+          <button id="btnEQUIPAR" class="btnInventory" onclick="">EQUIPAR</button>
+          <button id="btnDESEQUIPAR" class="btnInventory" onclick="deseguiparGear()">DESEQUIPAR</button>
           <button id="btnCOMPARAR" class="btnInventory" onclick="">COMPARAR</button>
           <button id="btnFECHAR" class="btnInventory" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
         </div>

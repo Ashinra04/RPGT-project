@@ -278,12 +278,16 @@
 }
 #ItemImagemIcon {
   width: 40%; height: 100%; 
-  border: 2px solid #d28f22;
-  background-color: white;
+  background-color: var(--cor-complementar-cinza);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  image-rendering: pixelated; 
+  image-rendering: crisp-edges; 
 }
 #ItemInfoBasicas {
   width: 60%; height: 100%; 
-  border: 2px solid #d28f22;
+  border-left: 2px solid #d28f22;
   background-color: var(--cor-ui-azulMarinho);
 }
 #ItemInfoGerais {
@@ -311,6 +315,7 @@
   font-size: 1rem;
 }
 #btnEQUIPAR { grid-row: 1; grid-column: 1; }
+#btnDESEQUIPAR { grid-row: 1; grid-column: 1; }
 #btnCOMPARAR { grid-row: 1; grid-column: 2; }
 #btnFECHAR { grid-row: 2; grid-column: 1 / 3; }
 /*------------------------------------------------------*/

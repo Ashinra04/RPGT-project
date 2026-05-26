@@ -60,12 +60,12 @@ window.BancoDeimgDosItems = {
     "staffIcon": "/imagens/Icons/staff.png",
     "helmetIcon": "/imagens/Icons/helmet.png",
     "ArmorIccon": "/imagens/Icons/armor.png",
-    "glovesIcon": "/imagens/Icons/gloves.png",
     "pantsIcon": "/imagens/Icons/pants.png",
     "bootsIcon": "/imagens/Icons/boots.png"
   },
   weapon: { 
     "Sword": "/imagens/Forja/WSword.png",
+    "WSword": "/imagens/Forja/WSword.png",
     "Lance": "/imagens/Forja/WLance.png",
     "Shield": "/imagens/Forja/WShield.png",
     "Dagger": "/imagens/Forja/WDagger.png",
@@ -319,11 +319,29 @@ window.abrirModalGearsEquipados = function(categoria) {
   let img = document.getElementById('ItemImagemIcon');
   let TitleItemName = document.getElementById('ItemTitleName');
   let ItemName = GearsEquipados[categoria];
+  
+  document.getElementById('btnEQUIPAR').classList.add('oculto');
+  document.getElementById('btnDESEQUIPAR').classList.remove('oculto');
+  
+  if (typeof ItemName !== 'string' || ItemName.length === 0) {
+    console.log(`Slot '${categoria}' está vazio ou inválido. Nenhuma interação será realizada.`);
+    return;
+  }
+  
+  /* if (ItemName === null || ItemName === undefined || typeof ItemName !== 'string' || ItemName.length === 0) {
+    // Se não há item ou ele é null/undefined/não-string/vazio, trate como "nenhum item"
+    TitleItemName.innerText = "Nenhum item equipado"; // Ou qualquer texto padrão
+    img.style.backgroundImage = 'none'; // Limpa a imagem, se houver
+    document.getElementById('fundo-overlay').classList.remove('oculto');
+    console.log(`Nenhum item válido encontrado para a categoria: ${categoria}`);
+    return; // Sai da função, pois não há item para processar
+  } */
+  
   let ItemNameModificado = ItemName.split('');
   ItemNameModificado.splice(0, 1);
   let ItemNameFinal = ItemNameModificado.join('');
   
-  img.style.backgroundImage = `url('/imagens/Forja/${ItemNameFinal}.png')`;
+  img.style.backgroundImage = `url('/imagens/Forja/${GearsEquipados[categoria]}.png')`;
   
   if (ItemNameFinal) {
     TitleItemName.innerText = ItemNameFinal;
@@ -336,12 +354,14 @@ window.abrirModalGearsEquipados = function(categoria) {
 
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
+  
+  document.getElementById('btnDESEQUIPAR').classList.add('oculto');
+  document.getElementById('btnEQUIPAR').classList.remove('oculto');
+  
   let img = document.getElementById('ItemImagemIcon');
-  console.log(nomeDoItemClicado);
   document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
   
-  // img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
-  img.style.backgroundImage = ;
+  img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
   
   const botaoEquipar = document.getElementById('btnEQUIPAR');
   
@@ -349,10 +369,13 @@ window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   
     window.equiparGear(nomeDoItemClicado, categoriaDoItem);
   };
+  
+  onclick = function() {
+    window.deseguiparGear('nomeDoItemClicado');
+  };
 }
 
 window.fecharModal = function(event) {
-
   if (event.target.id === 'fundo-overlay') {
     document.getElementById('fundo-overlay').classList.add('oculto');
   }
@@ -374,7 +397,47 @@ window.categoriaSelecionada =  function(IdCategoria) {
     }
 };
 
-window.equiparGear = function() {
+/*--------------------------------------------------------
+    FUNCOES DE EQUIPAR E DESAQUIPAR GEARS
+------------------------------------------------------*/
+let slotGEARS = '';
+let GearType = '';
+
+window.registarSlotGear = function(slotSELECIONADO) {
+  slotGEARS = slotSELECIONADO;
   
+  let SlotModificado = slotSELECIONADO.split('');
+  SlotModificado.splice(0, 1);
+  let SlotFinal = SlotModificado.join('');
+  let SlotName = SlotFinal.toLowerCase();
+  GearType = SlotName;
+  alert(SlotName);
+}
+
+window.equiparGear = function() {
+}
+
+window.deseguiparGear = function() {
+  let SlotIDHTML = slotGEARS;
+  let tipoDeGear = GearType;
+  
+  let SlotGear = document.getElementById(SlotIDHTML);
+  SlotGear.style.backgroundImage = '';
+  
+  if (!SlotIDHTML || !tipoDeGear) {
+    return; 
+  }
+  
+  let itemProInventario = window.GearsEquipados[tipoDeGear];
+
+  if (itemProInventario && typeof itemProInventario === 'string' && itemProInventario.length > 0) {
+    window.InventarioJogador.weapon.push(itemProInventario);
+    window.GearsEquipados[tipoDeGear] = null;
+  } else {
+    console.log(`Slot '${categoriaDoItem}' está vazio. Nenhuma adição ao inventário.`);
+  }
+  
+  window.criarInventario();
+  document.getElementById('fundo-overlay').classList.add('oculto');
 }
 /*--------------------------------------------------------*/
