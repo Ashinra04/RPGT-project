@@ -49,16 +49,38 @@
         <div id="ItemsDescricoesbox">
           <div id="primeiraRow">
             <div id="ItemImagemIcon"></div>
-            <div id="ItemInfoBasicas"></div>
+            
+            <div id="InfoRequerimentos">
+              <div id="TRequerimentos" class="statusbox">REQUERIMENTOS</div>
+              <div id="statusLVL" class="statusbox">LVL:</div>
+              <div id="statusFOR" class="statusbox">FOR:</div>
+              <div id="statusEND" class="statusbox">END:</div>
+              <div id="statusINT" class="statusbox">INT:</div>
+              <div id="statusDEX" class="statusbox">DEX:</div>
+            </div>
           </div>
           
-          <div id="ItemInfoGerais"></div>
+          <div id="ItemInfoGerais">
+            <div id="colunaSTATS" class="colunaItem">
+              <div id="LinhaTitle" class="">STATUS</div>
+              
+              <div id="LinhaStatus" class="">
+                <div id="LinhaDANO" class="StatusRows">⚔️ DANO</div>
+                <div id="LinhaCritChance" class="StatusRows">🎯 CRT:</div>
+                <div id="LinhaDanoCrit" class="StatusRows">💥 DANO CRITICO</div>
+                <div id="LinhaVelocidade" class="StatusRows">⚡ VELOCIDADE:</div>
+                <div id="LinhaPenetração" class="StatusRows">🔱 Penetração:</div>
+              </div>
+            </div>
+            
+            <div id="colunaLORE" class="colunaItem"></div>
+          </div>
         </div>
         
         <div id="BotoesBOX">
           <button id="btnEQUIPAR" class="btnInventory" onclick="">EQUIPAR</button>
           <button id="btnDESEQUIPAR" class="btnInventory">DESEQUIPAR</button>
-          <button id="btnCOMPARAR" class="btnInventory" onclick="">COMPARAR</button>
+          <button id="btnCOMPARAR" class="btnInventory" onclick="requerimentosItems()">COMPARAR</button>
           <button id="btnFECHAR" class="btnInventory" onclick="document.getElementById('fundo-overlay').classList.add('oculto')">FECHAR</button>
         </div>
       </div>
@@ -66,7 +88,7 @@
   </div>
       
   <div id="inventarioBTN">
-    <div id="PerfiesC" class="BTNSglobais" onclick="mudarTela('perfilC-tela')"></div>
+    <div id="PerfiesC" class="BTNSglobais" onclick="mudarTela('perfilC-tela'); FuncoesPerfil(); botoesPerfil('HOME')"></div>
     <button class="BTNSglobais" onclick="mudarTela('torre-tela')">VOLTAR</button>
   </div>
 </div>

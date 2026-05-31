@@ -2,29 +2,23 @@
     OBJETOS DO INVENTARIO E ITEMS
 --------------------------------------------------------*/
 window.goldPlayer = 120;
+let slotGEARS = '';
+let GearType = '';
 
 window.GearsEquipados = {
-  weapon: null,
+  weapon: 'WSword',
   secondmao: 'WShield',
-  helmet: null,
+  helmet: 'Leather_helmet',
   armor: null,
   pants: null,
   boots: null,
   ring: null,
   amulet: null
 }
-
 window.InventarioJogador = {
-  weapon: [
-    "WSword"
-  ],
-  armor: [ 
-    "Leather_helmet",
-    "Leather_helmet",
-    "Leather_armor"
-  ] 
+  weapon: ['Sword'],
+  armor: [] 
 };
-
 window.InventarioConsumables = {
   consumables: { 
     "Potion": 3,
@@ -44,37 +38,15 @@ window.InventarioConsumables = {
   }
 };
 
-const MapaIdsDosSlots = {
-  helmet: 'SHelemt',
-  armor: 'SArmor',
-  pants: 'SPants',
-  boots: 'SBoots',
-  weapon: 'SWeapon',
-  segunda_mao: 'SShield',
-  amulet: 'SAmulet',
-  ring1: 'SRing1',
-};
-
 window.BancoDeimgDosItems = {
-  icons: {
-    "swordIcon": "/imagens/Icons/sword.png",
-    "shieldIcon": "/imagens/Icons/shield.png",
-    "staffIcon": "/imagens/Icons/staff.png",
-    "helmetIcon": "/imagens/Icons/helmet.png",
-    "ArmorIccon": "/imagens/Icons/armor.png",
-    "pantsIcon": "/imagens/Icons/pants.png",
-    "bootsIcon": "/imagens/Icons/boots.png"
-  },
   weapon: { 
     "Sword": "/imagens/Forja/WSword.png",
-    "WSword": "/imagens/Forja/WSword.png",
     "Lance": "/imagens/Forja/WLance.png",
     "Shield": "/imagens/Forja/WShield.png",
-    "WShield": "/imagens/Forja/WShield.png",
     "Dagger": "/imagens/Forja/WDagger.png",
     "bow": "/imagens/Forja/WBow.png",
     "Staff": "/imagens/Forja/WStaff.png",
-    "Wand": "/imagens/Forja/Wand.png",
+    "WWand": "/imagens/Forja/Wand.png",
     "Book": "/imagens/Forja/WBook.png"
   },
   armor: { 
@@ -105,7 +77,20 @@ window.BancoDeimgDosItems = {
     "DeathP": "/imagens/Items/Death potion.png"
   }
 };
+window.BancoDeRequerimentos = {
+  'Sword': {FOR: 7, END: 8, INT: 1, DEX: 2},
+  'Lance': {FOR: 7, END: 8, INT: 1, DEX: 2},
+}
+window.BancoStatusGears = {
+  'Sword': { DANO: 6, CritChance: '20%', DanoCrit: '100%', Velocidade: 1.2, Penetração: 8 },
+  'Lance': { DANO: 6, CritChance: '20%', DanoCrit: '100%', Velocidade: 1.2, Penetração: 8 },
+}
+/*--------------------------------------------------------*/
 
+
+/*--------------------------------------------------------
+    FUNÇÃO PARA COLOCAR OS GEARS NOS SLOTS CERTOS
+--------------------------------------------------------*/
 const Slots = [
   'Weapon',
   'Shield',
@@ -116,12 +101,6 @@ const Slots = [
   'Ring',
   'Amulet'
 ];
-/*--------------------------------------------------------*/
-
-
-/*--------------------------------------------------------
-    FUNÇÃO PARA COLOCAR OS GEARS NOS SLOTS CERTOS
---------------------------------------------------------*/
 window.MotrarGears = function() {
   Slots.forEach(function(slotName) {
     let idElemento = 'S' + slotName;
@@ -335,9 +314,15 @@ window.abrirModalGearsEquipados = function(categoria) {
     return;
   }
   
-  let ItemNameModificado = ItemName.split('');
-  ItemNameModificado.splice(0, 1);
-  let ItemNameFinal = ItemNameModificado.join('');
+  let ItemNameFinal;
+
+  if (ItemName.startsWith('W')) {
+    let ItemNameModificado = ItemName.split('');
+    ItemNameModificado.splice(0, 1);
+    ItemNameFinal = ItemNameModificado.join('');
+  } else {
+    ItemNameFinal = ItemName;
+  }
   
   img.style.backgroundImage = `url('/imagens/Forja/${GearsEquipados[categoria]}.png')`;
   
@@ -348,24 +333,36 @@ window.abrirModalGearsEquipados = function(categoria) {
   }
 
   document.getElementById('fundo-overlay').classList.remove('oculto');
+  
+  window.requerimentosItems(ItemNameFinal);
 };
 
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
-
   document.getElementById('btnDESEQUIPAR').classList.add('oculto');
   document.getElementById('btnEQUIPAR').classList.remove('oculto');
-  
-  // 3. Atualiza textos e imagens
+//-------------------------------------------------------
   let img = document.getElementById('ItemImagemIcon');
-  document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
-  img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
+  let NomeFinal;
+  if (nomeDoItemClicado.startsWith('W')) {
+    let NameModificado = nomeDoItemClicado.split('');
+    NameModificado.splice(0, 1);
+    NomeFinal = ItemNameModificado.join('');
+  } 
   
-  // 4. Configura o botão EQUIPAR
+  document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
+  
+  const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
+  img.style.backgroundImage = `url('${caminhoDaImagem}')`;
+  
+  //img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
+//--------------------------------------------------------
   const botaoEquipar = document.getElementById('btnEQUIPAR');
   botaoEquipar.onclick = function() {
     window.equiparGear(nomeDoItemClicado, categoriaDoItem);
   };
+  
+  window.requerimentosItems(nomeDoItemClicado);
 }
 
 window.fecharModal = function(event) {
@@ -393,9 +390,6 @@ window.categoriaSelecionada =  function(IdCategoria) {
 /*--------------------------------------------------------
     FUNCOES DE EQUIPAR E DESAQUIPAR GEARS
 ------------------------------------------------------*/
-let slotGEARS = '';
-let GearType = '';
-
 window.registarSlotGear = function(slotSELECIONADO, categoria) {
   slotGEARS = slotSELECIONADO;
   GearType = categoria;
@@ -405,8 +399,7 @@ window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
   let idSlotHTML;
   let tipoSugerido;
 
-  // 1. Lista de itens que SEMPRE vão para a mão secundária
-  const itensMaoSecundaria = ['Shield', 'WShield', 'Book', 'Flecha', 'Wand'];
+  const itensMaoSecundaria = ['Shield', 'Book', 'Flecha', 'Wand'];
 
   if (categoriaDoItem === 'armor') {
     let partes = nomeDoItemClicado.split(/[-_]/);
@@ -414,26 +407,25 @@ window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
     idSlotHTML = "S" + tipoSugerido.charAt(0).toUpperCase() + tipoSugerido.slice(1);
   } 
   else if (categoriaDoItem === 'weapon') {
-    // 2. Verifica se o item clicado está na lista de itens de mão secundária
-    // O .some() checa se o nome do item contém alguma das palavras da lista
     const ehMaoSecundaria = itensMaoSecundaria.some(item => nomeDoItemClicado.includes(item));
 
     if (ehMaoSecundaria) {
       tipoSugerido = 'secondmao';
-      idSlotHTML = 'SShield'; // O ID do seu HTML para a segunda mão
+      idSlotHTML = 'SShield';
     } else {
       tipoSugerido = 'weapon';
       idSlotHTML = 'SWeapon';
     }
   }
 
-  // --- RESTANTE DA LOGICA (Igual ao anterior) ---
   let slotVisual = document.getElementById(idSlotHTML);
-
+  
   if (window.GearsEquipados[tipoSugerido] === null) {
     if (slotVisual) {
       window.GearsEquipados[tipoSugerido] = nomeDoItemClicado;
-      slotVisual.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
+      
+      const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
+      slotVisual.style.backgroundImage = `url('${caminhoDaImagem}')`;
 
       let index = window.InventarioJogador[categoriaDoItem].indexOf(nomeDoItemClicado);
       if (index > -1) {
@@ -461,6 +453,12 @@ window.deseguiparGear = function() {
   }
   
   let itemProInventario = window.GearsEquipados[tipoDeGear];
+  
+  if (itemProInventario.startsWith('W')) {
+    let ItemModificado = itemProInventario.split('');
+    ItemModificado.splice(0, 1);
+    itemProInventario = ItemModificado.join('');
+  } 
 
   if (itemProInventario && typeof itemProInventario === 'string' && itemProInventario.length > 0) {
     
@@ -478,5 +476,33 @@ window.deseguiparGear = function() {
   
   window.criarInventario();
   document.getElementById('fundo-overlay').classList.add('oculto');
+}
+
+window.requerimentosItems = function(item) {
+  const TipoDestatus = [ 'FOR', 'END', 'INT', 'DEX', ]
+  for(let Status of TipoDestatus) {
+    let StatusN = document.getElementById('status' + Status);
+    let statusValor = window.BancoDeRequerimentos[item][Status];
+    StatusN.innerText = '';
+    StatusN.innerText = `${Status}: ${statusValor}`
+  }
+  
+  const TipoDeAtributo = [ 'Penetração', 'Velocidade', 'DanoCrit', 'CritChance', 'DANO', ]
+  const SímboloDeAtributo = { 
+    'Penetração': ['🔱'],
+    'Velocidade': ['⚡'],
+    'DanoCrit': ['💥'],
+    'CritChance': ['🎯'], 
+    'DANO': ['️⚔️'],
+  }
+    
+  for(let Atributo of TipoDeAtributo) {
+    let símbolo = SímboloDeAtributo[Atributo];
+    
+    let AtributoN = document.getElementById('Linha' + Atributo);
+    let AtributoValor = window.BancoStatusGears[item][Atributo];
+    AtributoN.innerText = '';
+    AtributoN.innerText = `${símbolo} ${Atributo}: ${AtributoValor}`
+  }
 }
 /*--------------------------------------------------------*/

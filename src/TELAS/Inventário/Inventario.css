@@ -2,17 +2,28 @@
    ESTILOS PARA TELA INVENTARIO
 ========================================= */
 :root {
-  --cor-principal-azul: #294380;
-  --cor-alerta-violeta: #5d0018;
-  --cor-complementar-cinza: #252628;
-  --cor-terceario-Verde: #31a35c;
-  --cor-secundaria-amarelo: #8a8300;
-  --cor-quartiaria-roxo: #400ca0;
-  --cor-ui-azulMarinho: #008ca3;
+  /* AS BASES */
+  --cor-60: #252628;
+  --cor-30: #321464;
+  
+    /* DETALHES E UI */
+  --cor-10: #4a0012;
+  --cor-complementar: #38bdf8;
+  
+  /* BORDAS */
   --borda-ouro: #d28f22;
-  --borda-prata: #a0abbc;
-  --cor-vida: #157407;
-  --cor-mana: #0284ba;
+  --borda-prata: #8e9aaf;
+  
+  /* FEEDBACK VISUAL */
+  --cor-vida: #2ecc71;
+  --cor-mana: #00d2ff;
+}
+:root {
+  --cor-terciaria1: #294380;  
+  --cor-complementar2: #ffd700;
+  
+  --cor-terciaria2: #4a0012;
+  --cor-complementar3: #38bdf8;
 }
 
 #inventario-tela {
@@ -31,9 +42,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  border-left: 2px solid #a0abbc;
-  border-right: 2px solid #a0abbc;
-  border-top: 2px solid #a0abbc;
+  border-left: 1.7px solid #a0abbc;
+  border-right: 1.7px solid #a0abbc;
+  border-top: 1.7px solid #a0abbc;
   color: white; 
 }
 #inventarioBTN {
@@ -204,7 +215,7 @@
 #ItemsSlots{
   flex-grow: 1;
   width: 100%;
-  background-color: var(--cor-complementar-cinza);
+  background-color: var(--cor-60);
   overflow: hidden;
   overflow-y: auto;
   overflow-x: hidden;
@@ -246,8 +257,8 @@
 #caixa-flutuante {
   width: 90%;
   height: 70%;
-  background-color: #0d0f36;
-  border: 2px solid #d28f22;
+  background-color: var(--cor-60);
+  border: 1.7px solid #d28f22;
   display: flex;
   flex-direction: column;
 }
@@ -255,7 +266,7 @@
 #ItemTitleName {
   width: 100%;
   height: 10%; 
-  border-bottom: 2px solid #d28f22; 
+  border-bottom: 1px solid #d28f22; 
   color: white;
   font-size: 1.5rem;
   display: flex;
@@ -268,37 +279,84 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 1%; gap: 1%;
 }
 #primeiraRow {
   width: 100%; height: 40%; 
-  border: 2px solid #d28f22;
   flex-direction: row;
   display: flex;
+  border-bottom: 1px solid #d28f22;
 }
 #ItemImagemIcon {
   width: 40%; height: 100%; 
-  background-color: var(--cor-complementar-cinza);
+  background-color: var(--cor-60);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   image-rendering: pixelated; 
   image-rendering: crisp-edges; 
 }
-#ItemInfoBasicas {
+
+/*-----------------------------------------------------*/
+#InfoRequerimentos {
   width: 60%; height: 100%; 
-  border-left: 2px solid #d28f22;
-  background-color: var(--cor-ui-azulMarinho);
+  background-color: var(--cor-60);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1%; padding: 3%;
+  border-left: 1px solid #d28f22;
 }
+.statusbox {
+  width: 100%; height: 100%; 
+  color: white;
+  display: flex;
+  justify-content: center; align-items: center;
+}
+#TRequerimentos { grid-row: 1; grid-column: 1 / 3; }
+#statusLVL { grid-row: 2; grid-column: 1 / 3; }
+#statusFOR { grid-row: 3; grid-column: 1; }
+#statusEND { grid-row: 3; grid-column: 2; }
+#statusINT { grid-row: 4; grid-column: 2; }
+#statusDEX { grid-row: 4; grid-column: 1; }
+/*-----------------------------------------------------*/
 #ItemInfoGerais {
   width: 100%; height: 60%; 
-  border: 2px solid #d28f22;
-  background-color: var(--cor-quartiaria-roxo);
+  background-color: var(--cor-60);
+  display: flex; flex-direction: row;
+  gap: 1%; padding: 1%;
 }
-
+.colunaItem {
+  width: 100%; height: 100%;
+}
+#colunaSTATS {
+  background-color: var(--cor-30);
+  display: flex; flex-direction: column;
+}
+.StatusRows {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  color: white; padding-left: 3%;
+}
+#LinhaTitle {
+  width: 100%; height: 15%;
+  display: flex; justify-content: center;
+  align-items: center; color: white;
+  border-bottom: 1px solid #d28f22;
+}
+#LinhaStatus {
+  width: 100%; height: 85%;
+  display: grid;
+  grid-auto-rows: 1fr;
+}
+/*--------------------------------------------------------*/
+#colunaLORE {
+  background-color: var(--cor-30);
+}
+/*--------------------------------------------------------*/
 #BotoesBOX {
   width: 100%; height: 20%; 
-  border-top: 2px solid #d28f22;
+  border-top: 1px solid #d28f22;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -307,8 +365,8 @@
 .btnInventory {
   width: 100%;  
   height: 100%;
-  background-color: #5d0018;
-  border: 2px solid #a0abbc;
+  background-color: var(--cor-10);
+  border: 1.5px solid #a0abbc;
   color: white; 
   cursor: pointer;
   font-family: inherit;
