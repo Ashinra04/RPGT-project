@@ -32,7 +32,7 @@
   flex: 1;
   height: 100%;
   background-color: var(--cor-alerta-violeta);
-  border: 2px solid var(--borda-ouro);
+  border: 1px solid var(--borda-ouro);
   display: flex;
   justify-content: center;
   align-items: center;

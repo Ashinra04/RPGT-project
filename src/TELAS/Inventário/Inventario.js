@@ -2,21 +2,20 @@
     OBJETOS DO INVENTARIO E ITEMS
 --------------------------------------------------------*/
 window.goldPlayer = 120;
-let slotGEARS = '';
-let GearType = '';
 
 window.GearsEquipados = {
-  weapon: 'WSword',
-  secondmao: 'WShield',
-  helmet: 'Leather_helmet',
+  weapon: 'Sword',      
+  secondmao: 'Shield',  
+  helmet: 'Iron_helmet',
   armor: null,
   pants: null,
   boots: null,
   ring: null,
   amulet: null
-}
+};
+
 window.InventarioJogador = {
-  weapon: ['Sword'],
+  weapon: [],
   armor: [] 
 };
 window.InventarioConsumables = {
@@ -40,14 +39,14 @@ window.InventarioConsumables = {
 
 window.BancoDeimgDosItems = {
   weapon: { 
-    "Sword": "/imagens/Forja/WSword.png",
-    "Lance": "/imagens/Forja/WLance.png",
-    "Shield": "/imagens/Forja/WShield.png",
-    "Dagger": "/imagens/Forja/WDagger.png",
-    "bow": "/imagens/Forja/WBow.png",
-    "Staff": "/imagens/Forja/WStaff.png",
-    "WWand": "/imagens/Forja/Wand.png",
-    "Book": "/imagens/Forja/WBook.png"
+    "Sword": "/imagens/Forja/Sword.png",   
+    "Lance": "/imagens/Forja/Lance.png",   
+    "Shield": "/imagens/Forja/Shield.png", 
+    "Dagger": "/imagens/Forja/Dagger.png",
+    "bow": "/imagens/Forja/Bow.png",       
+    "Staff": "/imagens/Forja/Staff.png",   
+    "Wand": "/imagens/Forja/Wand.png",     // CORRIGIDO: Chave alterada de "WWand" para "Wand"
+    "Book": "/imagens/Forja/Book.png"      
   },
   armor: { 
     "Iron_helmet": "/imagens/Forja/Iron_helmet.png",
@@ -80,46 +79,68 @@ window.BancoDeimgDosItems = {
 window.BancoDeRequerimentos = {
   'Sword': {FOR: 7, END: 8, INT: 1, DEX: 2},
   'Lance': {FOR: 7, END: 8, INT: 1, DEX: 2},
-}
+  'Shield': {FOR: 5, END: 10, INT: 0, DEX: 0}, 
+  'Iron_helmet': {FOR: 8, END: 12, INT: 0, DEX: 0},
+  'Generico': {FOR: 1, END: 1, INT: 1, DEX: 1},
+};
 window.BancoStatusGears = {
   'Sword': { DANO: 6, CritChance: '20%', DanoCrit: '100%', Velocidade: 1.2, Penetração: 8 },
   'Lance': { DANO: 6, CritChance: '20%', DanoCrit: '100%', Velocidade: 1.2, Penetração: 8 },
-}
+  'Shield': { Vida: 50, Armadura: 15, Esquiva: 1, ResistenciaF: 5, ResistenciaM: 5 }, 
+  'Iron_helmet': { Vida: 100, Armadura: 20, Esquiva: 3, ResistenciaF: 10, ResistenciaM: 5 },
+  'Potion': { ManaMax: 20, ManaRegen: 5, 'Efeito1': "Cura", 'Efeito2': "Boost", 'Duração': "Instant" },
+  'Generico': { DANO: 1, CritChance: '1', DanoCrit: '1%', Velocidade: 1, Penetração: 1 },
+};
 /*--------------------------------------------------------*/
 
 
 /*--------------------------------------------------------
     FUNÇÃO PARA COLOCAR OS GEARS NOS SLOTS CERTOS
 --------------------------------------------------------*/
-const Slots = [
-  'Weapon',
-  'Shield',
-  'Helmet',
-  'Armor',
-  'Pants',
-  'Boots',
-  'Ring',
-  'Amulet'
-];
+// Mapeamento dos slots de GearsEquipados para as categorias no BancoDeimgDosItems
+const slotToCategoryMap = {
+    weapon: 'weapon',
+    secondmao: 'weapon',
+    helmet: 'armor',
+    armor: 'armor',
+    pants: 'armor',
+    boots: 'armor',
+    ring: 'consumables',
+    amulet: 'consumables' 
+};
+
 window.MotrarGears = function() {
-  Slots.forEach(function(slotName) {
-    let idElemento = 'S' + slotName;
-    let slotElement = document.getElementById(idElemento);
+  const visualSlots = ['Weapon', 'Shield', 'Helmet', 'Armor', 'Pants', 'Boots', 'Ring', 'Amulet'];
+
+  visualSlots.forEach(function(slotNameUpper) {
+    let idElementoVisual = 'S' + slotNameUpper;
+    let slotElement = document.getElementById(idElementoVisual);
     
+    let gearSlotKey;
+    if (slotNameUpper === 'Shield') { 
+      gearSlotKey = 'secondmao'; 
+    } else {
+      gearSlotKey = slotNameUpper.toLowerCase(); 
+    }
+
     if (slotElement) {
-      let slotNameMinuscula = slotName.toLowerCase();
-      let imagem = window.GearsEquipados[slotNameMinuscula];
-      if (imagem) {
-        slotElement.style.backgroundImage = `url('/imagens/Forja/${imagem}.png')`;
+      let itemNameInGears = window.GearsEquipados[gearSlotKey]; 
+
+      if (itemNameInGears) {
+        const categoriaDoItem = slotToCategoryMap[gearSlotKey]; 
+
+        if (categoriaDoItem && window.BancoDeimgDosItems[categoriaDoItem] && window.BancoDeimgDosItems[categoriaDoItem][itemNameInGears]) {
+            const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][itemNameInGears];
+            slotElement.style.backgroundImage = `url('${caminhoDaImagem}')`;
+        } else {
+            slotElement.style.backgroundImage = ''; 
+        }
       } else {
-        slotElement.style.backgroundImage = '';
+        slotElement.style.backgroundImage = ''; 
       }
     }
   });
-  let Secondmao = window.GearsEquipados.secondmao;
-  let secondaomao = document.getElementById('SShield');
-  secondaomao.style.backgroundImage = `url('/imagens/Forja/${Secondmao}.png')`;
-}
+};
 /*--------------------------------------------------------*/
 
 
@@ -127,7 +148,6 @@ window.MotrarGears = function() {
     FUNCOES PARA CRIAR E GERENCIAR O INVENTARIO
 --------------------------------------------------------*/
 window.criarInventario = function() {
-  // O "try" tenta rodar o seu código normalmente
   try {
     const container = document.getElementById('ItemsSlots');
     if (!container) return;
@@ -151,7 +171,8 @@ window.criarInventario = function() {
           
         const img = document.createElement('img');
         
-        img.src = window.BancoDeimgDosItems[categoria][nomeItem];
+        const caminhoDaImagem = window.BancoDeimgDosItems[categoria][nomeItem];
+        img.src = caminhoDaImagem;
         img.style.width = '100%';
           
         slotItem.appendChild(img);
@@ -166,24 +187,30 @@ window.criarInventario = function() {
       }
     }
 
+    // === 2. CRIAR SLOTS DE CONSUMÍVEIS ===
     let consumiveis = window.InventarioConsumables.consumables;
     
-    for (let nomePoçao in consumiveis) {
-      let quantidade = consumiveis[nomePoçao];
+    for (let nomePocao in consumiveis) {
+      let quantidade = consumiveis[nomePocao];
       
       if (quantidade > 0) {
         const slotItem = document.createElement('div');
         slotItem.className = 'SlotInven';
           
         const img = document.createElement('img');
-        img.src = window.BancoDeimgDosItems.consumables[nomePoçao];
+        img.src = window.BancoDeimgDosItems.consumables[nomePocao];
         img.style.width = '100%';
           
         slotItem.appendChild(img);
         
+        const quantidadeSpan = document.createElement('span');
+        quantidadeSpan.className = 'item-quantity'; 
+        quantidadeSpan.innerText = quantidade;
+        slotItem.appendChild(quantidadeSpan);
+
         slotItem.onclick = function() {
           if (typeof window.abrirModal === "function") {
-              window.abrirModal(nomePoçao, 'consumables'); 
+              window.abrirModal(nomePocao, 'consumables'); 
           }
         };
           
@@ -193,6 +220,7 @@ window.criarInventario = function() {
     
   } catch (erro) {
     alert("CRASH NO INVENTÁRIO: " + erro.message);
+    console.error("Erro em criarInventario:", erro);
   }
 };
 
@@ -267,22 +295,27 @@ window.categoriaPotions = function() {
   
   let consumiveis = window.InventarioConsumables.consumables;
     
-  for (let nomePoçao in consumiveis) {
-    let quantidade = consumiveis[nomePoçao];
+  for (let nomePocao in consumiveis) {
+    let quantidade = consumiveis[nomePocao];
       
     if (quantidade > 0) {
       const slotItem = document.createElement('div');
       slotItem.className = 'SlotInven';
           
       const img = document.createElement('img');
-      img.src = window.BancoDeimgDosItems.consumables[nomePoçao];
+      img.src = window.BancoDeimgDosItems.consumables[nomePocao];
       img.style.width = '100%';
           
       slotItem.appendChild(img);
+
+      const quantidadeSpan = document.createElement('span');
+      quantidadeSpan.className = 'item-quantity';
+      quantidadeSpan.innerText = quantidade;
+      slotItem.appendChild(quantidadeSpan);
       
       slotItem.onclick = function() {
         if (typeof window.abrirModal === "function") {
-            window.abrirModal(nomePoçao, 'consumables'); // Avisa que é consumível
+            window.abrirModal(nomePocao, 'consumables'); 
         }
       };
           
@@ -296,73 +329,68 @@ window.categoriaPotions = function() {
 /*--------------------------------------------------------
     FUNCOES DE INTERACAO COM O INVENTARIO
 --------------------------------------------------------*/
-window.abrirModalGearsEquipados = function(categoria) {
-  let img = document.getElementById('ItemImagemIcon');
-  let TitleItemName = document.getElementById('ItemTitleName');
-  let ItemName = GearsEquipados[categoria];
-  
+window.abrirModalGearsEquipados = function(gearSlotKey) { 
+  let imgElement = document.getElementById('ItemImagemIcon');
+  let titleItemNameElement = document.getElementById('ItemTitleName');
+  let itemName = window.GearsEquipados[gearSlotKey];
+
   document.getElementById('btnEQUIPAR').classList.add('oculto');
   document.getElementById('btnDESEQUIPAR').classList.remove('oculto');
   
   const btnDesequipar = document.getElementById('btnDESEQUIPAR');
   btnDesequipar.onclick = function() {
-    window.deseguiparGear(); 
+    window.deseguiparGear(gearSlotKey); 
   };
   
-  if (typeof ItemName !== 'string' || ItemName.length === 0) {
-    console.log(`Slot '${categoria}' está vazio ou inválido. Nenhuma interação será realizada.`);
+  if (!itemName) { // Se o slot estiver vazio (null)
+    imgElement.style.backgroundImage = '';
+    titleItemNameElement.innerText = '';
+    document.getElementById('fundo-overlay').classList.add('oculto');
     return;
   }
   
-  let ItemNameFinal;
-
-  if (ItemName.startsWith('W')) {
-    let ItemNameModificado = ItemName.split('');
-    ItemNameModificado.splice(0, 1);
-    ItemNameFinal = ItemNameModificado.join('');
-  } else {
-    ItemNameFinal = ItemName;
-  }
-  
-  img.style.backgroundImage = `url('/imagens/Forja/${GearsEquipados[categoria]}.png')`;
-  
-  if (ItemNameFinal) {
-    TitleItemName.innerText = ItemNameFinal;
-  } else {
-    console.log('Elemento com ID "ItemTitleName" não encontrado.');
+  let categoriaDoItem = null;
+  for (const cat in window.BancoDeimgDosItems) {
+    if (window.BancoDeimgDosItems.hasOwnProperty(cat) && window.BancoDeimgDosItems[cat].hasOwnProperty(itemName)) {
+      categoriaDoItem = cat;
+      break;
+    }
   }
 
+  if (!categoriaDoItem) {
+      console.error(`[abrirModalGearsEquipados] Categoria para o item '${itemName}' não encontrada no BancoDeimgDosItems.`);
+      return; 
+  }
+
+  const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][itemName];
+  imgElement.style.backgroundImage = `url('${caminhoDaImagem}')`;
+  
+  titleItemNameElement.innerText = itemName;
+  
   document.getElementById('fundo-overlay').classList.remove('oculto');
   
-  window.requerimentosItems(ItemNameFinal);
+  window.requerimentosEStatusItems(itemName);
 };
 
 window.abrirModal = function(nomeDoItemClicado, categoriaDoItem) {
   document.getElementById('fundo-overlay').classList.remove('oculto');
   document.getElementById('btnDESEQUIPAR').classList.add('oculto');
   document.getElementById('btnEQUIPAR').classList.remove('oculto');
-//-------------------------------------------------------
-  let img = document.getElementById('ItemImagemIcon');
-  let NomeFinal;
-  if (nomeDoItemClicado.startsWith('W')) {
-    let NameModificado = nomeDoItemClicado.split('');
-    NameModificado.splice(0, 1);
-    NomeFinal = ItemNameModificado.join('');
-  } 
+
+  let imgElement = document.getElementById('ItemImagemIcon');
+  let titleItemNameElement = document.getElementById('ItemTitleName');
   
-  document.getElementById('ItemTitleName').innerText = nomeDoItemClicado;
+  titleItemNameElement.innerText = nomeDoItemClicado;
   
   const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
-  img.style.backgroundImage = `url('${caminhoDaImagem}')`;
+  imgElement.style.backgroundImage = `url('${caminhoDaImagem}')`;
   
-  //img.style.backgroundImage = `url('/imagens/Forja/${nomeDoItemClicado}.png')`;
-//--------------------------------------------------------
   const botaoEquipar = document.getElementById('btnEQUIPAR');
   botaoEquipar.onclick = function() {
     window.equiparGear(nomeDoItemClicado, categoriaDoItem);
   };
   
-  window.requerimentosItems(nomeDoItemClicado);
+  window.requerimentosEStatusItems(nomeDoItemClicado);
 }
 
 window.fecharModal = function(event) {
@@ -390,42 +418,43 @@ window.categoriaSelecionada =  function(IdCategoria) {
 /*--------------------------------------------------------
     FUNCOES DE EQUIPAR E DESAQUIPAR GEARS
 ------------------------------------------------------*/
-window.registarSlotGear = function(slotSELECIONADO, categoria) {
-  slotGEARS = slotSELECIONADO;
-  GearType = categoria;
-}
+// window.registarSlotGear foi removida.
 
 window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
   let idSlotHTML;
-  let tipoSugerido;
+  let gearSlotKeyForGearsEquipados;
 
-  const itensMaoSecundaria = ['Shield', 'Book', 'Flecha', 'Wand'];
-
+  // CORRIGIDO: Agora usa 'Wand' se essa for a chave e nome do arquivo.
+  const itensMaoSecundaria = ['Shield', 'Book', 'Wand']; // Ajustado para 'Wand'
+  
   if (categoriaDoItem === 'armor') {
     let partes = nomeDoItemClicado.split(/[-_]/);
-    tipoSugerido = partes[1];
-    idSlotHTML = "S" + tipoSugerido.charAt(0).toUpperCase() + tipoSugerido.slice(1);
+    gearSlotKeyForGearsEquipados = partes[1]; 
+    idSlotHTML = "S" + gearSlotKeyForGearsEquipados.charAt(0).toUpperCase() + gearSlotKeyForGearsEquipados.slice(1);
   } 
   else if (categoriaDoItem === 'weapon') {
-    const ehMaoSecundaria = itensMaoSecundaria.some(item => nomeDoItemClicado.includes(item));
+    const ehMaoSecundaria = itensMaoSecundaria.includes(nomeDoItemClicado); 
 
     if (ehMaoSecundaria) {
-      tipoSugerido = 'secondmao';
+      gearSlotKeyForGearsEquipados = 'secondmao';
       idSlotHTML = 'SShield';
     } else {
-      tipoSugerido = 'weapon';
+      gearSlotKeyForGearsEquipados = 'weapon';
       idSlotHTML = 'SWeapon';
     }
+  } else {
+      console.warn(`[equiparGear] Lógica de slot não definida para categoria: ${categoriaDoItem}`);
+      return; 
   }
 
-  let slotVisual = document.getElementById(idSlotHTML);
+  let slotVisualElement = document.getElementById(idSlotHTML);
   
-  if (window.GearsEquipados[tipoSugerido] === null) {
-    if (slotVisual) {
-      window.GearsEquipados[tipoSugerido] = nomeDoItemClicado;
+  if (window.GearsEquipados[gearSlotKeyForGearsEquipados] === null) {
+    if (slotVisualElement) {
+      window.GearsEquipados[gearSlotKeyForGearsEquipados] = nomeDoItemClicado; 
       
       const caminhoDaImagem = window.BancoDeimgDosItems[categoriaDoItem][nomeDoItemClicado];
-      slotVisual.style.backgroundImage = `url('${caminhoDaImagem}')`;
+      slotVisualElement.style.backgroundImage = `url('${caminhoDaImagem}')`;
 
       let index = window.InventarioJogador[categoriaDoItem].indexOf(nomeDoItemClicado);
       if (index > -1) {
@@ -434,75 +463,136 @@ window.equiparGear = function(nomeDoItemClicado, categoriaDoItem) {
 
       window.criarInventario();
       document.getElementById('fundo-overlay').classList.add('oculto');
+    } else {
+        console.error(`[equiparGear] Elemento visual '${idSlotHTML}' não encontrado para equipar o item '${nomeDoItemClicado}'.`);
     }
   } else {
     alert("Slot ocupado! Desequipe primeiro.");
   }
 };
 
-window.deseguiparGear = function() {
-  let SlotIDHTML = slotGEARS;
-  let tipoDeGear = GearType;
+window.deseguiparGear = function(gearSlotKey) { 
+  let idElementoVisual;
+  if (gearSlotKey === 'secondmao') {
+      idElementoVisual = 'SShield';
+  } else {
+      idElementoVisual = 'S' + gearSlotKey.charAt(0).toUpperCase() + gearSlotKey.slice(1);
+  }
+
+  let slotGearElement = document.getElementById(idElementoVisual);
   
-  //retirar imagem do slot, e trava
-  let SlotGear = document.getElementById(SlotIDHTML);
-  SlotGear.style.backgroundImage = '';
+  if (!slotGearElement) {
+      console.error(`[deseguiparGear] Elemento HTML com ID '${idElementoVisual}' não encontrado para desequipar.`);
+      return;
+  }
+
+  let itemProInventario = window.GearsEquipados[gearSlotKey]; 
   
-  if (!SlotIDHTML || !tipoDeGear) {
+  if (!itemProInventario) {
     return; 
   }
-  
-  let itemProInventario = window.GearsEquipados[tipoDeGear];
-  
-  if (itemProInventario.startsWith('W')) {
-    let ItemModificado = itemProInventario.split('');
-    ItemModificado.splice(0, 1);
-    itemProInventario = ItemModificado.join('');
-  } 
 
-  if (itemProInventario && typeof itemProInventario === 'string' && itemProInventario.length > 0) {
-    
-    if(tipoDeGear === 'weapon' || tipoDeGear === 'secondmao') {
-      window.InventarioJogador.weapon.push(itemProInventario);
+  slotGearElement.style.backgroundImage = ''; 
+  
+  let categoriaParaInventario = null;
+  for (const cat in window.BancoDeimgDosItems) {
+    if (window.BancoDeimgDosItems.hasOwnProperty(cat) && window.BancoDeimgDosItems[cat].hasOwnProperty(itemProInventario)) {
+      categoriaParaInventario = cat;
+      break;
     }
-    else {
-      window.InventarioJogador.armor.push(itemProInventario);
-    }
-    
-    window.GearsEquipados[tipoDeGear] = null;
+  }
+
+  if (categoriaParaInventario && window.InventarioJogador.hasOwnProperty(categoriaParaInventario)) {
+    window.InventarioJogador[categoriaParaInventario].push(itemProInventario);
+    window.GearsEquipados[gearSlotKey] = null; 
   } else {
-    console.log(`Slot '${categoriaDoItem}' está vazio. Nenhuma adição ao inventário.`);
+    console.error(`[deseguiparGear] Não foi possível determinar a categoria do item '${itemProInventario}' para adicionar de volta ao inventário ou categoria de inventário inválida.`);
   }
   
   window.criarInventario();
   document.getElementById('fundo-overlay').classList.add('oculto');
-}
+};
 
-window.requerimentosItems = function(item) {
-  const TipoDestatus = [ 'FOR', 'END', 'INT', 'DEX', ]
-  for(let Status of TipoDestatus) {
-    let StatusN = document.getElementById('status' + Status);
-    let statusValor = window.BancoDeRequerimentos[item][Status];
-    StatusN.innerText = '';
-    StatusN.innerText = `${Status}: ${statusValor}`
+/*--------------------------------------------------------
+    FUNCOES DE STATUS DO ITEM
+--------------------------------------------------------*/
+const SímbolosDeAtributo = {
+  'DANO': '⚔️', 'CritChance': '🎯', 'DanoCrit': '💥', 'Velocidade': '⚡', 'Penetração': '🔱',
+  'Vida': '❤️', 'Armadura': '🛡️', 'Esquiva': '💨', 'ResistenciaF': '🔥', 'ResistenciaM': '💧',
+  'ManaMax': '✨', 'ManaRegen': '💧', 'Quantidade': '📦', 'Efeito1': '🧪', 'Efeito2': '🌟', 'Duração': '⏳',
+};
+
+const MapeamentoDeAtributosPorCategoria = {
+  weapon: ['DANO', 'CritChance', 'DanoCrit', 'Velocidade', 'Penetração'],
+  armor: ['Vida', 'Armadura', 'Esquiva', 'ResistenciaF', 'ResistenciaM'],
+  consumables: ['ManaMax', 'ManaRegen', 'Efeito1', 'Efeito2', 'Duração'],
+};
+
+window.requerimentosEStatusItems = function(item) {
+  const linhaStatusDiv = document.getElementById('LinhaStatus');
+  if (!linhaStatusDiv) {
+    console.error("Erro: Div 'LinhaStatus' não encontrada. Verifique seu HTML.");
+    return; 
+  }
+
+  const dadosReq = window.BancoDeRequerimentos[item] || window.BancoDeRequerimentos['Generico'];
+  const dadosStatus = window.BancoStatusGears[item] || window.BancoStatusGears['Generico'];
+
+  // 1. Preencher Requerimentos (FOR, END, INT, DEX)
+  const TipoDestatus = ['FOR', 'END', 'INT', 'DEX'];
+  TipoDestatus.forEach(Status => {
+    let elemento = document.getElementById('status' + Status); 
+    if (elemento) {
+      let valor = dadosReq[Status];
+      elemento.innerText = `${Status}: ${valor || 0}`; 
+    }
+  });
+  
+  let categoriaEncontrada = null;
+  for (const categoria in window.BancoDeimgDosItems) {
+    if (window.BancoDeimgDosItems.hasOwnProperty(categoria)) {
+      const itensNaCategoria = window.BancoDeimgDosItems[categoria];
+      if (itensNaCategoria.hasOwnProperty(item)) {
+        categoriaEncontrada = categoria;
+        break;
+      }
+    }
   }
   
-  const TipoDeAtributo = [ 'Penetração', 'Velocidade', 'DanoCrit', 'CritChance', 'DANO', ]
-  const SímboloDeAtributo = { 
-    'Penetração': ['🔱'],
-    'Velocidade': ['⚡'],
-    'DanoCrit': ['💥'],
-    'CritChance': ['🎯'], 
-    'DANO': ['️⚔️'],
+  let atributosParaExibir = [];
+  if (categoriaEncontrada && MapeamentoDeAtributosPorCategoria[categoriaEncontrada]) {
+    atributosParaExibir = MapeamentoDeAtributosPorCategoria[categoriaEncontrada];
+  } else {
+    console.warn(`Categoria '${categoriaEncontrada}' não mapeada para atributos de exibição ou item '${item}' não encontrado.`);
+
+    for (let i = 1; i <= 5; i++) {
+      const elementoLinha = document.getElementById(`LiNha${i}`);
+      if (elementoLinha) {
+        elementoLinha.innerText = '';
+      }
+    }
+    return; 
   }
-    
-  for(let Atributo of TipoDeAtributo) {
-    let símbolo = SímboloDeAtributo[Atributo];
-    
-    let AtributoN = document.getElementById('Linha' + Atributo);
-    let AtributoValor = window.BancoStatusGears[item][Atributo];
-    AtributoN.innerText = '';
-    AtributoN.innerText = `${símbolo} ${Atributo}: ${AtributoValor}`
+
+  for (let i = 1; i <= 5; i++) {
+    const elementoLinha = document.getElementById(`LiNha${i}`);
+    if (elementoLinha) {
+      elementoLinha.innerText = ''; 
+    }
   }
-}
+
+  atributosParaExibir.forEach((atributoNome, index) => {
+    const elementoLinha = document.getElementById(`LiNha${index + 1}`);
+    if (elementoLinha) {
+      const simbolo = SímbolosDeAtributo[atributoNome] || ''; 
+      const valor = dadosStatus[atributoNome];
+      
+      if (typeof valor !== 'undefined') {
+        elementoLinha.innerText = `${simbolo} ${atributoNome}: ${valor}`;
+      } else {
+        elementoLinha.innerText = `${simbolo} ${atributoNome}: N/A`;
+      }
+    }
+  });
+};
 /*--------------------------------------------------------*/

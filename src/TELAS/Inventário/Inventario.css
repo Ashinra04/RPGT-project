@@ -17,12 +17,10 @@
   /* FEEDBACK VISUAL */
   --cor-vida: #2ecc71;
   --cor-mana: #00d2ff;
-}
-:root {
+  
+  /* extras */
   --cor-terciaria1: #294380;  
   --cor-complementar2: #ffd700;
-  
-  --cor-terciaria2: #4a0012;
   --cor-complementar3: #38bdf8;
 }
 
@@ -35,9 +33,9 @@
   background-color: black;
 }
 #inventarioTITLE {
-  height: 6vh;
+  height: 7vh;
   width: 100%;
-  background-color: #0d0f36;
+  background-color: var(--cor-30);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +46,7 @@
   color: white; 
 }
 #inventarioBTN {
-  height: 9vh;
+  height: 8vh;
   width: 98%;
   position: relative;
   left: 1%;
@@ -58,7 +56,7 @@
   display: flex;
   flex-direction: row;
   background-color: black;
-  border: 2px solid var(--borda-prata);
+  border: 1.5px solid var(--borda-prata);
   color: white;
   text-shadow: 2px 2px 4px black; 
   box-sizing: border-box;
@@ -80,7 +78,7 @@
 #IRow1, #IRow2 {
   flex: 1;
   width: 100%;
-  background-color: #0d0f36;
+  background-color: var(--cor-60);
   display: flex;
   flex-direction: column;
 }
@@ -88,7 +86,7 @@
 #Gears-box {
   width: 100%;
   height: 100%;
-  background-color: #0d0f36;
+  background-color: var(--cor-60);
   border: 2px solid #a0abbc;
   flex-direction: row;
   box-sizing: border-box;
@@ -115,7 +113,7 @@
 #SpriteIdlePlayer {
   height: 100%;
   width: 100%;
-  background-color: var(--cor-complementar-cinza);
+  background-color: var(--cor-30);
   border: 1px solid #a0abbc;
   grid-row: 1 / 5; 
   grid-column: 2 / 4;
@@ -175,7 +173,7 @@
 #CategoriaItems{
   height: 7vh;
   width: 100%;
-  background-color: #5d0018;
+  background-color: var(--cor-30);
   display: flex;
   flex-direction: row;
   border-bottom: 2px solid #a0abbc;
@@ -186,13 +184,13 @@
 
 .SlotCategory {
   flex: 1;
-  border: 2px solid #d28f22;
-  background-color: #69d2cd;
+  border: 0.5px solid #d28f22;
+  background-color: var(--cor-complementar);
 }
 .CategorySelect {
   height: 100%;
   width: 20%;
-  border: 2px solid black;
+  border: 0.5px solid black;
   background-color: #2a7f8a;
 }
 
@@ -203,7 +201,7 @@
 #CWeapons { 
   background-image: url('/imagens/Icons/sword.png'); }
 #CArmors { 
-  background-image: url('/imagens/Icons/armor.png'); }
+  background-image: url('/imagens/Icons/armorC.png'); }
 #CPotions { 
   background-image: url('/imagens/Icons/IconPotion.png'); }
 #CKeys { 
@@ -232,8 +230,8 @@
 }
 
 .SlotInven {
-  border: 2px solid #d28f22;
-  background-color: #5d0018;
+  border: 1px solid #d28f22;
+  background-color: var(--cor-10);
   display: flex;
   flex-direction: row;
 }
