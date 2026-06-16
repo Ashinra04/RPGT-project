@@ -2,7 +2,6 @@
 import './style.css'
 import './TELAS/Shop/Shop.css';
 import './TELAS/Forja/Forja.css';
-import './TELAS/Taverna/Taverna.css';
 import './TELAS/Guilda/Guilda.css';
 import './TELAS/Batalha/Batalha.css';
 import './TELAS/Salas/Salas.css';
@@ -13,7 +12,6 @@ import './TELAS/BotoesStyles/Botoes.css';
 // JS DAS TELAS
 import './TELAS/Shop/Shop.js';
 import './TELAS/Forja/Forja.js';
-import './TELAS/Taverna/Taverna.js';
 import './TELAS/Guilda/Guilda.js';
 import './TELAS/Batalha/Batalha.js';
 import './TELAS/Salas/Salas.js';
@@ -23,7 +21,6 @@ import './TELAS/Perfil/Perfil.js';
 // HTML DAS TELAS
 import shopHtml from './TELAS/Shop/Shop.html?raw';
 import guildHtml from './TELAS/Guilda/Guilda.html?raw';
-import tavernHtml from './TELAS/Taverna/Taverna.html?raw';
 import forjaHtml from './TELAS/Forja/Forja.html?raw';
 import batalhaHtml from './TELAS/Batalha/Batalha.html?raw';
 import salasHtml from './TELAS/Salas/Salas.html?raw';
@@ -33,7 +30,6 @@ import perfilHtml from './TELAS/Perfil/Perfil.html?raw';
 const corpoDoSite = document.body;
 corpoDoSite.insertAdjacentHTML('beforeend', shopHtml);
 corpoDoSite.insertAdjacentHTML('beforeend', guildHtml);
-corpoDoSite.insertAdjacentHTML('beforeend', tavernHtml);
 corpoDoSite.insertAdjacentHTML('beforeend', forjaHtml);
 corpoDoSite.insertAdjacentHTML('beforeend', batalhaHtml);
 corpoDoSite.insertAdjacentHTML('beforeend', salasHtml);
@@ -56,8 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
   window.criarInventario();
   window.categoriaId('weapon');
   window.criarBestiario();
-  window.NomeMercenario();
-  window.mostrarStatusTaverna();
   window.atualizarTorre();
   window.GerarMapaCompleto();
 });

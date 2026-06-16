@@ -124,3 +124,20 @@ window.InforPopUpBestiario = function(imagemRecebida, nomeRecebido) {
   
   window.PopBestiario('aparecer');
 }
+
+window.DefinirSt = function() {
+  let vidaBar = document.getElementById('VIDABoxP');
+  let manaBar = document.getElementById('MANABoxP');
+  
+  vidaBar.innerText = '';
+  manaBar.innerText = '';
+  
+  vidaBar.innerText = window.StatusPlayer.Player.HP + ' / ' + window.StatusPlayer.Player.HPMAX;
+  manaBar.innerText = window.StatusPlayer.Player.mana + ' / ' + window.StatusPlayer.Player.manaMAX;
+}
+window.Descansar = function()  {
+  window.StatusPlayer.Player.HP = window.StatusPlayer.Player.HPMAX;
+  window.StatusPlayer.Player.mana = window.StatusPlayer.Player.manaMAX;
+  
+  DefinirSt();
+}

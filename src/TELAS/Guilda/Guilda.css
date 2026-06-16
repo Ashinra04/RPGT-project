@@ -1,29 +1,36 @@
    /* =========================================
     TELA guilda
    ========================================= */
-
 :root {
-  /* Paleta de Cores do Jogo (Use com var(--nome-da-cor)) */
-  --bg-escuro: #0d0f36;
-  --bg-batalha: #294380;
-  --bg-ui: #1a2a4f;
-  --bg-preto: #121312;
-  --bg-cinza: #252628;
+  /* AS BASES */
+  --cor-60: #252628;
+  --cor-30: #321464;
+  
+    /* DETALHES E UI */
+  --cor-10: #4a0012;
+  --cor-complementar: #38bdf8;
+  
+  /* BORDAS */
   --borda-ouro: #d28f22;
-  --borda-prata: #a0abbc;
-  --borda-ciano: #2a7f8a;
-  --cor-vida: #157407;
-  --cor-mana: #0284ba;
-  --cor-alerta: #5d0018;
+  --borda-prata: #8e9aaf;
+  
+  /* FEEDBACK VISUAL */
+  --cor-vida: #2ecc71;
+  --cor-mana: #00d2ff;
+  
+  /* extras */
+  --cor-terciaria1: #294380;  
+  --cor-complementar2: #ffd700;
+  --cor-complementar3: #38bdf8;
 }
 
 #guilda-tela {
-  background-color: var(--bg-preto);
+  background-color: black;
 }
    
 .TelasTitles {
   height: 7vh;
-  background-color: #1a2a4f;
+  background-color: var(--cor-30);
   color: white;
   border: 2px solid var(--borda-prata);
 }
@@ -35,57 +42,76 @@
   border-bottom: 2px solid var(--borda-prata);
   background-image: url('/imagens/Sprites/Receptionist.png');
 }
-
-#guilda-body2 {
-  flex-grow: 1;
-}
    
 #guilda-body {
   flex-grow: 1;
-  flex-direction: column;
-  background-color: var(--bg-cinza);
+  background-color: var(--cor-60);
   border-left: 2px solid var(--borda-prata);
   border-right: 2px solid var(--borda-prata);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 3%; gap: 1%;
 }
-  
-#Linha1, #Linha2 {
-  height: 50%;
-  flex-direction: row;
-  gap: 20px;
-  color: white;
+   
+.Boxes { width: 100%; height: 100%; 
+background-color: var(--cor-30); 
 }
 
-#Linha1 {
-  padding: 15px 15px 7px 15px;
+.Bts {
+  
 }
-#Linha2 {
-  padding: 7px 15px 15px 15px;
+
+#StatusPerso {
+  grid-column: 1 / 5; grid-row: 1 / 3;
+  background-color: var(--cor-60); 
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1fr;
+  gap: 1%; border: none;
 }
-   
-#Missoes, #Bestiario {
-  width: 50%;
+#PerfilBox {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 6fr 1.5fr 1.5fr;
+  padding: 1.3%; gap: 1%;
+  background-color: var(--cor-60);
+  border: none;
 }
-   
+#FalasBox {
+  background-color: var(--cor-60);
+  color: white;
+  font-size: 20px;
+  padding: 5%;
+  gap: 5%;
+}
+.BoxPrl { 
+  width: 100%; height: 100%; 
+  background-color: var(--cor-30); 
+  border: 0.2px solid var(--borda-prata);
+  display: flex; color: white;
+  justify-content: center; align-items: center;
+}
+#IconBoxP { 
+  background-image: url('/imagens/Sprites/archer_retrato.png'); 
+}
+#VIDABoxP { background-color: var(--cor-vida); }
+#MANABoxP { background-color: var(--cor-mana); }
+
+#Contratar {
+  grid-column: 1; grid-row: 3;
+}
+#Descansar {
+  grid-column: 2; grid-row: 3;
+  background-image: url("/imagens/Sprites/INN.png");
+}
 #Missoes {
+  grid-column: 3; grid-row: 3;
   background-image: url('/imagens/Sprites/Mission.png');
-  background-color: var(--cor-alerta);
 }
 #Bestiario {
+  grid-column: 4; grid-row: 3;
   background-image: url('/imagens/Sprites/Bestiario.png');
-  background-color: var(--cor-alerta);
-}
-   
-.btnG, .btnBS {
-  height: 100%;
-  background-color: var(--cor-alerta);
-  border: 2px solid #d28f22;
-  color: white;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 18px;
-}
-.btnG {
-  width: 33vw;
 }
 
 #Botoes-container {
@@ -94,9 +120,6 @@
 /* =========================================
     TELA BESTIARIO
 ========================================= */
-.btnBS {
-  width: 100vw;
-}
 #BestiarioTitle {
   height: 7vh;
   flex-shrink: 0; 

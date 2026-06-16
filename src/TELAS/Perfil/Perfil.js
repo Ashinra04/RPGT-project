@@ -4,7 +4,7 @@ window.ClassesStatus = {
   wizard: { HP: 30, HPMAX: 30, mana: 10, manaMAX: 10, ATK: 4, DEF: 4, FOR: 1, INT: 10, END: 3, DEX: 4, }
 }
 window.StatusPlayer = {
-  Player: { HP: '', HPMAX: '', mana: '', manaMAX: '', ATK: '', DEF: '', FOR: '', END: '', DEX: '', }
+  Player: { HP: 1, HPMAX: 10, mana: 1, manaMAX: 10, ATK: '', DEF: '', FOR: '', END: '', DEX: '', }
 }
 
 const Slots = [

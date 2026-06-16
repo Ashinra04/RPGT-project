@@ -8,24 +8,34 @@
       
   <div id="guilda-body" class="conteudo DisplayFlex width100">
         
-    <div id="Linha1" class="DisplayFlex width100 BoxSizing">
+    <div id="StatusPerso" class="Boxes">
+      <div id="PerfilBox" class="Boxes">
+        <div id="IconBoxP" class="BoxPrl imgContain"></div>
+        <div id="VIDABoxP" class="BoxPrl">10 / 100</div>
+        <div id="MANABoxP" class="BoxPrl">20 / 100</div>
+      </div>
+      <div id="FalasBox" class="Boxes">
+        1 - Contratar Mercenários;
+        <br>
+        2 - Descansar e Regenrar vida e mana;
+        <br>
+        3 - Missões;
+        <br>
+        4 - Bestiário.
+      </div>
     </div>
-        
-    <div id="Linha2" class="DisplayFlex width100 BoxSizing">
-          
-      <div id="Missoes" class="Border2S imgContain heigth100"></div>
-          
-      <div id="Bestiario" class="Border2S imgContain heigth100" onclick="criarBestiario(); mudarTela('Tela-Bestiario')"></div>
-    </div>
-  </div>
-      
-  <div id="guilda-body2" class="conteudo oculto DisplayFlex Border2S width100">
+    
+    <div id="Contratar" class="imgContain Bts Boxes"></div>
+  
+    <div id="Descansar" class="imgContain Bts Boxes" onclick="Descansar()"></div>
+  
+    <div id="Missoes" class="imgContain Bts Boxes" onclick=""></div>
+  
+    <div id="Bestiario" class="imgContain Boxes" onclick="criarBestiario(); mudarTela('Tela-Bestiario')"></div>
   </div>
         
   <div id="Botoes-container">
-    <button class="btnG" onclick="mudarConteudo('guilda-body2')">CONVERSAR</button>
-    <button class="btnG" onclick="mudarConteudo('guilda-body')">MENU</button>
-    <button class="btnG" onclick="mudarTela('torre-tela'); mudarConteudo('guilda-body')">VOLTAR</button>
+    <button class="BTNSglobais" onclick="mudarTela('torre-tela'); mudarConteudo('guilda-body')">VOLTAR</button>
   </div>
 </div>
 
@@ -96,7 +106,7 @@
   </div>
   
   <div id="Botoes-container">
-    <button class="btnBS" onclick="mudarTela('guilda-tela'); mudarConteudo('guilda-body')">VOLTAR</button>
+    <button class="BTNSglobais" onclick="mudarTela('guilda-tela'); mudarConteudo('guilda-body')">VOLTAR</button>
   </div>
 </div>
 <!----------------------------------------------------->

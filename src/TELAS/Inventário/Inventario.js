@@ -20,9 +20,9 @@ window.InventarioJogador = {
 };
 window.InventarioConsumables = {
   consumables: { 
-    "Potion": 3,
+    "Potion": 0,
     "Potionx2": 0,
-    "Energy": 2,
+    "Energy": 0,
     "Energyx2": 0,
     "Elixir": 0,
     "Full_heal": 0,
